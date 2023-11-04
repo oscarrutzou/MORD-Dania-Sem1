@@ -1,0 +1,3 @@
+[submodule "MonoDebugUI"]
+	path = MonoDebugUI
+	url = https://github.com/Mx2L/MonoDebugUI.git
