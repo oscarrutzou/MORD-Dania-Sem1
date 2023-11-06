@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MordSem1OOP
 {
-    internal abstract class GameObject
+    internal abstract class GameObject: Transform
     {
         #region Fields
         protected Texture2D sprite;
@@ -18,10 +18,6 @@ namespace MordSem1OOP
         protected float animationSpeed = 10; //Animation frames per second
         private float animationTime;
         private int currentIndex;
-
-        private Vector2 position;
-        private float rotation;
-        private float scale;
 
         protected float speed;
         protected Vector2 direction;
@@ -41,7 +37,7 @@ namespace MordSem1OOP
         {
             get
             {
-                return new Vector2(CurrentSprite.Width * scale, CurrentSprite.Height * scale);
+                return new Vector2(CurrentSprite.Width * Scale, CurrentSprite.Height * Scale);
             }
         }
         public Rectangle CollisionBox
@@ -49,14 +45,13 @@ namespace MordSem1OOP
             get
             {
                 return new Rectangle(
-                    (int)(position.X - sprite.Width / 2 * scale),
-                    (int)(position.Y - sprite.Height / 2 * scale),
-                    (int)(sprite.Width * scale),
-                    (int)(sprite.Height * scale)
+                    (int)(Position.X - sprite.Width / 2 * Scale),
+                    (int)(Position.Y - sprite.Height / 2 * Scale),
+                    (int)(sprite.Width * Scale),
+                    (int)(sprite.Height * Scale)
                     );
             }
         }
-        public float Scale { get => scale; set => scale = value; }
         #endregion
 
 
@@ -89,24 +84,24 @@ namespace MordSem1OOP
         }
 
         /// <summary>
-        /// Draws the current sprite to the screen, using the position, rotation, scale and origin point.
+        /// Draws the current sprite to the screen, using the Position, Rotation, Scale and origin point.
         /// </summary>
         /// <param name="spriteBatch">Contains the required draw method</param>
         public void Draw(SpriteBatch spriteBatch)
         {
             Vector2 origin = new Vector2(CurrentSprite.Width / 2, CurrentSprite.Height / 2);
-            spriteBatch.Draw(sprite, position, null, Color.White, rotation, origin, Scale, SpriteEffects.None, 0);
+            spriteBatch.Draw(sprite, Position, null, Color.White, Rotation, origin, Scale, SpriteEffects.None, 0);
         }
 
 
         /// <summary>
-        /// Changes the position field based on the direction specified by the direction field, by the amount of the speed field.
+        /// Changes the Position field based on the direction specified by the direction field, by the amount of the speed field.
         /// </summary>
         /// <param name="gameTime">Used to get the time elapsed between each frame</param>
         protected void Move(GameTime gameTime)
         {
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            position += direction * speed * deltaTime * 100;
+            Position += direction * speed * deltaTime * 100;
         }
         
 
