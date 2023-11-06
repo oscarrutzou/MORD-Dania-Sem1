@@ -9,10 +9,10 @@ namespace MordSem1OOP
 {
     static public class WorldData
     {
-        public static GameStats gameStats;
-        public static SpriteBatch debugSpriteBatch { get; set; }
-        public static List<Tower> towers { get; set; }
-        public static List<Enemy> enemies { get; set; }
-        public static List<IProjectile> projectiles { get; set; }
+        public static GameStats GameStats;
+        public static SpriteBatch DebugSpriteBatch { get; set; }
+        public static List<Tower> Towers { get; set; }
+        public static List<Enemy> Enemies { get; set; }
+        public static List<IProjectile> Projectiles { get; set; }
     }
 }
