@@ -9,7 +9,7 @@ namespace MordSem1OOP
 {
     public class GameStats
     {
-        public int Money { get; set; }
+        public int money { get; set; }
         public int KillCount { get; set; }
         public GameTime GameTime { get; set; }
     }
