@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace MordSem1OOP
 {
-    public class GameStats
+    public class Transform
     {
-        public int money;
-        public int killCount;
-        public GameTime gameTime;
+        public Vector2 Position { get; set; }
+        public float Rotation { get; set; }
+        public float Scale { get; set; }
     }
 }
