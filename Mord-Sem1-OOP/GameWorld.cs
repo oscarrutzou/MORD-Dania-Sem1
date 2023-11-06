@@ -33,8 +33,7 @@ namespace MordSem1OOP
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            InputManager.HandleInput(this);
 
             // TODO: Add your update logic here
 
@@ -43,7 +42,7 @@ namespace MordSem1OOP
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Beige);
 
             // TODO: Add your drawing code here
 
