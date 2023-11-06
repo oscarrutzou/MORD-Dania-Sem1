@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MordSem1OOP
 {
-    internal class GameData
+    public interface IProjectile
     {
 
     }
