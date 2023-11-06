@@ -1,3 +1,3 @@
 ﻿
-using var game = new Mord_Sem1_OOP.GameWorld();
+using var game = new MordSem1OOP.GameWorld();
 game.Run();
