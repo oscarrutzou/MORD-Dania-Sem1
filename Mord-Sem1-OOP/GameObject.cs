@@ -9,9 +9,13 @@ using System.Threading.Tasks;
 
 namespace MordSem1OOP
 {
-    internal abstract class GameObject: Transform
+    public abstract class GameObject
     {
         #region Fields
+        private Vector2 position;
+        private float rotation;
+        private float scale;
+
         protected Texture2D sprite;
         protected Texture2D[] sprites; //Used to store the animation frames of the sprite
 
@@ -52,6 +56,10 @@ namespace MordSem1OOP
                     );
             }
         }
+
+        public Vector2 Position { get => position; set => position = value; }
+        public float Rotation { get => rotation; set => rotation = value; }
+        public float Scale { get => scale; set => scale = value; }
         #endregion
 
 
