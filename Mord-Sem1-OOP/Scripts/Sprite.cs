@@ -27,9 +27,9 @@ namespace MordSem1OOP.Scripts
             LoadContent(content, texture);
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position, float rotation)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, float rotation, float scale)
         {
-            spriteBatch.Draw(_texture, position, null, _color, rotation, _origin, 1, SpriteEffects.None, 0);
+            spriteBatch.Draw(_texture, position, null, _color, rotation, _origin, scale, SpriteEffects.None, 0);
         }
 
         public void LoadContent(ContentManager content, string texture)
