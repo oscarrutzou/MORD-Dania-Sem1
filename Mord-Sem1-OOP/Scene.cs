@@ -9,22 +9,36 @@ using Microsoft.Xna.Framework.Content;
 
 namespace MordSem1OOP
 {
-    public class Scene : GameWorld
+    public class Scene
     {
+
+        private ContentManager content;
         public List<GameObject> gameObjects = new List<GameObject>();
         public List<GameObject> objectsToCreate = new List<GameObject>();
         public List<GameObject> objectsToDestroy = new List<GameObject>();
 
 
+
+        public Scene(ContentManager content)
+        {
+            this.content = content;
+        }
+
         #region Methods
-        protected override void LoadContent()
+
+        public void Initialize()
+        {
+            gameObjects.Add(new Enemy(EnemyType.Normal));
+        }
+
+        public void LoadContent()
         {
             //Call LoadContent on every GameObject in the active scene.
             foreach (GameObject gameObject in gameObjects)
-                gameObject.LoadContent(Content);
+                gameObject.LoadContent(content);
         }
         
-        protected override void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
             //All GameObjects to be added, are added to the active scene.
             foreach (GameObject gameObject in objectsToCreate)
@@ -41,12 +55,14 @@ namespace MordSem1OOP
                 gameObject.Update(gameTime);
         }
 
-        protected override void Draw(GameTime gameTime)
+        public void Draw(GameTime gameTime)
         {
             //Call draw on every GameObject in the active scene.
             foreach (GameObject gameObject in gameObjects)
-                gameObject.Draw(_spriteBatch);
+                gameObject.Draw(GameWorld._spriteBatch);
         }
+
+        
         #endregion
 
 

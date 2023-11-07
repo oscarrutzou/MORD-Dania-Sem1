@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Mx2L.MonoDebugUI;
+using System;
 using System.Collections.Generic;
 
 namespace MordSem1OOP
@@ -10,14 +11,18 @@ namespace MordSem1OOP
     public class GameWorld : Game
     {
         protected static GraphicsDeviceManager _graphics;
-        protected static SpriteBatch _spriteBatch;
+        public static SpriteBatch _spriteBatch;
         private static Scene[] scenes = new Scene[1];
         private int activeScene; //Used to call the methods in the current scene
 
 
+        public GameWorld(string lmao)
+        {
+
+        }
         public GameWorld()
         {
-            scenes[0] = new Scene();
+            scenes[0] = new Scene(Content);
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
@@ -26,10 +31,11 @@ namespace MordSem1OOP
         #region Standard Methods
         protected override void Initialize()
         {
-            base.Initialize();
             activeScene = 0;
+            scenes[activeScene].Initialize();
+            base.Initialize();
         }
-        
+
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -49,8 +55,10 @@ namespace MordSem1OOP
         {
             GraphicsDevice.Clear(Color.Beige);
 
-
+            _spriteBatch.Begin();
             scenes[activeScene].Draw(gameTime);
+            _spriteBatch.End();
+
             base.Draw(gameTime);
         }
 
@@ -96,5 +104,31 @@ namespace MordSem1OOP
         }
         #endregion
 
+        #region Scene management Methods
+
+        /// <summary>
+        /// Clears the list of GameObjects in a scene
+        /// </summary>
+        /// <param name="sceneNumber">The scene whose GameObjects will be removed</param>
+        public static void ResetScene(int sceneNumber)
+        {
+            foreach (GameObject gameObject in scenes[sceneNumber].gameObjects)
+                scenes[sceneNumber].objectsToCreate.Add(gameObject);
+        }
+
+        /// <summary>
+        /// Unloads all assets and loads assets for every GameObject in the chosen scene
+        /// </summary>
+        /// <param name="sceneNumber">The chosen scene</param>
+        public void ChangeScene(int sceneNumber)
+        {
+            if (sceneNumber >= scenes.Length)
+                throw new ArgumentOutOfRangeException("sceneNumber", sceneNumber, "Chosen scene is out of bounds of the array");
+
+            Content.Unload();
+            activeScene = sceneNumber;
+            scenes[activeScene].LoadContent();
+        }
+        #endregion
     }
 }
