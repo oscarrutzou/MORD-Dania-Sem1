@@ -17,9 +17,9 @@ namespace MordSem1OOP
         /// <returns></returns>
         static public bool IsColliding(GameObject sender, GameObject other)
         {
-            if (sender == other ||
-                sender == null ||
-                other == null) return false;
+            if (sender == other 
+                || sender == null 
+                || other == null) return false;
 
             return sender.CollisionBox.Intersects(other.CollisionBox);
         }

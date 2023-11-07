@@ -6,11 +6,19 @@ using System.Threading.Tasks;
 
 namespace MordSem1OOP
 {
+    public enum ProjectileTypes
+    {
+        Arrow,
+        Missile
+    }
+
     public interface IProjectile
     {
+
         public int Damage { get; set; }
         public int Speed { get; set; }
-        public string Type { get; set; }
+        public GameObject Target { get; set; }
+        public ProjectileTypes Type { get; set; }
 
     }
 }

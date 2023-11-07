@@ -72,10 +72,7 @@ namespace MordSem1OOP
             Position += direction * speed * deltaTime * 100;
         }
 
-        public virtual void OnCollision(GameObject other)
-        {
-            // Default behavior on collision
-        }
+        public virtual void OnCollision() { }
 
         #endregion
     }
