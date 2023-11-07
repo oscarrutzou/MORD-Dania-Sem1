@@ -11,6 +11,5 @@ namespace MordSem1OOP
     {
         public int money;
         public int killCount;
-        public GameTime gameTime;
     }
 }

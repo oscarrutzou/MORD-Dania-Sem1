@@ -49,7 +49,7 @@ namespace MordSem1OOP
         public override void LoadContent(ContentManager content)
         {
             //Assign sprites
-            sprite = content.Load<Texture2D>($"Sprites/Enemies/Enemy{(int)enemyType}");
+            Sprite.LoadContent(content, "Placeholder\\Enemies\\enemyBlack1");
             Position = new Vector2(0, 0);
         }
 

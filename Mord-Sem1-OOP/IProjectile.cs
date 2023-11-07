@@ -12,6 +12,5 @@ namespace MordSem1OOP
         public int Speed { get; set; }
         public string Type { get; set; }
 
-        public void OnCollision();
     }
 }
