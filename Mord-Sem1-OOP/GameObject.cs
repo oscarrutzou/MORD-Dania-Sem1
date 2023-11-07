@@ -19,34 +19,12 @@ namespace MordSem1OOP
         private float scale;
 
         private ISprite sprite;
-        //protected Texture2D sprite;
-        //protected Texture2D[] sprites; //Used to store the animation frames of the sprite
-
-        //protected float animationSpeed = 10; //Animation frames per second
-        //private float animationTime;
-        //private int currentIndex;
 
         protected float speed;
         protected Vector2 direction;
         #endregion
 
-
         #region Properties
-        //private Texture2D CurrentSprite
-        //{
-        //    get
-        //    {
-        //        if (sprites != null) return sprites[(int)animationTime];
-        //        return sprite;
-        //    }
-        //}
-        //protected Vector2 SpriteSize
-        //{
-        //    get
-        //    {
-        //        return new Vector2(CurrentSprite.Width * Scale, CurrentSprite.Height * Scale);
-        //    }
-        //}
         public Rectangle CollisionBox
         {
             get
@@ -63,11 +41,10 @@ namespace MordSem1OOP
         public Vector2 Position { get => position; set => position = value; }
         public float Rotation { get => rotation; set => rotation = value; }
         public float Scale { get => scale; set => scale = value; }
+        public ISprite Sprite { get => sprite; set => sprite = value; }
         #endregion
 
-
         #region Methods
-
         public abstract void LoadContent(ContentManager content);
 
         /// <summary>
@@ -76,14 +53,13 @@ namespace MordSem1OOP
         /// <param name="gameTime">Used to get the time elapsed between each frame</param>
         public abstract void Update(GameTime gameTime);
 
-
         /// <summary>
-        /// Draws the sprite to the screen, using the Position, Rotation, Scale and origin point.
+        /// Draws the sprite (with ISprite) to the screen, using the Position, Rotation, Scale and origin point.
         /// </summary>
         /// <param name="spriteBatch">Contains the required draw method</param>
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, Position, Rotation, Scale);
+            Sprite.Draw(spriteBatch, Position, Rotation, Scale);
         }
 
         /// <summary>
@@ -95,27 +71,11 @@ namespace MordSem1OOP
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             Position += direction * speed * deltaTime * 100;
         }
-        
 
-        /// <summary>
-        /// Uses the basic rectangle collision algorithm to check if there is a collision
-        /// </summary>
-        /// <param name="other">The other GameObject, that this GameObject checks for a collision with</param>
-        /// <returns>returns true if there is an intersection</returns>
-        public bool IsColliding(GameObject other)
+        public virtual void OnCollision(GameObject other)
         {
-            if (this == other) return false;
-
-            return CollisionBox.Intersects(other.CollisionBox);
+            // Default behavior on collision
         }
-
-
-        /// <summary>
-        /// OnCollision is called every frame while two GameObjects overlap.
-        /// </summary>
-        /// <param name="other"> The GameObject which this object is currently overlapping with. </param>
-        public virtual void OnCollision(GameObject other) { }
-
 
         #endregion
     }
