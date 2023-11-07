@@ -11,7 +11,7 @@ namespace MordSem1OOP.Scripts
         #region Fields
         private Texture2D _texture;
         private Vector2 _origin;
-        private Color _color;
+        private Color _color = Color.White;
         #endregion
 
         #region Propterties

@@ -16,7 +16,7 @@ namespace MordSem1OOP
         #region Fields
         private Vector2 position;
         private float rotation;
-        private float scale;
+        private float scale = 1;
 
         private ISprite sprite;
 

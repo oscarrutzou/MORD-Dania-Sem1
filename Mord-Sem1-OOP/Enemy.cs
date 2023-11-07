@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MordSem1OOP.Scripts.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,17 +50,17 @@ namespace MordSem1OOP
         public override void LoadContent(ContentManager content)
         {
             //Assign sprites
-            Sprite.LoadContent(content, "Placeholder\\Enemies\\enemyBlack1");
+            Sprite = new Scripts.Sprite(content, "Placeholder\\Enemies\\enemyBlack1");
             Position = new Vector2(0, 0);
         }
 
         public override void Update(GameTime gameTime)
         {
             Move(gameTime);
-            if(Position == waypoints[currentTargetPoint])
-            {
-                currentTargetPoint++;
-            }
+            //if(Position == waypoints[currentTargetPoint])
+            //{
+            //    currentTargetPoint++;
+            //}
         }
         #endregion
     }
