@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Backgrounds/black.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Backgrounds/blue.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Backgrounds/darkPurple.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Backgrounds/purple.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Damage/playerShip1_damage1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Damage/playerShip1_damage2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Damage/playerShip1_damage3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Damage/playerShip2_damage1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Damage/playerShip2_damage2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Damage/playerShip2_damage3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Damage/playerShip3_damage1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Damage/playerShip3_damage2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Damage/playerShip3_damage3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/explosion/Explosion0001.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/explosion/Explosion0002.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/explosion/Explosion0003.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/explosion/Explosion0004.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/explosion/Explosion0005.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/explosion/Explosion0006.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/explosion/Explosion0007.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/explosion/Explosion0008.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/explosion/Explosion0009.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/explosion/Explosion0010.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/explosion/Explosion0011.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/explosion/Explosion0012.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/explosion/Explosion0013.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/explosion/Explosion0014.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/explosion/Explosion0015.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/explosion/Explosion0016.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire00.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire01.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire02.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire03.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire04.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire05.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire06.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire07.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire08.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire09.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire10.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire11.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire12.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire13.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire14.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire15.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire16.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire17.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire18.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/fire19.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/shield1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/shield2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/shield3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/speed.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/star1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/star2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Effects/star3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyBlack1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyBlack2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyBlack3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyBlack4.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyBlack5.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyBlue1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyBlue2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyBlue3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyBlue4.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyBlue5.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyGreen1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyGreen2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyGreen3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyGreen4.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyGreen5.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyRed1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyRed2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyRed3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyRed4.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Enemies/enemyRed5.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserBlue04.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserBlue05.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserBlue08.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserBlue09.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserBlue10.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserBlue11.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserBlue14.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserBlue15.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserGreen01.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserGreen02.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserGreen03.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserGreen04.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserGreen05.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserGreen06.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserGreen07.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserGreen08.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserGreen09.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserGreen10.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserGreen11.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserGreen12.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserGreen13.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserGreen14.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserGreen15.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserGreen16.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserRed01.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserRed02.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserRed03.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserRed04.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserRed05.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserRed06.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserRed07.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserRed08.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserRed09.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserRed10.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserRed11.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserRed12.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserRed13.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserRed14.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserRed15.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/laserRed16.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/Weapon1/1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/Weapon1/2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/Weapon1/3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/Weapon1/4.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/Weapon1/Laser.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/Weapon2/laserBlue02.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/Weapon2/laserBlue03.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/Weapon2/laserBlue12.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Lasers/Weapon2/laserBlue13.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorBrown_big1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorBrown_big2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorBrown_big3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorBrown_big4.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorBrown_med1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorBrown_med3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorBrown_small1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorBrown_small2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorBrown_tiny1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorBrown_tiny2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorGrey_big1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorGrey_big2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorGrey_big3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorGrey_big4.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorGrey_med1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorGrey_med2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorGrey_small1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorGrey_small2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorGrey_tiny1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorGrey_tiny2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/beam0.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/beam1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/beam2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/beam3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/beam4.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/beam5.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/beam6.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/beamLong1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/beamLong2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitBlue_0.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitBlue_1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitBlue_2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitBlue_3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitBlue_4.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitBlue_5.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitBlue_6.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitBlue_7.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitGreen_0.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitGreen_1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitGreen_2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitGreen_3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitGreen_4.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitGreen_5.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitGreen_6.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitGreen_7.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitRed_0.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitRed_1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitRed_2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitRed_3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitRed_4.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitRed_5.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitRed_6.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitRed_7.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitYellow_0.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitYellow_1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitYellow_2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitYellow_3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitYellow_4.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitYellow_5.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitYellow_6.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/cockpitYellow_7.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/engine1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/engine2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/engine3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/engine4.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/engine5.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/gun00.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/gun01.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/gun02.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/gun03.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/gun04.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/gun05.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/gun06.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/gun07.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/gun08.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/gun09.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/gun10.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/scratch1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/scratch2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/scratch3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/turretBase_big.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/turretBase_small.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingBlue_0.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingBlue_1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingBlue_2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingBlue_3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingBlue_4.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingBlue_5.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingBlue_6.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingBlue_7.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingGreen_0.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingGreen_1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingGreen_2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingGreen_3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingGreen_4.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingGreen_5.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingGreen_6.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingGreen_7.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingRed_0.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingRed_1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingRed_2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingRed_3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingRed_4.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingRed_5.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingRed_6.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingRed_7.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingYellow_0.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingYellow_1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingYellow_2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingYellow_3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingYellow_4.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingYellow_5.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingYellow_6.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Parts/wingYellow_7.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerDamaged/ForwardDmg/1fwdDmg.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerDamaged/ForwardDmg/2fwdDmg.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerDamaged/ForwardDmg/3fwdDmg.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerDamaged/ForwardDmg/4fwdDmg.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerDamaged/LeftDmg/1leftDmg.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerDamaged/LeftDmg/2leftDmg.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerDamaged/LeftDmg/3leftDmg.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerDamaged/LeftDmg/4leftDmg.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerDamaged/RightDmg/1righDmg.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerDamaged/RightDmg/2rightDmg.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerDamaged/RightDmg/3rightDmg.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerDamaged/RightDmg/4rightDmg.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerNormal/Forward/1fwd.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerNormal/Forward/2fwd.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerNormal/Forward/3fwd.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerNormal/Forward/4fwd.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerNormal/Left/1lft.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerNormal/Left/2lft.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerNormal/Left/3lft.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerNormal/Left/4lft.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerNormal/Right/1rght.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerNormal/Right/2rght.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerNormal/Right/3rght.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerNormal/Right/4rght.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerSheet/PlayerSheet.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/bold_silver.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/bolt_bronze.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/bolt_gold.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/pill_blue.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/pill_green.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/pill_red.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/pill_yellow.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/powerupBlue_bolt.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/powerupBlue_shield.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/powerupBlue_star.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/powerupBlue.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/powerupGreen_bolt.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/powerupGreen_shield.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/powerupGreen_star.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/powerupGreen.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/powerupRed_bolt.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/powerupRed_shield.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/powerupRed_star.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/powerupRed.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/powerupYellow_bolt.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/powerupYellow_shield.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/powerupYellow_star.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/powerupYellow.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/shield_bronze.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/shield_gold.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/shield_silver.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/star_bronze.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/star_gold.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/star_silver.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/things_bronze.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/things_gold.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/things_silver.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/buttonBlue.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/buttonGreen.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/buttonRed.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/buttonYellow.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/cursor.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/numeral0.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/numeral1.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/numeral2.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/numeral3.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/numeral4.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/numeral5.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/numeral6.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/numeral7.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/numeral8.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/numeral9.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/numeralX.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/playerLife1_blue.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/playerLife1_green.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/playerLife1_orange.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/playerLife1_red.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/playerLife2_blue.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/playerLife2_green.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/playerLife2_orange.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/playerLife2_red.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/playerLife3_blue.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/playerLife3_green.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/playerLife3_orange.png</File>
+    <File>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/playerLife3_red.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
