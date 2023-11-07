@@ -11,17 +11,26 @@ namespace MordSem1OOP.Scripts
 {
     internal class TileGrid
     {
+        #region Fields
         private Vector2 _position;
         private Tile[,] _tiles;
         private int _columnCount;
         private int _rowCount;
         private float _tileSize;
+        #endregion
 
+        /// <summary>
+        /// Dimension of the grid
+        /// </summary>
         private Rectangle Dimension
         {
             get
             {
-                return new Rectangle((int)_position.X, (int)_position.Y, _columnCount * (int)_tileSize, _rowCount * (int)_tileSize);
+                return new Rectangle(
+                    (int)_position.X, 
+                    (int)_position.Y, 
+                    _columnCount * (int)_tileSize, 
+                    _rowCount * (int)_tileSize);
             }
         }
 

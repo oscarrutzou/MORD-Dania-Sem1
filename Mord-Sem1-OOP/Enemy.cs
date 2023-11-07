@@ -28,6 +28,10 @@ namespace MordSem1OOP
 
         public int Health { get => health; set => health = value; }
 
+        /// <summary>
+        /// Initializer a enemy with speed and health
+        /// </summary>
+        /// <param name="enemyType"></param>
         public Enemy(EnemyType enemyType)
         {
             this.enemyType = enemyType;
