@@ -29,9 +29,13 @@ namespace MordSem1OOP
 
         public void Initialize()
         {
-            Enemy targetEnemy = new Enemy(EnemyType.Normal, content);
+            Enemy targetEnemy = new Enemy(EnemyType.Normal, new Vector2(300, 50), content);
             gameObjects.Add(targetEnemy);
             gameObjects.Add(new Tower_Arrow(new Vector2(50, 300), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
+            gameObjects.Add(new Tower_Arrow(new Vector2(400, 30), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
+            gameObjects.Add(new Tower_Arrow(new Vector2(10,10), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
+            gameObjects.Add(new Tower_Arrow(new Vector2(600,300), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
+            gameObjects.Add(new Tower_Arrow(new Vector2(600,600), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
         }
 
         /// <summary>

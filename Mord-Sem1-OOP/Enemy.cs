@@ -34,7 +34,7 @@ namespace MordSem1OOP
         /// Initializer a enemy with speed and health
         /// </summary>
         /// <param name="enemyType"></param>
-        public Enemy(EnemyType enemyType, ContentManager content)
+        public Enemy(EnemyType enemyType, Vector2 position, ContentManager content)
         {
             this.enemyType = enemyType;
             string enemyName;
@@ -69,7 +69,8 @@ namespace MordSem1OOP
             //Assign sprites
             Sprite = new Scripts.Sprite(content, enemyName);
 
-
+            Position = position;
+            Scale = 1;
         }
 
         #region Methods
