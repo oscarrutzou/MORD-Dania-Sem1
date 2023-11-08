@@ -21,21 +21,22 @@ namespace MordSem1OOP
 
     public class Enemy : GameObject
     {
-        #region Fields
+        #region Fields & Properties
+        private EnemyType enemyType;
         private int health;
-        EnemyType enemyType;
-        private Vector2[] waypoints;
-        private int currentTargetPoint = 0;
+        public int Health { get => health; set => health = value; }
         #endregion
 
-        public int Health { get => health; set => health = value; }
-
         /// <summary>
-        /// Initializer a enemy with speed and health
+        /// Main constructor for the enemy
         /// </summary>
-        /// <param name="enemyType"></param>
+        /// <param name="enemyType">The type of enemy defines behavior and design</param>
         public Enemy(EnemyType enemyType, ContentManager content)
         {
+            //This is to be replaced by a direction towards a waypoint
+            direction = new Vector2(1, 0);
+
+
             this.enemyType = enemyType;
             string enemyName;
             switch (enemyType)
@@ -72,16 +73,10 @@ namespace MordSem1OOP
 
         }
 
-        #region Methods
-
         public override void Update(GameTime gameTime)
         {
             Move(gameTime);
-            //if(Position == waypoints[currentTargetPoint])
-            //{
-            //    currentTargetPoint++;
-            //}
+            //TODO: Set target to be the next waypoint
         }
-        #endregion
     }
 }

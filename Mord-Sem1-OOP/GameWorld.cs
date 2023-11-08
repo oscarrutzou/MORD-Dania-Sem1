@@ -10,18 +10,22 @@ namespace MordSem1OOP
 {
     public class GameWorld : Game
     {
+        public static ContentManager content;
         protected static GraphicsDeviceManager _graphics;
         public static SpriteBatch _spriteBatch;
         private static Scene[] scenes = new Scene[1];
-        private int activeScene; //Used to call the methods in the current scene
+        public int activeScene; //Used to call the methods in the current scene
 
         public GameWorld()
         {
+            InputManager.world = this;
+
             scenes[0] = new Scene(Content);
             
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            
         }
 
         #region Standard Methods
