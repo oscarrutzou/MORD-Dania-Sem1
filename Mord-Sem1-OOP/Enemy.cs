@@ -34,32 +34,32 @@ namespace MordSem1OOP
         /// Initializer a enemy with speed and health
         /// </summary>
         /// <param name="enemyType"></param>
-        public Enemy(EnemyType enemyType, ContentManager content, string texture) : base(content, texture)
+        public Enemy(EnemyType enemyType, ContentManager content)
         {
             this.enemyType = enemyType;
             string enemyName;
             switch (enemyType)
             {
                 case EnemyType.Normal:
-                    speed = 5;
+                    Speed = 5;
                     Health = 10;
                     enemyName = "Placeholder\\Enemies\\enemyBlack1";
                     break;
 
                 case EnemyType.Fast:
-                    speed = 10;
+                    Speed = 10;
                     Health = 5;
                     enemyName = "Placeholder\\Enemies\\enemyBlue1";
                     break;
 
                 case EnemyType.Strong:
-                    speed = 3;
+                    Speed = 3;
                     Health = 20;
                     enemyName = "Placeholder\\Enemies\\enemyGreen1";
                     break;
 
                 default:
-                    speed = 5;
+                    Speed = 5;
                     Health = 10;
                     enemyName = "Placeholder\\Enemies\\enemyRed1";
                     break;
