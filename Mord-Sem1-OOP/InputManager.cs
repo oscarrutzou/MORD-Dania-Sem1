@@ -12,7 +12,7 @@ namespace MordSem1OOP
 
         public static Vector2 mousePosition;
 
-        public static void HandleInput()
+        public static void HandleInput(Game game)
         {
             keyboardState = Keyboard.GetState();
             mouseState = Mouse.GetState();
