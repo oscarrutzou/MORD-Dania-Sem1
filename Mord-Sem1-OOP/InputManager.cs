@@ -24,7 +24,7 @@ namespace MordSem1OOP
             {
                 switch (world.activeScene)
                 {
-                    case 0: world.Instantiate(new Enemy(EnemyType.Normal, world.Content)); break;
+                    case 0: world.Instantiate(new Enemy(EnemyType.Normal, new Vector2(100,100), world.Content)); break;
                     default: throw new Exception();    
                 }
             }
