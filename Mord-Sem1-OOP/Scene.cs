@@ -12,6 +12,7 @@ namespace MordSem1OOP
     public class Scene
     {
 
+
         private ContentManager content;
         public List<GameObject> gameObjects = new List<GameObject>();
         public List<GameObject> objectsToCreate = new List<GameObject>();
@@ -30,7 +31,7 @@ namespace MordSem1OOP
         {
             Enemy targetEnemy = new Enemy(EnemyType.Normal, content, "Placeholder\\Enemies\\enemyBlack1");
             gameObjects.Add(targetEnemy);
-            gameObjects.Add(new Tower_Arrow(new Vector2(50,300), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
+            gameObjects.Add(new Tower_Arrow(new Vector2(50, 300), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
         }
 
         public void LoadContent()
@@ -39,7 +40,7 @@ namespace MordSem1OOP
             foreach (GameObject gameObject in gameObjects)
                 gameObject.LoadContent(content);
         }
-        
+
         public void Update(GameTime gameTime)
         {
             //All GameObjects to be added, are added to the active scene.
@@ -57,14 +58,14 @@ namespace MordSem1OOP
                 gameObject.Update(gameTime);
         }
 
-        public void Draw(GameTime gameTime)
+        public void Draw(SpriteBatch spriteBatch)
         {
             //Call draw on every GameObject in the active scene.
             foreach (GameObject gameObject in gameObjects)
-                gameObject.Draw(GameWorld._spriteBatch);
+                gameObject.Draw(spriteBatch);
         }
 
-        
+
         #endregion
 
 
