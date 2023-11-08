@@ -33,16 +33,16 @@ namespace MordSem1OOP
         /// Initializer a enemy with speed and health
         /// </summary>
         /// <param name="enemyType"></param>
-        public Enemy(EnemyType enemyType)
+        public Enemy(EnemyType enemyType, ContentManager content, string texture): base(content, texture)
         {
             this.enemyType = enemyType;
 
             switch (enemyType)
             {
-                case EnemyType.Normal: speed = 5; Health = 10; ; break;
-                case EnemyType.Fast: speed = 10; Health = 5; break;
-                case EnemyType.Strong: speed = 3; Health = 20; break;
-                default: speed = 5; Health = 10; break;  
+                case EnemyType.Normal: Speed = 5; Health = 10; ; break;
+                case EnemyType.Fast: Speed = 10; Health = 5; break;
+                case EnemyType.Strong: Speed = 3; Health = 20; break;
+                default: Speed = 5; Health = 10; break;  
             }
         }
 
@@ -50,8 +50,8 @@ namespace MordSem1OOP
         public override void LoadContent(ContentManager content)
         {
             //Assign sprites
-            Sprite = new Scripts.Sprite(content, "Placeholder\\Enemies\\enemyBlack1");
-            Position = new Vector2(0, 0);
+            //Sprite = new Scripts.Sprite(content, "Placeholder\\Enemies\\enemyBlack1");
+            Position = new Vector2(400, 50);
         }
 
         public override void Update(GameTime gameTime)

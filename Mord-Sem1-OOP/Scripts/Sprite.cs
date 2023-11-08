@@ -45,6 +45,7 @@ namespace MordSem1OOP.Scripts
         public void LoadContent(ContentManager content, string texture)
         {
             _texture = content.Load<Texture2D>(texture);
+            SetOriginCenter();
         }
 
         /// <summary>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/star_silver.png</SourceFile>
-  <SourceTime>2023-11-07T10:17:40.5490257+01:00</SourceTime>
-  <DestFile>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/bin/Windows/Content/Placeholder/Power-ups/star_silver.xnb</DestFile>
-  <DestTime>2023-11-07T11:39:05.8869992+01:00</DestTime>
+  <SourceFile>C:/Users/oscar/GitHub/Dania/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Power-ups/star_silver.png</SourceFile>
+  <SourceTime>2023-11-07T10:41:19.6823881+01:00</SourceTime>
+  <DestFile>C:/Users/oscar/GitHub/Dania/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/bin/Windows/Content/Placeholder/Power-ups/star_silver.xnb</DestFile>
+  <DestTime>2023-11-08T10:41:30.5042114+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

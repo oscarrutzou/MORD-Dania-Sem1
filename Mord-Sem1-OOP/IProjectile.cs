@@ -16,7 +16,6 @@ namespace MordSem1OOP
     {
 
         public int Damage { get; set; }
-        public int Speed { get; set; }
         public GameObject Target { get; set; }
         public ProjectileTypes Type { get; set; }
 

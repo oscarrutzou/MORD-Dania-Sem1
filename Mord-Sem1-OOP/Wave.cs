@@ -26,9 +26,10 @@ namespace MordSem1OOP
 
         private void InitializeEnemies()
         {
-            enemiesInWave.Add(new Enemy(EnemyType.Normal));
-            enemiesInWave.Add(new Enemy(EnemyType.Fast));
-            enemiesInWave.Add(new Enemy(EnemyType.Strong));
+            //enemiesInWave.Add(new Enemy(EnemyType.Normal));
+            //enemiesInWave.Add(new Enemy(EnemyType.Fast));
+            //enemiesInWave.Add(new Enemy(EnemyType.Strong));
+
         }
 
         public void Update(GameTime gameTime, Microsoft.Xna.Framework.Vector2[] waypoints)

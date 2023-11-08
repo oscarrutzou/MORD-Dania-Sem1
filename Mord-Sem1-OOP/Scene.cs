@@ -28,7 +28,9 @@ namespace MordSem1OOP
 
         public void Initialize()
         {
-            gameObjects.Add(new Enemy(EnemyType.Normal));
+            Enemy targetEnemy = new Enemy(EnemyType.Normal, content, "Placeholder\\Enemies\\enemyBlack1");
+            gameObjects.Add(targetEnemy);
+            gameObjects.Add(new Tower_Arrow(new Vector2(50,300), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
         }
 
         public void LoadContent()
@@ -47,7 +49,7 @@ namespace MordSem1OOP
 
             //All GameObjects to be destroyed, are removed from the active scene.
             foreach (GameObject gameObject in objectsToDestroy)
-                gameObjects.Add(gameObject);
+                gameObjects.Remove(gameObject); // Change this line
             objectsToDestroy.Clear();
 
             //Call update on every GameObject in the active scene.

@@ -20,7 +20,7 @@ namespace MordSem1OOP
 
         private ISprite sprite;
 
-        protected float speed;
+        private float speed;
         protected Vector2 direction;
         #endregion
 
@@ -41,7 +41,19 @@ namespace MordSem1OOP
         public Vector2 Position { get => position; set => position = value; }
         public float Rotation { get => rotation; set => rotation = value; }
         public float Scale { get => scale; set => scale = value; }
+        protected float Speed { get => speed; set => speed = value; }
         public ISprite Sprite { get => sprite; set => sprite = value; }
+
+        public GameObject()
+        {
+            
+        }
+
+        protected GameObject(ContentManager content, string texture)
+        {
+            Sprite = new Sprite(content,texture);
+        }
+
         #endregion
 
         #region Methods
@@ -69,7 +81,7 @@ namespace MordSem1OOP
         protected void Move(GameTime gameTime)
         {
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            Position += direction * speed * deltaTime * 100;
+            Position += direction * Speed * deltaTime;
         }
 
         public virtual void OnCollision() { }
