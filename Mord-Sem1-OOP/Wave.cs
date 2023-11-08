@@ -11,24 +11,26 @@ namespace MordSem1OOP
 {
     public class Wave
     {
-        private List<Enemy> enemiesInWave = new List<Enemy>();
-        private int currentWaypointIndex = 0;
-        private bool isWaveComplete = false;
+        private List<Enemy> enemiesInWave; // List to store all enemies in the wave.
+        private int currentWaypointIndex; // Index of the current waypoint for enemy movement.
+        private bool isWaveComplete; // Flag to indicate if the wave is complete.
 
-        public List<Enemy> EnemiesInWave { get { return enemiesInWave; } }
-
-        public bool IsWaveComplete { get {  return isWaveComplete; } }
+        public List<Enemy> EnemiesInWave => enemiesInWave;
+        public bool IsWaveComplete => isWaveComplete;
 
         public Wave()
         {
-            InitializeEnemies();
+            enemiesInWave = new List<Enemy>();
+            currentWaypointIndex = 0;
+            isWaveComplete = false;
         }
 
-        private void InitializeEnemies()
+        public void Spawn(EnemyType enemyType, int rate, int count)
         {
-            enemiesInWave.Add(new Enemy(EnemyType.Normal));
-            enemiesInWave.Add(new Enemy(EnemyType.Fast));
-            enemiesInWave.Add(new Enemy(EnemyType.Strong));
+            for (int i = 0; i < count; i++)
+            {
+                enemiesInWave.Add(new Enemy(enemyType)); // Create and add enemies of the specified type to the wave.
+            }
         }
 
         public void Update(GameTime gameTime, Microsoft.Xna.Framework.Vector2[] waypoints)
@@ -37,18 +39,18 @@ namespace MordSem1OOP
             {
                 foreach (Enemy enemy in enemiesInWave)
                 {
-                    enemy.Update(gameTime);
-                    enemy.Position = waypoints[currentWaypointIndex];
+                    enemy.Update(gameTime); // Update enemy logic (e.g., movement, health).
+                    enemy.Position = waypoints[currentWaypointIndex]; // Set enemy position to the current waypoint.
                 }
 
-                if (enemiesInWave.All(enemy => enemy.Position == waypoints[currentWaypointIndex]))
+                if (enemiesInWave.TrueForAll(enemy => enemy.Position == waypoints[currentWaypointIndex]))
                 {
-                    currentWaypointIndex++;
+                    currentWaypointIndex++; // Move to the next waypoint when all enemies reach the current one.
                 }
             }
             else
             {
-                isWaveComplete = true;
+                isWaveComplete = true; // Mark the wave as complete when all enemies have reached all waypoints.
             }
         }
     }
