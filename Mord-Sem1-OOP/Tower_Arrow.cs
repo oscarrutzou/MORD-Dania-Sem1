@@ -1,11 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using MordSem1OOP.Scripts.Interface;
+using Microsoft.Xna.Framework.Graphics;
+using MordSem1OOP.Scripts;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MordSem1OOP
 {
@@ -55,6 +52,13 @@ namespace MordSem1OOP
             {
                 //Delete this object, add money and stuff
             }
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            base.Draw(spriteBatch);
+            Primitives2D.DrawLine(spriteBatch, Position, Target.Position, Color.Red, 1);
+            Primitives2D.DrawRectangle(spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation);
         }
     }
 }
