@@ -12,6 +12,7 @@ namespace MordSem1OOP
     public class Scene
     {
 
+        
         private ContentManager content;
         public List<GameObject> gameObjects = new List<GameObject>();
         public List<GameObject> objectsToCreate = new List<GameObject>();
@@ -28,7 +29,7 @@ namespace MordSem1OOP
 
         public void Initialize()
         {
-            gameObjects.Add(new Enemy(EnemyType.Normal));
+            gameObjects.Add(new Enemy(EnemyType.Normal, content));
         }
 
         public void LoadContent()
@@ -55,11 +56,11 @@ namespace MordSem1OOP
                 gameObject.Update(gameTime);
         }
 
-        public void Draw(GameTime gameTime)
+        public void Draw(SpriteBatch spriteBatch)
         {
             //Call draw on every GameObject in the active scene.
             foreach (GameObject gameObject in gameObjects)
-                gameObject.Draw(GameWorld._spriteBatch);
+                gameObject.Draw(spriteBatch);
         }
 
         
