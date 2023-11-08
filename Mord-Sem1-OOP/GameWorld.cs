@@ -32,6 +32,7 @@ namespace MordSem1OOP
 
             activeScene = 0;
             scenes[activeScene].Initialize();
+
             base.Initialize();
         }
 
@@ -43,10 +44,7 @@ namespace MordSem1OOP
 
         protected override void Update(GameTime gameTime)
         {
-            //inputManager.HandleInput();
-
-            
-            Bruh();
+            InputManager.HandleInput(this);
 
             scenes[activeScene].Update(gameTime);
             base.Update(gameTime);
