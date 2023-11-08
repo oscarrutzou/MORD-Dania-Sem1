@@ -12,6 +12,15 @@ namespace MordSem1OOP.Scripts
         private Texture2D _texture;
         private Vector2 _origin;
         private Color _color = Color.White;
+
+        public Rectangle Rectangle
+        {
+            get
+            {
+                Vector2 topLeft = Vector2.Zero - _origin;
+                return new Rectangle((int)topLeft.X, (int)topLeft.Y, (int)topLeft.X + Width, (int)topLeft.Y + Height);
+            }
+        }
         #endregion
 
         #region Propterties

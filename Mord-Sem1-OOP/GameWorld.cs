@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MordSem1OOP.Scripts;
 using Mx2L.MonoDebugUI;
 using System;
 using System.Collections.Generic;
@@ -58,7 +59,7 @@ namespace MordSem1OOP
         {
             GraphicsDevice.Clear(Color.Beige);
 
-            _spriteBatch.Begin();
+            _spriteBatch.Begin(SpriteSortMode.FrontToBack);
             scenes[activeScene].Draw(_spriteBatch);
             _spriteBatch.End();
 
