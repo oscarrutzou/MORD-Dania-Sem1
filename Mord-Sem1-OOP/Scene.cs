@@ -29,18 +29,15 @@ namespace MordSem1OOP
 
         public void Initialize()
         {
-            Enemy targetEnemy = new Enemy(EnemyType.Normal, content, "Placeholder\\Enemies\\enemyBlack1");
+            Enemy targetEnemy = new Enemy(EnemyType.Normal, content);
             gameObjects.Add(targetEnemy);
             gameObjects.Add(new Tower_Arrow(new Vector2(50, 300), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
         }
 
-        public void LoadContent()
-        {
-            //Call LoadContent on every GameObject in the active scene.
-            foreach (GameObject gameObject in gameObjects)
-                gameObject.LoadContent(content);
-        }
-
+        /// <summary>
+        /// Update is called every frame
+        /// </summary>
+        /// <param name="gameTime">Used to get the time elapsed between each frame</param>
         public void Update(GameTime gameTime)
         {
             //All GameObjects to be added, are added to the active scene.
