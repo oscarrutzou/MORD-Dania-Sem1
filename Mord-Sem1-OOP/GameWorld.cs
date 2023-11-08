@@ -10,29 +10,26 @@ namespace MordSem1OOP
 {
     public class GameWorld : Game
     {
-
-        private WorldData worldData;
         protected static GraphicsDeviceManager _graphics;
         public static SpriteBatch _spriteBatch;
         private static Scene[] scenes = new Scene[1];
         private int activeScene; //Used to call the methods in the current scene
 
-
-        public GameWorld(string lmao)
-        {
-
-        }
         public GameWorld()
         {
             scenes[0] = new Scene(Content);
+            
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
 
         #region Standard Methods
+
         protected override void Initialize()
         {
+
+
             activeScene = 0;
             scenes[activeScene].Initialize();
             base.Initialize();
@@ -41,14 +38,15 @@ namespace MordSem1OOP
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            scenes[activeScene].LoadContent();
+            //Send all content textures to a hashset of textures contained in the Sprite class
         }
 
         protected override void Update(GameTime gameTime)
         {
-            worldData.gameTime = gameTime;
-            InputManager.HandleInput(this);
+            //inputManager.HandleInput();
 
+            
+            Bruh();
 
             scenes[activeScene].Update(gameTime);
             base.Update(gameTime);
@@ -64,6 +62,10 @@ namespace MordSem1OOP
 
             base.Draw(gameTime);
         }
+        public void Bruh()
+        {
+
+        }
 
         #endregion
 
@@ -72,39 +74,29 @@ namespace MordSem1OOP
         /// Adds a GameObject to the list of GameObjects to be added in the next update.
         /// </summary>
         /// <param name="gameObject">The GameObject to be added</param>
-        public void Instantiate(GameObject gameObject)
-        {
-            scenes[activeScene].objectsToCreate.Add(gameObject);
-            gameObject.LoadContent(Content);
-        }
+        public void Instantiate(GameObject gameObject) => scenes[activeScene].objectsToCreate.Add(gameObject);
+
 
         /// <summary>
         /// Adds a collection of GameObjects to the list of GameObjects to be added in the next update.
         /// </summary>
         /// <param name="gameObject">The GameObject collection to be added</param>
-        public void Instantiate(GameObject[] gameObjects)
-        {
-            scenes[activeScene].objectsToCreate.AddRange(gameObjects);
-            foreach (GameObject gameObject in gameObjects) gameObject.LoadContent(Content);
-        }
+        public void Instantiate(GameObject[] gameObjects) => scenes[activeScene].objectsToCreate.AddRange(gameObjects);
+
 
         /// <summary>
         /// Adds a GameObject to the list of GameObjects to be removed in the next update.
         /// </summary>
         /// <param name="gameObject">The GameObject to be removed</param>
-        public void Destroy(GameObject gameObject)
-        {
-            scenes[activeScene].objectsToDestroy.Add(gameObject);
-        }
+        public void Destroy(GameObject gameObject) => scenes[activeScene].objectsToDestroy.Add(gameObject);
+
 
         /// <summary>
         /// Adds a collection of GameObjects to the list of GameObjects to be removed in the next update.
         /// </summary>
         /// <param name="gameObject">The GameObject to be removed</param>
-        public void Destroy(GameObject[] gameObjects)
-        {
-            scenes[activeScene].objectsToDestroy.AddRange(gameObjects);
-        }
+        public void Destroy(GameObject[] gameObjects) => scenes[activeScene].objectsToDestroy.AddRange(gameObjects);
+
         #endregion
 
         #region Scene management Methods
@@ -130,7 +122,8 @@ namespace MordSem1OOP
 
             Content.Unload();
             activeScene = sceneNumber;
-            scenes[activeScene].LoadContent();
+
+            //Set all sprite textures somehow?
         }
         #endregion
     }

@@ -46,7 +46,8 @@ namespace MordSem1OOP
 
         public GameObject()
         {
-            
+            //This default constructor does nothing but must be present because it is called elsewhere.
+            //Does not need to be fixed immediately, fix when you have extra time and are bored.
         }
 
         protected GameObject(ContentManager content, string texture)
@@ -57,7 +58,7 @@ namespace MordSem1OOP
         #endregion
 
         #region Methods
-        public abstract void LoadContent(ContentManager content);
+        
 
         /// <summary>
         /// Update is called every frame
@@ -75,7 +76,7 @@ namespace MordSem1OOP
         }
 
         /// <summary>
-        /// Changes the Position field based on the direction specified by the direction field, by the amount of the speed field.
+        /// Used to change the position of a GameObject over time, change is specified by the direction and speed.
         /// </summary>
         /// <param name="gameTime">Used to get the time elapsed between each frame</param>
         protected void Move(GameTime gameTime)

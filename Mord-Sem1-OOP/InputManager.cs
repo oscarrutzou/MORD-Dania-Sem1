@@ -12,7 +12,7 @@ namespace MordSem1OOP
 
         public static Vector2 mousePosition;
 
-        public static void HandleInput(Game game)
+        public static void HandleInput()
         {
             keyboardState = Keyboard.GetState();
             mouseState = Mouse.GetState();
@@ -20,7 +20,7 @@ namespace MordSem1OOP
 
             if (keyboardState.IsKeyDown(Keys.Escape))
             {
-                game.Exit();
+                //game.Exit();
             }
 
             if (mouseState.LeftButton == ButtonState.Pressed)
@@ -31,5 +31,6 @@ namespace MordSem1OOP
             }
 
         }
+
     }
 }

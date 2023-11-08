@@ -73,12 +73,6 @@ namespace MordSem1OOP
         }
 
         #region Methods
-        public override void LoadContent(ContentManager content)
-        {
-            //Assign sprites
-            //Sprite = new Scripts.Sprite(content, "Placeholder\\Enemies\\enemyBlack1");
-            Position = new Vector2(400, 50);
-        }
 
         public override void Update(GameTime gameTime)
         {
