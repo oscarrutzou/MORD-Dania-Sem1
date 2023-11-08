@@ -10,8 +10,6 @@ namespace MordSem1OOP
 {
     public class GameWorld : Game
     {
-
-        private WorldData worldData;
         protected static GraphicsDeviceManager _graphics;
         public static SpriteBatch _spriteBatch;
         private static Scene[] scenes = new Scene[1];
@@ -22,6 +20,7 @@ namespace MordSem1OOP
         {
 
         }
+
         public GameWorld()
         {
             scenes[0] = new Scene(Content);
@@ -35,6 +34,7 @@ namespace MordSem1OOP
         {
             activeScene = 0;
             scenes[activeScene].Initialize();
+
             base.Initialize();
         }
 
@@ -46,9 +46,7 @@ namespace MordSem1OOP
 
         protected override void Update(GameTime gameTime)
         {
-            worldData.gameTime = gameTime;
             InputManager.HandleInput(this);
-
 
             scenes[activeScene].Update(gameTime);
             base.Update(gameTime);

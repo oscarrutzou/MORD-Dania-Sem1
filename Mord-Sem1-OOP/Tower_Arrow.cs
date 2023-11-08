@@ -54,7 +54,13 @@ namespace MordSem1OOP
             if (Collision.IsColliding(this, Target))
             {
                 //Delete this object, add money and stuff
+                
             }
+        }
+
+        public override void LoadContent(ContentManager content)
+        {
+            
         }
     }
 }

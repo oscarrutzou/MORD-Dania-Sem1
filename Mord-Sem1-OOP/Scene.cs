@@ -29,7 +29,7 @@ namespace MordSem1OOP
 
         public void Initialize()
         {
-            Enemy targetEnemy = new Enemy(EnemyType.Normal, content, "Placeholder\\Enemies\\enemyBlack1");
+            Enemy targetEnemy = new Enemy(EnemyType.Normal, content);
             gameObjects.Add(targetEnemy);
             gameObjects.Add(new Tower_Arrow(new Vector2(50, 300), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
         }
