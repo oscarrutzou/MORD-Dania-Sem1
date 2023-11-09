@@ -31,8 +31,9 @@ namespace MordSem1OOP
         {
             Enemy targetEnemy = new Enemy(EnemyType.Normal, new Vector2(300, 50), content);
             gameObjects.Add(targetEnemy);
+            Global.enemies.Add(targetEnemy);
 
-            Tower acherTower = new Tower(new Vector2(300,200), 1f, targetEnemy, content, "Placeholder\\Parts\\beam6");
+            Tower acherTower = new Tower(new Vector2(300,200), 1f, 300f, content, "Placeholder\\Parts\\beam6");
             gameObjects.Add(acherTower);
             //gameObjects.Add(new Tower_Arrow(new Vector2(50, 300), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
             //gameObjects.Add(new Tower_Arrow(new Vector2(400, 30), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
@@ -55,6 +56,8 @@ namespace MordSem1OOP
             //All GameObjects to be destroyed, are removed from the active scene.
             gameObjects = gameObjects.Where(gameObject => !gameObject.IsRemoved).ToList();
 
+            //Also remove from Global.enemies if it's an Enemy
+            Global.enemies = Global.enemies.Where(enemy => !enemy.IsRemoved).ToList();
 
             //Call update on every GameObject in the active scene.
             foreach (GameObject gameObject in gameObjects)

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MordSem1OOP.Scripts;
 using System;
+using System.Reflection.Metadata;
 
 namespace MordSem1OOP
 {
@@ -42,13 +43,21 @@ namespace MordSem1OOP
             // Calculate rotation towards target
             Rotation = (float)Math.Atan2(direction.Y, direction.X) + MathHelper.PiOver2;
 
-            Move(gameTime);
+            if (Target != null)
+            {
+                Move(gameTime);
+            }
+            else
+            {
+                //Move forward without changing directions
+            }
+
             OnCollision();
         }
 
         public override void OnCollision()
         {
-            if (Collision.IsColliding(this, Target))
+            if (Collision.IsCollidingBox(this, Target))
             {
                 //Delete this object
                 IsRemoved = true;
@@ -62,5 +71,9 @@ namespace MordSem1OOP
             Primitives2D.DrawLine(spriteBatch, Position, Target.Position, Color.Red, 1); //Draws the debug line from current position to the target position
             Primitives2D.DrawRectangle(spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation); //Draws the collision box
         }
+
+
+        //Scene script
+
     }
 }

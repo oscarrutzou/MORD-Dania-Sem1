@@ -44,7 +44,7 @@ namespace MordSem1OOP
         protected float Speed { get => speed; set => speed = value; }
         public ISprite Sprite { get => sprite; set => sprite = value; }
         public bool IsRemoved { get; set; }
-   
+
 
         public GameObject()
         {
@@ -85,6 +85,7 @@ namespace MordSem1OOP
         {
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             Position += direction * Speed * deltaTime;
+
         }
 
         public virtual void OnCollision() { }

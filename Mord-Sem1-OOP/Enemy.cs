@@ -24,7 +24,10 @@ namespace MordSem1OOP
         #region Fields & Properties
         private EnemyType enemyType;
         private int health;
+        private float distanceTraveled;
         public int Health { get => health; set => health = value; }
+        public float DistanceTraveled { get => distanceTraveled; set => distanceTraveled = value; }
+        
         #endregion
 
         /// <summary>
@@ -76,6 +79,9 @@ namespace MordSem1OOP
 
         public override void Update(GameTime gameTime)
         {
+            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            DistanceTraveled += Speed * deltaTime;
+
             Move(gameTime);
             //TODO: Set target to be the next waypoint
         }

@@ -15,10 +15,10 @@ namespace MordSem1OOP
         /// <param name="sender"></param>
         /// <param name="other">The target of a collision check</param>
         /// <returns></returns>
-        static public bool IsColliding(GameObject sender, GameObject other)
+        static public bool IsCollidingBox(GameObject sender, GameObject other)
         {
-            if (sender == other 
-                || sender == null 
+            if (sender == other
+                || sender == null
                 || other == null) return false;
 
             return sender.CollisionBox.Intersects(other.CollisionBox);
