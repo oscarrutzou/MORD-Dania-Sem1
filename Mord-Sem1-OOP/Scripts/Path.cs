@@ -25,6 +25,12 @@ namespace MordSem1OOP.Scripts
             return this;
         }
 
+        public Path ConnectWaypoints(int waypoint, int nextWaypoint)
+        {
+            _waypoints[waypoint].SetNextWaypoint(_waypoints[nextWaypoint]);
+            return this;
+        }
+
         public Waypoint GetWaypoint(int index)
         {
             return _waypoints[index];

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Mx2L.MonoDebugUI;
 
 namespace MordSem1OOP.Scripts
 {
@@ -24,11 +25,19 @@ namespace MordSem1OOP.Scripts
 
         public bool GetNextWaypoint(out Waypoint waypoint)
         {
-            if (_nextWaypoint is not null)
-                waypoint = _nextWaypoint;
-            else
+            if (_nextWaypoint is null)
+            {
                 waypoint = this;
+                return false;
+            }
+
+            waypoint = _nextWaypoint;
             return true;
+        }
+
+        public virtual void Arrived()
+        {
+            DebugInfo.IncreaseCount("arrival");
         }
     }
 }

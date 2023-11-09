@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MordSem1OOP.Scripts;
 using MordSem1OOP.Scripts.Interface;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,8 @@ namespace MordSem1OOP
         private EnemyType enemyType;
         private int health;
         public int Health { get => health; set => health = value; }
+
+        protected Waypoint _waypoint;
         #endregion
 
         /// <summary>
@@ -48,7 +51,7 @@ namespace MordSem1OOP
                     break;
 
                 case EnemyType.Fast:
-                    Speed = 10;
+                    Speed = 100;
                     Health = 5;
                     enemyName = "Placeholder\\Enemies\\enemyBlue1";
                     break;
@@ -78,6 +81,25 @@ namespace MordSem1OOP
         {
             Move(gameTime);
             //TODO: Set target to be the next waypoint
+        }
+
+        public void SetDestination(Waypoint waypoint)
+        {
+            _waypoint = waypoint;
+        }
+
+        protected void MoveToWaypoint(GameTime gameTime)
+        {
+            if (_waypoint is null)
+                return;
+
+            if (!AlternativeMove(_waypoint.Position, gameTime))
+                return;
+
+            _waypoint.Arrived();
+
+            if (_waypoint.GetNextWaypoint(out Waypoint waypoint))
+                _waypoint = waypoint;
         }
     }
 }
