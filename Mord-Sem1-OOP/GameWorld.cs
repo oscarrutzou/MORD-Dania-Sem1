@@ -18,6 +18,8 @@ namespace MordSem1OOP
         private static Scene[] scenes = new Scene[7];
         public int activeScene; //Used to call the methods in the current scene
 
+        private Camera camera;
+
         public Path path;
         public Waypoint currWaypoint;
 
@@ -43,6 +45,7 @@ namespace MordSem1OOP
 
         protected override void Initialize()
         {
+            camera = new Camera(_graphics);
             activeScene = 4;
             scenes[activeScene].Initialize();
 
@@ -79,7 +82,7 @@ namespace MordSem1OOP
         {
             GraphicsDevice.Clear(Color.Beige);
 
-            _spriteBatch.Begin();
+            _spriteBatch.Begin(transformMatrix: camera.GetMatrix());
 
             bool loop = true;
             while (loop)
