@@ -15,8 +15,8 @@ namespace MordSem1OOP
 
         private ContentManager content;
         public List<GameObject> gameObjects = new List<GameObject>();
-        public List<GameObject> objectsToCreate = new List<GameObject>();
-        public List<GameObject> objectsToDestroy = new List<GameObject>();
+        //public List<GameObject> objectsToCreate = new List<GameObject>();
+        //public List<GameObject> objectsToDestroy = new List<GameObject>();
 
 
 
@@ -31,11 +31,14 @@ namespace MordSem1OOP
         {
             Enemy targetEnemy = new Enemy(EnemyType.Normal, new Vector2(300, 50), content);
             gameObjects.Add(targetEnemy);
-            gameObjects.Add(new Tower_Arrow(new Vector2(50, 300), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
-            gameObjects.Add(new Tower_Arrow(new Vector2(400, 30), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
-            gameObjects.Add(new Tower_Arrow(new Vector2(10,10), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
-            gameObjects.Add(new Tower_Arrow(new Vector2(600,300), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
-            gameObjects.Add(new Tower_Arrow(new Vector2(600,600), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
+
+            Tower acherTower = new Tower(new Vector2(300,200), 1f, targetEnemy, content, "Placeholder\\Parts\\beam6");
+            gameObjects.Add(acherTower);
+            //gameObjects.Add(new Tower_Arrow(new Vector2(50, 300), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
+            //gameObjects.Add(new Tower_Arrow(new Vector2(400, 30), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
+            //gameObjects.Add(new Tower_Arrow(new Vector2(10,10), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
+            //gameObjects.Add(new Tower_Arrow(new Vector2(600,300), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
+            //gameObjects.Add(new Tower_Arrow(new Vector2(600,600), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
         }
 
         /// <summary>
@@ -45,14 +48,13 @@ namespace MordSem1OOP
         public void Update(GameTime gameTime)
         {
             //All GameObjects to be added, are added to the active scene.
-            foreach (GameObject gameObject in objectsToCreate)
+            foreach (GameObject gameObject in Global.gameObjectsToCreate)
                 gameObjects.Add(gameObject);
-            objectsToCreate.Clear();
+            Global.gameObjectsToCreate.Clear();
 
             //All GameObjects to be destroyed, are removed from the active scene.
-            foreach (GameObject gameObject in objectsToDestroy)
-                gameObjects.Remove(gameObject); // Change this line
-            objectsToDestroy.Clear();
+            gameObjects = gameObjects.Where(gameObject => !gameObject.IsRemoved).ToList();
+
 
             //Call update on every GameObject in the active scene.
             foreach (GameObject gameObject in gameObjects)

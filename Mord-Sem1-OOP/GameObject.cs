@@ -22,6 +22,7 @@ namespace MordSem1OOP
 
         private float speed;
         protected Vector2 direction;
+
         #endregion
 
         #region Properties
@@ -37,12 +38,13 @@ namespace MordSem1OOP
                     );
             }
         }
-
         public Vector2 Position { get => position; set => position = value; }
         public float Rotation { get => rotation; set => rotation = value; }
         public float Scale { get => scale; set => scale = value; }
         protected float Speed { get => speed; set => speed = value; }
         public ISprite Sprite { get => sprite; set => sprite = value; }
+        public bool IsRemoved { get; set; }
+   
 
         public GameObject()
         {

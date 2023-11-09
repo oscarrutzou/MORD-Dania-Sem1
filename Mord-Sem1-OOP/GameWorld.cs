@@ -77,28 +77,35 @@ namespace MordSem1OOP
         /// Adds a GameObject to the list of GameObjects to be added in the next update.
         /// </summary>
         /// <param name="gameObject">The GameObject to be added</param>
-        public void Instantiate(GameObject gameObject) => scenes[activeScene].objectsToCreate.Add(gameObject);
+        public void Instantiate(GameObject gameObject) => Global.gameObjectsToCreate.Add(gameObject);
 
 
         /// <summary>
         /// Adds a collection of GameObjects to the list of GameObjects to be added in the next update.
         /// </summary>
         /// <param name="gameObject">The GameObject collection to be added</param>
-        public void Instantiate(GameObject[] gameObjects) => scenes[activeScene].objectsToCreate.AddRange(gameObjects);
+        public void Instantiate(GameObject[] gameObjects) => Global.gameObjectsToCreate.AddRange(gameObjects);
 
 
         /// <summary>
         /// Adds a GameObject to the list of GameObjects to be removed in the next update.
         /// </summary>
         /// <param name="gameObject">The GameObject to be removed</param>
-        public void Destroy(GameObject gameObject) => scenes[activeScene].objectsToDestroy.Add(gameObject);
+        //public void Destroy(GameObject gameObject) => scenes[activeScene].objectsToDestroy.Add(gameObject);
 
 
         /// <summary>
         /// Adds a collection of GameObjects to the list of GameObjects to be removed in the next update.
         /// </summary>
         /// <param name="gameObject">The GameObject to be removed</param>
-        public void Destroy(GameObject[] gameObjects) => scenes[activeScene].objectsToDestroy.AddRange(gameObjects);
+        //public void Destroy(GameObject[] gameObjectsToDestroy)
+        //{
+        //    foreach (GameObject gameObjectToDestroy in gameObjectsToDestroy)
+        //    {
+        //        scenes[activeScene].gameObjects.gam;
+        //    }
+        //    //GameObject[] gameObjects) => scenes[activeScene].gameObjects.AddRange(gameObjects
+        //}
 
         #endregion
 
@@ -108,11 +115,11 @@ namespace MordSem1OOP
         /// Clears the list of GameObjects in a scene
         /// </summary>
         /// <param name="sceneNumber">The scene whose GameObjects will be removed</param>
-        public static void ResetScene(int sceneNumber)
-        {
-            foreach (GameObject gameObject in scenes[sceneNumber].gameObjects)
-                scenes[sceneNumber].objectsToCreate.Add(gameObject);
-        }
+        //public static void ResetScene(int sceneNumber)
+        //{
+        //    foreach (GameObject gameObject in scenes[sceneNumber].gameObjects)
+        //        scenes[sceneNumber].objectsToCreate.Add(gameObject);
+        //}
 
         /// <summary>
         /// Unloads all assets and loads assets for every GameObject in the chosen scene

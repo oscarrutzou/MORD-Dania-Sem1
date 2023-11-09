@@ -21,14 +21,14 @@ namespace MordSem1OOP
         /// <param name="enemyTarget">The target the arrow should hit</param>
         /// <param name="content">This is for calling the GameObject contructer that sets the sprite</param>
         /// <param name="texture">This is for calling the GameObject contructer that sets the sprite</param>
-        public Tower_Arrow(Vector2 position, float scale, Enemy enemyTarget, ContentManager content, string texture) : base(content, texture)
+        public Tower_Arrow(Vector2 position, float scale, GameObject enemyTarget, int damage, int speed, ContentManager content, string texture) : base(content, texture)
         {
             Position = position;
             Scale = scale;
             Target = enemyTarget;
 
-            Damage = 10;
-            Speed = 50;
+            Damage = damage;
+            Speed = speed;
             Type = ProjectileTypes.Arrow;
             
         }   
@@ -50,15 +50,17 @@ namespace MordSem1OOP
         {
             if (Collision.IsColliding(this, Target))
             {
-                //Delete this object, add money and stuff
+                //Delete this object
+                IsRemoved = true;
+                //Target.IsRemoved = true; //Skal ikke være her
             }
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             base.Draw(spriteBatch);
-            Primitives2D.DrawLine(spriteBatch, Position, Target.Position, Color.Red, 1);
-            Primitives2D.DrawRectangle(spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation);
+            Primitives2D.DrawLine(spriteBatch, Position, Target.Position, Color.Red, 1); //Draws the debug line from current position to the target position
+            Primitives2D.DrawRectangle(spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation); //Draws the collision box
         }
     }
 }

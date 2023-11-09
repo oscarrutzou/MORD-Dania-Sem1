@@ -42,25 +42,25 @@ namespace MordSem1OOP
             switch (enemyType)
             {
                 case EnemyType.Normal:
-                    Speed = 5;
+                    Speed = 50;
                     Health = 10;
                     enemyName = "Placeholder\\Enemies\\enemyBlack1";
                     break;
 
                 case EnemyType.Fast:
-                    Speed = 10;
+                    Speed = 100;
                     Health = 5;
                     enemyName = "Placeholder\\Enemies\\enemyBlue1";
                     break;
 
                 case EnemyType.Strong:
-                    Speed = 3;
+                    Speed = 30;
                     Health = 20;
                     enemyName = "Placeholder\\Enemies\\enemyGreen1";
                     break;
 
                 default:
-                    Speed = 5;
+                    Speed = 50;
                     Health = 10;
                     enemyName = "Placeholder\\Enemies\\enemyRed1";
                     break;
