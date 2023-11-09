@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
-using System.Numerics;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 namespace MordSem1OOP
@@ -27,9 +21,14 @@ namespace MordSem1OOP
 
         public void Spawn(EnemyType enemyType, int rate, int count)
         {
+            // Create and add enemies of the specified type to the wave.
             for (int i = 0; i < count; i++)
             {
-                enemiesInWave.Add(new Enemy(enemyType)); // Create and add enemies of the specified type to the wave.
+                SceneData tempSceneData = Global.activeScene.sceneData;
+
+                Enemy enemy1 = new Enemy(EnemyType.Strong, new Vector2(100, 50), Global.gameWorld.Content);
+                tempSceneData.gameObjects.Add(enemy1);
+                tempSceneData.enemies.Add(enemy1);
             }
         }
     }
