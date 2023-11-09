@@ -19,6 +19,6 @@ namespace MordSem1OOP
         //These are to better distingush what kind of gameObjects it should 
         public List<Tower> towers = new List<Tower>();
         public List<Enemy> enemies = new List<Enemy>();
-        public List<IProjectile> projectiles = new List<IProjectile>();
+        public List<Projectile> projectiles = new List<Projectile>();
     }
 }

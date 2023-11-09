@@ -52,9 +52,9 @@ namespace MordSem1OOP
             //Does not need to be fixed immediately, fix when you have extra time and are bored.
         }
 
-        protected GameObject(ContentManager content, string texture)
+        protected GameObject(string texture)
         {
-            Sprite = new Sprite(content,texture);
+            Sprite = new Sprite(texture);
         }
 
         #endregion

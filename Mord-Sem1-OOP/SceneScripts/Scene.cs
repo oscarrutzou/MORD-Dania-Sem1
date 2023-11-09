@@ -32,21 +32,40 @@ namespace MordSem1OOP.SceneScripts
         public virtual void Update(GameTime gameTime)
         {
             SceneData tempSceneData = Global.activeScene.sceneData;
-            //All GameObjects to be added, are added to the active scene.
+
+            // Clear the gameObjects list
+            tempSceneData.gameObjects.Clear();
+
+            // Add all towers, enemies, and projectiles to the gameObjects list
+            tempSceneData.gameObjects.AddRange(tempSceneData.towers.Where(tower => !tower.IsRemoved));
+            tempSceneData.gameObjects.AddRange(tempSceneData.enemies.Where(enemy => !enemy.IsRemoved));
+            // Need to cast the gameobject IProjectile interface to a gameobject to be able to see if its should be removed from the list 
+
+            tempSceneData.gameObjects.AddRange(tempSceneData.projectiles.Where(projectile => !projectile.IsRemoved));
+
+            // All GameObjects to be added, are added to the active scene.
             foreach (GameObject gameObject in tempSceneData.gameObjectsToAdd)
-                tempSceneData.gameObjects.Add(gameObject);
+            {
+                if (gameObject is Tower tower)
+                {
+                    tempSceneData.towers.Add(tower);
+                }
+                else if (gameObject is Enemy enemy)
+                {
+                    tempSceneData.enemies.Add(enemy);
+                }
+                else if (gameObject is Projectile projectile)
+                {
+                    tempSceneData.projectiles.Add(projectile);
+                }
+            }
             tempSceneData.gameObjectsToAdd.Clear();
 
-            //All GameObjects to be destroyed, are removed from the active scene.
-            tempSceneData.gameObjects = tempSceneData.gameObjects.Where(gameObject => !gameObject.IsRemoved).ToList();
-
-            //Also remove from Global.enemies if it's an Enemy
-            tempSceneData.enemies = tempSceneData.enemies.Where(enemy => !enemy.IsRemoved).ToList();
-
-            //Call update on every GameObject in the active scene.
+            // Call update on every GameObject in the active scene.
             foreach (GameObject gameObject in tempSceneData.gameObjects)
                 gameObject.Update(gameTime);
         }
+
 
         /// <summary>
         /// Calls Draw on every GameObject in the scene

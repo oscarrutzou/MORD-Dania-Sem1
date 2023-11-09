@@ -26,7 +26,7 @@ namespace MordSem1OOP
             {
                 SceneData tempSceneData = Global.activeScene.sceneData;
 
-                Enemy enemy1 = new Enemy(EnemyType.Strong, new Vector2(100, 50), Global.gameWorld.Content);
+                Enemy enemy1 = new Enemy(EnemyType.Strong, new Vector2(100, 50));
                 tempSceneData.gameObjects.Add(enemy1);
                 tempSceneData.enemies.Add(enemy1);
             }

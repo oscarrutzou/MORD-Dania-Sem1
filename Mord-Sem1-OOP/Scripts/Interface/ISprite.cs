@@ -13,7 +13,7 @@ namespace MordSem1OOP.Scripts.Interface
 
         Rectangle Rectangle { get; }
 
-        void LoadContent(ContentManager content, string loadTexture);
+        void LoadContent(string loadTexture);
         void Draw(SpriteBatch spriteBatch, Vector2 position, float rotation, float scale);
         void SetOrigin(Vector2 origin);
         void SetOriginCenter();
