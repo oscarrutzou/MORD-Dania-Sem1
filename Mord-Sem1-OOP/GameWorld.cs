@@ -12,7 +12,6 @@ namespace MordSem1OOP
 {
     public class GameWorld : Game
     {
-        public static ContentManager content;
         protected static GraphicsDeviceManager _graphics;
         public static SpriteBatch _spriteBatch;
         private static Scene[] scenes = new Scene[7];
@@ -23,7 +22,7 @@ namespace MordSem1OOP
 
         public GameWorld()
         {
-            InputManager.world = this;
+            Global.gameWorld = this;
 
             scenes[0] = new StartScene(Content);
             scenes[1] = new GameScene(Content);

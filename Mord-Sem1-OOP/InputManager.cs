@@ -8,7 +8,7 @@ namespace MordSem1OOP
 {
     public static class InputManager
     {
-        public static GameWorld world;
+        //public static GameWorld world;
         private static KeyboardState keyboardState;
         private static MouseState mouseState;
 
@@ -22,11 +22,9 @@ namespace MordSem1OOP
 
             if(keyboardState.IsKeyDown(Keys.Space))
             {
-                switch (world.activeScene)
-                {
-                    case 0: world.Instantiate(new Enemy(EnemyType.Normal, new Vector2(100,100), world.Content)); break;
-                    default: throw new Exception();    
-                }
+                //Should be able to add a new enemy
+                //Global.activeScene.sceneData.gameObjectsToAdd.Add(new Enemy(EnemyType.Normal, new Vector2(100, 100), Global.gameWorld.Content));
+
             }
 
             if (keyboardState.IsKeyDown(Keys.Escape))

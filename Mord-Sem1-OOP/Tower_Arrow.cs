@@ -50,6 +50,8 @@ namespace MordSem1OOP
             else
             {
                 //Move forward without changing directions
+                //float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+                //Position += direction * Speed * deltaTime;
             }
 
             OnCollision();
