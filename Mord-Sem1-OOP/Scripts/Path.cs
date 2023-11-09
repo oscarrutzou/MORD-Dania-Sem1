@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace MordSem1OOP.Scripts
 {
-    internal class WaypointManager
+    public class Path
     {
         private Waypoint[] _waypoints;
 
-        public WaypointManager(params Waypoint[] waypoints)
+        public Path(params Waypoint[] waypoints)
         {
             _waypoints = waypoints;
         }
 
-        public WaypointManager ConnectWaypoints()
+        public Path ConnectWaypoints()
         {
             for (int i = 0; i < _waypoints.Length - 1; i++)
             {
