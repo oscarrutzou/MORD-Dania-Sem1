@@ -29,9 +29,13 @@ namespace MordSem1OOP
 
         public void Initialize()
         {
-            Enemy targetEnemy = new Enemy(EnemyType.Normal, new Vector2(300, 50), content);
-            gameObjects.Add(targetEnemy);
-            Global.enemies.Add(targetEnemy);
+            Enemy enemy1 = new Enemy(EnemyType.Strong, new Vector2(100, 50), content);
+            gameObjects.Add(enemy1);
+            Global.enemies.Add(enemy1);
+
+            Enemy enemy2 = new Enemy(EnemyType.Fast, new Vector2(30, 100), content);
+            gameObjects.Add(enemy2);
+            Global.enemies.Add(enemy2);
 
             Tower acherTower = new Tower(new Vector2(300,200), 1f, 300f, content, "Placeholder\\Parts\\beam6");
             gameObjects.Add(acherTower);
