@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MordSem1OOP.SceneScripts;
 using MordSem1OOP.Scripts;
 using Mx2L.MonoDebugUI;
 using System;
@@ -14,14 +15,20 @@ namespace MordSem1OOP
         public static ContentManager content;
         protected static GraphicsDeviceManager _graphics;
         public static SpriteBatch _spriteBatch;
-        private static Scene[] scenes = new Scene[1];
+        private static Scene[] scenes = new Scene[7];
         public int activeScene; //Used to call the methods in the current scene
 
         public GameWorld()
         {
             InputManager.world = this;
 
-            scenes[0] = new Scene(Content);
+            scenes[0] = new StartScene(Content);
+            scenes[1] = new GameScene(Content);
+            scenes[2] = new Scene1(Content); //Michael's scene
+            scenes[3] = new Scene2(Content); //Oscar's scene
+            scenes[4] = new Scene3(Content); //Gaming's scene
+            scenes[5] = new Scene4(Content); //David's scene
+            scenes[6] = new Scene5(Content); //Jacob's scene
             
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -33,9 +40,7 @@ namespace MordSem1OOP
 
         protected override void Initialize()
         {
-
-
-            activeScene = 0;
+            activeScene = 4;
             scenes[activeScene].Initialize();
 
             base.Initialize();
