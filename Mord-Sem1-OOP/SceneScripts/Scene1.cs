@@ -36,7 +36,7 @@ namespace MordSem1OOP.SceneScripts
             _path.ConnectWaypoints();
             currWaypoint = _path.GetWaypoint(0);
 
-            FollowPathEnemy fpEnemy = new FollowPathEnemy(EnemyType.Fast, currWaypoint.Position, content);
+            FollowPathEnemy fpEnemy = new FollowPathEnemy(EnemyType.Fast, currWaypoint.Position);
             fpEnemy.SetDestination(currWaypoint);
             fpEnemy.AddToDebugInfo();
             DebugInfo.AddCount("arrival");
