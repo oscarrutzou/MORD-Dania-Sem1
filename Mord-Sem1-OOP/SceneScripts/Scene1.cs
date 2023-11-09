@@ -30,16 +30,20 @@ namespace MordSem1OOP.SceneScripts
                 new Waypoint(new Vector2(100, 150), new Vector2Int(1, 1)),
                 new Waypoint(new Vector2(300, 150), new Vector2Int(1, 1)),
                 new Waypoint(new Vector2(300, 75), new Vector2Int(1, 1)),
-                new Waypoint(new Vector2(500, 75), new Vector2Int(1, 1))
+                new Waypoint(new Vector2(500, 75), new Vector2Int(1, 1)),
+                new Waypoint(new Vector2(500, 250), new Vector2Int(1, 1)),
+                new Waypoint(new Vector2(350, 250), new Vector2Int(1, 1)),
+                new Waypoint(new Vector2(350, 400), new Vector2Int(1, 1)),
+                new Waypoint(new Vector2(600, 400), new Vector2Int(1, 1))
                 );
 
             _path.ConnectWaypoints();
             currWaypoint = _path.GetWaypoint(0);
 
-            FollowPathEnemy fpEnemy = new FollowPathEnemy(EnemyType.Fast, currWaypoint.Position);
+            FollowPathEnemy_Test fpEnemy = new FollowPathEnemy_Test(EnemyType.Fast, currWaypoint.Position);
             fpEnemy.SetDestination(currWaypoint);
             fpEnemy.AddToDebugInfo();
-            DebugInfo.AddCount("arrival");
+            DebugInfo.AddCount("waypointsReached");
 
             tempSceneData.gameObjects.Add(fpEnemy);
             tempSceneData.enemies.Add(fpEnemy);
@@ -48,11 +52,12 @@ namespace MordSem1OOP.SceneScripts
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime); //Handles the GameObject list
-
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            _path.Draw(spriteBatch);
+            DebugInfo.DrawAllInfo(spriteBatch, Vector2.One * 10, 16, Global.gameWorld.Content.Load<SpriteFont>("Fonts/Arial"), Color.Black);
             base.Draw(spriteBatch); //Draws all elements in the GameObject list
         }
     }

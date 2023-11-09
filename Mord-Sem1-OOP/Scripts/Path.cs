@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,6 +36,14 @@ namespace MordSem1OOP.Scripts
         public Waypoint GetWaypoint(int index)
         {
             return _waypoints[index];
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            for (int i = 0; i < _waypoints.Length - 1; i++)
+            {
+                Primitives2D.DrawLine(spriteBatch, _waypoints[i].Position, _waypoints[i + 1].Position, Color.Magenta, 1);
+            }
         }
     }
 }

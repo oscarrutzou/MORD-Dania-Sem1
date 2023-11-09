@@ -94,18 +94,23 @@ namespace MordSem1OOP
             _waypoint = waypoint;
         }
 
-        protected void MoveToWaypoint(GameTime gameTime)
+        protected bool MoveToWaypoint(GameTime gameTime)
         {
             if (_waypoint is null)
-                return;
+                return true;
 
-            if (!AlternativeMove(_waypoint.Position, gameTime))
-                return;
+            bool arrivedAtWaypoint = AlternativeMove(_waypoint.Position, gameTime, out float distanceTravelled);
 
-            _waypoint.Arrived();
+            DistanceTraveled += distanceTravelled;
 
-            if (_waypoint.GetNextWaypoint(out Waypoint waypoint))
-                _waypoint = waypoint;
+            if (!arrivedAtWaypoint)
+                return false;
+
+            _waypoint.Arrived(this);
+
+            _waypoint.GetNextWaypoint(out _waypoint);
+
+            return true;
         }
     }
 }
