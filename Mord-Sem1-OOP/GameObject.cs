@@ -88,6 +88,36 @@ namespace MordSem1OOP
 
         }
 
+        protected bool AlternativeMove(Vector2 destination, GameTime gameTime)
+        {
+            if (Position == destination)
+            {
+                return true;
+            }
+
+            Vector2 direction = destination - Position;
+            direction.Normalize();
+
+            // Calculate rotation towards target
+            Rotation = (float)Math.Atan2(-direction.Y, -direction.X) + MathHelper.PiOver2;
+
+            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            Vector2 newPosition = Position + direction * Speed * deltaTime;
+
+            float distanceToDestination = Vector2.Distance(Position, destination);
+            float distanceToNewPosition = Vector2.Distance(Position, newPosition);
+
+            if (distanceToNewPosition >= distanceToDestination)
+            {
+                Position = destination;
+                return true;
+            }
+
+            Position += direction * Speed * deltaTime;
+            return false;
+        }
+
         public virtual void OnCollision() { }
 
         #endregion
