@@ -38,10 +38,10 @@ namespace MordSem1OOP.Scripts
                              Vector2.Zero,
                              new Vector2(length, thickness),
                              SpriteEffects.None,
-                             0);
+                             1);
         }
 
-        public static void DrawRectangleFrame(SpriteBatch spriteBatch, Vector2 position, Rectangle rectangle, Color color, float thickness, float angle)
+        public static void DrawRectangle(SpriteBatch spriteBatch, Vector2 position, Rectangle rectangle, Color color, float thickness, float angle)
         {
             Vector2 topLeft = new Vector2(rectangle.X, rectangle.Y);
             Vector2 topRight = new Vector2(rectangle.Width, rectangle.Y);
@@ -65,9 +65,9 @@ namespace MordSem1OOP.Scripts
             rectangle.X += (int)position.X;
             rectangle.Y += (int)position.Y;
 
-            DrawRectangle(spriteBatch, rectangle, angle, color);
+            DrawSolidRectangle(spriteBatch, rectangle, angle, color);
         }
-        public static void DrawRectangle(SpriteBatch spriteBatch, Rectangle rectangle, float angle, Color color)
+        public static void DrawSolidRectangle(SpriteBatch spriteBatch, Rectangle rectangle, float angle, Color color)
         {
             if (pixel == null)
             {

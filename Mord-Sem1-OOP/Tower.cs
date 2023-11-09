@@ -112,7 +112,7 @@ namespace MordSem1OOP
             Vector2 origin = new Vector2(circleTexture.Width / 2, circleTexture.Height / 2);
             spriteBatch.Draw(circleTexture, Position, null, Color.Red * 0.5f, 0, origin, 1, SpriteEffects.None, 0);
 
-            Primitives2D.DrawRectangleFrame(spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation); //Draws the collision box
+            Primitives2D.DrawRectangle(spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation); //Draws the collision box
         }
 
         private Texture2D CreateCircleTexture(GraphicsDevice graphicsDevice, int radius)

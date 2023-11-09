@@ -77,7 +77,7 @@ namespace MordSem1OOP
         {
             base.Draw(spriteBatch);
             Primitives2D.DrawLine(spriteBatch, Position, Target.Position, Color.Red, 1); //Draws the debug line from current position to the target position
-            Primitives2D.DrawRectangleFrame(spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation); //Draws the collision box
+            Primitives2D.DrawRectangle(spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation); //Draws the collision box
         }
 
     }
