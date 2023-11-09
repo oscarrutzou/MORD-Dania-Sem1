@@ -22,13 +22,13 @@ namespace MordSem1OOP
             // Handle camera movement based on keyboard input //-- look at
             Vector2 moveDirection = Vector2.Zero;
             if (keyboardState.IsKeyDown(Keys.W))
-                moveDirection.Y = 1;
-            if (keyboardState.IsKeyDown(Keys.S))
                 moveDirection.Y = -1;
+            if (keyboardState.IsKeyDown(Keys.S))
+                moveDirection.Y = 1;
             if (keyboardState.IsKeyDown(Keys.A))
-                moveDirection.X = 1;
-            if (keyboardState.IsKeyDown(Keys.D))
                 moveDirection.X = -1;
+            if (keyboardState.IsKeyDown(Keys.D))
+                moveDirection.X = 1;
 
             camera.Move(moveDirection * 5); // Control camera speed //-- look at
 
