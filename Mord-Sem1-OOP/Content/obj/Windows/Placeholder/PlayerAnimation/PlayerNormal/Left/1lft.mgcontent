@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerNormal/Left/1lft.png</SourceFile>
-  <SourceTime>2023-11-07T10:17:40.533405+01:00</SourceTime>
-  <DestFile>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/bin/Windows/Placeholder/PlayerAnimation/PlayerNormal/Left/1lft.xnb</DestFile>
-  <DestTime>2023-11-09T12:25:57.4548691+01:00</DestTime>
+  <SourceFile>C:/Users/miclu/Code/MonoGame/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerNormal/Left/1lft.png</SourceFile>
+  <SourceTime>2023-10-31T09:49:57.2346535+01:00</SourceTime>
+  <DestFile>C:/Users/miclu/Code/MonoGame/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/bin/Windows/Placeholder/PlayerAnimation/PlayerNormal/Left/1lft.xnb</DestFile>
+  <DestTime>2023-11-07T09:55:56.4491921+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

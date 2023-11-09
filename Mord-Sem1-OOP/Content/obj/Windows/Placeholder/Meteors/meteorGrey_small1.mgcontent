@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorGrey_small1.png</SourceFile>
-  <SourceTime>2023-11-07T10:17:40.4241059+01:00</SourceTime>
-  <DestFile>C:/Users/RedEye/Documents/GitHub/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/bin/Windows/Placeholder/Meteors/meteorGrey_small1.xnb</DestFile>
-  <DestTime>2023-11-09T12:25:56.9390209+01:00</DestTime>
+  <SourceFile>C:/Users/miclu/Code/MonoGame/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Meteors/meteorGrey_small1.png</SourceFile>
+  <SourceTime>2023-10-31T09:49:53.2116454+01:00</SourceTime>
+  <DestFile>C:/Users/miclu/Code/MonoGame/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/bin/Windows/Placeholder/Meteors/meteorGrey_small1.xnb</DestFile>
+  <DestTime>2023-11-07T09:55:55.6811912+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

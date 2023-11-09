@@ -45,9 +45,17 @@ namespace MordSem1OOP
                     currentWaveIndex++;
                     waveTimer = TimeSpan.Zero; // reset timer for the next wave.
                 }
+
+                waves[currentWaveIndex].Update(gameTime, waypoints);
+
+                if (waves[currentWaveIndex].IsWaveComplete)
+                {
+                    isWaveActive = false;
+                    currentWaveIndex++;
+                    waveTimer = TimeSpan.Zero;
+                }
             }
         }
-
         public void StartNextWave()
         {
             if (currentWaveIndex < waves.Count)

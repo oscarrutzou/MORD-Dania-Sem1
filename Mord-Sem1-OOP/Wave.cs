@@ -32,5 +32,26 @@ namespace MordSem1OOP
                 enemiesInWave.Add(new Enemy(enemyType)); // Create and add enemies of the specified type to the wave.
             }
         }
+
+        public void Update(GameTime gameTime, Microsoft.Xna.Framework.Vector2[] waypoints)
+        {
+            if (currentWaypointIndex < waypoints.Length)
+            {
+                foreach (Enemy enemy in enemiesInWave)
+                {
+                    enemy.Update(gameTime); // Update enemy logic (e.g., movement, health).
+                    enemy.Position = waypoints[currentWaypointIndex]; // Set enemy position to the current waypoint.
+                }
+
+                if (enemiesInWave.TrueForAll(enemy => enemy.Position == waypoints[currentWaypointIndex]))
+                {
+                    currentWaypointIndex++; // Move to the next waypoint when all enemies reach the current one.
+                }
+            }
+            else
+            {
+                isWaveComplete = true; // Mark the wave as complete when all enemies have reached all waypoints.
+            }
+        }
     }
 }
