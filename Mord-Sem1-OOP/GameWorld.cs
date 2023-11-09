@@ -37,7 +37,6 @@ namespace MordSem1OOP
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            
         }
 
         #region Standard Methods
@@ -49,18 +48,6 @@ namespace MordSem1OOP
             Global.activeScene = scenes[activeScene]; //Very important since this sets what scene data that the code should use
             
             scenes[activeScene].Initialize();
-
-            path = new Path(
-                new Waypoint(new Vector2(50, 50), new Vector2Int(1, 1)),
-                new Waypoint(new Vector2(100, 50), new Vector2Int(1, 1)),
-                new Waypoint(new Vector2(100, 150), new Vector2Int(1, 1)),
-                new Waypoint(new Vector2(300, 150), new Vector2Int(1, 1)),
-                new Waypoint(new Vector2(300, 75), new Vector2Int(1, 1)),
-                new Waypoint(new Vector2(500, 75), new Vector2Int(1, 1))
-                );
-
-            path.ConnectWaypoints();
-            currWaypoint = path.GetWaypoint(0);
 
             base.Initialize();
         }
@@ -84,14 +71,10 @@ namespace MordSem1OOP
             GraphicsDevice.Clear(Color.Beige);
 
             _spriteBatch.Begin(transformMatrix: camera.GetMatrix());
-            //scenes[activeScene].Draw(_spriteBatch);
+            scenes[activeScene].Draw(_spriteBatch);
             _spriteBatch.End();
 
             base.Draw(gameTime);
-        }
-        public void Bruh()
-        {
-
         }
 
         #endregion
