@@ -45,8 +45,7 @@ namespace MordSem1OOP
         protected override void Initialize()
         {
             camera = new Camera(_graphics);
-            activeScene = 4;
-            activeScene = 3;
+            activeScene = 2;
             Global.activeScene = scenes[activeScene]; //Very important since this sets what scene data that the code should use
             
             scenes[activeScene].Initialize();
@@ -85,13 +84,6 @@ namespace MordSem1OOP
             GraphicsDevice.Clear(Color.Beige);
 
             _spriteBatch.Begin(transformMatrix: camera.GetMatrix());
-
-            bool loop = true;
-            while (loop)
-            {
-                loop = currWaypoint.GetNextWaypoint(out Waypoint nextWaypoint);
-                
-            }
             //scenes[activeScene].Draw(_spriteBatch);
             _spriteBatch.End();
 
