@@ -61,7 +61,7 @@ namespace MordSem1OOP
             direction.Normalize();
 
             // Calculate rotation towards target
-            Rotation = (float)Math.Atan2(direction.Y, direction.X);
+            RotateTowards(Target.Position);
 
             spawnProjectileTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 

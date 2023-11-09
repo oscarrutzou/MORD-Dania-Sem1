@@ -88,6 +88,12 @@ namespace MordSem1OOP
 
         }
 
+        /// <summary>
+        /// Makes this GameObject move towards a target destination
+        /// </summary>
+        /// <param name="destination">The point in space which this GameObject will move towards</param>
+        /// <param name="gameTime">Used to get the time elapsed between each frame</param>
+        /// <returns></returns>
         protected bool AlternativeMove(Vector2 destination, GameTime gameTime)
         {
             if (Position == destination)
@@ -99,7 +105,7 @@ namespace MordSem1OOP
             direction.Normalize();
 
             // Calculate rotation towards target
-            Rotation = (float)Math.Atan2(-direction.Y, -direction.X) + MathHelper.PiOver2;
+            RotateTowards(destination);
 
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -119,6 +125,19 @@ namespace MordSem1OOP
         }
 
         public virtual void OnCollision() { }
+
+
+        /// <summary>
+        /// Makes this GameObject look at a point in space
+        /// </summary>
+        /// <param name="target">The point to look at</param>
+        public void RotateTowards(Vector2 target)
+        {
+            if (Position == target) return;
+
+            Vector2 dir = target - Position;
+            Rotation = (float)Math.Atan2(-dir.Y, -dir.X) + MathHelper.PiOver2;
+        }
 
         #endregion
     }
