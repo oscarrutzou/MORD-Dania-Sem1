@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MordSem1OOP.Scripts;
 using Mx2L.MonoDebugUI;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,9 @@ namespace MordSem1OOP
         public static SpriteBatch _spriteBatch;
         private static Scene[] scenes = new Scene[1];
         public int activeScene; //Used to call the methods in the current scene
+
+        public Path path;
+        public Waypoint currWaypoint;
 
         public GameWorld()
         {
@@ -36,6 +40,18 @@ namespace MordSem1OOP
 
             activeScene = 0;
             scenes[activeScene].Initialize();
+
+            path = new Path(
+                new Waypoint(new Vector2(50, 50), new Vector2Int(1, 1)),
+                new Waypoint(new Vector2(100, 50), new Vector2Int(1, 1)),
+                new Waypoint(new Vector2(100, 150), new Vector2Int(1, 1)),
+                new Waypoint(new Vector2(300, 150), new Vector2Int(1, 1)),
+                new Waypoint(new Vector2(300, 75), new Vector2Int(1, 1)),
+                new Waypoint(new Vector2(500, 75), new Vector2Int(1, 1))
+                );
+
+            path.ConnectWaypoints();
+            currWaypoint = path.GetWaypoint(0);
 
             base.Initialize();
         }
@@ -59,7 +75,14 @@ namespace MordSem1OOP
             GraphicsDevice.Clear(Color.Beige);
 
             _spriteBatch.Begin();
-            scenes[activeScene].Draw(_spriteBatch);
+
+            bool loop = true;
+            while (loop)
+            {
+                loop = currWaypoint.GetNextWaypoint(out Waypoint nextWaypoint);
+                
+            }
+            //scenes[activeScene].Draw(_spriteBatch);
             _spriteBatch.End();
 
             base.Draw(gameTime);
