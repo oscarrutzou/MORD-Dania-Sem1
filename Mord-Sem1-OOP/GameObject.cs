@@ -96,10 +96,14 @@ namespace MordSem1OOP
         /// <returns></returns>
         protected bool AlternativeMove(Vector2 destination, GameTime gameTime)
         {
+            return AlternativeMove(destination, gameTime, out _);
+        }
+        protected bool AlternativeMove(Vector2 destination, GameTime gameTime, out float distanceTravelled)
+        {
+            distanceTravelled = 0f;
+
             if (Position == destination)
-            {
                 return true;
-            }
 
             Vector2 direction = destination - Position;
             direction.Normalize();
@@ -117,10 +121,12 @@ namespace MordSem1OOP
             if (distanceToNewPosition >= distanceToDestination)
             {
                 Position = destination;
+                distanceTravelled = distanceToDestination;
                 return true;
             }
 
             Position += direction * Speed * deltaTime;
+            distanceTravelled = distanceToNewPosition;
             return false;
         }
 

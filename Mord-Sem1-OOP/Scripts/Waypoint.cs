@@ -27,7 +27,7 @@ namespace MordSem1OOP.Scripts
         {
             if (_nextWaypoint is null)
             {
-                waypoint = this;
+                waypoint = null;
                 return false;
             }
 
@@ -35,9 +35,10 @@ namespace MordSem1OOP.Scripts
             return true;
         }
 
-        public virtual void Arrived()
+        public virtual void Arrived(Enemy enemy)
         {
-            DebugInfo.IncreaseCount("arrival");
+            // Decrease player health with enemy
+            DebugInfo.IncreaseCount("waypointsReached");
         }
     }
 }

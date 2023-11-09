@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace MordSem1OOP.Scripts.Entity
 {
-    public class FollowPathEnemy : Enemy
+    public class FollowPathEnemy_Test : Enemy
     {
-        public FollowPathEnemy(EnemyType enemyType, Vector2 position) : base(enemyType, position)
+        public FollowPathEnemy_Test(EnemyType enemyType, Vector2 position) : base(enemyType, position)
         {
         }
 
@@ -20,7 +20,7 @@ namespace MordSem1OOP.Scripts.Entity
         {
             base.Draw(spriteBatch);
             if (_waypoint is not null)
-                Primitives2D.DrawLine(spriteBatch, Position, _waypoint.Position, Color.Magenta, 1);
+                Primitives2D.DrawLine(spriteBatch, Position, _waypoint.Position, Color.Red, 1);
         }
 
         public override void Update(GameTime gameTime)
@@ -28,7 +28,7 @@ namespace MordSem1OOP.Scripts.Entity
             Move(gameTime);
         }
 
-        private void Move(GameTime gameTime)
+        private new void Move(GameTime gameTime)
         {
             if (_waypoint is not null)
                 MoveToWaypoint(gameTime);
@@ -37,11 +37,19 @@ namespace MordSem1OOP.Scripts.Entity
         public void AddToDebugInfo()
         {
             DebugInfo.AddString("destination", DebugGetDestination);
+            DebugInfo.AddString("distanceTravelled", DebugGetDistanceTravelled);
         }
 
         public string DebugGetDestination()
         {
+            if (_waypoint is null)
+                return "";
             return _waypoint.Position.ToString();
+        }
+
+        public string DebugGetDistanceTravelled()
+        {
+            return ((int)DistanceTraveled).ToString();
         }
     }
 }
