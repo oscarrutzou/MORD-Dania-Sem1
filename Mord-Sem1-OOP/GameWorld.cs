@@ -44,7 +44,7 @@ namespace MordSem1OOP
         protected override void Initialize()
         {
             camera = new Camera(_graphics);
-            activeScene = 2;
+            activeScene = 3;
             Global.activeScene = scenes[activeScene]; //Very important since this sets what scene data that the code should use
             
             scenes[activeScene].Initialize();
