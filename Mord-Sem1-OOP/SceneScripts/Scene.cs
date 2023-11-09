@@ -7,18 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Content;
 
-namespace MordSem1OOP
+namespace MordSem1OOP.SceneScripts
 {
-    public class Scene
+    public abstract class Scene
     {
-
-
-        private ContentManager content;
+        protected ContentManager content;
         public List<GameObject> gameObjects = new List<GameObject>();
         public List<GameObject> objectsToCreate = new List<GameObject>();
         public List<GameObject> objectsToDestroy = new List<GameObject>();
-
-
 
         public Scene(ContentManager content)
         {
@@ -27,22 +23,13 @@ namespace MordSem1OOP
 
         #region Methods
 
-        public void Initialize()
-        {
-            Enemy targetEnemy = new Enemy(EnemyType.Normal, new Vector2(300, 50), content);
-            gameObjects.Add(targetEnemy);
-            gameObjects.Add(new Tower_Arrow(new Vector2(50, 300), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
-            gameObjects.Add(new Tower_Arrow(new Vector2(400, 30), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
-            gameObjects.Add(new Tower_Arrow(new Vector2(10,10), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
-            gameObjects.Add(new Tower_Arrow(new Vector2(600,300), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
-            gameObjects.Add(new Tower_Arrow(new Vector2(600,600), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
-        }
+        public abstract void Initialize();
 
         /// <summary>
         /// Update is called every frame
         /// </summary>
         /// <param name="gameTime">Used to get the time elapsed between each frame</param>
-        public void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
             //All GameObjects to be added, are added to the active scene.
             foreach (GameObject gameObject in objectsToCreate)
@@ -59,9 +46,12 @@ namespace MordSem1OOP
                 gameObject.Update(gameTime);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        /// <summary>
+        /// Calls Draw on every GameObject in the scene
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
-            //Call draw on every GameObject in the active scene.
             foreach (GameObject gameObject in gameObjects)
                 gameObject.Draw(spriteBatch);
         }
