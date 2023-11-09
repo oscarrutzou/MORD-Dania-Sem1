@@ -70,7 +70,7 @@ namespace MordSem1OOP
 
         protected override void Update(GameTime gameTime)
         {
-            InputManager.HandleInput(this);
+            InputManager.HandleInput(this, camera);
 
             scenes[activeScene].Update(gameTime);
             base.Update(gameTime);

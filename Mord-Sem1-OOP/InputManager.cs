@@ -14,10 +14,24 @@ namespace MordSem1OOP
 
         public static Vector2 mousePosition;
 
-        public static void HandleInput(Game game)
+        public static void HandleInput(Game game, Camera camera)
         {
             keyboardState = Keyboard.GetState();
             mouseState = Mouse.GetState();
+
+            // Handle camera movement based on keyboard input //-- look at
+            Vector2 moveDirection = Vector2.Zero;
+            if (keyboardState.IsKeyDown(Keys.W))
+                moveDirection.Y = 1;
+            if (keyboardState.IsKeyDown(Keys.S))
+                moveDirection.Y = -1;
+            if (keyboardState.IsKeyDown(Keys.A))
+                moveDirection.X = 1;
+            if (keyboardState.IsKeyDown(Keys.D))
+                moveDirection.X = -1;
+
+            camera.Move(moveDirection * 5); // Control camera speed //-- look at
+
 
 
             if(keyboardState.IsKeyDown(Keys.Space))

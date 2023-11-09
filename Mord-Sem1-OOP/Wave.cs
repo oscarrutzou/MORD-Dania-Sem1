@@ -11,45 +11,25 @@ namespace MordSem1OOP
 {
     public class Wave
     {
-        private List<Enemy> enemiesInWave = new List<Enemy>();
-        private int currentWaypointIndex = 0;
-        private bool isWaveComplete = false;
+        private List<Enemy> enemiesInWave; // List to store all enemies in the wave.
+        private int currentWaypointIndex; // Index of the current waypoint for enemy movement.
+        private bool isWaveComplete; // Flag to indicate if the wave is complete.
 
-        public List<Enemy> EnemiesInWave { get { return enemiesInWave; } }
-
-        public bool IsWaveComplete { get {  return isWaveComplete; } }
+        public List<Enemy> EnemiesInWave => enemiesInWave;
+        public bool IsWaveComplete => isWaveComplete;
 
         public Wave()
         {
-            InitializeEnemies();
+            enemiesInWave = new List<Enemy>();
+            currentWaypointIndex = 0;
+            isWaveComplete = false;
         }
 
-        private void InitializeEnemies()
+        public void Spawn(EnemyType enemyType, int rate, int count)
         {
-            //enemiesInWave.Add(new Enemy(EnemyType.Normal));
-            //enemiesInWave.Add(new Enemy(EnemyType.Fast));
-            //enemiesInWave.Add(new Enemy(EnemyType.Strong));
-
-        }
-
-        public void Update(GameTime gameTime, Microsoft.Xna.Framework.Vector2[] waypoints)
-        {
-            if (currentWaypointIndex < waypoints.Length)
+            for (int i = 0; i < count; i++)
             {
-                foreach (Enemy enemy in enemiesInWave)
-                {
-                    enemy.Update(gameTime);
-                    enemy.Position = waypoints[currentWaypointIndex];
-                }
-
-                if (enemiesInWave.All(enemy => enemy.Position == waypoints[currentWaypointIndex]))
-                {
-                    currentWaypointIndex++;
-                }
-            }
-            else
-            {
-                isWaveComplete = true;
+                enemiesInWave.Add(new Enemy(enemyType)); // Create and add enemies of the specified type to the wave.
             }
         }
     }
