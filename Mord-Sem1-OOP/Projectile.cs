@@ -47,7 +47,7 @@ namespace MordSem1OOP
             direction.Normalize();
 
             // Calculate rotation towards target
-            Rotation = (float)Math.Atan2(direction.Y, direction.X) + MathHelper.PiOver2;
+            RotateTowards(Target.Position);
 
             if (Target != null)
             {
