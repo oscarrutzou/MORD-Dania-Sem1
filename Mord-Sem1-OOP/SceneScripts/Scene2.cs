@@ -35,7 +35,6 @@ namespace MordSem1OOP.SceneScripts
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime); //Handles the GameObject list
-
         }
 
         public override void Draw(SpriteBatch spriteBatch)
