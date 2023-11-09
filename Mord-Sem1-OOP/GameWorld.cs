@@ -70,7 +70,7 @@ namespace MordSem1OOP
         {
             GraphicsDevice.Clear(Color.Beige);
 
-            _spriteBatch.Begin(transformMatrix: camera.GetMatrix());
+            _spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, transformMatrix: camera.GetMatrix());
             scenes[activeScene].Draw(_spriteBatch);
             _spriteBatch.End();
 
