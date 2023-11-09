@@ -11,17 +11,25 @@ namespace MordSem1OOP.SceneScripts
 {
     internal sealed class Scene2 : Scene
     {
+
+
         public Scene2(ContentManager content) : base(content) { }
 
         public override void Initialize()
         {
-            Enemy targetEnemy = new Enemy(EnemyType.Normal, new Vector2(300, 50), content);
-            gameObjects.Add(targetEnemy);
-            gameObjects.Add(new Tower_Arrow(new Vector2(50, 300), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
-            gameObjects.Add(new Tower_Arrow(new Vector2(400, 30), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
-            gameObjects.Add(new Tower_Arrow(new Vector2(10, 10), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
-            gameObjects.Add(new Tower_Arrow(new Vector2(600, 300), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
-            gameObjects.Add(new Tower_Arrow(new Vector2(600, 600), 1f, targetEnemy, content, "Placeholder\\Lasers\\laserBlue04"));
+            SceneData tempSceneData = Global.activeScene.sceneData;
+
+            Enemy enemy1 = new Enemy(EnemyType.Strong, new Vector2(100, 50), content);
+            tempSceneData.gameObjects.Add(enemy1);
+            tempSceneData.enemies.Add(enemy1);
+
+            Enemy enemy2 = new Enemy(EnemyType.Fast, new Vector2(30, 100), content);
+            tempSceneData.gameObjects.Add(enemy2);
+            tempSceneData.enemies.Add(enemy2);
+
+            Tower acherTower = new Tower(new Vector2(300, 200), 1f, 300f, content, "Placeholder\\Parts\\beam6");
+            tempSceneData.gameObjects.Add(acherTower);
+            tempSceneData.towers.Add(acherTower);
         }
 
         public override void Update(GameTime gameTime)

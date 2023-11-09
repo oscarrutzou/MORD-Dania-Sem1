@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace MordSem1OOP
 {
-    public class GameStats
+    /// <summary>
+    /// This class is to proplerly divivide the things that should be drawn to the player like the players money
+    /// </summary>
+    public class SceneStats
     {
         public int money;
         public int killCount;

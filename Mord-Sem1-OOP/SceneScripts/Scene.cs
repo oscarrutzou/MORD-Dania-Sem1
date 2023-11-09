@@ -12,7 +12,7 @@ namespace MordSem1OOP.SceneScripts
     public abstract class Scene
     {
         protected ContentManager content;
-        public List<GameObject> gameObjects = new List<GameObject>();
+        public SceneData sceneData = new SceneData();
         //public List<GameObject> objectsToCreate = new List<GameObject>();
         //public List<GameObject> objectsToDestroy = new List<GameObject>();
 
@@ -31,19 +31,20 @@ namespace MordSem1OOP.SceneScripts
         /// <param name="gameTime">Used to get the time elapsed between each frame</param>
         public virtual void Update(GameTime gameTime)
         {
+            SceneData tempSceneData = Global.activeScene.sceneData;
             //All GameObjects to be added, are added to the active scene.
-            foreach (GameObject gameObject in Global.gameObjectsToCreate)
-                gameObjects.Add(gameObject);
-            Global.gameObjectsToCreate.Clear();
+            foreach (GameObject gameObject in tempSceneData.gameObjectsToAdd)
+                tempSceneData.gameObjects.Add(gameObject);
+            tempSceneData.gameObjectsToAdd.Clear();
 
             //All GameObjects to be destroyed, are removed from the active scene.
-            gameObjects = gameObjects.Where(gameObject => !gameObject.IsRemoved).ToList();
+            tempSceneData.gameObjects = tempSceneData.gameObjects.Where(gameObject => !gameObject.IsRemoved).ToList();
 
             //Also remove from Global.enemies if it's an Enemy
-            Global.enemies = Global.enemies.Where(enemy => !enemy.IsRemoved).ToList();
+            tempSceneData.enemies = tempSceneData.enemies.Where(enemy => !enemy.IsRemoved).ToList();
 
             //Call update on every GameObject in the active scene.
-            foreach (GameObject gameObject in gameObjects)
+            foreach (GameObject gameObject in tempSceneData.gameObjects)
                 gameObject.Update(gameTime);
         }
 
@@ -53,7 +54,7 @@ namespace MordSem1OOP.SceneScripts
         /// <param name="spriteBatch"></param>
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            foreach (GameObject gameObject in gameObjects)
+            foreach (GameObject gameObject in Global.activeScene.sceneData.gameObjects)
                 gameObject.Draw(spriteBatch);
         }
 

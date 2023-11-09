@@ -40,7 +40,9 @@ namespace MordSem1OOP
 
         protected override void Initialize()
         {
-            activeScene = 4;
+            activeScene = 3;
+            Global.activeScene = scenes[activeScene]; //Very important since this sets what scene data that the code should use
+            
             scenes[activeScene].Initialize();
 
             base.Initialize();
@@ -82,14 +84,14 @@ namespace MordSem1OOP
         /// Adds a GameObject to the list of GameObjects to be added in the next update.
         /// </summary>
         /// <param name="gameObject">The GameObject to be added</param>
-        public void Instantiate(GameObject gameObject) => Global.gameObjectsToCreate.Add(gameObject);
+        public void Instantiate(GameObject gameObject) => Global.activeScene.sceneData.gameObjectsToAdd.Add(gameObject);
 
 
         /// <summary>
         /// Adds a collection of GameObjects to the list of GameObjects to be added in the next update.
         /// </summary>
         /// <param name="gameObject">The GameObject collection to be added</param>
-        public void Instantiate(GameObject[] gameObjects) => Global.gameObjectsToCreate.AddRange(gameObjects);
+        public void Instantiate(GameObject[] gameObjects) => Global.activeScene.sceneData.gameObjectsToAdd.AddRange(gameObjects);
 
 
         /// <summary>

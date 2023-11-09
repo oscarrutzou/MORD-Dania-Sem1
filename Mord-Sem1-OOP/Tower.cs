@@ -78,7 +78,7 @@ namespace MordSem1OOP
                     content,
                     "Placeholder\\Lasers\\laserBlue04");
 
-                Global.gameObjectsToCreate.Add(tower_Arrow);
+                Global.activeScene.sceneData.gameObjectsToAdd.Add(tower_Arrow);
                 spawnProjectileTimer = 0;
             }
         }
@@ -88,7 +88,7 @@ namespace MordSem1OOP
             // Clear the list
             enemiesInRadius.Clear();
 
-            foreach (Enemy enemy in Global.enemies)
+            foreach (Enemy enemy in Global.activeScene.sceneData.enemies)
             {
                 if (Vector2.Distance(this.Position, enemy.Position) <= this.Radius)
                 {
