@@ -37,7 +37,7 @@ namespace MordSem1OOP
         /// Main constructor for the enemy
         /// </summary>
         /// <param name="enemyType"></param>
-        public Enemy(EnemyType enemyType, Vector2 position, ContentManager content)
+        public Enemy(EnemyType enemyType, Vector2 position)
         {
             //This is to be replaced by a direction towards a waypoint
             direction = new Vector2(1, 0);
@@ -74,7 +74,7 @@ namespace MordSem1OOP
 
 
             //Assign sprites
-            Sprite = new Scripts.Sprite(content, enemyName);
+            Sprite = new Scripts.Sprite(enemyName);
 
             Position = position;
             Scale = 1;

@@ -12,7 +12,7 @@ namespace MordSem1OOP.Scripts.Entity
 {
     public class FollowPathEnemy : Enemy
     {
-        public FollowPathEnemy(EnemyType enemyType, Vector2 position, ContentManager content) : base(enemyType, position, content)
+        public FollowPathEnemy(EnemyType enemyType, Vector2 position) : base(enemyType, position)
         {
         }
 

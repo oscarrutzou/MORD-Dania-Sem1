@@ -35,9 +35,9 @@ namespace MordSem1OOP.Scripts
             _texture = texture;
         }
 
-        public Sprite(ContentManager content, string texture)
+        public Sprite(string texture)
         {
-            LoadContent(content, texture);
+            LoadContent(texture);
         }
 
         #region Methods
@@ -51,9 +51,9 @@ namespace MordSem1OOP.Scripts
         /// </summary>
         /// <param name="content"></param>
         /// <param name="texture"></param>
-        public void LoadContent(ContentManager content, string texture)
+        public void LoadContent(string texture)
         {
-            _texture = content.Load<Texture2D>(texture);
+            _texture = Global.gameWorld.Content.Load<Texture2D>(texture);
             SetOriginCenter();
         }
 

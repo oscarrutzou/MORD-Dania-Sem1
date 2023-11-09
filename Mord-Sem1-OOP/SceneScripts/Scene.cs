@@ -40,7 +40,8 @@ namespace MordSem1OOP.SceneScripts
             tempSceneData.gameObjects.AddRange(tempSceneData.towers.Where(tower => !tower.IsRemoved));
             tempSceneData.gameObjects.AddRange(tempSceneData.enemies.Where(enemy => !enemy.IsRemoved));
             // Need to cast the gameobject IProjectile interface to a gameobject to be able to see if its should be removed from the list 
-            tempSceneData.gameObjects.AddRange((IEnumerable<GameObject>)tempSceneData.projectiles.Where(projectile => !(projectile as GameObject).IsRemoved));
+
+            tempSceneData.gameObjects.AddRange(tempSceneData.projectiles.Where(projectile => !projectile.IsRemoved));
 
             // All GameObjects to be added, are added to the active scene.
             foreach (GameObject gameObject in tempSceneData.gameObjectsToAdd)
@@ -53,7 +54,7 @@ namespace MordSem1OOP.SceneScripts
                 {
                     tempSceneData.enemies.Add(enemy);
                 }
-                else if (gameObject is IProjectile projectile)
+                else if (gameObject is Projectile projectile)
                 {
                     tempSceneData.projectiles.Add(projectile);
                 }

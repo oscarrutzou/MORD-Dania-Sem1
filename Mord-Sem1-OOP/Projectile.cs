@@ -7,8 +7,13 @@ using System.Reflection.Metadata;
 
 namespace MordSem1OOP
 {
+    public enum ProjectileTypes
+    {
+        Arrow,
+        Missile
+    }
 
-    public class Tower_Arrow : GameObject, IProjectile
+    public class Projectile : GameObject
     {
         public int Damage { get; set; }
         public ProjectileTypes Type { get; set; }
@@ -22,7 +27,8 @@ namespace MordSem1OOP
         /// <param name="enemyTarget">The target the arrow should hit</param>
         /// <param name="content">This is for calling the GameObject contructer that sets the sprite</param>
         /// <param name="texture">This is for calling the GameObject contructer that sets the sprite</param>
-        public Tower_Arrow(Vector2 position, float scale, GameObject enemyTarget, int damage, int speed, ContentManager content, string texture) : base(content, texture)
+        public Projectile(Vector2 position, float scale, GameObject enemyTarget, int damage, int speed, string texture) 
+                : base(texture)
         {
             Position = position;
             Scale = scale;

@@ -22,7 +22,7 @@ namespace MordSem1OOP
         private float spawnProjectileTimer;
         private bool canSpawnProjectiles;
 
-        private Tower_Arrow tower_Arrow;
+        private Projectile tower_Arrow;
         private ContentManager content;
 
         public List<GameObject> enemiesInRadius {  get; private set; }
@@ -32,12 +32,11 @@ namespace MordSem1OOP
         public int ProjectileDmg { get => projectileDmg; set => projectileDmg = value; }
         public bool CanSpawnProjectiles { get => canSpawnProjectiles; set => canSpawnProjectiles = value; }
 
-        public Tower(Vector2 position, float scale, float radius, ContentManager content, string texture) : base(content, texture)
+        public Tower(Vector2 position, float scale, float radius, string texture) : base(texture)
         {
             Position = position;
             Scale = scale;
             Radius = radius;
-            this.content = content;
             
             //Variables that the projectile need to get spawned
             ProjectileDmg = 10;
@@ -69,13 +68,12 @@ namespace MordSem1OOP
 
             if(spawnProjectileTimer >= 1)
             {
-                tower_Arrow = new Tower_Arrow(
+                tower_Arrow = new Projectile(
                     Position,
                     Scale,
                     Target,
                     ProjectileDmg,
                     ProjectileSpeed,
-                    content,
                     "Placeholder\\Lasers\\laserBlue04");
 
                 Global.activeScene.sceneData.gameObjectsToAdd.Add(tower_Arrow);
