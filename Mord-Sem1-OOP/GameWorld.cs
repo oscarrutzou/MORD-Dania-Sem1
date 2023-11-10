@@ -17,14 +17,15 @@ namespace MordSem1OOP
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            counter = new AnimatedCounter();
         }
 
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            counter = new AnimatedCounter(AnimatedCounter.numberPillar, new Vector2(100, 100));
+
+            AnimatedCounter.numberPillarSprite = Content.Load<Texture2D>("OOP-Counter-MedTal2");
+            counter = new AnimatedCounter(new Vector2(100, 100));
 
 
             base.Initialize();
