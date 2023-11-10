@@ -60,7 +60,7 @@ namespace MordSem1OOP
         #endregion
 
         #region Methods
-        
+
 
         /// <summary>
         /// Update is called every frame
@@ -85,7 +85,6 @@ namespace MordSem1OOP
         {
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             Position += direction * Speed * deltaTime;
-
         }
 
         /// <summary>
@@ -118,16 +117,19 @@ namespace MordSem1OOP
             float distanceToDestination = Vector2.Distance(Position, destination);
             float distanceToNewPosition = Vector2.Distance(Position, newPosition);
 
+            //Setting the position
             if (distanceToNewPosition >= distanceToDestination)
             {
                 Position = destination;
                 distanceTravelled = distanceToDestination;
                 return true;
             }
-
-            Position += direction * Speed * deltaTime;
-            distanceTravelled = distanceToNewPosition;
-            return false;
+            else
+            {
+                Position = newPosition;
+                distanceTravelled = distanceToNewPosition;
+                return false;
+            }
         }
 
         public virtual void OnCollision() { }
