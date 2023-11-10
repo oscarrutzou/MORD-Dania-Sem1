@@ -44,6 +44,7 @@ namespace MordSem1OOP
 
         protected override void Initialize()
         {
+            ChangeScreenSize();
             camera = new Camera(_graphics);
             activeScene = 3;
             Global.activeScene = scenes[activeScene]; //Very important since this sets what scene data that the code should use
@@ -143,6 +144,15 @@ namespace MordSem1OOP
 
             //Set all sprite textures somehow?
         }
+
+        private void ChangeScreenSize()
+        {
+            _graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
+            _graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
+            _graphics.IsFullScreen = true;
+            _graphics.ApplyChanges();
+        }
+
         #endregion
     }
 }

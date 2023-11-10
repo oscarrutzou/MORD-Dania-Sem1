@@ -24,6 +24,8 @@ namespace MordSem1OOP
         private int maxProjectileCanTravel;
         private Projectile tower_Arrow;
 
+        private float towerLevelMultiplier = 1;
+
         public List<Enemy> enemiesInRadius {  get; private set; }
 
         public float Radius { get; set; }
