@@ -52,6 +52,8 @@ namespace MordSem1OOP
 
         }
 
+        public Tower(float scale, float radius, string texture) : this(Vector2.Zero, scale, radius, texture) { }
+
         public override void Update(GameTime gameTime)
         {
             CheckEnemiesInRadius();
