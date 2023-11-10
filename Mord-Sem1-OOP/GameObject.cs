@@ -109,7 +109,7 @@ namespace MordSem1OOP
             direction.Normalize();
 
             // Calculate rotation towards target
-            RotateTowards(destination);
+            RotateTowardsWithOffset(destination);
 
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -134,15 +134,27 @@ namespace MordSem1OOP
 
 
         /// <summary>
-        /// Makes this GameObject look at a point in space
+        /// Makes this GameObject look at a point in space, with the offset so the sprite should be pointing up
         /// </summary>
         /// <param name="target">The point to look at</param>
-        public void RotateTowards(Vector2 target)
+        public void RotateTowardsWithOffset(Vector2 target)
         {
             if (Position == target) return;
 
             Vector2 dir = target - Position;
             Rotation = (float)Math.Atan2(-dir.Y, -dir.X) + MathHelper.PiOver2;
+        }
+
+        /// <summary>
+        /// Makes this GameObject look at a point in space, with the offset so the sprite should be pointing right
+        /// </summary>
+        /// <param name="target">The point to look at</param>
+        public void RotateTowardsWithoutOffSet(Vector2 target)
+        {
+            if (Position == target) return;
+
+            Vector2 dir = target - Position;
+            Rotation = (float)Math.Atan2(dir.Y, dir.X);
         }
 
         #endregion

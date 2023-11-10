@@ -49,25 +49,25 @@ namespace MordSem1OOP
             {
                 case EnemyType.Normal:
                     Speed = 50;
-                    Health = 10;
+                    Health = 100;
                     enemyName = "Placeholder\\Enemies\\enemyBlack1";
                     break;
 
                 case EnemyType.Fast:
                     Speed = 100;
-                    Health = 5;
+                    Health = 50;
                     enemyName = "Placeholder\\Enemies\\enemyBlue1";
                     break;
 
                 case EnemyType.Strong:
                     Speed = 30;
-                    Health = 20;
+                    Health = 200;
                     enemyName = "Placeholder\\Enemies\\enemyGreen1";
                     break;
 
                 default:
                     Speed = 50;
-                    Health = 10;
+                    Health = 100;
                     enemyName = "Placeholder\\Enemies\\enemyRed1";
                     break;
             }
@@ -87,6 +87,22 @@ namespace MordSem1OOP
 
             Move(gameTime);
             //TODO: Set target to be the next waypoint
+        }
+
+        /// <summary>
+        /// Called on OnCollision on objects that can damage the enemy
+        /// </summary>
+        /// <param name="damage"></param>
+        public void Damaged(int damage)
+        {
+            Health -= damage;
+
+            //Enemy is dead
+            if (Health <= 0)
+            {
+                IsRemoved = true;
+                //Add money
+            }
         }
 
         public void SetDestination(Waypoint waypoint)
