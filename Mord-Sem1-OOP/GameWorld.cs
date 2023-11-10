@@ -25,7 +25,7 @@ namespace MordSem1OOP
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             AnimatedCounter.numberPillarSprite = Content.Load<Texture2D>("OOP-Counter-MedTal2");
-            counter = new AnimatedCounter(new Vector2(100, 100));
+            counter = new AnimatedCounter(new Vector2(0, 0));
 
 
             base.Initialize();
