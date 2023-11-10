@@ -22,7 +22,7 @@ namespace MordSem1OOP.Scripts
         /// <summary>
         /// Dimension of the grid
         /// </summary>
-        private Rectangle Dimension
+        public Rectangle Dimension
         {
             get
             {
@@ -33,6 +33,11 @@ namespace MordSem1OOP.Scripts
                     _rowCount * (int)_tileSize);
             }
         }
+        
+        public Vector2 Position { get { return _position; } }
+        public int ColumnCount { get { return _columnCount; } }
+        public int RowCount { get { return _rowCount; } }
+        public float TileSize { get { return _tileSize; } }
 
         /// <summary>
         /// Initialize a grid with a position, tile size, column and row counts of tiles.
@@ -57,7 +62,7 @@ namespace MordSem1OOP.Scripts
         {
             tile = null;
 
-            Vector2Int gridPosition = GetTilePosition(point);
+            Vector2Int gridPosition = GetTileGridPosition(point);
 
             if (gridPosition.X < 0 || gridPosition.X >= _columnCount)
                 return false;
@@ -113,12 +118,21 @@ namespace MordSem1OOP.Scripts
         /// Gets the tile position of point. Note that the tile position can be out of bounds.
         /// </summary>
         /// <returns>Column and row position</returns>
-        public Vector2Int GetTilePosition(Vector2 point)
+        public Vector2Int GetTileGridPosition(Vector2 point)
         {
             point += _position;
             point /= _tileSize;
 
             return new Vector2Int((int)MathF.Floor(point.X), (int)MathF.Floor(point.Y));
+        }
+
+        public Vector2 GetTileWorldPosition(Vector2Int gridPosition)
+        {
+            Vector2 worldPosition = Vector2.Zero;
+            worldPosition.X = gridPosition.X * TileSize + TileSize / 2 + _position.X;
+            worldPosition.Y = gridPosition.Y * TileSize + TileSize / 2 + _position.Y;
+
+            return worldPosition;
         }
 
         /// <summary>
@@ -129,6 +143,65 @@ namespace MordSem1OOP.Scripts
         {
             if (!IsTilePositionInsideGrid(gridPosition))
                 return false;
+
+            _tiles[gridPosition.X, gridPosition.Y] = tile;
+            return true;
+        }
+
+        public bool Insert(Tower tower, int x, int y)
+        {
+            return Insert(tower, new Vector2Int(x, y), out _);
+        }
+
+        public bool Insert(Tower tower, int x, int y, out Tile tile)
+        {
+            return Insert(tower, new Vector2Int(x, y), out tile);
+        }
+
+        public bool Insert(Tower tower, Vector2Int gridPosition)
+        {
+            return Insert(tower, gridPosition, out _);
+        }
+
+        public bool Insert(Tower tower, Vector2Int gridPosition, out Tile tile)
+        {
+            tile = null;
+
+            if (!IsTilePositionInsideGrid(gridPosition))
+                return false;
+
+            Vector2 worldPosition = GetTileWorldPosition(gridPosition);
+            tile = new EntityTile(tower, gridPosition, worldPosition);
+            tower.Position = worldPosition;
+
+            _tiles[gridPosition.X, gridPosition.Y] = tile;
+            return true;
+        }
+
+        public bool Insert(EnviromentTile.TileType enviromentTile, int x, int y)
+        {
+            return Insert(enviromentTile, new Vector2Int(x, y), out _);
+        }
+
+        public bool Insert(EnviromentTile.TileType enviromentTile, int x, int y, out Tile tile)
+        {
+            return Insert(enviromentTile, new Vector2Int(x, y), out tile);
+        }
+
+        public bool Insert(EnviromentTile.TileType enviromentTile, Vector2Int gridPosition)
+        {
+            return Insert(enviromentTile, gridPosition, out _);
+        }
+
+        public bool Insert(EnviromentTile.TileType enviromentTile, Vector2Int gridPosition, out Tile tile)
+        {
+            tile = null;
+
+            if (!IsTilePositionInsideGrid(gridPosition))
+                return false;
+
+            Vector2 worldPosition = GetTileWorldPosition(gridPosition);
+            tile = new EnviromentTile(enviromentTile, gridPosition, worldPosition);
 
             _tiles[gridPosition.X, gridPosition.Y] = tile;
             return true;
