@@ -57,6 +57,11 @@ namespace MordSem1OOP
             Sprite = new Sprite(texture);
         }
 
+        protected GameObject(Texture2D texture)
+        {
+            Sprite = new Sprite(texture);
+        }
+
         #endregion
 
         #region Methods

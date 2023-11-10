@@ -10,10 +10,11 @@ namespace MordSem1OOP
 {
     public class Arrow_Projectile : Projectile
     {
-    
-        public Arrow_Projectile(Tower tower, Vector2 position, string texture) : base(tower, position, texture)
+
+        public Arrow_Projectile(Tower tower, Vector2 position, Texture2D texture) : base(tower, position, texture)
         {
             
+
         }
 
         public override void Update(GameTime gameTime)

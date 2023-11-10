@@ -44,37 +44,37 @@ namespace MordSem1OOP
 
 
             this.enemyType = enemyType;
-            string enemyName;
+            Texture2D enemyName;
             switch (enemyType)
             {
                 case EnemyType.Normal:
                     Speed = 50;
                     Health = 100;
-                    enemyName = "Placeholder\\Enemies\\enemyBlack1";
+                    enemyName = GlobalTextures.Textures[TextureNames.Enemy_Black1];
                     break;
 
                 case EnemyType.Fast:
                     Speed = 100;
                     Health = 50;
-                    enemyName = "Placeholder\\Enemies\\enemyBlue1";
+                    enemyName = GlobalTextures.Textures[TextureNames.Enemy_Green1];
                     break;
 
                 case EnemyType.Strong:
                     Speed = 30;
                     Health = 200;
-                    enemyName = "Placeholder\\Enemies\\enemyGreen1";
+                    enemyName = GlobalTextures.Textures[TextureNames.Enemy_Red1];
                     break;
 
                 default:
                     Speed = 50;
                     Health = 100;
-                    enemyName = "Placeholder\\Enemies\\enemyRed1";
+                    enemyName = GlobalTextures.Textures[TextureNames.Enemy_Black1];
                     break;
             }
 
 
             //Assign sprites
-            Sprite = new Scripts.Sprite(enemyName);
+            Sprite = new Sprite(enemyName);
 
             Position = position;
             Scale = 1;

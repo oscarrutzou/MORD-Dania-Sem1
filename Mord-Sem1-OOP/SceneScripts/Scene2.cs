@@ -25,8 +25,8 @@ namespace MordSem1OOP.SceneScripts
             Enemy enemy2 = new Enemy(EnemyType.Fast, new Vector2(30, 100));
             tempSceneData.gameObjectsToAdd.Add(enemy2);
 
-            Tower acherTower = new Tower(new Vector2(300, 200), 1f, 300f, "Placeholder\\Parts\\beam6");
-            tempSceneData.gameObjectsToAdd.Add(acherTower);
+            Tower acherTower = new Tower(new Vector2(300, 200), 1f, 300f, GlobalTextures.Textures[TextureNames.Tower_Arrow]);
+            tempSceneData.gameObjectsToAdd.Add(acherTower); 
         }
 
         public override void Update(GameTime gameTime)
