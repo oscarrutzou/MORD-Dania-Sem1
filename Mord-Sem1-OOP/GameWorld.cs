@@ -14,7 +14,7 @@ namespace MordSem1OOP
     {
         protected static GraphicsDeviceManager _graphics;
         public static SpriteBatch _spriteBatch;
-        private static Scene[] scenes = new Scene[7];
+        private static Scene[] scenes = new Scene[8];
         public int activeScene; //Used to call the methods in the current scene
 
         private Camera camera;
@@ -33,7 +33,8 @@ namespace MordSem1OOP
             scenes[4] = new Scene3(Content); //Gaming's scene
             scenes[5] = new Scene4(Content); //David's scene
             scenes[6] = new Scene5(Content); //Jacob's scene
-            
+            scenes[7] = new TileGridTest(Content);
+
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
