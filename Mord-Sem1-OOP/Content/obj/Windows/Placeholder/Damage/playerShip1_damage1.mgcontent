@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/miclu/Code/MonoGame/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Damage/playerShip1_damage1.png</SourceFile>
-  <SourceTime>2023-10-31T09:49:48.690643+01:00</SourceTime>
-  <DestFile>C:/Users/miclu/Code/MonoGame/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/bin/Windows/Placeholder/Damage/playerShip1_damage1.xnb</DestFile>
-  <DestTime>2023-11-07T09:55:54.487194+01:00</DestTime>
+  <SourceFile>D:/Programmer/Github/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/Damage/playerShip1_damage1.png</SourceFile>
+  <SourceTime>2023-11-07T10:17:39.9735516+01:00</SourceTime>
+  <DestFile>D:/Programmer/Github/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/bin/Windows/Placeholder/Damage/playerShip1_damage1.xnb</DestFile>
+  <DestTime>2023-11-07T11:55:08.9182432+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
