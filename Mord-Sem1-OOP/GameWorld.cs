@@ -58,7 +58,7 @@ namespace MordSem1OOP
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             //Send all content textures to a hashset of textures contained in the Sprite class
         }
-
+        
         protected override void Update(GameTime gameTime)
         {
             InputManager.HandleInput(this, camera);
