@@ -25,6 +25,7 @@ namespace MordSem1OOP
         private Projectile tower_Arrow;
 
         public List<Enemy> enemiesInRadius {  get; private set; }
+
         public float Radius { get; set; }
         public Enemy Target { get; set; }
         public int ProjectileSpeed { get => projectileSpeed; set => projectileSpeed = value; }
@@ -69,14 +70,11 @@ namespace MordSem1OOP
 
             if(spawnProjectileTimer >= 0.2)
             {
-                tower_Arrow = new Projectile(
-                    Position,
-                    Scale,
-                    Target,
-                    ProjectileDmg,
-                    ProjectileSpeed,
-                    MaxProjectileCanTravel,
-                    "Placeholder\\Lasers\\laserBlue04");
+                tower_Arrow = new Arrow_Projectile(
+                    this,
+                    Position, //Tag raduis af tower sprite sammen med scale og placer den ved siden (Ville dog ikke være perfect)
+                              //This can be changed based on the sprite of the tower, since the projectile shouldn't spawn in the towers orgin point
+                    "Placeholder\\Lasers\\laserBlue04"); 
 
                 Global.activeScene.sceneData.gameObjectsToAdd.Add(tower_Arrow);
                 spawnProjectileTimer = 0;

@@ -10,7 +10,8 @@ namespace MordSem1OOP
     public enum ProjectileTypes
     {
         Arrow,
-        Missile
+        Missile,
+        Laser,
     }
 
     public class Projectile : GameObject
@@ -23,23 +24,24 @@ namespace MordSem1OOP
         public Enemy Target { get; set; }
 
         /// <summary>
-        /// Makes a single arrow for the tower
+        /// Makes a single projectile for the tower
         /// </summary>
         /// <param name="position"></param>
         /// <param name="scale"></param>
         /// <param name="enemyTarget">The target the arrow should hit</param>
         /// <param name="content">This is for calling the GameObject contructer that sets the sprite</param>
         /// <param name="texture">This is for calling the GameObject contructer that sets the sprite</param>
-        public Projectile(Vector2 position, float scale, Enemy enemyTarget, int damage, int speed, int maxProjectileCanTravel, string texture) 
-                : base(texture)
+        public Projectile(Tower tower, Vector2 position, string texture) 
+                        : base(texture)
         {
-            Position = position;
-            Scale = scale;
-            Target = enemyTarget;
+            Damage = tower.ProjectileDmg;
 
-            Damage = damage;
-            Speed = speed;
-            MaxProjectileCanTravel = maxProjectileCanTravel;
+            Position = position;
+            Scale = tower.Scale;
+            Target = tower.Target;
+
+            Speed = tower.ProjectileSpeed;
+            MaxProjectileCanTravel = tower.MaxProjectileCanTravel;
             Type = ProjectileTypes.Arrow;
         }
 
@@ -80,10 +82,8 @@ namespace MordSem1OOP
         {
             if (Target != null && !Target.IsRemoved && Collision.IsCollidingBox(this, Target))
             {
-                //Delete this object
-                IsRemoved = true;
-                Target.Damaged(Damage);
-                //Target.IsRemoved = true;
+                IsRemoved = true; //Delete this object
+                Target.Damaged(Damage); //Damage target enemy with the damage amount from the tower
             }
         }
 
