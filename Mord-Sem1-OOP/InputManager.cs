@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection.Metadata;
+using System.Security.Cryptography.X509Certificates;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -18,6 +19,9 @@ namespace MordSem1OOP
         {
             keyboardState = Keyboard.GetState();
             mouseState = Mouse.GetState();
+
+            //Sets the mouse position
+            mousePosition = GetMousePositionInWorld();
 
             // Handle camera movement based on keyboard input //-- look at
             Vector2 moveDirection = Vector2.Zero;
@@ -48,11 +52,24 @@ namespace MordSem1OOP
 
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
+
                 // The left mouse button is pressed
                 // You can get the position of the mouse click like this:
-                mousePosition = new Vector2(mouseState.X, mouseState.Y);
+                
             }
         }
+
+        /// <summary>
+        /// Translates the mouse's position into world space coordinates.
+        /// </summary>
+        /// <returns></returns>
+        private static Vector2 GetMousePositionInWorld()
+        {
+            Vector2 pos = new Vector2(mouseState.X, mouseState.Y);
+            Matrix invMatrix = Matrix.Invert(Global.gameWorld.Camera.GetMatrix());
+
+            return Vector2.Transform(pos, invMatrix);
+        } 
 
     }
 }

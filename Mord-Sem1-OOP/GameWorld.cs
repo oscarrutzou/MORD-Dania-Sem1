@@ -18,6 +18,7 @@ namespace MordSem1OOP
         public int activeScene; //Used to call the methods in the current scene
 
         private Camera camera;
+        public Camera Camera { get => camera; }
 
         public Path path;
         public Waypoint currWaypoint;
