@@ -31,8 +31,7 @@ namespace MordSem1OOP
         /// <param name="enemyTarget">The target the arrow should hit</param>
         /// <param name="content">This is for calling the GameObject contructer that sets the sprite</param>
         /// <param name="texture">This is for calling the GameObject contructer that sets the sprite</param>
-        public Projectile(Tower tower, Vector2 position, string texture) 
-                        : base(texture)
+        public Projectile(Tower tower, Vector2 position, string texture) : base(texture)
         {
             Damage = tower.ProjectileDmg;
 

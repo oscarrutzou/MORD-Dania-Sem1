@@ -70,7 +70,7 @@ namespace MordSem1OOP
 
             if(spawnProjectileTimer >= 0.2)
             {
-                tower_Arrow = new Arrow_Projectile(
+                tower_Arrow = new Arrow(
                     this,
                     Position, //Tag raduis af tower sprite sammen med scale og placer den ved siden (Ville dog ikke være perfect)
                               //This can be changed based on the sprite of the tower, since the projectile shouldn't spawn in the towers orgin point

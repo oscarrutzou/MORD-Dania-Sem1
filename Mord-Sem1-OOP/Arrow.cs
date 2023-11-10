@@ -8,10 +8,10 @@ using System.Reflection.Metadata;
 
 namespace MordSem1OOP
 {
-    public class Arrow_Projectile : Projectile
+    public class Arrow : Projectile
     {
     
-        public Arrow_Projectile(Tower tower, Vector2 position, string texture) : base(tower, position, texture)
+        public Arrow(Tower tower, Vector2 position, string texture) : base(tower, position, texture)
         {
             
         }
