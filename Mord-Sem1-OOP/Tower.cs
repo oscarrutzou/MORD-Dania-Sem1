@@ -20,11 +20,25 @@ namespace MordSem1OOP
         private int projectileDmg;
         private int projectileSpeed;
         private float spawnProjectileTimer;
+
+        /// <summary>
+        /// This float determens how long the tower should take before shooting again
+        /// </summary>
+        private float projectileTimer;
+
         private bool canSpawnProjectiles;
+
+        /// <summary>
+        /// How long before the projectile deletes itself
+        /// </summary>
         private int maxProjectileCanTravel;
+
         private Projectile tower_Arrow;
 
-        private float towerLevelMultiplier = 1;
+        private int towerLevel = 1;
+        private int towerMaxLevel = 5;
+        private float towerLevelMultiplier = 1f;
+        private float levelIncrementalMultiplier = 0.2f;
 
         public List<Enemy> enemiesInRadius {  get; private set; }
 
@@ -35,16 +49,17 @@ namespace MordSem1OOP
         public bool CanSpawnProjectiles { get => canSpawnProjectiles; set => canSpawnProjectiles = value; }
         public int MaxProjectileCanTravel { get => maxProjectileCanTravel; set => maxProjectileCanTravel = value; }
 
-        public Tower(Vector2 position, float scale, float radius, string texture) : base(texture)
+        public Tower(Vector2 position, float scale, float radius, Texture2D texture) : base(texture)
         {
             Position = position;
             Scale = scale;
             Radius = radius;
             
             //Variables that the projectile need to get spawned
-            ProjectileDmg = 20;
-            ProjectileSpeed = 300;
+            ProjectileDmg = 10;
+            ProjectileSpeed = 100;
             MaxProjectileCanTravel = 500;
+            projectileTimer = 0.5f;
 
             tower_Types = Tower_Types.Acher;
             canSpawnProjectiles = true;
@@ -72,18 +87,20 @@ namespace MordSem1OOP
 
             if (!canSpawnProjectiles) return;
 
-            if(spawnProjectileTimer >= 0.2)
+            if(spawnProjectileTimer >= projectileTimer)
             {
                 tower_Arrow = new Arrow(
                     this,
                     Position, //Tag raduis af tower sprite sammen med scale og placer den ved siden (Ville dog ikke være perfect)
                               //This can be changed based on the sprite of the tower, since the projectile shouldn't spawn in the towers orgin point
-                    "Placeholder\\Lasers\\laserBlue04"); 
+                    GlobalTextures.Textures[TextureNames.Projectile_Arrow]); 
 
                 Global.activeScene.sceneData.gameObjectsToAdd.Add(tower_Arrow);
                 spawnProjectileTimer = 0;
             }
         }
+
+
 
         private void CheckEnemiesInRadius()
         {
@@ -107,6 +124,17 @@ namespace MordSem1OOP
             if (enemiesInRadius == null) return;
 
             Target = enemiesInRadius.OrderByDescending(enemy => ((Enemy)enemy).DistanceTraveled).FirstOrDefault();
+        }
+
+        public void LevelUpTower()
+        {
+            if (towerLevel <= towerMaxLevel)
+            {
+                towerLevel++;
+                towerLevelMultiplier *= (1 + levelIncrementalMultiplier);
+                ProjectileDmg *= (int)towerLevelMultiplier;
+                ProjectileSpeed *= (int)towerLevelMultiplier;
+            }
         }
 
         public override void Draw(SpriteBatch spriteBatch)

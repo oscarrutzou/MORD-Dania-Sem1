@@ -14,6 +14,7 @@ namespace MordSem1OOP
         public Arrow(Tower tower, Vector2 position, string texture) : base(tower, position, texture)
         {
             
+
         }
 
         public override void Update(GameTime gameTime)

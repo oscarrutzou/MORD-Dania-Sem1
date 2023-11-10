@@ -33,6 +33,7 @@ namespace MordSem1OOP.Scripts
         public Sprite(Texture2D texture)
         {
             _texture = texture;
+            SetOriginCenter();
         }
 
         public Sprite(string texture)

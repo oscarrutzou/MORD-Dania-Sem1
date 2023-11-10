@@ -45,11 +45,12 @@ namespace MordSem1OOP
 
         protected override void Initialize()
         {
-            ChangeScreenSize();
+            //ChangeScreenSize();
             camera = new Camera(_graphics);
             activeScene = 3;
             Global.activeScene = scenes[activeScene]; //Very important since this sets what scene data that the code should use
-            
+            GlobalTextures.LoadContent(Content);
+
             scenes[activeScene].Initialize();
 
             base.Initialize();

@@ -55,7 +55,12 @@ namespace MordSem1OOP
 
                 // The left mouse button is pressed
                 // You can get the position of the mouse click like this:
-                
+                if (Global.activeScene.sceneData.towers == null) return;
+
+                foreach (Tower tower in Global.activeScene.sceneData.towers)
+                {
+                    tower.LevelUpTower();
+                }
             }
         }
 
