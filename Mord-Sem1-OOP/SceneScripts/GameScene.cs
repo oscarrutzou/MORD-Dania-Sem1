@@ -24,9 +24,9 @@ namespace MordSem1OOP.SceneScripts
 
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void Draw()
         {
-            base.Draw(spriteBatch); //Draws all elements in the GameObject list
+            base.Draw(); //Draws all elements in the GameObject list
         }
     }
 }

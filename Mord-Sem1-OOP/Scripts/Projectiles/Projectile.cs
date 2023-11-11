@@ -69,11 +69,11 @@ namespace MordSem1OOP
         }
 
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void Draw()
         {
-            base.Draw(spriteBatch);
-            Primitives2D.DrawLine(spriteBatch, Position, Target.Position, Color.Red, 1); //Draws the debug line from current position to the target position
-            Primitives2D.DrawRectangle(spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation); //Draws the collision box
+            base.Draw();
+            Primitives2D.DrawLine(GameWorld._spriteBatch, Position, Target.Position, Color.Red, 1); //Draws the debug line from current position to the target position
+            Primitives2D.DrawRectangle(GameWorld._spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation); //Draws the collision box
         }
 
     }

@@ -63,13 +63,13 @@ namespace MordSem1OOP
         }
 
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void Draw()
         {
-            base.Draw(spriteBatch);
+            base.Draw();
 
             Sprite radiusRing = new Sprite(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing]);
 
-            spriteBatch.Draw(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing],
+            GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing],
                              Position,
                              null,
                              Color.Red,

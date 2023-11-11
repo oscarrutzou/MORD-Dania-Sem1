@@ -16,11 +16,11 @@ namespace MordSem1OOP.Scripts.Entity
         {
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void Draw()
         {
-            base.Draw(spriteBatch);
+            base.Draw();
             if (_waypoint is not null)
-                Primitives2D.DrawLine(spriteBatch, Position, _waypoint.Position, Color.Red, 1);
+                Primitives2D.DrawLine(GameWorld._spriteBatch, Position, _waypoint.Position, Color.Red, 1);
         }
 
         public override void Update(GameTime gameTime)

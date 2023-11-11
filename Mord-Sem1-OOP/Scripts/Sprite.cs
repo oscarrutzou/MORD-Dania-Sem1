@@ -42,9 +42,9 @@ namespace MordSem1OOP.Scripts
         }
 
         #region Methods
-        public void Draw(SpriteBatch spriteBatch, Vector2 position, float rotation, float scale)
+        public void Draw(Vector2 position, float rotation, float scale)
         {
-            spriteBatch.Draw(_texture, position, null, _color, rotation, _origin, scale, SpriteEffects.None, 0);
+            GameWorld._spriteBatch.Draw(_texture, position, null, _color, rotation, _origin, scale, SpriteEffects.None, 0);
         }
 
         /// <summary>

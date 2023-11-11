@@ -175,9 +175,9 @@ namespace MordSem1OOP
             }
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void Draw()
         {
-            base.Draw(spriteBatch);
+            base.Draw();
 
             //Maybe use the Sprite script?
             //Texture2D circleTexture = CreateCircleTexture(spriteBatch.GraphicsDevice, (int)Radius);
@@ -187,12 +187,12 @@ namespace MordSem1OOP
 
             Vector2 drawPosition = Position - radiusRing.Origin;
 
-            spriteBatch.Draw(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing], drawPosition, Color.Red);
+            GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing], drawPosition, Color.Red);
 
-            Primitives2D.DrawRectangle(spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation); //Draws the collision box
+            Primitives2D.DrawRectangle(GameWorld._spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation); //Draws the collision box
 
-            //spriteBatch.DrawString(arialFont, SpawnProjectileTimer.ToString(), new Vector2(0, 0), Color.Black);
-            spriteBatch.DrawString(arialFont, towerData.towerKills.ToString(), new Vector2(0, 0), Color.Black);
+            GameWorld._spriteBatch.DrawString(arialFont, SpawnProjectileTimer.ToString(), new Vector2(10, 10), Color.Black);
+            GameWorld._spriteBatch.DrawString(arialFont, towerData.towerKills.ToString(), new Vector2(0, 0), Color.Black);
 
         }
     }

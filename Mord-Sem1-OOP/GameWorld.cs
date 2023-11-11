@@ -60,6 +60,7 @@ namespace MordSem1OOP
 
             scenes[activeScene].Update(gameTime);
             base.Update(gameTime);
+
         }
 
         protected override void Draw(GameTime gameTime)
@@ -67,7 +68,7 @@ namespace MordSem1OOP
             GraphicsDevice.Clear(Color.Beige);
 
             _spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, transformMatrix: camera.GetMatrix(), samplerState: SamplerState.PointClamp);
-            scenes[activeScene].Draw(_spriteBatch);
+            scenes[activeScene].Draw();
             _spriteBatch.End();
 
             base.Draw(gameTime);

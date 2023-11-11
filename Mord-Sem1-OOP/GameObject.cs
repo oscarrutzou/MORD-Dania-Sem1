@@ -80,9 +80,9 @@ namespace MordSem1OOP
         /// Draws the sprite (with ISprite) to the screen, using the Position, Rotation, Scale and origin point.
         /// </summary>
         /// <param name="spriteBatch">Contains the required draw method</param>
-        public virtual void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw()
         {
-            Sprite.Draw(spriteBatch, Position, Rotation, Scale);
+            Sprite.Draw(Position, Rotation, Scale);
         }
 
         /// <summary>

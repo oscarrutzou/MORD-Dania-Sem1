@@ -58,10 +58,10 @@ namespace MordSem1OOP.SceneScripts
         /// Calls Draw on every GameObject in the scene
         /// </summary>
         /// <param name="spriteBatch"></param>
-        public virtual void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw()
         {
             foreach (GameObject gameObject in Global.activeScene.sceneData.gameObjects)
-                gameObject.Draw(spriteBatch);
+                gameObject.Draw();
         }
 
 

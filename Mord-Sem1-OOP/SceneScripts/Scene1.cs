@@ -52,11 +52,11 @@ namespace MordSem1OOP.SceneScripts
             base.Update(gameTime); //Handles the GameObject list
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void Draw()
         {
-            _path.Draw(spriteBatch);
-            DebugInfo.DrawAllInfo(spriteBatch, Vector2.One * 10, 16, Global.gameWorld.Content.Load<SpriteFont>("Fonts/Arial"), Color.Black);
-            base.Draw(spriteBatch); //Draws all elements in the GameObject list
+            _path.Draw(GameWorld._spriteBatch);
+            DebugInfo.DrawAllInfo(GameWorld._spriteBatch, Vector2.One * 10, 16, Global.gameWorld.Content.Load<SpriteFont>("Fonts/Arial"), Color.Black);
+            base.Draw(); //Draws all elements in the GameObject list
         }
     }
 }

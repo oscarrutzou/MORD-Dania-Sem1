@@ -73,8 +73,7 @@ namespace MordSem1OOP.SceneScripts
             base.Update(gameTime); //Handles the GameObject list
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
-        {
+        public override void Draw(){
             for (int x = 0; x < _tileGrid.ColumnCount; x++)
             {
                 for (int y = 0; y < _tileGrid.RowCount; y++)
@@ -93,7 +92,7 @@ namespace MordSem1OOP.SceneScripts
                             (int)(_tileGrid.TileSize / 2)
                         );
 
-                        Primitives2D.DrawSolidRectangle(spriteBatch, tileRect, 0, color);
+                        Primitives2D.DrawSolidRectangle(GameWorld._spriteBatch, tileRect, 0, color);
                     }
                 }
             }
@@ -102,14 +101,14 @@ namespace MordSem1OOP.SceneScripts
             // Primitives2D.DrawRectangle(spriteBatch, new Rectangle(_tileGrid.Dimension.X, _tileGrid.Dimension.Y, 40, 40), 0, Color.Blue);
 
 
-            Primitives2D.DrawRectangle(spriteBatch, Vector2.Zero, _tileGrid.Dimension, Color.Red, 1, 0);
+            Primitives2D.DrawRectangle(GameWorld._spriteBatch, Vector2.Zero, _tileGrid.Dimension, Color.Red, 1, 0);
 
             for (int i = 0; i < _tileGrid.ColumnCount; i++)
             {
                 float xPos = i * _tileGrid.TileSize;
                 Vector2 top = new Vector2(xPos, _tileGrid.Dimension.Top);
                 Vector2 bottom = new Vector2(xPos, _tileGrid.Dimension.Bottom);
-                Primitives2D.DrawLine(spriteBatch, top, bottom, Color.Red, 1);
+                Primitives2D.DrawLine(GameWorld._spriteBatch, top, bottom, Color.Red, 1);
             }
 
             for (int i = 0; i < _tileGrid.RowCount; i++)
@@ -117,12 +116,12 @@ namespace MordSem1OOP.SceneScripts
                 float yPos = i * _tileGrid.TileSize;
                 Vector2 left = new Vector2(_tileGrid.Dimension.Left, yPos);
                 Vector2 right = new Vector2(_tileGrid.Dimension.Right, yPos);
-                Primitives2D.DrawLine(spriteBatch, left, right, Color.Red, 1);
+                Primitives2D.DrawLine(GameWorld._spriteBatch, left, right, Color.Red, 1);
             }
 
-            _buildGui.Draw(spriteBatch);
+            _buildGui.Draw(GameWorld._spriteBatch);
 
-            base.Draw(spriteBatch); //Draws all elements in the GameObject list
+            base.Draw(); //Draws all elements in the GameObject list
         }
     }
 }
