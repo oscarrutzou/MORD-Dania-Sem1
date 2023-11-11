@@ -47,7 +47,7 @@ namespace MordSem1OOP
         {
             //ChangeScreenSize();
             camera = new Camera(_graphics);
-            activeScene = 4;
+            activeScene = 2;
             Global.activeScene = scenes[activeScene]; //Very important since this sets what scene data that the code should use
 
             GlobalTextures.LoadContent(Content); //This must be read before scenes[].Initialize, because that line attempts to load a texture.
@@ -87,42 +87,15 @@ namespace MordSem1OOP
         /// Adds a GameObject to the list of GameObjects to be added in the next update.
         /// </summary>
         /// <param name="gameObject">The GameObject to be added</param>
-        public void Instantiate(GameObject gameObject) => Global.activeScene.sceneData.gameObjectsToAdd.Add(gameObject);
+        public static void Instantiate(GameObject gameObject) => Global.activeScene.sceneData.gameObjectsToAdd.Add(gameObject);
 
 
         /// <summary>
         /// Adds a collection of GameObjects to the list of GameObjects to be added in the next update.
         /// </summary>
         /// <param name="gameObject">The GameObject collection to be added</param>
-        public void Instantiate(GameObject[] gameObjects) => Global.activeScene.sceneData.gameObjectsToAdd.AddRange(gameObjects);
+        public static void Instantiate(GameObject[] gameObjects) => Global.activeScene.sceneData.gameObjectsToAdd.AddRange(gameObjects);
         #endregion
-
-        #region Scene management Methods
-
-        /// <summary>
-        /// Clears the list of GameObjects in a scene
-        /// </summary>
-        /// <param name="sceneNumber">The scene whose GameObjects will be removed</param>
-        //public static void ResetScene(int sceneNumber)
-        //{
-        //    foreach (GameObject gameObject in scenes[sceneNumber].gameObjects)
-        //        scenes[sceneNumber].objectsToCreate.Add(gameObject);
-        //}
-
-        /// <summary>
-        /// Unloads all assets and loads assets for every GameObject in the chosen scene
-        /// </summary>
-        /// <param name="sceneNumber">The chosen scene</param>
-        public void ChangeScene(int sceneNumber)
-        {
-            if (sceneNumber >= scenes.Length)
-                throw new ArgumentOutOfRangeException("sceneNumber", sceneNumber, "Chosen scene is out of bounds of the array");
-
-            Content.Unload();
-            activeScene = sceneNumber;
-
-            //Set all sprite textures somehow?
-        }
 
         private void ChangeScreenSize()
         {
@@ -131,7 +104,5 @@ namespace MordSem1OOP
             _graphics.IsFullScreen = true;
             _graphics.ApplyChanges();
         }
-
-        #endregion
     }
 }
