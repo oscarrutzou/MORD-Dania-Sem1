@@ -44,9 +44,8 @@ namespace MordSem1OOP.SceneScripts
 
             Tower CreateTower()
             {
-                SceneData tempSceneData = Global.activeScene.sceneData;
-                Tower acherTower = new Tower(.5f, 300f, GlobalTextures.Textures[TextureNames.Tower_Archer]);
-                tempSceneData.gameObjects.Add(acherTower);
+                Tower acherTower = new Tower(.5f, GlobalTextures.Textures[TextureNames.Tower_Archer]);
+                GameWorld.Instantiate(acherTower);
                 return acherTower;
             }
 

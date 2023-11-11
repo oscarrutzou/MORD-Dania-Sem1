@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MordSem1OOP.Scripts;
+using SharpDX.Direct2D1.Effects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,6 +51,10 @@ namespace MordSem1OOP
                 if (!enemy.IsRemoved && Vector2.Distance(this.Position, enemy.Position) <= missileLauncher.MissileRadius)
                 {
                     enemy.TakeDamage(Damage);
+
+                    if (!enemy.IsRemoved) return; //The enemy is still alive so dont add kills and money
+
+                    Tower.towerData.towerKills++;
                 }
             }
 
@@ -62,38 +67,17 @@ namespace MordSem1OOP
         {
             base.Draw(spriteBatch);
 
-            //Maybe use the Sprite script?
-            Texture2D circleTexture = CreateCircleTexture(spriteBatch.GraphicsDevice, (int)missileLauncher.MissileRadius);
-            Vector2 origin = new Vector2(circleTexture.Width / 2, circleTexture.Height / 2);
+            Sprite radiusRing = new Sprite(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing]);
 
-            spriteBatch.Draw(circleTexture, Position, null, Color.Red * 0.5f, 0, origin, 1, SpriteEffects.None, 0);
-        }
-
-
-        private Texture2D CreateCircleTexture(GraphicsDevice graphicsDevice, int radius)
-        {
-            int outerRadius = radius * 2 + 2; // So circle doesn't go out of bounds
-            Texture2D texture = new Texture2D(graphicsDevice, outerRadius, outerRadius);
-
-            Color[] data = new Color[outerRadius * outerRadius];
-
-            // Colour the entire texture transparent first.
-            for (int i = 0; i < data.Length; i++)
-                data[i] = Color.Transparent;
-
-            // Work out the minimum step necessary using trigonometry + sine approximation.
-            double angleStep = 1f / radius;
-
-            for (double angle = 0; angle < Math.PI * 2; angle += angleStep)
-            {
-                int x = (int)Math.Round(radius + radius * Math.Cos(angle));
-                int y = (int)Math.Round(radius + radius * Math.Sin(angle));
-
-                data[y * outerRadius + x + 1] = Color.White;
-            }
-
-            texture.SetData(data);
-            return texture;
+            spriteBatch.Draw(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing],
+                             Position,
+                             null,
+                             Color.Red,
+                             Rotation,
+                             radiusRing.Origin,
+                             0.5f,
+                             SpriteEffects.None,
+                             0);
         }
 
     }

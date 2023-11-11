@@ -10,12 +10,18 @@ namespace MordSem1OOP
 
     public class Projectile : GameObject
     {
-        // Track the distance traveled
+        /// <summary>
+        /// Track the distance traveled for projectiles that need to be deleted if they don't hit anything
+        /// </summary>
         private float distanceTraveled = 0;
+
         public int Damage { get; set; }
         public int MaxProjectileCanTravel { get; set; }
         public Enemy Target { get; set; }
-        protected Tower Tower { get; set; }
+        public float DistanceTraveled { get => distanceTraveled; set => distanceTraveled = value; }
+
+        public Tower Tower { get; set; }
+
         /// <summary>
         /// Makes a single projectile for the tower
         /// </summary>
@@ -26,12 +32,10 @@ namespace MordSem1OOP
         /// <param name="texture">This is for calling the GameObject contructer that sets the sprite</param>
         public Projectile(Tower tower, Texture2D texture) : base(texture)
         {
-            Damage = tower.ProjectileDmg;
-
             Tower = tower;
             Scale = tower.Scale;
             Target = tower.Target;
-            
+            Damage = tower.ProjectileDmg;
 
             Speed = tower.ProjectileSpeed;
             MaxProjectileCanTravel = tower.MaxProjectileCanTravel;
@@ -41,45 +45,9 @@ namespace MordSem1OOP
 
         public override void Update(GameTime gameTime)
         {
-            //Calculate direction towards target
-            if (Target != null && !Target.IsRemoved)
-            {
-                direction = Target.Position - Position;
-                direction.Normalize();
 
-                // Calculate rotation towards target
-                RotateTowardsWithOffset(Target.Position);
-            }
-
-            // Always move, regardless of whether there's a target
-            MoveWithFixedDistance(gameTime);
-
-            OnCollisionBox();
         }
 
-        protected void MoveWithFixedDistance(GameTime gameTime)
-        {
-            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            Position += direction * Speed * deltaTime;
-
-            // Update the distance traveled
-            distanceTraveled += Speed * deltaTime;
-
-            // Check if the projectile has traveled more than 500px
-            if (distanceTraveled > MaxProjectileCanTravel)
-            {
-                IsRemoved = true;
-            }
-        }
-
-        public override void OnCollisionBox()
-        {
-            if (Target != null && !Target.IsRemoved && Collision.IsCollidingBox(this, Target))
-            {
-                IsRemoved = true; //Delete this object
-                Target.TakeDamage(Damage); //Damage target enemy with the damage amount from the tower
-            }
-        }
 
         protected void SetCorrectProjectilePosition()
         {

@@ -38,7 +38,7 @@ namespace MordSem1OOP
         {
             //ChangeScreenSize();
             GenerateScenes();
-            activeScene = 2;
+            activeScene = 3;
             Global.activeScene = scenes[activeScene]; //Very important since this sets what scene data that the code should use
 
             camera = new Camera(_graphics);

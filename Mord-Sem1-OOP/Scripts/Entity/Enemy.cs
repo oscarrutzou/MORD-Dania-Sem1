@@ -68,6 +68,7 @@ namespace MordSem1OOP
             Sprite = new Sprite(texture);
             Position = position;
             Scale = 1;
+            direction = new Vector2(1, 0);
         }
 
         public override void Update(GameTime gameTime)

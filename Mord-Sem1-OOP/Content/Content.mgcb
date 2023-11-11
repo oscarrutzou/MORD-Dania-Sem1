@@ -3572,6 +3572,18 @@
 /processorParam:TextureFormat=Color
 /build:Placeholder/Power-ups/things_silver.png
 
+#begin Placeholder/ring.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Placeholder/ring.png
+
 #begin Placeholder/UI/buttonBlue.png
 /importer:TextureImporter
 /processor:TextureProcessor

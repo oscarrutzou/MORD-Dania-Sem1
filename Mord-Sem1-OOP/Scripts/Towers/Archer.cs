@@ -10,7 +10,7 @@ namespace MordSem1OOP.Scripts.Towers
 {
     public class Archer : Tower
     {
-        public Archer(Vector2 position, float scale, float radius, Texture2D texture) : base(position, scale, radius, texture)
+        public Archer(Vector2 position, float scale, Texture2D texture) : base(position, scale, texture)
         {
             //Variables that the projectile need to get spawned
             ProjectileDmg = 10;

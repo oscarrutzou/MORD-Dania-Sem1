@@ -44,9 +44,7 @@ namespace MordSem1OOP.Scripts.Gui
             if (tower is null)
                 return;
 
-            SceneData tempSceneData = Global.activeScene.sceneData;
-            tempSceneData.gameObjects.Add(tower);
-            tempSceneData.towers.Add(tower);
+            GameWorld.Instantiate(tower);
 
             _tileGrid.Insert(tower, gridPosition);
         }
@@ -79,7 +77,7 @@ namespace MordSem1OOP.Scripts.Gui
 
         private Tower CreateTower()
         {
-            Tower archerTower = new Tower(.5f, 300f, GlobalTextures.Textures[TextureNames.Tower_Archer]);
+            Tower archerTower = new Tower(.5f, GlobalTextures.Textures[TextureNames.Tower_Archer]);
             return archerTower;
         }
     }
