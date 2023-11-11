@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MordSem1OOP.Scripts;
-using SharpDX.DirectWrite;
+using MordSem1OOP.Scripts.Gui;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +14,13 @@ namespace MordSem1OOP.SceneScripts
     internal sealed class TileGridTest : Scene
     {
         private TileGrid _tileGrid;
+        private BuildGui _buildGui;
         public TileGridTest(ContentManager content) : base(content) { }
 
         public override void Initialize()
         {
             _tileGrid = new TileGrid(Vector2.Zero, 40, 18, 10);
+            _buildGui = new BuildGui(_tileGrid);
 
             int x = 0;
             int y = 3;
@@ -69,6 +71,7 @@ namespace MordSem1OOP.SceneScripts
 
         public override void Update(GameTime gameTime)
         {
+            _buildGui.Update();
             base.Update(gameTime); //Handles the GameObject list
         }
 
@@ -118,6 +121,8 @@ namespace MordSem1OOP.SceneScripts
                 Vector2 right = new Vector2(_tileGrid.Dimension.Right, yPos);
                 Primitives2D.DrawLine(spriteBatch, left, right, Color.Red, 1);
             }
+
+            _buildGui.Draw(spriteBatch);
 
             base.Draw(spriteBatch); //Draws all elements in the GameObject list
         }

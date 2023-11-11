@@ -110,7 +110,12 @@ namespace MordSem1OOP.Scripts
         /// <param name="gridPosition">Column and row position</param>
         public bool IsTileAvailable(Vector2 point, out Vector2Int gridPosition)
         {
-            gridPosition = new Vector2Int((int)MathF.Floor(point.X), (int)MathF.Floor(point.Y));
+            gridPosition = GetTileGridPosition(point);
+
+            if (!IsTilePositionInsideGrid(gridPosition))
+                return false;
+
+            // gridPosition = new Vector2Int((int)MathF.Floor(point.X), (int)MathF.Floor(point.Y));
             return !GetTile(gridPosition, out _);
         }
 
