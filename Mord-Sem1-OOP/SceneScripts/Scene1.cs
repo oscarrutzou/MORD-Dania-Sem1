@@ -22,7 +22,6 @@ namespace MordSem1OOP.SceneScripts
 
         public override void Initialize()
         {
-            SceneData tempSceneData = Global.activeScene.sceneData;
 
             _path = new Path(
                 new Waypoint(new Vector2(50, 50), new Vector2Int(1, 1)),
@@ -45,8 +44,7 @@ namespace MordSem1OOP.SceneScripts
             fpEnemy.AddToDebugInfo();
             DebugInfo.AddCount("waypointsReached");
 
-            tempSceneData.gameObjects.Add(fpEnemy);
-            tempSceneData.enemies.Add(fpEnemy);
+            Global.gameWorld.Instantiate(fpEnemy);
         }
 
         public override void Update(GameTime gameTime)

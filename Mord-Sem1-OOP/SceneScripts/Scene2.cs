@@ -17,16 +17,20 @@ namespace MordSem1OOP.SceneScripts
 
         public override void Initialize()
         {
-            SceneData tempSceneData = Global.activeScene.sceneData;
 
             Enemy enemy1 = new Enemy(EnemyType.Strong, new Vector2(100, 50));
-            tempSceneData.gameObjectsToAdd.Add(enemy1);
+            Global.gameWorld.Instantiate(enemy1);
 
             Enemy enemy2 = new Enemy(EnemyType.Fast, new Vector2(30, 100));
-            tempSceneData.gameObjectsToAdd.Add(enemy2);
+            Global.gameWorld.Instantiate(enemy2);
 
-            Tower acherTower = new Tower(new Vector2(300, 200), 1f, 300f, GlobalTextures.Textures[TextureNames.Tower_Arrow]);
-            tempSceneData.gameObjectsToAdd.Add(acherTower); 
+
+            //Acher acherTower = new Acher(new Vector2(300, 200), 1f, 300f, GlobalTextures.Textures[TextureNames.Tower_Acher]);
+            //tempSceneData.gameObjectsToAdd.Add(acherTower);
+
+            MissileLauncher missileLauncher = new MissileLauncher(new Vector2(300, 200), 1f, 300f, GlobalTextures.Textures[TextureNames.Tower_MissileLauncher]);
+            Global.gameWorld.Instantiate(missileLauncher);
+
         }
 
         public override void Update(GameTime gameTime)

@@ -8,15 +8,10 @@ using System.Linq;
 
 namespace MordSem1OOP
 {
-    public enum Tower_Types
-    {
-        Acher,
-        Laser
-    }
 
     public class Tower : GameObject
     {
-        private Tower_Types tower_Types;
+        #region Fields
         private int projectileDmg;
         private int projectileSpeed;
         private float spawnProjectileTimer;
@@ -33,7 +28,6 @@ namespace MordSem1OOP
         /// </summary>
         private int maxProjectileCanTravel;
 
-        private Projectile tower_Arrow;
 
         private int towerLevel = 1;
         private int towerMaxLevel = 5;
@@ -41,37 +35,46 @@ namespace MordSem1OOP
         private float levelIncrementalMultiplier = 0.2f;
 
         public List<Enemy> enemiesInRadius {  get; private set; }
+        #endregion
 
+        #region Prop
         public float Radius { get; set; }
         public Enemy Target { get; set; }
         public int ProjectileSpeed { get => projectileSpeed; set => projectileSpeed = value; }
         public int ProjectileDmg { get => projectileDmg; set => projectileDmg = value; }
         public bool CanSpawnProjectiles { get => canSpawnProjectiles; set => canSpawnProjectiles = value; }
         public int MaxProjectileCanTravel { get => maxProjectileCanTravel; set => maxProjectileCanTravel = value; }
+        public float ProjectileTimer { get => projectileTimer; set => projectileTimer = value; }
+
+
+        public int TowerLevel { get => towerLevel; set => towerLevel = value; }
+        public int TowerMaxLevel { get => towerMaxLevel; set => towerMaxLevel = value; }
+        public float TowerLevelMultiplier { get => towerLevelMultiplier; set => towerLevelMultiplier = value; }
+        public float LevelIncrementalMultiplier { get => levelIncrementalMultiplier; set => levelIncrementalMultiplier = value; }
+        #endregion
 
         public Tower(Vector2 position, float scale, float radius, Texture2D texture) : base(texture)
         {
             Position = position;
             Scale = scale;
             Radius = radius;
-            
-            //Variables that the projectile need to get spawned
-            ProjectileDmg = 10;
-            ProjectileSpeed = 100;
-            MaxProjectileCanTravel = 500;
-            projectileTimer = 0.5f;
 
-            tower_Types = Tower_Types.Acher;
             canSpawnProjectiles = true;
             enemiesInRadius = new List<Enemy>();
 
         }
 
-        public Tower(float scale, float range, Texture2D texture) : this(Vector2.Zero, scale, range, texture) { }
+        /// <summary>
+        /// Used for the test, properly delete after use:)
+        /// </summary>
+        /// <param name="scale"></param>
+        /// <param name="radius"></param>
+        /// <param name="texture"></param>
+        public Tower(float scale, float radius, Texture2D texture) : this(Vector2.Zero, scale, radius, texture) { }
 
         public override void Update(GameTime gameTime)
         {
-            CheckEnemiesInRadius();
+            CheckEnemiesInTowerRadius();
 
             if (enemiesInRadius == null || Target == null) return; //Cant shoot if there are no enemies
 
@@ -87,22 +90,22 @@ namespace MordSem1OOP
 
             if (!canSpawnProjectiles) return;
 
-            if(spawnProjectileTimer >= projectileTimer)
+            if(spawnProjectileTimer >= ProjectileTimer)
             {
-                tower_Arrow = new Arrow(
-                    this,
-                    Position, //Tag raduis af tower sprite sammen med scale og placer den ved siden (Ville dog ikke være perfect)
-                              //This can be changed based on the sprite of the tower, since the projectile shouldn't spawn in the towers orgin point
-                    GlobalTextures.Textures[TextureNames.Projectile_Arrow]); 
+                CreateProjectile();
 
-                Global.activeScene.sceneData.gameObjectsToAdd.Add(tower_Arrow);
                 spawnProjectileTimer = 0;
             }
         }
 
+        /// <summary>
+        /// The method that should be used in towers that makes the projectile
+        /// This is not a abtract method since there could be towers that don't use projectiles
+        /// </summary>
+        protected virtual void CreateProjectile() { }
 
 
-        private void CheckEnemiesInRadius()
+        private void CheckEnemiesInTowerRadius()
         {
             // Clear the list
             enemiesInRadius.Clear();
@@ -126,14 +129,13 @@ namespace MordSem1OOP
             Target = enemiesInRadius.OrderByDescending(enemy => ((Enemy)enemy).DistanceTraveled).FirstOrDefault();
         }
 
-        public void LevelUpTower()
+        public virtual void LevelUpTower()
         {
-            if (towerLevel <= towerMaxLevel)
+            if (TowerLevel <= TowerMaxLevel)
             {
-                towerLevel++;
-                towerLevelMultiplier *= (1 + levelIncrementalMultiplier);
-                ProjectileDmg *= (int)towerLevelMultiplier;
-                ProjectileSpeed *= (int)towerLevelMultiplier;
+                TowerLevel++;
+                TowerLevelMultiplier *= (1 + LevelIncrementalMultiplier);
+                ProjectileDmg *= (int)TowerLevelMultiplier;
             }
         }
 
@@ -141,8 +143,10 @@ namespace MordSem1OOP
         {
             base.Draw(spriteBatch);
 
+            //Maybe use the Sprite script?
             Texture2D circleTexture = CreateCircleTexture(spriteBatch.GraphicsDevice, (int)Radius);
             Vector2 origin = new Vector2(circleTexture.Width / 2, circleTexture.Height / 2);
+
             spriteBatch.Draw(circleTexture, Position, null, Color.Red * 0.5f, 0, origin, 1, SpriteEffects.None, 0);
 
             Primitives2D.DrawRectangle(spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation); //Draws the collision box

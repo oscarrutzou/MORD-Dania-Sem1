@@ -148,7 +148,8 @@ namespace MordSem1OOP
             }
         }
 
-        public virtual void OnCollision() { }
+        public virtual void OnCollisionBox() { }
+        public virtual void OnCollisionCircle() { }
 
 
         /// <summary>

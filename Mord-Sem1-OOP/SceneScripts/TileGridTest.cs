@@ -45,10 +45,10 @@ namespace MordSem1OOP.SceneScripts
             Tower CreateTower()
             {
                 SceneData tempSceneData = Global.activeScene.sceneData;
-                Tower archerTower = new Tower(.5f, 300f, GlobalTextures.Textures[TextureNames.Tower_Arrow]);
-                tempSceneData.gameObjects.Add(archerTower);
-                tempSceneData.towers.Add(archerTower);
-                return archerTower;
+                Tower acherTower = new Tower(.5f, 300f, GlobalTextures.Textures[TextureNames.Tower_Acher]);
+                tempSceneData.gameObjects.Add(acherTower);
+                tempSceneData.towers.Add(acherTower);
+                return acherTower;
             }
 
             Enemy enemy1 = new Enemy(EnemyType.Strong, new Vector2(0, 50));
