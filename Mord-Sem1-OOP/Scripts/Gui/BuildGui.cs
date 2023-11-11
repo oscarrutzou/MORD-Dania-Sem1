@@ -79,7 +79,7 @@ namespace MordSem1OOP.Scripts.Gui
 
         private Tower CreateTower()
         {
-            Tower acherTower = new Tower(.5f, 300f, "Placeholder/Enemies/enemyBlue1");
+            Tower acherTower = new Tower(.5f, 300f, GlobalTextures.Textures[TextureNames.Tower_Arrow]);
             return acherTower;
         }
     }
