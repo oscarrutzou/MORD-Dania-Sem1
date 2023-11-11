@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MordSem1OOP.Scripts;
+using SharpDX.DirectWrite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,10 +43,10 @@ namespace MordSem1OOP.SceneScripts
             Tower CreateTower()
             {
                 SceneData tempSceneData = Global.activeScene.sceneData;
-                Tower acherTower = new Tower(.5f, 300f, "Placeholder/Enemies/enemyBlue1");
-                tempSceneData.gameObjects.Add(acherTower);
-                tempSceneData.towers.Add(acherTower);
-                return acherTower;
+                Tower archerTower = new Tower(.5f, 300f, GlobalTextures.Textures[TextureNames.Tower_Arrow]);
+                tempSceneData.gameObjects.Add(archerTower);
+                tempSceneData.towers.Add(archerTower);
+                return archerTower;
             }
 
             Enemy enemy1 = new Enemy(EnemyType.Strong, new Vector2(0, 50));
