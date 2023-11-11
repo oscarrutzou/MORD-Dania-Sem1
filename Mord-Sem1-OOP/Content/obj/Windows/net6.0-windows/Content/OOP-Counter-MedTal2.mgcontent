@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Programmer/Github/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/OOP-Counter-MedTal2.jpg</SourceFile>
-  <SourceTime>2023-11-07T14:05:24.0306963+01:00</SourceTime>
+  <SourceTime>2023-11-11T21:09:55.3736284+01:00</SourceTime>
   <DestFile>D:/Programmer/Github/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/bin/Windows/Content/OOP-Counter-MedTal2.xnb</DestFile>
-  <DestTime>2023-11-10T10:52:01.075942+01:00</DestTime>
+  <DestTime>2023-11-11T21:11:10.585834+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

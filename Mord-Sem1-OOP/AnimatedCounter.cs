@@ -13,6 +13,8 @@ namespace MordSem1OOP
         private int targetValue; // Target value to animate towards
         private float speed = 50f; // Animation speed
         private Rectangle sourceRectangle;
+        private Rectangle targetRectangle;
+
 
         /// <summary>
         /// (Constructor) Defines positions for numberPillarSprite * 6
