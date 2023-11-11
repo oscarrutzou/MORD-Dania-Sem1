@@ -1,15 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MordSem1OOP.Scripts;
-using MordSem1OOP.Scripts.Interface;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MordSem1OOP
 {
@@ -34,48 +27,45 @@ namespace MordSem1OOP
         #endregion
 
         /// <summary>
-        /// Main constructor for the enemy
+        /// Main constructor for the enemy.
         /// </summary>
-        /// <param name="enemyType"></param>
+        /// <param name="enemyType">This type defines the speed, health and texture of the enemy.</param>
         public Enemy(EnemyType enemyType, Vector2 position)
         {
             //This is to be replaced by a direction towards a waypoint
-            direction = new Vector2(1, 0);
+            //direction = new Vector2(1, 0);
 
-
+            
             this.enemyType = enemyType;
-            Texture2D enemyName;
+            Texture2D texture;
             switch (enemyType)
             {
                 case EnemyType.Normal:
                     Speed = 50;
                     Health = 100;
-                    enemyName = GlobalTextures.Textures[TextureNames.Enemy_Black1];
+                    texture = GlobalTextures.Textures[TextureNames.Enemy_Black1];
                     break;
 
                 case EnemyType.Fast:
                     Speed = 100;
                     Health = 50;
-                    enemyName = GlobalTextures.Textures[TextureNames.Enemy_Green1];
+                    texture = GlobalTextures.Textures[TextureNames.Enemy_Green1];
                     break;
 
                 case EnemyType.Strong:
                     Speed = 30;
                     Health = 200;
-                    enemyName = GlobalTextures.Textures[TextureNames.Enemy_Red1];
+                    texture = GlobalTextures.Textures[TextureNames.Enemy_Red1];
                     break;
 
                 default:
                     Speed = 50;
                     Health = 100;
-                    enemyName = GlobalTextures.Textures[TextureNames.Enemy_Black1];
+                    texture = GlobalTextures.Textures[TextureNames.Enemy_Black1];
                     break;
             }
 
-
-            //Assign sprites
-            Sprite = new Sprite(enemyName);
-
+            Sprite = new Sprite(texture);
             Position = position;
             Scale = 1;
         }
@@ -86,14 +76,13 @@ namespace MordSem1OOP
             DistanceTraveled += Speed * deltaTime;
 
             Move(gameTime);
-            //TODO: Set target to be the next waypoint
         }
 
         /// <summary>
-        /// Called on OnCollision on objects that can damage the enemy
+        /// Called in OnCollision, by objects that can damage the enemy.
         /// </summary>
-        /// <param name="damage"></param>
-        public void Damaged(int damage)
+        /// <param name="damage">The amount of health the enemy will lose.</param>
+        public void TakeDamage(int damage)
         {
             Health -= damage;
 
@@ -110,20 +99,20 @@ namespace MordSem1OOP
             _waypoint = waypoint;
         }
 
+        /// <summary>
+        /// Moves this GameObject in the direction towards the current targeted waypoint.
+        /// </summary>
+        /// <returns>Returns true if this GameObject has arrived at the waypoint position.</returns>
         protected bool MoveToWaypoint(GameTime gameTime)
         {
-            if (_waypoint is null)
-                return true;
+            if (_waypoint is null) return true;
 
             bool arrivedAtWaypoint = AlternativeMove(_waypoint.Position, gameTime, out float distanceTravelled);
-
             DistanceTraveled += distanceTravelled;
 
-            if (!arrivedAtWaypoint)
-                return false;
+            if (!arrivedAtWaypoint) return false;
 
             _waypoint.Arrived(this);
-
             _waypoint.GetNextWaypoint(out _waypoint);
 
             return true;

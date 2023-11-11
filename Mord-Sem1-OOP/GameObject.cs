@@ -45,6 +45,9 @@ namespace MordSem1OOP
         public ISprite Sprite { get => sprite; set => sprite = value; }
         public bool IsRemoved { get; set; }
 
+        #endregion
+
+        #region Constructors
 
         public GameObject()
         {
@@ -102,6 +105,14 @@ namespace MordSem1OOP
         {
             return AlternativeMove(destination, gameTime, out _);
         }
+
+        /// <summary>
+        /// This makes the GameObject move towards a target position.
+        /// </summary>
+        /// <param name="destination">The position to move towards.</param>
+        /// <param name="gameTime">This is used to make the movement speed independent of framerate</param>
+        /// <param name="distanceTravelled"></param>
+        /// <returns>Returns true if the GameObject has reached its destination.</returns>
         protected bool AlternativeMove(Vector2 destination, GameTime gameTime, out float distanceTravelled)
         {
             distanceTravelled = 0f;
@@ -144,7 +155,7 @@ namespace MordSem1OOP
         /// Makes this GameObject look at a point in space, with the offset so the sprite should be pointing up
         /// </summary>
         /// <param name="target">The point to look at</param>
-        public void RotateTowardsWithOffset(Vector2 target)
+        public void RotateTowardsWithOffset(Vector2 target) //IMPORTANT: REMOVE OFFSET THING WHEN WE HAVE OUR OWN SPRITES!
         {
             if (Position == target) return;
 

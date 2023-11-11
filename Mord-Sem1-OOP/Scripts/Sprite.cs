@@ -48,7 +48,7 @@ namespace MordSem1OOP.Scripts
         }
 
         /// <summary>
-        /// Loader sprite to the object
+        /// Loads the sprite to the object.
         /// </summary>
         /// <param name="content"></param>
         /// <param name="texture"></param>
@@ -59,7 +59,7 @@ namespace MordSem1OOP.Scripts
         }
 
         /// <summary>
-        /// Sets the orgin point
+        /// Sets the origin point of the sprite.
         /// </summary>
         /// <param name="origin"></param>
         public void SetOrigin(Vector2 origin)
@@ -68,7 +68,7 @@ namespace MordSem1OOP.Scripts
         }
 
         /// <summary>
-        /// Sets the orgin to the center of the sprite
+        /// Sets the origin to the center of the sprite.
         /// </summary>
         public void SetOriginCenter()
         {

@@ -47,10 +47,10 @@ namespace MordSem1OOP
         {
             //ChangeScreenSize();
             camera = new Camera(_graphics);
-            activeScene = 3;
+            activeScene = 4;
             Global.activeScene = scenes[activeScene]; //Very important since this sets what scene data that the code should use
-            GlobalTextures.LoadContent(Content);
 
+            GlobalTextures.LoadContent(Content); //This must be read before scenes[].Initialize, because that line attempts to load a texture.
             scenes[activeScene].Initialize();
 
             base.Initialize();
@@ -59,7 +59,6 @@ namespace MordSem1OOP
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            //Send all content textures to a hashset of textures contained in the Sprite class
         }
         
         protected override void Update(GameTime gameTime)

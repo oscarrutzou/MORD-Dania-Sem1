@@ -82,7 +82,7 @@ namespace MordSem1OOP
             if (Target != null && !Target.IsRemoved && Collision.IsCollidingBox(this, Target))
             {
                 IsRemoved = true; //Delete this object
-                Target.Damaged(Damage); //Damage target enemy with the damage amount from the tower
+                Target.TakeDamage(Damage); //Damage target enemy with the damage amount from the tower
             }
         }
 

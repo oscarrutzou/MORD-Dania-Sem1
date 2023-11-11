@@ -67,7 +67,7 @@ namespace MordSem1OOP
 
         }
 
-        public Tower(float scale, float radius, Texture2D texture) : this(Vector2.Zero, scale, radius, texture) { }
+        public Tower(float scale, float range, Texture2D texture) : this(Vector2.Zero, scale, range, texture) { }
 
         public override void Update(GameTime gameTime)
         {
