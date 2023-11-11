@@ -49,7 +49,7 @@ namespace MordSem1OOP
             {
                 if (!enemy.IsRemoved && Vector2.Distance(this.Position, enemy.Position) <= missileLauncher.MissileRadius)
                 {
-                    enemy.Damaged(Damage);
+                    enemy.TakeDamage(Damage);
                 }
             }
 

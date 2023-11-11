@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace MordSem1OOP
 {
-    public class Acher : Tower
+    public class Archer : Tower
     {
-        public Acher(Vector2 position, float scale, float radius, Texture2D texture) : base(position, scale, radius, texture)
+        public Archer(Vector2 position, float scale, float radius, Texture2D texture) : base(position, scale, radius, texture)
         {
             //Variables that the projectile need to get spawned
             ProjectileDmg = 10;
@@ -32,7 +32,7 @@ namespace MordSem1OOP
                     this,
                     GlobalTextures.Textures[TextureNames.Projectile_Arrow]);
 
-            Global.gameWorld.Instantiate(tower_Arrow);
+            GameWorld.Instantiate(tower_Arrow);
         }
 
 

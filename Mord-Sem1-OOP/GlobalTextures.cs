@@ -14,7 +14,7 @@ namespace MordSem1OOP
     {
         Projectile_Arrow,
         Projectile_Missile,
-        Tower_Acher,
+        Tower_Archer,
         Tower_MissileLauncher,
         Enemy_Black1,
         Enemy_Blue1,
@@ -34,7 +34,7 @@ namespace MordSem1OOP
         {
             { TextureNames.Projectile_Arrow, content.Load<Texture2D>("Placeholder\\Lasers\\laserBlue04") },
             { TextureNames.Projectile_Missile, content.Load<Texture2D>("Placeholder\\Lasers\\laserRed08") },
-            { TextureNames.Tower_Acher, content.Load<Texture2D>("Placeholder\\Parts\\beam6") },
+            { TextureNames.Tower_Archer, content.Load<Texture2D>("Placeholder\\Parts\\beam6") },
             { TextureNames.Tower_MissileLauncher, content.Load<Texture2D>("Placeholder\\Parts\\beam0") },
             { TextureNames.Enemy_Black1, content.Load<Texture2D>("Placeholder\\Enemies\\enemyBlack1") },
             { TextureNames.Enemy_Blue1, content.Load<Texture2D>("Placeholder\\Enemies\\enemyBlue1") },
