@@ -39,26 +39,13 @@ namespace MordSem1OOP.SceneScripts
             // Add all towers, enemies, and projectiles to the gameObjects list
             tempSceneData.gameObjects.AddRange(tempSceneData.towers.Where(tower => !tower.IsRemoved));
             tempSceneData.gameObjects.AddRange(tempSceneData.enemies.Where(enemy => !enemy.IsRemoved));
-            // Need to cast the gameobject IProjectile interface to a gameobject to be able to see if its should be removed from the list 
 
+            // Need to cast the gameobject IProjectile interface to a gameobject to be able to see if its should be removed from the list 
             tempSceneData.gameObjects.AddRange(tempSceneData.projectiles.Where(projectile => !projectile.IsRemoved));
 
-            // All GameObjects to be added, are added to the active scene.
-            foreach (GameObject gameObject in tempSceneData.gameObjectsToAdd)
-            {
-                if (gameObject is Tower tower)
-                {
-                    tempSceneData.towers.Add(tower);
-                }
-                else if (gameObject is Enemy enemy)
-                {
-                    tempSceneData.enemies.Add(enemy);
-                }
-                else if (gameObject is Projectile projectile)
-                {
-                    tempSceneData.projectiles.Add(projectile);
-                }
-            }
+
+
+            AddIntoCategories(tempSceneData);
             tempSceneData.gameObjectsToAdd.Clear();
 
             // Call update on every GameObject in the active scene.
@@ -75,6 +62,31 @@ namespace MordSem1OOP.SceneScripts
         {
             foreach (GameObject gameObject in Global.activeScene.sceneData.gameObjects)
                 gameObject.Draw(spriteBatch);
+        }
+
+
+        /// <summary>
+        /// Adds each queued GameObject, to the corresponding list of their type.
+        /// </summary>
+        /// <param name="sceneData">Used to get the different GameObject lists, and to add the GameObjects to them.</param>
+        private void AddIntoCategories(SceneData sceneData)
+        {
+            foreach (GameObject obj in sceneData.gameObjectsToAdd)
+            {
+                switch (obj)
+                {
+                    case Tower:
+                        sceneData.towers.Add((Tower)obj);
+                        break;
+                    case Enemy:
+                        sceneData.enemies.Add((Enemy)obj);
+                        break;
+                    case Projectile:
+                        sceneData.projectiles.Add((Projectile)obj);
+                        break;
+
+                }
+            }
         }
 
 
