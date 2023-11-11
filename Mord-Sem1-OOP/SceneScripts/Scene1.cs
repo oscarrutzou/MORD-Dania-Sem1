@@ -44,7 +44,7 @@ namespace MordSem1OOP.SceneScripts
             fpEnemy.AddToDebugInfo();
             DebugInfo.AddCount("waypointsReached");
 
-            Global.gameWorld.Instantiate(fpEnemy);
+            GameWorld.Instantiate(fpEnemy);
         }
 
         public override void Update(GameTime gameTime)

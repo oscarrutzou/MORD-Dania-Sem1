@@ -19,17 +19,17 @@ namespace MordSem1OOP.SceneScripts
         {
 
             Enemy enemy1 = new Enemy(EnemyType.Strong, new Vector2(100, 50));
-            Global.gameWorld.Instantiate(enemy1);
+            GameWorld.Instantiate(enemy1);
 
             Enemy enemy2 = new Enemy(EnemyType.Fast, new Vector2(30, 100));
-            Global.gameWorld.Instantiate(enemy2);
+            GameWorld.Instantiate(enemy2);
 
 
             //Acher acherTower = new Acher(new Vector2(300, 200), 1f, 300f, GlobalTextures.Textures[TextureNames.Tower_Acher]);
             //tempSceneData.gameObjectsToAdd.Add(acherTower);
 
             MissileLauncher missileLauncher = new MissileLauncher(new Vector2(300, 200), 1f, 300f, GlobalTextures.Textures[TextureNames.Tower_MissileLauncher]);
-            Global.gameWorld.Instantiate(missileLauncher);
+            GameWorld.Instantiate(missileLauncher);
 
         }
 

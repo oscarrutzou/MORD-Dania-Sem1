@@ -50,7 +50,7 @@ namespace MordSem1OOP
                     this,
                     GlobalTextures.Textures[TextureNames.Projectile_Missile]);
 
-            Global.gameWorld.Instantiate(tower_Missile);
+            GameWorld.Instantiate(tower_Missile);
         }
 
 
