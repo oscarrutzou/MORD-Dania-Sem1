@@ -49,9 +49,8 @@ namespace MordSem1OOP.SceneScripts
                 return acherTower;
             }
 
-            Enemy enemy1 = new Enemy(EnemyType.Strong, new Vector2(0, 50));
+            Enemy enemy1 = new Enemy(EnemyType.Strong, new Vector2(0, 100));
             Global.activeScene.sceneData.gameObjects.Add(enemy1);
-            Global.activeScene.sceneData.enemies.Add(enemy1);
 
             _tileGrid.Insert(CreateTower(), new Vector2Int(x, y));
 

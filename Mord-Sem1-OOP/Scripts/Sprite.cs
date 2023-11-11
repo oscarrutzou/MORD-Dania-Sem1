@@ -47,6 +47,12 @@ namespace MordSem1OOP.Scripts
             GameWorld._spriteBatch.Draw(_texture, position, null, _color, rotation, _origin, scale, SpriteEffects.None, 0);
         }
 
+        //public void IndepententDraw(Vector2 position, float rotation, float scale)
+        //{
+        //    GameWorld._spriteBatch.Draw(_texture, position, null, _color, rotation, _origin, scale, SpriteEffects.None, 0);
+        //}
+
+
         /// <summary>
         /// Loads the sprite to the object.
         /// </summary>

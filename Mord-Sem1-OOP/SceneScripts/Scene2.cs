@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MordSem1OOP.Scripts.Towers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,8 +27,9 @@ namespace MordSem1OOP.SceneScripts
 
             Enemy enemy3 = new Enemy(EnemyType.Normal, new Vector2(-600, 0));
             GameWorld.Instantiate(enemy3);
-            //Acher acherTower = new Acher(new Vector2(300, 200), 1f, GlobalTextures.Textures[TextureNames.Tower_Acher]);
-            //tempSceneData.gameObjectsToAdd.Add(acherTower);
+
+            Archer acherTower = new Archer(new Vector2(300, 0), 1f, GlobalTextures.Textures[TextureNames.Tower_Archer]);
+            GameWorld.Instantiate(acherTower);
 
             MissileLauncher missileLauncher = new MissileLauncher(new Vector2(300, 110), 1f, GlobalTextures.Textures[TextureNames.Tower_MissileLauncher]);
             GameWorld.Instantiate(missileLauncher);

@@ -87,7 +87,7 @@ namespace MordSem1OOP
         }
 
         /// <summary>
-        /// Used for the test, properly delete after use:)
+        /// Used for the test, properly delete after use since it dosen't shoot. Maybe its the position or something:)
         /// </summary>
         /// <param name="scale"></param>
         /// <param name="texture"></param>
@@ -95,7 +95,15 @@ namespace MordSem1OOP
 
         public override void Update(GameTime gameTime)
         {
+            //DrawTowerDataToScreen();
+
             CheckEnemiesInTowerRadius();
+
+            // Only increment SpawnProjectileTimer if it's less than ProjectileTimer
+            if (SpawnProjectileTimer < ProjectileTimer)
+            {
+                SpawnProjectileTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
 
             if (enemiesInRadius == null || Target == null) return; //Cant shoot if there are no enemies
 
@@ -106,8 +114,6 @@ namespace MordSem1OOP
 
             // Calculate rotation towards target
             RotateTowardsWithoutOffSet(Target.Position);
-
-            SpawnProjectileTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             if (SpawnProjectileTimer >= ProjectileTimer)
             {
@@ -122,6 +128,8 @@ namespace MordSem1OOP
             isCooldown = true;
             SpawnProjectileTimer = 0;
             CreateProjectile();
+
+            
         }
 
         /// <summary>
@@ -133,7 +141,6 @@ namespace MordSem1OOP
 
         private void CheckEnemiesInTowerRadius()
         {
-            int prevCount = enemiesInRadius.Count;
             // Clear the list
             enemiesInRadius.Clear();
 
@@ -155,8 +162,8 @@ namespace MordSem1OOP
             hasEnemyInRadius = enemiesInRadius.Count > 0;
 
             OrderEnemiesByDistanceTravled();
-        }
 
+        }
 
         private void OrderEnemiesByDistanceTravled()
         {
@@ -191,9 +198,17 @@ namespace MordSem1OOP
 
             Primitives2D.DrawRectangle(GameWorld._spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation); //Draws the collision box
 
-            GameWorld._spriteBatch.DrawString(arialFont, SpawnProjectileTimer.ToString(), new Vector2(10, 10), Color.Black);
-            GameWorld._spriteBatch.DrawString(arialFont, towerData.towerKills.ToString(), new Vector2(0, 0), Color.Black);
+
+            //Draw tower data
+            GameWorld._spriteBatch.DrawString(arialFont, SpawnProjectileTimer.ToString(), new Vector2(Position.X + 30, Position.Y - 30), Color.Black);
+
+            GameWorld._spriteBatch.DrawString(arialFont, towerData.towerKills.ToString(), new Vector2(Position.X + 30, Position.Y - 10), Color.Black);
 
         }
+
+
+
     }
 }
+//GameWorld._spriteBatch.DrawString(arialFont, SpawnProjectileTimer.ToString(), new Vector2(10, 10), Color.Black);
+//GameWorld._spriteBatch.DrawString(arialFont, towerData.towerKills.ToString(), new Vector2(0, 0), Color.Black);

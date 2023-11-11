@@ -13,7 +13,7 @@ namespace MordSem1OOP.Scripts.Towers
         public Archer(Vector2 position, float scale, Texture2D texture) : base(position, scale, texture)
         {
             //Variables that the projectile need to get spawned
-            ProjectileDmg = 10;
+            ProjectileDmg = 20;
             ProjectileSpeed = 200;
             MaxProjectileCanTravel = 500;
             ProjectileTimer = 0.4f;

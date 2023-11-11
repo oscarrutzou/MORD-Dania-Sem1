@@ -58,7 +58,30 @@ namespace MordSem1OOP
                 IsRemoved = true; // Delete this object
 
                 Target.TakeDamage(Damage); // Damage target enemy with the damage amount from the tower
+
+                if (Target.IsRemoved)
+                {
+                    Tower.towerData.towerKills++;
+                }
             }
         }
+
+        //public override void OnCollisionBox()
+        //{
+        //    foreach (Enemy enemy in Global.activeScene.sceneData.enemies)
+        //    {
+        //        if (!enemy.IsRemoved && Collision.IsCollidingBox(this, enemy))
+        //        {
+        //            IsRemoved = true; // Delete this object
+
+        //            enemy.TakeDamage(Damage); // Damage enemy with the damage amount from the tower
+
+        //            if (enemy.IsRemoved)
+        //            {
+        //                Tower.towerData.towerKills++;
+        //            }
+        //        }
+        //    }
+        //}
     }
 }

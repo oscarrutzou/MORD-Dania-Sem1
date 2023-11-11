@@ -85,6 +85,7 @@ namespace MordSem1OOP
             Sprite.Draw(Position, Rotation, Scale);
         }
 
+
         /// <summary>
         /// Used to change the position of a GameObject over time, change is specified by the direction and speed.
         /// </summary>

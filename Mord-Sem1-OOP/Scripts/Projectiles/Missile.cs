@@ -52,9 +52,10 @@ namespace MordSem1OOP
                 {
                     enemy.TakeDamage(Damage);
 
-                    if (!enemy.IsRemoved) return; //The enemy is still alive so dont add kills and money
-
-                    Tower.towerData.towerKills++;
+                    if (enemy.IsRemoved)
+                    {
+                        Tower.towerData.towerKills++;
+                    }
                 }
             }
 
