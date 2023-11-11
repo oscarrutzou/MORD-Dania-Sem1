@@ -27,15 +27,6 @@ namespace MordSem1OOP
         {
             Global.gameWorld = this;
 
-            scenes[0] = new StartScene(Content);
-            scenes[1] = new GameScene(Content);
-            scenes[2] = new Scene1(Content); //Michael's scene
-            scenes[3] = new Scene2(Content); //Oscar's scene
-            scenes[4] = new Scene3(Content); //Gaming's scene
-            scenes[5] = new Scene4(Content); //David's scene
-            scenes[6] = new Scene5(Content); //Jacob's scene
-            scenes[7] = new TileGridTest(Content);
-
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
@@ -46,9 +37,11 @@ namespace MordSem1OOP
         protected override void Initialize()
         {
             //ChangeScreenSize();
-            camera = new Camera(_graphics);
+            GenerateScenes();
             activeScene = 2;
             Global.activeScene = scenes[activeScene]; //Very important since this sets what scene data that the code should use
+
+            camera = new Camera(_graphics);
 
             GlobalTextures.LoadContent(Content); //This must be read before scenes[].Initialize, because that line attempts to load a texture.
             scenes[activeScene].Initialize();
@@ -96,6 +89,22 @@ namespace MordSem1OOP
         /// <param name="gameObject">The GameObject collection to be added</param>
         public static void Instantiate(GameObject[] gameObjects) => Global.activeScene.sceneData.gameObjectsToAdd.AddRange(gameObjects);
         #endregion
+
+        /// <summary>
+        /// Initializes the different scenes. 
+        /// If you want to add more scenes, do it here.
+        /// </summary>
+        private void GenerateScenes()
+        {
+            scenes[0] = new StartScene(Content);
+            scenes[1] = new GameScene(Content);
+            scenes[2] = new Scene1(Content); //Michael's scene
+            scenes[3] = new Scene2(Content); //Oscar's scene
+            scenes[4] = new Scene3(Content); //Gaming's scene
+            scenes[5] = new Scene4(Content); //David's scene
+            scenes[6] = new Scene5(Content); //Jacob's scene
+            scenes[7] = new TileGridTest(Content);
+        }
 
         private void ChangeScreenSize()
         {
