@@ -13,7 +13,9 @@ namespace MordSem1OOP
     public enum TextureNames
     {
         Projectile_Arrow,
-        Tower_Arrow,
+        Projectile_Missile,
+        Tower_Acher,
+        Tower_MissileLauncher,
         Enemy_Black1,
         Enemy_Blue1,
         Enemy_Green1,
@@ -25,13 +27,15 @@ namespace MordSem1OOP
     public static class GlobalTextures
     {
         public static Dictionary<TextureNames, Texture2D> Textures;
-        
+
         public static void LoadContent(ContentManager content)
         {
             Textures = new Dictionary<TextureNames, Texture2D>
         {
             { TextureNames.Projectile_Arrow, content.Load<Texture2D>("Placeholder\\Lasers\\laserBlue04") },
-            { TextureNames.Tower_Arrow, content.Load<Texture2D>("Placeholder\\Parts\\beam6") },
+            { TextureNames.Projectile_Missile, content.Load<Texture2D>("Placeholder\\Lasers\\laserRed08") },
+            { TextureNames.Tower_Acher, content.Load<Texture2D>("Placeholder\\Parts\\beam6") },
+            { TextureNames.Tower_MissileLauncher, content.Load<Texture2D>("Placeholder\\Parts\\beam0") },
             { TextureNames.Enemy_Black1, content.Load<Texture2D>("Placeholder\\Enemies\\enemyBlack1") },
             { TextureNames.Enemy_Blue1, content.Load<Texture2D>("Placeholder\\Enemies\\enemyBlue1") },
             { TextureNames.Enemy_Green1, content.Load<Texture2D>("Placeholder\\Enemies\\enemyGreen1") },
@@ -39,5 +43,7 @@ namespace MordSem1OOP
             // Add more textures here
         };
         }
+
+
     }
 }

@@ -96,28 +96,6 @@ namespace MordSem1OOP
         /// </summary>
         /// <param name="gameObject">The GameObject collection to be added</param>
         public void Instantiate(GameObject[] gameObjects) => Global.activeScene.sceneData.gameObjectsToAdd.AddRange(gameObjects);
-
-
-        /// <summary>
-        /// Adds a GameObject to the list of GameObjects to be removed in the next update.
-        /// </summary>
-        /// <param name="gameObject">The GameObject to be removed</param>
-        //public void Destroy(GameObject gameObject) => scenes[activeScene].objectsToDestroy.Add(gameObject);
-
-
-        /// <summary>
-        /// Adds a collection of GameObjects to the list of GameObjects to be removed in the next update.
-        /// </summary>
-        /// <param name="gameObject">The GameObject to be removed</param>
-        //public void Destroy(GameObject[] gameObjectsToDestroy)
-        //{
-        //    foreach (GameObject gameObjectToDestroy in gameObjectsToDestroy)
-        //    {
-        //        scenes[activeScene].gameObjects.gam;
-        //    }
-        //    //GameObject[] gameObjects) => scenes[activeScene].gameObjects.AddRange(gameObjects
-        //}
-
         #endregion
 
         #region Scene management Methods
