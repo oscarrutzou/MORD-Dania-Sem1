@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MordSem1OOP
+namespace MordSem1OOP.Scripts.Towers
 {
     public class Archer : Tower
     {
