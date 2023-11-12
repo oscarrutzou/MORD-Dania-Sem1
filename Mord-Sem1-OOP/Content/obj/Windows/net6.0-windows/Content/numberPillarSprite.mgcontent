@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Programmer/Github/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/numberPillarSprite.jpg</SourceFile>
-  <SourceTime>2023-11-11T19:16:19.2306716+01:00</SourceTime>
+  <SourceTime>2023-11-12T17:31:14.6199884+01:00</SourceTime>
   <DestFile>D:/Programmer/Github/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/bin/Windows/Content/numberPillarSprite.xnb</DestFile>
-  <DestTime>2023-11-11T21:02:20.0863276+01:00</DestTime>
+  <DestTime>2023-11-12T17:42:03.8976585+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
