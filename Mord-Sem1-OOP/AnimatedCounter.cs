@@ -7,15 +7,8 @@ namespace MordSem1OOP
 {
     internal class AnimatedCounter : GameObject
     {
-<<<<<<< Updated upstream
-        public static Texture2D numberPillarSprite; // for storing numberPillarSprite.jpg (is in Content-folder)
+        public static Texture2D numberPillarSprite; // for storing OOP-Counter-MedTal2.jpg (is in Content-folder)
         private Vector2[] positions; // for 6 positions for numberPillarSprite
-=======
-        public static Texture2D numberPillarSprite; // For storing numberPillarSprite.jpg (is in Content-folder)
-        private Rectangle[] rectanglePositions; // For 6 positions for numberPillarSprite
-        private int[] yPositions; // For refering each box y-positions as their number inside
-        private Rectangle sourceRectangle; // Limits the view to one numberBox
->>>>>>> Stashed changes
         private int startValue = 0;
         private int targetValue; // Target value to animate towards
         private float speed = 650; // Animation speed
