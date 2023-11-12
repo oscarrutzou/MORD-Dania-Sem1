@@ -7,13 +7,12 @@ namespace MordSem1OOP
 {
     internal class AnimatedCounter : GameObject
     {
-        public static Texture2D numberPillarSprite; // for storing OOP-Counter-MedTal2.jpg (is in Content-folder)
+        public static Texture2D numberPillarSprite; // for storing numberPillarSprite.jpg (is in Content-folder)
         private Vector2[] positions; // for 6 positions for numberPillarSprite
         private int startValue = 0;
         private int targetValue; // Target value to animate towards
         private float speed = 50f; // Animation speed
         private Rectangle sourceRectangle;
-        private Rectangle targetRectangle;
 
 
         /// <summary>
