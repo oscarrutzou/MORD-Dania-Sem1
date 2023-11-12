@@ -3,7 +3,11 @@
   <SourceFile>D:/Programmer/Github/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/OOP-Counter-MedTal2.jpg</SourceFile>
   <SourceTime>2023-11-11T21:09:55.3736284+01:00</SourceTime>
   <DestFile>D:/Programmer/Github/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/bin/Windows/Content/OOP-Counter-MedTal2.xnb</DestFile>
+<<<<<<< Updated upstream
   <DestTime>2023-11-11T21:11:10.585834+01:00</DestTime>
+=======
+  <DestTime>2023-11-11T21:10:10.4588126+01:00</DestTime>
+>>>>>>> Stashed changes
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -3,7 +3,11 @@
   <SourceFile>D:/Programmer/Github/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/PlayerAnimation/PlayerNormal/Right/4rght.png</SourceFile>
   <SourceTime>2023-11-07T10:17:40.1140304+01:00</SourceTime>
   <DestFile>D:/Programmer/Github/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/bin/Windows/Content/Placeholder/PlayerAnimation/PlayerNormal/Right/4rght.xnb</DestFile>
+<<<<<<< Updated upstream
   <DestTime>2023-11-11T21:21:13.7381906+01:00</DestTime>
+=======
+  <DestTime>2023-11-11T21:10:11.5982544+01:00</DestTime>
+>>>>>>> Stashed changes
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
