@@ -62,6 +62,13 @@ namespace MordSem1OOP.SceneScripts
                 gameObject.Draw();
         }
 
+        public virtual void DrawScene()
+        {
+            GameWorld._spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp);
+            Draw();
+            GameWorld._spriteBatch.End();
+        }
+
 
         /// <summary>
         /// Adds each queued GameObject, to the corresponding list of their type.

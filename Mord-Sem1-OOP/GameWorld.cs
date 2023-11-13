@@ -41,8 +41,7 @@ namespace MordSem1OOP
             activeScene = 7;
             Global.activeScene = scenes[activeScene]; //Very important since this sets what scene data that the code should use
 
-            camera = new Camera(_graphics);
-
+            camera = new Camera(new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
             GlobalTextures.LoadContent(Content); //This must be read before scenes[].Initialize, because that line attempts to load a texture.
             scenes[activeScene].Initialize();
 
@@ -59,6 +58,7 @@ namespace MordSem1OOP
             InputManager.HandleInput(this, camera);
 
             scenes[activeScene].Update(gameTime);
+
             base.Update(gameTime);
 
         }
@@ -67,9 +67,7 @@ namespace MordSem1OOP
         {
             GraphicsDevice.Clear(Color.Beige);
 
-            _spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, transformMatrix: camera.GetMatrix(), samplerState: SamplerState.PointClamp);
-            scenes[activeScene].Draw();
-            _spriteBatch.End();
+            scenes[activeScene].DrawScene();
 
             base.Draw(gameTime);
         }
