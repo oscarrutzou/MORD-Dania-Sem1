@@ -90,6 +90,9 @@ namespace MordSem1OOP.SceneScripts
                     case Projectile:
                         sceneData.projectiles.Add((Projectile)obj);
                         break;
+                    case Button:
+                        sceneData.buttons.Add((Button)obj);
+                        break;
 
                 }
             }

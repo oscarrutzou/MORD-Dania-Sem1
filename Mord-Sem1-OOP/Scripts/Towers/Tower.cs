@@ -83,6 +83,7 @@ namespace MordSem1OOP
 
         }
 
+
         /// <summary>
         /// Used for the test, properly delete after use since it dosen't shoot. Maybe its the position or something:)
         /// </summary>

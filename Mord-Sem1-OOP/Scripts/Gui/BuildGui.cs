@@ -52,7 +52,6 @@ namespace MordSem1OOP.Scripts
 
         public override void Draw()
         {
-            SpriteBatch spriteBatch = GameWorld._spriteBatch;
             Vector2 position = InputManager.mousePosition;
 
             bool canPlaceOnGrid = _tileGrid.IsTileAvailable(position, out Vector2Int gridPosition);

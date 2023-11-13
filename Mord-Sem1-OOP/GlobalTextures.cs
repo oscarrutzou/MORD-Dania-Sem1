@@ -23,6 +23,7 @@ namespace MordSem1OOP
         Enemy_Green1,
         Enemy_Red1,
         Pixel,
+        GuiBasicButton,
         // Add more texture names here
     }
 
@@ -47,6 +48,7 @@ namespace MordSem1OOP
             { TextureNames.Enemy_Green1, content.Load<Texture2D>("Placeholder\\Enemies\\enemyGreen1") },
             { TextureNames.Enemy_Red1, content.Load<Texture2D>("Placeholder\\Enemies\\enemyRed1") },
             { TextureNames.Pixel, content.Load<Texture2D>("Misc/pixel") },
+            { TextureNames.GuiBasicButton, content.Load<Texture2D>("Placeholder\\UI\\buttonBlue") },
 
             // Add more textures here
         };
