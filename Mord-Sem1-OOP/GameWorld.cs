@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MordSem1OOP.SceneScripts;
 using MordSem1OOP.Scripts;
+using MordSem1OOP.Scripts.Waves;
 using Mx2L.MonoDebugUI;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,10 @@ namespace MordSem1OOP
         public Path path;
         public Waypoint currWaypoint;
 
+        WaveManager waveManager;
+
+
+
         public GameWorld()
         {
             Global.gameWorld = this;
@@ -31,6 +36,9 @@ namespace MordSem1OOP
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
+
+
+
 
         #region Standard Methods
 
@@ -45,6 +53,12 @@ namespace MordSem1OOP
             GlobalTextures.LoadContent(Content); //This must be read before scenes[].Initialize, because that line attempts to load a texture.
             scenes[activeScene].Initialize();
 
+
+
+            waveManager = new WaveManager();
+            
+
+
             base.Initialize();
         }
 
@@ -56,8 +70,11 @@ namespace MordSem1OOP
         protected override void Update(GameTime gameTime)
         {
             InputManager.HandleInput(this, camera);
+            waveManager.Update(gameTime);
+            
 
             scenes[activeScene].Update(gameTime);
+
 
             base.Update(gameTime);
 

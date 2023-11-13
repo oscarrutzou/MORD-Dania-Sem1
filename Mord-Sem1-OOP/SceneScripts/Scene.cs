@@ -33,6 +33,7 @@ namespace MordSem1OOP.SceneScripts
         public virtual void Update(GameTime gameTime)
         {
             SceneData tempSceneData = Global.activeScene.sceneData;
+            tempSceneData.gameTime = gameTime;
 
             // Clear the gameObjects list
             tempSceneData.gameObjects.Clear();
