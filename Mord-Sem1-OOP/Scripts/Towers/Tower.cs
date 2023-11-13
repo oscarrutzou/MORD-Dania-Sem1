@@ -181,23 +181,19 @@ namespace MordSem1OOP
         {
             base.Draw();
 
-            //Maybe use the Sprite script?
-            //Texture2D circleTexture = CreateCircleTexture(spriteBatch.GraphicsDevice, (int)Radius);
-            //Vector2 origin = new Vector2(circleTexture.Width / 2, circleTexture.Height / 2);
-
-            Sprite radiusRing = new Sprite(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing]);
-
-            Vector2 drawPosition = Position - radiusRing.Origin;
-
-            GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing], drawPosition, Color.Red);
-
             Primitives2D.DrawRectangle(GameWorld._spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation); //Draws the collision box
 
+            //Sprite radiusRing = new Sprite(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing]);
 
-            //Draw tower data
-            GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont, SpawnProjectileTimer.ToString(), new Vector2(Position.X + 30, Position.Y - 30), Color.Black);
+            //Vector2 drawPosition = Position - radiusRing.Origin;
 
-            GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont, towerData.towerKills.ToString(), new Vector2(Position.X + 30, Position.Y - 10), Color.Black);
+            //GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing], drawPosition, Color.Red);
+
+
+            ////Draw tower data
+            //GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont, SpawnProjectileTimer.ToString(), new Vector2(Position.X + 30, Position.Y - 30), Color.Black);
+
+            //GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont, towerData.towerKills.ToString(), new Vector2(Position.X + 30, Position.Y - 10), Color.Black);
 
         }
 

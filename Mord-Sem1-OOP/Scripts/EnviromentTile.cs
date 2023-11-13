@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MordSem1OOP.Scripts
 {
-    internal class EnviromentTile : Tile
+    public class EnviromentTile : Tile
     {
         private TileType _type;
 

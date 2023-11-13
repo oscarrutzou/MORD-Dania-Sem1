@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MordSem1OOP.Scripts
 {
-    internal class TileGrid
+    public class TileGrid
     {
         #region Fields
         private Vector2 _position;

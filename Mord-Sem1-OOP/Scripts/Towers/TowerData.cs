@@ -38,11 +38,7 @@ namespace MordSem1OOP.Scripts.Towers
         /// </summary>
         public void BuyTower()
         {
-            int currentMoney = Global.activeScene.sceneData.sceneStats.money;
-
-            if (currentMoney <= 0) return; //Shouldnt go in minus. Would still build the tower though
-
-            currentMoney -= CalculateBuyAmount();
+            Global.activeScene.sceneData.sceneStats.money -= CalculateBuyAmount();
 
             moneyUsedOnTower += CalculateBuyAmount();
         }

@@ -36,9 +36,13 @@ namespace MordSem1OOP
 
             camera.Move(moveDirection * 5); // Control camera speed //-- look at
 
+            if (keyboardState.IsKeyDown(Keys.D1))
+                Global.activeScene.sceneData._buildGui.ChangeTowerIndex(1);
+            if (keyboardState.IsKeyDown(Keys.D2))
+                Global.activeScene.sceneData._buildGui.ChangeTowerIndex(2);
 
 
-            if(keyboardState.IsKeyDown(Keys.Space))
+            if (keyboardState.IsKeyDown(Keys.Space))
             {
                 //Should be able to add a new enemy
                 //Global.activeScene.sceneData.gameObjectsToAdd.Add(new Enemy(EnemyType.Normal, new Vector2(100, 100), Global.gameWorld.Content));
@@ -57,10 +61,10 @@ namespace MordSem1OOP
                 // You can get the position of the mouse click like this:
                 if (Global.activeScene.sceneData.towers == null) return;
 
-                foreach (Tower tower in Global.activeScene.sceneData.towers)
-                {
-                    tower.LevelUpTower();
-                }
+                //foreach (Tower tower in Global.activeScene.sceneData.towers)
+                //{
+                //    tower.LevelUpTower();
+                //}
             }
         }
 

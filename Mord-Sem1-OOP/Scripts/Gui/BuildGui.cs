@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MordSem1OOP.Scripts.Towers;
 using SharpDX.Direct2D1.Effects;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MordSem1OOP.Scripts.Gui
+namespace MordSem1OOP.Scripts
 {
-    internal class BuildGui : Gui
+    public class BuildGui : Gui
     {
         private int _selectionIndex;
         private TileGrid _tileGrid;
@@ -32,22 +33,17 @@ namespace MordSem1OOP.Scripts.Gui
 
         public void Build()
         {
-            _selectionIndex = 0;
-
             Vector2 position = InputManager.mousePosition;
-
 
             if (!_tileGrid.IsTileAvailable(position, out Vector2Int gridPosition))
                 return;
 
-            
-
             if (_selectedTower is null)
                 return;
 
-            if (!CanAffordTower()) return;
+            //if (!CanAffordTower()) return;
 
-            _selectedTower.towerData.BuyTower(); //Deducts the money from the sceneStats
+            //_selectedTower.towerData.BuyTower(); //Deducts the money from the sceneStats
             GameWorld.Instantiate(_selectedTower);
             _tileGrid.Insert(_selectedTower, gridPosition);
 
@@ -74,6 +70,11 @@ namespace MordSem1OOP.Scripts.Gui
             Primitives2D.DrawSolidRectangle(GameWorld._spriteBatch, tileRect, 0, CanAffordTower() ? Color.Green: Color.Red);
         }
 
+        public void ChangeTowerIndex(int index)
+        {
+            _selectionIndex = index;
+        }
+
         public bool CanAffordTower()
         {
             return Global.activeScene.sceneData.sceneStats.money >= _selectedTower.towerData.CalculateBuyAmount();
@@ -83,15 +84,25 @@ namespace MordSem1OOP.Scripts.Gui
         {
             switch (index)
             {
-                case 0: return CreateTower();
+                case 1: 
+                    return CreateArcher();
+                case 2: 
+                    return CreateMissileLauncher();
+                default:
+                    return CreateArcher();
             }
-            return null;
         }
 
-        private Tower CreateTower()
+        private Archer CreateArcher()
         {
-            Tower archerTower = new Tower(.5f, GlobalTextures.Textures[TextureNames.Tower_Archer]);
+            Archer archerTower = new Archer(new Vector2(0, 0), .5f, GlobalTextures.Textures[TextureNames.Tower_Archer]);
             return archerTower;
+        }
+
+        private Tower CreateMissileLauncher()
+        {
+            MissileLauncher missileLauncher = new MissileLauncher(new Vector2(0,0), .5f, GlobalTextures.Textures[TextureNames.Tower_MissileLauncher]);
+            return missileLauncher;
         }
     }
 }

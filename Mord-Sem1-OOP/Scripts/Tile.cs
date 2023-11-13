@@ -2,7 +2,7 @@
 
 namespace MordSem1OOP.Scripts
 {
-    internal class Tile
+    public class Tile
     {
         private Vector2Int _gridPosition;
         private Vector2 _position;

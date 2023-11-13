@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 
-namespace MordSem1OOP.Scripts.Gui
+namespace MordSem1OOP.Scripts
 {
     public abstract class Gui
     {
