@@ -24,9 +24,6 @@ namespace MordSem1OOP
         public Path path;
         public Waypoint currWaypoint;
 
-        WaveManager waveManager;
-
-
 
         public GameWorld()
         {
@@ -53,10 +50,10 @@ namespace MordSem1OOP
             GlobalTextures.LoadContent(Content); //This must be read before scenes[].Initialize, because that line attempts to load a texture.
             scenes[activeScene].Initialize();
 
+            WaveManager.CreateWaves(); //This method defines how many waves are in the game.
+            WaveManager.Begin(0); //Start the first wave
 
 
-            waveManager = new WaveManager();
-            
 
 
             base.Initialize();
@@ -70,7 +67,7 @@ namespace MordSem1OOP
         protected override void Update(GameTime gameTime)
         {
             InputManager.HandleInput(this, camera);
-            waveManager.Update(gameTime);
+            WaveManager.Update(gameTime);
             
 
             scenes[activeScene].Update(gameTime);
