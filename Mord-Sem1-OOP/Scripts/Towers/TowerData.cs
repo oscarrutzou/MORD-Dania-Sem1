@@ -15,12 +15,18 @@ namespace MordSem1OOP.Scripts.Towers
 
         public int moneyUsedOnTower;
 
+        private int buyAmount = 100; //Amount in gold
         /// <summary>
         /// Can be used on the screen when displaying the towers data, to see how much it can be sold for.
         /// </summary>
         public int CalculateSellAmount()
         {
             return moneyUsedOnTower / 2;
+        }
+
+        public int CalculateBuyAmount()
+        {
+            return buyAmount * towerLevel;
         }
     }
 }

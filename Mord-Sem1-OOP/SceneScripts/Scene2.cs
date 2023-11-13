@@ -44,6 +44,7 @@ namespace MordSem1OOP.SceneScripts
         public override void Draw()
         {
             base.Draw(); //Draws all elements in the GameObject list
+
         }
     }
 }

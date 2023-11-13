@@ -43,8 +43,6 @@ namespace MordSem1OOP.SceneScripts
             // Need to cast the gameobject IProjectile interface to a gameobject to be able to see if its should be removed from the list 
             tempSceneData.gameObjects.AddRange(tempSceneData.projectiles.Where(projectile => !projectile.IsRemoved));
 
-
-
             AddIntoCategories(tempSceneData);
             tempSceneData.gameObjectsToAdd.Clear();
 

@@ -200,6 +200,7 @@ namespace MordSem1OOP
             GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont, SpawnProjectileTimer.ToString(), new Vector2(Position.X + 30, Position.Y - 30), Color.Black);
 
             GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont, towerData.towerKills.ToString(), new Vector2(Position.X + 30, Position.Y - 10), Color.Black);
+            GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont, Global.activeScene.sceneData.sceneStats.money.ToString(), new Vector2(0, 0), Color.Black);
 
         }
 

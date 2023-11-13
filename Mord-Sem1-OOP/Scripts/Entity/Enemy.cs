@@ -19,6 +19,7 @@ namespace MordSem1OOP
         private EnemyType enemyType;
         private int health;
         private float distanceTraveled;
+        private int moneyOnDeath;
         public int Health { get => health; set => health = value; }
         public float DistanceTraveled { get => distanceTraveled; set => distanceTraveled = value; }
         
@@ -43,24 +44,28 @@ namespace MordSem1OOP
                 case EnemyType.Normal:
                     Speed = 50;
                     Health = 100;
+                    moneyOnDeath = 10;
                     texture = GlobalTextures.Textures[TextureNames.Enemy_Black1];
                     break;
 
                 case EnemyType.Fast:
                     Speed = 100;
                     Health = 50;
+                    moneyOnDeath = 5;
                     texture = GlobalTextures.Textures[TextureNames.Enemy_Green1];
                     break;
 
                 case EnemyType.Strong:
                     Speed = 30;
                     Health = 200;
+                    moneyOnDeath = 20;
                     texture = GlobalTextures.Textures[TextureNames.Enemy_Red1];
                     break;
 
                 default:
                     Speed = 50;
                     Health = 100;
+                    moneyOnDeath = 10;
                     texture = GlobalTextures.Textures[TextureNames.Enemy_Black1];
                     break;
             }
@@ -91,6 +96,7 @@ namespace MordSem1OOP
             if (Health <= 0)
             {
                 IsRemoved = true;
+                Global.activeScene.sceneData.sceneStats.money += moneyOnDeath;
                 //Add money
             }
         }
