@@ -118,7 +118,7 @@ namespace MordSem1OOP.SceneScripts
                 Primitives2D.DrawLine(GameWorld._spriteBatch, left, right, Color.Red, 1);
             }
 
-            _buildGui.Draw(GameWorld._spriteBatch);
+            _buildGui.Draw();
 
             base.Draw(); //Draws all elements in the GameObject list
         }

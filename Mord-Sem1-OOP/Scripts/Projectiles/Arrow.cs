@@ -66,22 +66,5 @@ namespace MordSem1OOP
             }
         }
 
-        //public override void OnCollisionBox()
-        //{
-        //    foreach (Enemy enemy in Global.activeScene.sceneData.enemies)
-        //    {
-        //        if (!enemy.IsRemoved && Collision.IsCollidingBox(this, enemy))
-        //        {
-        //            IsRemoved = true; // Delete this object
-
-        //            enemy.TakeDamage(Damage); // Damage enemy with the damage amount from the tower
-
-        //            if (enemy.IsRemoved)
-        //            {
-        //                Tower.towerData.towerKills++;
-        //            }
-        //        }
-        //    }
-        //}
     }
 }

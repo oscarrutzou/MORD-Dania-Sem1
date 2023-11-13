@@ -24,9 +24,27 @@ namespace MordSem1OOP.Scripts.Towers
             return moneyUsedOnTower / 2;
         }
 
+        /// <summary>
+        /// Used to find out how much a tower cost. Also used when lvl up a tower
+        /// </summary>
+        /// <returns></returns>
         public int CalculateBuyAmount()
         {
             return buyAmount * towerLevel;
+        }
+
+        /// <summary>
+        /// Deduct the money used from the sceneStats. Use CalculateBuyAmount before buying
+        /// </summary>
+        public void BuyTower()
+        {
+            int currentMoney = Global.activeScene.sceneData.sceneStats.money;
+
+            if (currentMoney <= 0) return; //Shouldnt go in minus. Would still build the tower though
+
+            currentMoney -= CalculateBuyAmount();
+
+            moneyUsedOnTower += CalculateBuyAmount();
         }
     }
 }

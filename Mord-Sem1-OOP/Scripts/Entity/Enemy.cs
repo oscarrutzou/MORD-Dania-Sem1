@@ -97,7 +97,7 @@ namespace MordSem1OOP
             {
                 IsRemoved = true;
                 Global.activeScene.sceneData.sceneStats.money += moneyOnDeath;
-                //Add money
+                Global.activeScene.sceneData.sceneStats.killCount++;
             }
         }
 

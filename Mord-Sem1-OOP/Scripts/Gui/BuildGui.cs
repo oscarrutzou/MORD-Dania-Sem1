@@ -16,7 +16,7 @@ namespace MordSem1OOP.Scripts.Gui
         private TileGrid _tileGrid;
 
         private int tempCost;
-
+        private Tower _selectedTower;
         public BuildGui(TileGrid tileGrid)
         {
             _tileGrid = tileGrid;
@@ -24,6 +24,7 @@ namespace MordSem1OOP.Scripts.Gui
 
         public override void Update()
         {
+            _selectedTower = GetTower(_selectionIndex);
             MouseState mouseState = Mouse.GetState();
             if (mouseState.LeftButton == ButtonState.Pressed)
                 Build();
@@ -39,21 +40,27 @@ namespace MordSem1OOP.Scripts.Gui
             if (!_tileGrid.IsTileAvailable(position, out Vector2Int gridPosition))
                 return;
 
-            Tower tower = GetTower(_selectionIndex);
+            
 
-            if (tower is null)
+            if (_selectedTower is null)
                 return;
 
-            GameWorld.Instantiate(tower);
+            if (!CanAffordTower()) return;
 
-            _tileGrid.Insert(tower, gridPosition);
+            _selectedTower.towerData.BuyTower(); //Deducts the money from the sceneStats
+            GameWorld.Instantiate(_selectedTower);
+            _tileGrid.Insert(_selectedTower, gridPosition);
+
+
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void Draw()
         {
             Vector2 position = InputManager.mousePosition;
 
-            if (!_tileGrid.IsTileAvailable(position, out Vector2Int gridPosition))
+            bool canPlaceOnGrid = _tileGrid.IsTileAvailable(position, out Vector2Int gridPosition);
+
+            if (!canPlaceOnGrid)
                 return;
 
             Rectangle tileRect = new Rectangle(
@@ -63,7 +70,13 @@ namespace MordSem1OOP.Scripts.Gui
                             (int)(_tileGrid.TileSize / 2)
                         );
 
-            Primitives2D.DrawSolidRectangle(spriteBatch, tileRect, 0, Color.Red);
+
+            Primitives2D.DrawSolidRectangle(GameWorld._spriteBatch, tileRect, 0, CanAffordTower() ? Color.Green: Color.Red);
+        }
+
+        public bool CanAffordTower()
+        {
+            return Global.activeScene.sceneData.sceneStats.money >= _selectedTower.towerData.CalculateBuyAmount();
         }
 
         private Tower GetTower(int index)
