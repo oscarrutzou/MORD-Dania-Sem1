@@ -67,8 +67,6 @@ namespace MordSem1OOP
         public float LevelIncrementalMultiplier { get => levelIncrementalMultiplier; set => levelIncrementalMultiplier = value; }
         public float SpawnProjectileTimer { get => spawnProjectileTimer; private set => spawnProjectileTimer = value; }
         #endregion
-        private SpriteFont arialFont;
-
 
         public Tower(Vector2 position, float scale, Texture2D texture) : base(texture)
         {
@@ -82,7 +80,6 @@ namespace MordSem1OOP
             SpawnProjectileTimer = ProjectileTimer;
             isCooldown = false;
             towerData = new TowerData();
-            arialFont = Global.gameWorld.Content.Load<SpriteFont>("Fonts\\Arial");
 
         }
 
@@ -200,9 +197,9 @@ namespace MordSem1OOP
 
 
             //Draw tower data
-            GameWorld._spriteBatch.DrawString(arialFont, SpawnProjectileTimer.ToString(), new Vector2(Position.X + 30, Position.Y - 30), Color.Black);
+            GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont, SpawnProjectileTimer.ToString(), new Vector2(Position.X + 30, Position.Y - 30), Color.Black);
 
-            GameWorld._spriteBatch.DrawString(arialFont, towerData.towerKills.ToString(), new Vector2(Position.X + 30, Position.Y - 10), Color.Black);
+            GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont, towerData.towerKills.ToString(), new Vector2(Position.X + 30, Position.Y - 10), Color.Black);
 
         }
 

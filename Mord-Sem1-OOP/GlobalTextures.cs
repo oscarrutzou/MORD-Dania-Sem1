@@ -29,6 +29,8 @@ namespace MordSem1OOP
     {
         public static Dictionary<TextureNames, Texture2D> Textures;
 
+        public static SpriteFont arialFont;
+
         public static void LoadContent(ContentManager content)
         {
             Textures = new Dictionary<TextureNames, Texture2D>
@@ -45,6 +47,7 @@ namespace MordSem1OOP
 
             // Add more textures here
         };
+            arialFont = content.Load<SpriteFont>("Fonts\\Arial");
         }
 
 
