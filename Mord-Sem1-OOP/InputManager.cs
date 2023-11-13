@@ -4,6 +4,7 @@ using System.Security.Cryptography.X509Certificates;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MordSem1OOP.Scripts;
 
 namespace MordSem1OOP
 {
@@ -11,7 +12,7 @@ namespace MordSem1OOP
     {
         //public static GameWorld world;
         private static KeyboardState keyboardState;
-        private static MouseState mouseState;
+        public static MouseState mouseState;
 
         public static Vector2 mousePosition;
 
@@ -61,10 +62,13 @@ namespace MordSem1OOP
                 // You can get the position of the mouse click like this:
                 if (Global.activeScene.sceneData.towers == null) return;
 
-                //foreach (Tower tower in Global.activeScene.sceneData.towers)
-                //{
-                //    tower.LevelUpTower();
-                //}
+                foreach(Button button in Global.activeScene.sceneData.buttons)
+                {
+                    if (button.IsMouseOver())
+                    {
+                        button.OnClick();
+                    }
+                }
             }
         }
 

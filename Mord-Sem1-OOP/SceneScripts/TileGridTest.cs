@@ -66,7 +66,8 @@ namespace MordSem1OOP.SceneScripts
             //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
             //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
 
-            Button btn = new Button(Vector2.Zero, 1f, GlobalTextures.Textures[TextureNames.GuiBasicButton]);
+            Button btn = new Button(Vector2.Zero, "Do random action yesss", GlobalTextures.Textures[TextureNames.GuiBasicButton]);
+            GameWorld.Instantiate(btn);
             
         }
 
@@ -100,10 +101,6 @@ namespace MordSem1OOP.SceneScripts
                     }
                 }
             }
-
-            // Primitives2D.DrawRectangle(spriteBatch, new Rectangle(0,0,40,40), 0, Color.Blue);
-            // Primitives2D.DrawRectangle(spriteBatch, new Rectangle(sceneData._tileGrid.Dimension.X, sceneData._tileGrid.Dimension.Y, 40, 40), 0, Color.Blue);
-
 
             Primitives2D.DrawRectangle(GameWorld._spriteBatch, Vector2.Zero, sceneData._tileGrid.Dimension, Color.Red, 1, 0);
 
