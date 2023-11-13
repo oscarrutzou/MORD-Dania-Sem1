@@ -6,14 +6,14 @@ namespace MordSem1OOP.Scripts.Waves
     public class Wave
     {
         #region Fields and Properties
+
         private List<EnemyBatch> enemyBatches = new List<EnemyBatch>();
         private int currentBatch;
         private float timer;
         private bool isDone = false;
         public bool IsDone => isDone;
+
         #endregion
-
-
 
 
         public void Update(GameTime gameTime)
