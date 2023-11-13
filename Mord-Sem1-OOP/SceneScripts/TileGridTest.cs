@@ -15,6 +15,9 @@ namespace MordSem1OOP.SceneScripts
     {
         private TileGrid _tileGrid;
         private BuildGui _buildGui;
+        private StatsGui _statsGui;
+        private Camera _camera;
+
         public TileGridTest(ContentManager content) : base(content) { }
 
         public override void Initialize()
@@ -72,7 +75,8 @@ namespace MordSem1OOP.SceneScripts
             base.Update(gameTime); //Handles the GameObject list
         }
 
-        public override void Draw(){
+        public override void Draw()
+        {
             for (int x = 0; x < _tileGrid.ColumnCount; x++)
             {
                 for (int y = 0; y < _tileGrid.RowCount; y++)
@@ -121,6 +125,22 @@ namespace MordSem1OOP.SceneScripts
             _buildGui.Draw();
 
             base.Draw(); //Draws all elements in the GameObject list
+        }
+
+        private void DrawGui()
+        {
+            _statsGui.Draw();
+        }
+
+        public override void DrawScene()
+        {
+            GameWorld._spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp, transformMatrix: Global.gameWorld.Camera.GetMatrix());
+            Draw();
+            GameWorld._spriteBatch.End();
+
+            GameWorld._spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp);
+            DrawGui();
+            GameWorld._spriteBatch.End();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MordSem1OOP.Scripts.Gui;
 using MordSem1OOP.Scripts.Towers;
 using System;
 using System.Collections.Generic;
@@ -12,12 +13,13 @@ namespace MordSem1OOP.SceneScripts
 {
     internal sealed class Scene2 : Scene
     {
-
+        private StatsGui statsGui;
 
         public Scene2(ContentManager content) : base(content) { }
 
         public override void Initialize()
         {
+            statsGui = new StatsGui();
 
             Enemy enemy1 = new Enemy(EnemyType.Strong, new Vector2(100, 50));
             GameWorld.Instantiate(enemy1);
@@ -44,7 +46,16 @@ namespace MordSem1OOP.SceneScripts
         public override void Draw()
         {
             base.Draw(); //Draws all elements in the GameObject list
+        }
 
+        public override void DrawScene()
+        {
+            GameWorld._spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp, transformMatrix: Global.gameWorld.Camera.GetMatrix());
+            Draw();
+            GameWorld._spriteBatch.End();
+            GameWorld._spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp);
+            statsGui.Draw();
+            GameWorld._spriteBatch.End();
         }
     }
 }

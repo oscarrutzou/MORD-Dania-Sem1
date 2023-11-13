@@ -14,13 +14,13 @@ namespace MordSem1OOP
         private Vector2 position;          // The camera's position in the game world.
         private float zoom;                // The zoom level of the camera.
         private Matrix transformMatrix;    // A transformation matrix used for rendering.
-        private GraphicsDeviceManager _graphics;  // Reference to the GraphicsDeviceManager.
+        private Vector2 _origin;
 
-        public Camera(GraphicsDeviceManager graphics)
+        public Camera(Vector2 origin)
         {
             position = Vector2.Zero;   // Initialize the camera's position at the origin.
             zoom = 1.0f;               // Initialize the camera's zoom level to 1.0
-            _graphics = graphics;
+            _origin = origin;
         }
 
         public void Move(Vector2 delta)
@@ -42,7 +42,7 @@ namespace MordSem1OOP
             // 3. Translate the view to center it on the screen.
             // This assumes the camera view is centered within the game window.
             // The following lines center the view using the screen's dimensions.
-            Matrix centerMatrix = Matrix.CreateTranslation(new Vector3(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2, 0));
+            Matrix centerMatrix = Matrix.CreateTranslation(new Vector3(_origin.X, _origin.Y, 0));
 
             // Combine the matrices in the correct order to create the final transformation matrix.
             transformMatrix = translationMatrix * scaleMatrix * centerMatrix;
