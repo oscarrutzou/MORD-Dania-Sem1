@@ -24,6 +24,7 @@ namespace MordSem1OOP.SceneScripts
         {
             _tileGrid = new TileGrid(Vector2.Zero, 40, 18, 10);
             _buildGui = new BuildGui(_tileGrid);
+            _statsGui = new StatsGui();
 
             int x = 0;
             int y = 3;
