@@ -13,6 +13,11 @@ namespace MordSem1OOP
         //public static GameWorld world;
         private static KeyboardState keyboardState;
         public static MouseState mouseState;
+        /// <summary>
+        /// Prevents multiple click when clicking a button
+        /// </summary>
+        private static MouseState previousMouseState;
+
 
         public static Vector2 mousePosition;
 
@@ -55,7 +60,8 @@ namespace MordSem1OOP
                 game.Exit();
             }
 
-            if (mouseState.LeftButton == ButtonState.Pressed)
+            //Making sure that the button onclick dont keep getting called when holding mouseclick down.
+            if (mouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
             {
 
                 // The left mouse button is pressed
@@ -70,6 +76,8 @@ namespace MordSem1OOP
                     }
                 }
             }
+
+            previousMouseState = mouseState;
         }
 
         /// <summary>

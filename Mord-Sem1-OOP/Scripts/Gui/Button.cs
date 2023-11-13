@@ -21,12 +21,14 @@ namespace MordSem1OOP.Scripts
     public class Button : GameObject
     {
         private string text;
-        public Button(Vector2 position, string text, Texture2D texture): base(texture)
+        private Action onClickAction;
+
+        public Button(Vector2 position, string text, Texture2D texture, Action onClickAction) : base(texture)
         {
             Position = position;
             Scale = 1;
             this.text = text;
-
+            this.onClickAction = onClickAction;
         }
 
         public override void Update(GameTime gameTime)
@@ -40,6 +42,7 @@ namespace MordSem1OOP.Scripts
         public virtual void OnClick()
         {
             Scale = 0.9f;  // Shrink the button by 10%
+            onClickAction?.Invoke(); //Invokes the action (method) that was the input from the contructer
         }
 
         public bool IsMouseOver()

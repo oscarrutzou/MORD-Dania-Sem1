@@ -66,7 +66,13 @@ namespace MordSem1OOP.SceneScripts
             //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
             //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
 
-            Button btn = new Button(Vector2.Zero, "Do random action yesss", GlobalTextures.Textures[TextureNames.GuiBasicButton]);
+            string text = "Do random action yesss";
+
+            Button btn = new Button(Vector2.Zero,
+                                    text,
+                                    GlobalTextures.Textures[TextureNames.GuiBasicButton],
+                                    () => Global.activeScene.sceneData.sceneStats.money += 100);
+
             GameWorld.Instantiate(btn);
             
         }
