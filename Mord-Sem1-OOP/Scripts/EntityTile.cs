@@ -9,15 +9,17 @@ namespace MordSem1OOP.Scripts
 {
     internal class EntityTile : Tile
     {
-        GameObject _gameObject;
+        private GameObject _gameObject;
+
+        public GameObject GameObject { get => _gameObject; set => _gameObject = value; }
 
         public EntityTile(GameObject gameObject, int x, int y, Vector2 position) : base(new Vector2Int(x, y), position)
         {
-            _gameObject = gameObject;
+            GameObject = gameObject;
         }
         public EntityTile(GameObject gameObject, Vector2Int gridPosition, Vector2 position) : base(gridPosition, position)
         {
-            _gameObject = gameObject;
+            GameObject = gameObject;
         }
     }
 }

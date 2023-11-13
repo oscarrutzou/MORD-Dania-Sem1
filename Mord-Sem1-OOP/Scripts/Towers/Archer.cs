@@ -32,6 +32,8 @@ namespace MordSem1OOP.Scripts.Towers
                     this,
                     GlobalTextures.Textures[TextureNames.Projectile_Arrow]);
 
+            
+
             GameWorld.Instantiate(tower_Arrow);
         }
 

@@ -13,7 +13,11 @@ namespace MordSem1OOP
     
         public Arrow(Tower tower, Texture2D texture) : base(tower, texture)
         {
-            
+            direction = Target.Position - Position;
+            direction.Normalize();
+
+            // Calculate rotation towards target
+            RotateTowardsWithOffset(Target.Position);
 
         }
 

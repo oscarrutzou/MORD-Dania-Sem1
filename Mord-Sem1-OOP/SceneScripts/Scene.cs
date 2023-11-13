@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Content;
+using MordSem1OOP.Scripts;
 
 namespace MordSem1OOP.SceneScripts
 {
