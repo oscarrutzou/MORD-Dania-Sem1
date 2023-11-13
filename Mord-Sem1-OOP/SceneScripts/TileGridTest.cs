@@ -40,32 +40,31 @@ namespace MordSem1OOP.SceneScripts
             sceneData._tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
             sceneData._tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
 
-            x = 0;
-            y = 4;
+            //x = 0;
+            //y = 4;
 
+            //Tower CreateTower()
+            //{
+            //    Tower acherTower = new Tower(.5f, GlobalTextures.Textures[TextureNames.Tower_Archer]);
+            //    GameWorld.Instantiate(acherTower);
+            //    return acherTower;
+            //}
 
-            Tower CreateTower()
-            {
-                Tower acherTower = new Tower(.5f, GlobalTextures.Textures[TextureNames.Tower_Archer]);
-                GameWorld.Instantiate(acherTower);
-                return acherTower;
-            }
+            //Enemy enemy1 = new Enemy(EnemyType.Strong, new Vector2(0, 100));
+            //GameWorld.Instantiate(enemy1);
 
-            Enemy enemy1 = new Enemy(EnemyType.Strong, new Vector2(0, 100));
-            GameWorld.Instantiate(enemy1);
+            //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(x, y));
 
-            sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(x, y));
-
-            sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
-            sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
-            x++;
-            y++;
-            sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(x, ++y));
-            sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(x, ++y));
-            sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
-            x++;
-            sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
-            sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
+            //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
+            //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
+            //x++;
+            //y++;
+            //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(x, ++y));
+            //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(x, ++y));
+            //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
+            //x++;
+            //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
+            //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
 
             Button btn = new Button(Vector2.Zero, 1f, GlobalTextures.Textures[TextureNames.GuiBasicButton]);
             

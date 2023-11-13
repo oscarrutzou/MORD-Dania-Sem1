@@ -18,15 +18,22 @@ namespace MordSem1OOP.Scripts
     public class Button : GameObject
     {
 
-        public Button(Vector2 position, float scale, Texture2D texture)
+        public Button(Vector2 position, float scale, Texture2D texture): base(texture)
         {
-            
+            Position = position;
+            Scale = scale;
+
 
         }
 
         public override void Update(GameTime gameTime)
         {
             
+        }
+
+        public override void Draw()
+        {
+            base.Draw();
         }
     }
 }

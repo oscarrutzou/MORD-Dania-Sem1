@@ -14,8 +14,6 @@ namespace MordSem1OOP.SceneScripts
     {
         protected ContentManager content;
         public SceneData sceneData = new SceneData();
-        //public List<GameObject> objectsToCreate = new List<GameObject>();
-        //public List<GameObject> objectsToDestroy = new List<GameObject>();
 
         public Scene(ContentManager content)
         {
@@ -35,15 +33,20 @@ namespace MordSem1OOP.SceneScripts
             SceneData tempSceneData = Global.activeScene.sceneData;
             tempSceneData.gameTime = gameTime;
 
+            // Remove game objects marked for removal
+            tempSceneData.towers.RemoveAll(tower => tower.IsRemoved);
+            tempSceneData.enemies.RemoveAll(enemy => enemy.IsRemoved);
+            tempSceneData.projectiles.RemoveAll(projectile => projectile.IsRemoved);
+            tempSceneData.buttons.RemoveAll(button => button.IsRemoved);
+
             // Clear the gameObjects list
             tempSceneData.gameObjects.Clear();
 
-            // Add all towers, enemies, and projectiles to the gameObjects list
-            tempSceneData.gameObjects.AddRange(tempSceneData.towers.Where(tower => !tower.IsRemoved));
-            tempSceneData.gameObjects.AddRange(tempSceneData.enemies.Where(enemy => !enemy.IsRemoved));
-
-            // Need to cast the gameobject IProjectile interface to a gameobject to be able to see if its should be removed from the list 
-            tempSceneData.gameObjects.AddRange(tempSceneData.projectiles.Where(projectile => !projectile.IsRemoved));
+            // Add all towers, enemies, projectiles and buttons to the gameObjects list
+            tempSceneData.gameObjects.AddRange(tempSceneData.towers);
+            tempSceneData.gameObjects.AddRange(tempSceneData.enemies);
+            tempSceneData.gameObjects.AddRange(tempSceneData.projectiles);
+            tempSceneData.gameObjects.AddRange(tempSceneData.buttons);
 
             AddIntoCategories(tempSceneData);
             tempSceneData.gameObjectsToAdd.Clear();
@@ -52,7 +55,6 @@ namespace MordSem1OOP.SceneScripts
             foreach (GameObject gameObject in tempSceneData.gameObjects)
                 gameObject.Update(gameTime);
         }
-
 
         /// <summary>
         /// Calls Draw on every GameObject in the scene
