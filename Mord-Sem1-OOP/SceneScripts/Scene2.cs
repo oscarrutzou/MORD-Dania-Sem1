@@ -1,13 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using MordSem1OOP.Scripts.Gui;
 using MordSem1OOP.Scripts.Towers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MordSem1OOP.Scripts;
 
 namespace MordSem1OOP.SceneScripts
 {

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MordSem1OOP.Scripts.Gui
+namespace MordSem1OOP.Scripts
 {
     internal class StatsGui : Gui
     {
