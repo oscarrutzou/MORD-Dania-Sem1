@@ -7,81 +7,67 @@ using System.Threading.Tasks;
 
 namespace MordSem1OOP.Scripts.Waves
 {
-    public class WaveManager
+    public static class WaveManager
     {
-        private Wave[] waves; // List to store all waves.
-        private int currentWaveIndex; // Index of the current wave.
-        private TimeSpan waveDuration; // Duration of each wave.
-        private TimeSpan waveTimer; // Timer to track the time in the current wave.
-        private bool isWaveActive;  // Flag to indicate if a wave is currently active.
+        private static Wave[] waves; //Stores all waves.
+        private static int currentWave; //Index of the current wave.
+        public static bool AllWavesCleared => (currentWave >= waves.Length);
 
-        public WaveManager()
+
+        static bool b = true;
+        public static void Update(GameTime gameTime)
         {
-            CreateWaves();
-            waves[0].Begin();
-        }
-
-        public bool IsWaveComplete => currentWaveIndex >= waves.Length;
-
-
-        bool xaaaaa = false;
-        public void Update(GameTime gameTime)
-        {
-            waves[currentWaveIndex].Update(gameTime);
+            waves[currentWave].Update(gameTime);
 
             //Check if the wave is done spawning enemies
-            if (waves[currentWaveIndex].IsWaveComplete == true)
+            if (waves[currentWave].IsDone is true)
             {
-                //Check if there are still enemies left in the scene.
-                if(Global.activeScene.sceneData.enemies.Count == 0)
-                    StartNextWave();
+                
+                if(Global.activeScene.sceneData.enemies.Count == 0) //Global EnemyCount is 0
+                    StartNextWave(); //BUG: This doesn't work because sceneData.enemies does not get updated when an enemy is removed.
 
 
 
-                //THIS IS A TEST!
-                int a = 0;
-                foreach (Enemy e in Global.activeScene.sceneData.enemies)
-                {
-                    if (e.IsRemoved == true) a++;
-                }
+                //THIS IS A TEST, REMOVE IT WHEN SCENEDATA IS CAPABLE OF REMOVING ENTRIES FROM ITS ENEMIES LIST!
+                bool a = true;
+                foreach (GameObject go in Global.activeScene.sceneData.gameObjects) { if (go is Enemy) a = false; };
+                if (a && b) { b = false; StartNextWave(); }
 
-                if (a == 5 && xaaaaa == false)
-                {
-                    xaaaaa = true;
-                    StartNextWave();
-                }
-                //REMOVE THIS ONCE SCENEDATA'S ENEMYLIST GETS UPDATED WHEN AN ENEMY DIES
+
+     
             }
-
         }
 
-        public void StartNextWave()
+        public static void StartNextWave()
         {
-            if (currentWaveIndex + 1 < waves.Length)
+            if (currentWave < waves.Length - 1)
             {
-                currentWaveIndex++;
-                waves[currentWaveIndex].Begin();
+                currentWave++;
+                waves[currentWave].Begin();
             }
         }
 
+        /// <summary>
+        /// Starts the wave
+        /// </summary>
+        /// <param name="wave">Which wave to start</param>
+        public static void Begin(int wave) => waves[wave].Begin();
 
         //Add your waves here
-        private void CreateWaves() 
+        public static void CreateWaves() 
         {
             Wave wave1 = new Wave();
-            wave1.AddPhase(new EnemyBatch(EnemyType.Normal, 5, 0.5f), 2.5f);
+            wave1.AddPhase(new EnemyBatch(EnemyType.Normal, 5, 0.5f, 2.5f));
 
             Wave wave2 = new Wave();
-            wave2.AddPhase(new EnemyBatch(EnemyType.Normal, 2, 0.5f), 1f); //Bug, duration cannot be lower than interval, it skips to the next phase
-            wave2.AddPhase(new EnemyBatch(EnemyType.Strong, 3, 1), 3);
+            wave2.AddPhase(new EnemyBatch(EnemyType.Normal, 2, 0.5f, 0f));
+            wave2.AddPhase(new EnemyBatch(EnemyType.Strong, 3, 1, 3f));
 
 
             waves = new Wave[]
             {
                 wave1,
                 wave2,
-            
-            
             };
         }
     }
