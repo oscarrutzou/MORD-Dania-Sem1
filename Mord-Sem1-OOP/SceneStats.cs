@@ -12,7 +12,9 @@ namespace MordSem1OOP
     /// </summary>
     public class SceneStats
     {
-        public int money;
+        public int maxHealth = 100;
+        public int health = 100;
+        public int money = 2050;
         public int killCount;
     }
 }

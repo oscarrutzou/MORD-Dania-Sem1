@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MordSem1OOP.Scripts;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -21,6 +22,7 @@ namespace MordSem1OOP
         Enemy_Blue1,
         Enemy_Green1,
         Enemy_Red1,
+        Pixel,
         // Add more texture names here
     }
 
@@ -44,6 +46,7 @@ namespace MordSem1OOP
             { TextureNames.Enemy_Blue1, content.Load<Texture2D>("Placeholder\\Enemies\\enemyBlue1") },
             { TextureNames.Enemy_Green1, content.Load<Texture2D>("Placeholder\\Enemies\\enemyGreen1") },
             { TextureNames.Enemy_Red1, content.Load<Texture2D>("Placeholder\\Enemies\\enemyRed1") },
+            { TextureNames.Pixel, content.Load<Texture2D>("Misc/pixel") },
 
             // Add more textures here
         };

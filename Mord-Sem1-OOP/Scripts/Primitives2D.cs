@@ -26,9 +26,7 @@ namespace MordSem1OOP.Scripts
         public static void DrawLine(SpriteBatch spriteBatch, Vector2 point, float length, float angle, Color color, float thickness)
         {
             if (pixel == null)
-            {
-                CreateThePixel(spriteBatch);
-            }
+                pixel = CreatePixel(spriteBatch);
 
             spriteBatch.Draw(pixel,
                              point,
@@ -70,9 +68,7 @@ namespace MordSem1OOP.Scripts
         public static void DrawSolidRectangle(SpriteBatch spriteBatch, Rectangle rectangle, float angle, Color color)
         {
             if (pixel == null)
-            {
-                CreateThePixel(spriteBatch);
-            }
+                pixel = CreatePixel(spriteBatch);
 
             spriteBatch.Draw(pixel, rectangle, null, color, angle, Vector2.Zero, SpriteEffects.None, 1);
         }
@@ -110,10 +106,11 @@ namespace MordSem1OOP.Scripts
             spriteBatch.Draw(circleTexture, position, null, color * 0.5f, 0, origin, 1, SpriteEffects.None, 1);
         }
 
-        private static void CreateThePixel(SpriteBatch spriteBatch)
+        public static Texture2D CreatePixel(SpriteBatch spriteBatch)
         {
             pixel = new Texture2D(spriteBatch.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
             pixel.SetData(new[] { Color.White });
+            return pixel;
         }
     }
 }
