@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+
 using System;
 
 namespace MordSem1OOP
@@ -14,13 +15,17 @@ namespace MordSem1OOP
         private Rectangle sourceRectangle; // Limits the view to one numberBox
         private int[] currentValue;
         private int[] targetValue; // Target value to animate towards
-        private float speed = 300; // Animation speed
+        private float speed = 200; // Animation speed
         private int rectangleHeight = 40;
 
         private float elapsedTime = 0f;
-        private int loopCount = 0;
+        private int[] loopCount = new int[6];
         private float delayTime;
         private Random random = new Random();
+
+        private static int resultNumber = 456;
+        private string numberString = resultNumber.ToString();
+
 
 
         /// <summary>
@@ -34,7 +39,7 @@ namespace MordSem1OOP
             sourceRectangle = new Rectangle(1, 0, numberPillarSprite.Width, rectangleHeight);
             yPositions = new int[6];
             currentValue = new int[6];
-            targetValue = new int[] { 0, 0, 4, 5, 6, 7 };
+            targetValue = new int[] { 9, 8, 4, 5, 6, 7 };
 
             for (int i = 0; i < 6; i++)
             {
@@ -70,7 +75,7 @@ namespace MordSem1OOP
             //    delayTime = (float)random.NextDouble() * (8-3) + 3;
             //}
 
-            
+
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -91,24 +96,110 @@ namespace MordSem1OOP
                 //if (currentValue[i] == targetValue[i])
                 //    continue;
 
-                if (loopCount >= 10 && currentValue[i] == targetValue[i])
+                //if (currentValue[i] != targetValue[i])
+                //{
+                //    //loopCount[i]++;
+                //    continue;
+                //}
+
+                if (loopCount[i] >= 3)
                 {
-                    continue;
+                    //loopCount[i] = 0;
+                    continue; }
+
+                int newYPosition = yPositions[i] + (int)(speed * gameTime.ElapsedGameTime.TotalSeconds);
+
+                //if (currentValue[i] != targetValue[i] && (int)(newYPosition / rectangleHeight) == targetValue[i])
+
+                // Iterate through each character in the string and assign it to the corresponding position in the array
+                for (int i2 = 0; i2 < Math.Min(numberString.Length, targetValue.Length); i2++)
+                {
+                    // Convert the character to an integer and assign it to the array
+                    targetValue[i2] = int.Parse(numberString[i2].ToString());
+                }
+                int min = targetValue[i] * rectangleHeight;
+                int max = (targetValue[i] + 1) * rectangleHeight;
+
+                if (!InRange(yPositions[i], min, max))
+                {
+                    if (newYPosition > numberPillarSprite.Height - rectangleHeight)
+                    {
+                        newYPosition = newYPosition - numberPillarSprite.Height + rectangleHeight;
+                    }
+
+                    if (InRange(newYPosition, min, max))
+                    {
+                        if (loopCount[i] == 3 - 1)
+                        {
+                            newYPosition = GetIndexPosition(targetValue[i]);
+                        }
+                        loopCount[i]++;
+                    }
                 }
 
-                yPositions[i] += (int)(speed * gameTime.ElapsedGameTime.TotalSeconds);
-                sourceRectangle.Y = (int)yPositions[0];
+
+                yPositions[i] = newYPosition;
+                //yPositions[i] += (int)(speed * gameTime.ElapsedGameTime.TotalSeconds);
+
+                sourceRectangle.Y = (int)yPositions[i];
                 currentValue[i] = (int)(yPositions[i] / rectangleHeight);
 
                 // Check if the first number pillar has reached the bottom
-                if (yPositions[i] > numberPillarSprite.Height - 40)
+                if (yPositions[i] > numberPillarSprite.Height)
                 {
                     // If yes, loop it to the bottom of the screen
-                    yPositions[i] = GraphicsDeviceManager.DefaultBackBufferHeight;
-                    loopCount++;
-                    yPositions[i] = 0;
+
+                    yPositions[i] -= numberPillarSprite.Height;
                 }
             }
+        }
+
+        //int[] debugCurr = new int[6];
+        //int[] debugNew = new int[6];
+        //int[] debugMin = new int[6];
+        //int[] debugMax = new int[6];
+        //public void AddToDebug()
+        //{
+        //    DebugInfo.AddString("debugCurr", DebugMethod1);
+        //    DebugInfo.AddString("debugNew", DebugMethod2);
+        //    DebugInfo.AddString("debugMin", DebugMethod3);
+        //    DebugInfo.AddString("debugMax", DebugMethod4);
+        //    DebugInfo.AddString("debugBoolCur", DebugMethod5);
+        //    DebugInfo.AddString("debugBoolNew", DebugMethod5);
+        //}
+        //public string DebugMethod1()
+        //{
+        //    return debugCurr[0].ToString();
+        //}
+
+        //public string DebugMethod2()
+        //{
+        //    return debugNew[0].ToString();
+        //}
+
+        //public string DebugMethod3()
+        //{
+        //    return debugMin[0].ToString();
+        //}
+
+        //public string DebugMethod4()
+        //{
+        //    return debugMax[0].ToString();
+        //}
+
+        //public string DebugMethod5()
+        //{
+        //    return $"{debugMin[0]} <= {debugCurr[0]} <= {debugMax[0]}" + " " + InRange(debugNew[0], debugMin[0], debugMax[0]);
+        //}
+
+        //public string DebugMethod6()
+        //{
+        //    return $"{debugMin[0]} <= {debugNew[0]} <= {debugMax[0]}" + " " + InRange(debugNew[0], debugMin[0], debugMax[0]);
+        //}
+
+        public bool InRange(int value, int min, int max)
+        {
+            return min <= value && value <= max;
         }
 
         private void HandleInput(GameTime gameTime)
@@ -117,7 +208,10 @@ namespace MordSem1OOP
 
             if (keystate.IsKeyDown(Keys.Space))
             {
-                Animation(gameTime);
+                currentValue = new int[6];
+                yPositions = new int[6];
+                loopCount = new int[6];
+                //Animation(gameTime);
             }
         }
 

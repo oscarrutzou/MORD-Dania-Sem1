@@ -329,8 +329,10 @@
     <File>D:/Programmer/Github/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/playerLife3_green.png</File>
     <File>D:/Programmer/Github/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/playerLife3_orange.png</File>
     <File>D:/Programmer/Github/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/Placeholder/UI/playerLife3_red.png</File>
+    <File>D:/Programmer/Github/MORD-Dania-Sem1/Mord-Sem1-OOP/Content/temp.spritefont</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

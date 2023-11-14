@@ -3913,3 +3913,10 @@
 /processorParam:TextureFormat=Color
 /build:Placeholder/UI/playerLife3_red.png
 
+#begin temp.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:temp.spritefont
+
