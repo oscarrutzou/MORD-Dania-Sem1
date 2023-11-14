@@ -17,10 +17,10 @@ namespace MordSem1OOP.Scripts
         private Vector2 leftScreenPosition = Vector2.One * 20;
         private float rowSpacing = 16;
         private int row = 0;
-        private Button nextWaveBtn;
+        
 
         private Vector2 startBottomRightPos;
-
+        Button waveBtn;
         public void DrawHealthBar(Vector2 position)
         {
             float maxHealth = Global.activeScene.sceneData.sceneStats.maxHealth;
@@ -85,70 +85,21 @@ namespace MordSem1OOP.Scripts
                                         1);
         }
 
-
-        //public void WaveButton()
-        //{
-        //    Texture2D waveBtnTexture = GlobalTextures.Textures[TextureNames.GuiBasicButton];
-
-        //    if (!hasInitBottomRightPos)
-        //    {
-        //        startBottomRightPos = Global.gameWorld.Camera.BottomRight - new Vector2(waveBtnTexture.Width, waveBtnTexture.Height);
-                
-        //        hasInitBottomRightPos = true;
-        //    }
-
-        //    GameWorld._spriteBatch.Draw(waveBtnTexture, startBottomRightPos, Color.White);
-
-        //    string text = "Testestes";
-        //    // Measure the size of the text
-        //    Vector2 textSize = GlobalTextures.arialFont.MeasureString(text);
-
-        //    // Calculate the position to center the text
-        //    Vector2 textPosition = startBottomRightPos - textSize / 2;
-
-        //    GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont,
-        //                                      text,
-        //                                      textPosition,
-        //                                      Color.Black,
-        //                                      0,
-        //                                      Vector2.Zero,
-        //                                      1,
-        //                                      SpriteEffects.None,
-        //                                      1);
-
-        //    //Texture2D waveBtnTexture = GlobalTextures.Textures[TextureNames.GuiBasicButton];
-
-        //    // Create the button only if it doesn't exist yet
-        //    //if (nextWaveBtn == null)
-        //    //{
-        //    //    nextWaveBtn = new Button(btnPos, "Next wave", waveBtnTexture, () => WaveManager.CreateWaves());
-        //    //    GameWorld.Instantiate(nextWaveBtn);
-        //    //}
-        //    //else
-        //    //{
-        //    //    // Update the button's position
-        //    //    nextWaveBtn.Position = btnPos;
-
-        //    //}
-        //}
-
         public void WaveButton()
         {
             Texture2D waveBtnTexture = GlobalTextures.Textures[TextureNames.GuiBasicButton];
 
             if (!hasInitBottomRightPos)
             {
-                startBottomRightPos = Global.gameWorld.Camera.BottomRight - new Vector2(waveBtnTexture.Width, waveBtnTexture.Height);
-
+                startBottomRightPos = Global.gameWorld.Camera.BottomRight - new Vector2(waveBtnTexture.Width / 2 + 10, waveBtnTexture.Height / 2 + 10);
                 hasInitBottomRightPos = true;
+
+                waveBtn = new Button(startBottomRightPos, "Testest Text", waveBtnTexture, () => Global.activeScene.sceneData.sceneStats.money += 100);
+                Global.activeScene.sceneData.buttons.Add(waveBtn);
             }
 
             //GameWorld._spriteBatch.Draw(waveBtnTexture, startBottomRightPos, Color.White);
-            Button waveBtn = new Button(startBottomRightPos, "Testest Text", waveBtnTexture, () => { });
-            
-            waveBtn.Draw();
-
-            
+                    
         }
 
         public void WorldDraw()
@@ -162,8 +113,6 @@ namespace MordSem1OOP.Scripts
 
         public void ScreenDraw()
         {
-
-
             leftScreenPosition = Vector2.One * 20;
             rowSpacing = 16;
             row = 0;
@@ -188,17 +137,16 @@ namespace MordSem1OOP.Scripts
             }
 
 
-       
             WaveButton();
-
-
-
+            waveBtn.Draw();
         }
 
-        public override void Update()
+        public override void Update(GameTime gameTime)
         {
-            
-
+            foreach (Button button in Global.activeScene.sceneData.buttons)
+            {
+                button.Update(gameTime);
+            }
         }
 
         public override void Draw()

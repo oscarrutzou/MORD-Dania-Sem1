@@ -24,20 +24,20 @@ namespace MordSem1OOP
         }
 
 
-        public Vector2 TopLeft
-        {
-            get { return position - new Vector2(GameWorld._graphics.PreferredBackBufferWidth / 2, GameWorld._graphics.PreferredBackBufferHeight / 2); }
-        }
+        //public Vector2 TopLeft
+        //{
+        //    get { return position - new Vector2(GameWorld._graphics.PreferredBackBufferWidth / 2, GameWorld._graphics.PreferredBackBufferHeight / 2); }
+        //}
 
-        public Vector2 TopRight
-        {
-            get { return position + new Vector2(GameWorld._graphics.PreferredBackBufferWidth / 2, -GameWorld._graphics.PreferredBackBufferHeight / 2); }
-        }
+        //public Vector2 TopRight
+        //{
+        //    get { return position + new Vector2(GameWorld._graphics.PreferredBackBufferWidth / 2, -GameWorld._graphics.PreferredBackBufferHeight / 2); }
+        //}
 
-        public Vector2 BottomLeft
-        {
-            get { return position - new Vector2(-GameWorld._graphics.PreferredBackBufferWidth / 2, GameWorld._graphics.PreferredBackBufferHeight / 2); }
-        }
+        //public Vector2 BottomLeft
+        //{
+        //    get { return position - new Vector2(-GameWorld._graphics.PreferredBackBufferWidth / 2, GameWorld._graphics.PreferredBackBufferHeight / 2); }
+        //}
 
         public Vector2 BottomRight
         {

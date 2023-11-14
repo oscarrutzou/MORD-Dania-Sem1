@@ -187,7 +187,7 @@ namespace MordSem1OOP
         {
             base.Draw();
 
-            Primitives2D.DrawRectangle(GameWorld._spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation); //Draws the collision box
+            //Primitives2D.DrawRectangle(GameWorld._spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation); //Draws the collision box
         }
 
         public void DrawTowerRadiusRing()

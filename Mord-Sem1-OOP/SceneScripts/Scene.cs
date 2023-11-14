@@ -41,6 +41,9 @@ namespace MordSem1OOP.SceneScripts
             // Call update on every GameObject in the active scene.
             foreach (GameObject gameObject in tempSceneData.gameObjects)
                 gameObject.Update(gameTime);
+
+            Global.activeScene.sceneData._statsGui.Update(gameTime);
+                
         }
 
         /// <summary>

@@ -13,8 +13,6 @@ namespace MordSem1OOP.SceneScripts
     internal sealed class TileGridTest : Scene
     {
 
-        private Camera _camera;
-
         public TileGridTest(ContentManager content) : base(content) { }
 
         public override void Initialize()
@@ -45,7 +43,7 @@ namespace MordSem1OOP.SceneScripts
 
         public override void Update(GameTime gameTime)
         {
-            sceneData._buildGui.Update();
+            sceneData._buildGui.Update(gameTime);
             base.Update(gameTime); //Handles the GameObject list
         }
 

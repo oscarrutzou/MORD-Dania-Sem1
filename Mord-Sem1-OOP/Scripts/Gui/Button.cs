@@ -27,6 +27,8 @@ namespace MordSem1OOP.Scripts
         private ISprite sprite;
         public bool IsRemoved { get; set; }
 
+        private float clickCooldown = 0.5f; // The delay between button clicks in seconds
+        private float timeSinceLastClick = 0; // The time since the button was last clicked
         public Rectangle CollisionBox
         {
             get
@@ -48,8 +50,22 @@ namespace MordSem1OOP.Scripts
             this.onClickAction = onClickAction;
         }
 
-        public override void Update()
+        public Button(Vector2 position, string text, float timeBetweenPress, Texture2D texture, Action onClickAction)
         {
+            this.position = position;
+            this.text = text;
+            clickCooldown = timeBetweenPress;
+            sprite = new Sprite(texture);
+            this.onClickAction = onClickAction;
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            if (timeSinceLastClick < clickCooldown)
+            {
+                timeSinceLastClick += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+
             if (!IsMouseOver() || InputManager.mouseState.LeftButton == ButtonState.Released)
             {
                 scale = Math.Min(1, scale + 0.01f);  // Increase the scale by 1% each frame, up to the original size
@@ -59,12 +75,18 @@ namespace MordSem1OOP.Scripts
         public virtual void OnClick()
         {
             scale = 0.9f;  // Shrink the button by 10%
-            onClickAction?.Invoke(); //Invokes the action (method) that was the input from the contructer
+
+            // Only invoke the action if enough time has passed since the last click
+            if (timeSinceLastClick >= clickCooldown)
+            {
+                onClickAction?.Invoke(); //Invokes the action (method) that was the input from the       
+                timeSinceLastClick = 0; // Reset the time since the last click
+            }
         }
 
         public bool IsMouseOver()
         {
-            return CollisionBox.Contains(InputManager.mousePosition.ToPoint());
+            return CollisionBox.Contains(InputManager.mousePositionOnScreen.ToPoint());
         }
 
         public override void Draw()

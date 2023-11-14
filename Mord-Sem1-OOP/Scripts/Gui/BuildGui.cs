@@ -23,11 +23,11 @@ namespace MordSem1OOP.Scripts
             _tileGrid = tileGrid;
         }
 
-        public override void Update()
+        public override void Update(GameTime gameTime)
         {
             _selectedTower = GetTower(_selectionIndex);
-            MouseState mouseState = Mouse.GetState();
-            if (mouseState.LeftButton == ButtonState.Pressed)
+            
+            if (InputManager.mouseState.LeftButton == ButtonState.Pressed && !InputManager.IsMouseOverButton())
                 Build();
         }
 
@@ -66,7 +66,7 @@ namespace MordSem1OOP.Scripts
                             (int)(_tileGrid.TileSize / 2)
                         );
 
-
+            if (InputManager.IsMouseOverButton()) return;
             Primitives2D.DrawSolidRectangle(GameWorld._spriteBatch, tileRect, 0, CanAffordTower() ? Color.Green: Color.Red);
         }
 
