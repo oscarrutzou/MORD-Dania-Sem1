@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MordSem1OOP.Scripts;
-using SharpDX.Direct2D1.Effects;
 
 namespace MordSem1OOP
 {
@@ -64,25 +63,6 @@ namespace MordSem1OOP
 
             if (mouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
             {
-                bool towerHasBeenSelected = false;
-                if (Global.activeScene.sceneData.towers != null)
-                {
-                    foreach (Tower tower in Global.activeScene.sceneData.towers)
-                    {
-                        if (tower.CollisionBox.Contains(mousePosition.ToPoint()))
-                        {
-                            selectedTower = tower;
-                            towerHasBeenSelected = true;
-                            break;
-                        }
-                    }
-                }
-
-                if (!towerHasBeenSelected)
-                {
-                    selectedTower = null;
-                }
-
                 if (Global.activeScene.sceneData.buttons != null)
                 {
                     foreach (Button button in Global.activeScene.sceneData.buttons)
@@ -92,6 +72,29 @@ namespace MordSem1OOP
                             button.OnClick();
                         }
                     }
+                }
+
+                if (Global.activeScene.sceneData.towers == null) return; //There isn't any towers in the scene yet
+
+                if (!Global.activeScene.sceneData._tileGrid.GetTile(mousePosition, out Tile tile))
+                {
+                    selectedTower = null;
+                }
+
+                if (tile is EntityTile entityTile)
+                {
+                    if (entityTile.GameObject is Tower tower)
+                    {
+                        selectedTower = tower;
+                    }
+                    else
+                    {
+                        selectedTower = null;
+                    }
+                }
+                else
+                {
+                    selectedTower = null;
                 }
             }
 

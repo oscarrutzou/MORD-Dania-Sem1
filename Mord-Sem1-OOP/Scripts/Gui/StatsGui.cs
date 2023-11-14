@@ -48,7 +48,7 @@ namespace MordSem1OOP.Scripts
 
             string towerKills = InputManager.selectedTower.towerData.towerKills.ToString();
             // Measure the size of the text
-            Vector2 textSize = GlobalTextures.arialFont.MeasureString(towerKills);
+            //Vector2 textSize = GlobalTextures.arialFont.MeasureString(towerKills);
 
             // Calculate the position to center the text
             Vector2 textPosition = position + Vector2.One * 10;
@@ -61,7 +61,7 @@ namespace MordSem1OOP.Scripts
                                   Vector2.Zero,
                                   1,
                                   SpriteEffects.None,
-                                  1);
+                                  100);
 
 
 
