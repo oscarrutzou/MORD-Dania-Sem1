@@ -13,7 +13,6 @@ namespace MordSem1OOP.SceneScripts
     internal sealed class TileGridTest : Scene
     {
 
-        private StatsGui _statsGui;
         private Camera _camera;
 
         public TileGridTest(ContentManager content) : base(content) { }
@@ -22,7 +21,7 @@ namespace MordSem1OOP.SceneScripts
         {
             sceneData._tileGrid = new TileGrid(Vector2.Zero, 40, 18, 10);
             sceneData._buildGui = new BuildGui(sceneData._tileGrid);
-            _statsGui = new StatsGui();
+            sceneData._statsGui = new StatsGui();
 
             int x = 0;
             int y = 3;
@@ -40,33 +39,7 @@ namespace MordSem1OOP.SceneScripts
             sceneData._tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
             sceneData._tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
 
-            //x = 0;
-            //y = 4;
-
-            //Tower CreateTower()
-            //{
-            //    Tower acherTower = new Tower(.5f, GlobalTextures.Textures[TextureNames.Tower_Archer]);
-            //    GameWorld.Instantiate(acherTower);
-            //    return acherTower;
-            //}
-
-            //Enemy enemy1 = new Enemy(EnemyType.Strong, new Vector2(0, 100));
-            //GameWorld.Instantiate(enemy1);
-
-            //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(x, y));
-
-            //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
-            //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
-            //x++;
-            //y++;
-            //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(x, ++y));
-            //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(x, ++y));
-            //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
-            //x++;
-            //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
-            //sceneData._tileGrid.Insert(CreateTower(), new Vector2Int(++x, y));
-
-            string text = "Do random action yesss";
+            string text = "Do random action btn";
 
             Button btn = new Button(Vector2.Zero,
                                     text,
@@ -83,6 +56,9 @@ namespace MordSem1OOP.SceneScripts
             base.Update(gameTime); //Handles the GameObject list
         }
 
+        /// <summary>
+        /// DrawTileGrid
+        /// </summary>
         public override void Draw()
         {
             for (int x = 0; x < sceneData._tileGrid.ColumnCount; x++)
@@ -131,19 +107,18 @@ namespace MordSem1OOP.SceneScripts
             base.Draw(); //Draws all elements in the GameObject list
         }
 
-        private void DrawGui()
-        {
-            _statsGui.Draw();
-        }
+
 
         public override void DrawScene()
         {
+
             GameWorld._spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp, transformMatrix: Global.gameWorld.Camera.GetMatrix());
             Draw();
+            sceneData._statsGui.WorldDraw();
             GameWorld._spriteBatch.End();
 
             GameWorld._spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp);
-            DrawGui();
+            sceneData._statsGui.ScreenDraw();
             GameWorld._spriteBatch.End();
         }
     }

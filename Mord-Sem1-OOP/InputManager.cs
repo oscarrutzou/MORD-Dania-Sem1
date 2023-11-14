@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MordSem1OOP.Scripts;
+using SharpDX.Direct2D1.Effects;
 
 namespace MordSem1OOP
 {
@@ -20,6 +21,7 @@ namespace MordSem1OOP
 
 
         public static Vector2 mousePosition;
+        public static Tower selectedTower;
 
         public static void HandleInput(Game game, Camera camera)
         {
@@ -60,19 +62,35 @@ namespace MordSem1OOP
                 game.Exit();
             }
 
-            //Making sure that the button onclick dont keep getting called when holding mouseclick down.
             if (mouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
             {
-
-                // The left mouse button is pressed
-                // You can get the position of the mouse click like this:
-                if (Global.activeScene.sceneData.towers == null) return;
-
-                foreach(Button button in Global.activeScene.sceneData.buttons)
+                bool towerHasBeenSelected = false;
+                if (Global.activeScene.sceneData.towers != null)
                 {
-                    if (button.IsMouseOver())
+                    foreach (Tower tower in Global.activeScene.sceneData.towers)
                     {
-                        button.OnClick();
+                        if (tower.CollisionBox.Contains(mousePosition.ToPoint()))
+                        {
+                            selectedTower = tower;
+                            towerHasBeenSelected = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!towerHasBeenSelected)
+                {
+                    selectedTower = null;
+                }
+
+                if (Global.activeScene.sceneData.buttons != null)
+                {
+                    foreach (Button button in Global.activeScene.sceneData.buttons)
+                    {
+                        if (button.IsMouseOver())
+                        {
+                            button.OnClick();
+                        }
                     }
                 }
             }

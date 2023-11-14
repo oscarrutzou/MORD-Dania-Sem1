@@ -16,6 +16,7 @@ namespace MordSem1OOP
         public SpriteBatch debugSpriteBatch;
         public TileGrid _tileGrid;
         public BuildGui _buildGui;
+        public StatsGui _statsGui;
 
         public List<GameObject> gameObjects = new List<GameObject>(); //All gameObjects in the scene
         public List<GameObject> gameObjectsToAdd = new List<GameObject>(); //All objects that should be added to the scene

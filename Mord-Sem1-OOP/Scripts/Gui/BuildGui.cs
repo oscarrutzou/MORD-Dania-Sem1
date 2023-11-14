@@ -41,9 +41,9 @@ namespace MordSem1OOP.Scripts
             if (_selectedTower is null)
                 return;
 
-            //if (!CanAffordTower()) return;
+            if (!CanAffordTower()) return;
 
-            //_selectedTower.towerData.BuyTower(); //Deducts the money from the sceneStats
+            _selectedTower.towerData.BuyTower(); //Deducts the money from the sceneStats
             GameWorld.Instantiate(_selectedTower);
             _tileGrid.Insert(_selectedTower, gridPosition);
 

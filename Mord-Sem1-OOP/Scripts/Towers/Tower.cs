@@ -35,6 +35,9 @@ namespace MordSem1OOP
         private float towerLevelMultiplier = 1f;
         private float levelIncrementalMultiplier = 0.2f;
 
+        //private bool statsShow = false;
+        //private bool rangeShow = false;
+
         public List<Enemy> enemiesInRadius {  get; private set; }
         #endregion
 
@@ -66,6 +69,8 @@ namespace MordSem1OOP
         public float TowerLevelMultiplier { get => towerLevelMultiplier; set => towerLevelMultiplier = value; }
         public float LevelIncrementalMultiplier { get => levelIncrementalMultiplier; set => levelIncrementalMultiplier = value; }
         public float SpawnProjectileTimer { get => spawnProjectileTimer; private set => spawnProjectileTimer = value; }
+        //public bool StatsShow { get => statsShow; set => statsShow = value; }
+        //public bool RangeShow { get => rangeShow; set => rangeShow = value; }
         #endregion
 
         public Tower(Vector2 position, float scale, Texture2D texture) : base(texture)
@@ -183,18 +188,15 @@ namespace MordSem1OOP
             base.Draw();
 
             Primitives2D.DrawRectangle(GameWorld._spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation); //Draws the collision box
+        }
 
-            //Sprite radiusRing = new Sprite(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing]);
+        public void DrawTowerRadiusRing()
+        {
+            Sprite radiusRing = new Sprite(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing]);
 
-            //Vector2 drawPosition = Position - radiusRing.Origin;
+            Vector2 drawPosition = Position - radiusRing.Origin;
 
-            //GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing], drawPosition, Color.Red);
-
-
-            ////Draw tower data
-            //GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont, SpawnProjectileTimer.ToString(), new Vector2(Position.X + 30, Position.Y - 30), Color.Black);
-
-            //GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont, towerData.towerKills.ToString(), new Vector2(Position.X + 30, Position.Y - 10), Color.Black);
+            GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing], drawPosition, Color.Red);
 
         }
 
