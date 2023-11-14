@@ -54,8 +54,6 @@ namespace MordSem1OOP
             //WaveManager.Begin(0); //Start the first wave
 
 
-
-
             base.Initialize();
         }
 
@@ -122,6 +120,7 @@ namespace MordSem1OOP
 
         public void Fullscreen()
         {
+            _graphics.HardwareModeSwitch = false;
             _graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
             _graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
             //camera.SetOrigin(new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
@@ -131,11 +130,17 @@ namespace MordSem1OOP
 
         public void WindowedScreen()
         {
-            _graphics.PreferredBackBufferWidth = 800;
-            _graphics.PreferredBackBufferHeight = 480;
+            _graphics.HardwareModeSwitch = true;
+            _graphics.PreferredBackBufferWidth = 1280;
+            _graphics.PreferredBackBufferHeight = 720;
             //camera.SetOrigin(new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
-            _graphics.IsFullScreen = true;
+            _graphics.IsFullScreen = false;
             _graphics.ApplyChanges();
+        }
+
+        public string DebugResolution()
+        {
+            return $"{_graphics.PreferredBackBufferWidth}, {_graphics.PreferredBackBufferHeight}";
         }
     }
 }

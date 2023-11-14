@@ -44,6 +44,7 @@ namespace MordSem1OOP.SceneScripts
 
             GameWorld.Instantiate(btn);
 
+            DebugInfo.AddString("resolution", Global.gameWorld.DebugResolution);
             _buildGui.AddToDebug();
 
             WaveManager.SetDefaultSpawnPoint(_path.GetWaypoint(0));
@@ -51,6 +52,7 @@ namespace MordSem1OOP.SceneScripts
             WaveManager.Begin(0); //Start the first wave
 
             Global.gameWorld.Fullscreen();
+            //Global.gameWorld.WindowedScreen();
         }
 
         public override void Update(GameTime gameTime)
@@ -87,6 +89,7 @@ namespace MordSem1OOP.SceneScripts
             Draw();
             _statsGui.WorldDraw();
             _path.Draw(GameWorld._spriteBatch);
+            //DrawWorldSpaceMouse();
             GameWorld._spriteBatch.End();
 
             GameWorld._spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp);
@@ -95,8 +98,27 @@ namespace MordSem1OOP.SceneScripts
             {
                 DebugInfo.DrawAllInfo(GameWorld._spriteBatch, new Vector2(20, 70), 16, GlobalTextures.arialFont, Color.Magenta);
             }
+            //DrawScreenSpaceMouse();
             GameWorld._spriteBatch.End();
         }
+
+        //private void DrawWorldSpaceMouse()
+        //{
+        //    int size = 5;
+        //    Vector2 pos = InputManager.mousePosition;
+        //    // Vector2 pos = Global.gameWorld.Camera.ScreenToWorld(InputManager.mousePosition);
+        //    Rectangle rectangle = new Rectangle((int)pos.X - size, (int)pos.Y - size, size * 2, size * 2);
+        //    Primitives2D.DrawSolidRectangle(GameWorld._spriteBatch, rectangle, 0, Color.Blue);
+        //}
+
+        //private void DrawScreenSpaceMouse()
+        //{
+        //    int size = 5;
+        //    Vector2 pos = Mouse.GetState().Position.ToVector2();
+        //    // Vector2 pos = Global.gameWorld.Camera.ScreenToWorld(InputManager.mousePosition);
+        //    Rectangle rectangle = new Rectangle((int)pos.X - size, (int)pos.Y - size, size * 2, size * 2);
+        //    Primitives2D.DrawSolidRectangle(GameWorld._spriteBatch, rectangle, 0, Color.Green);
+        //}
 
         private void BuildMap()
         {
