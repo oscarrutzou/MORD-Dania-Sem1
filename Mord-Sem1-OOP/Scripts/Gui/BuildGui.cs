@@ -24,11 +24,11 @@ namespace MordSem1OOP.Scripts
             _tileGrid = tileGrid;
         }
 
-        public override void Update()
+        public override void Update(GameTime gameTime)
         {
             _selectedTower = GetTower(_selectionIndex);
-            MouseState mouseState = Mouse.GetState();
-            if (mouseState.LeftButton == ButtonState.Pressed)
+
+            if (InputManager.mouseState.LeftButton == ButtonState.Pressed && !InputManager.IsMouseOverButton())
                 Build();
         }
 
@@ -69,9 +69,9 @@ namespace MordSem1OOP.Scripts
 
             tileRect.X += (int)_tileGrid.Position.X;
             tileRect.Y += (int)_tileGrid.Position.Y;
+            if (InputManager.IsMouseOverButton()) return;
 
-
-            Primitives2D.DrawSolidRectangle(GameWorld._spriteBatch, tileRect, 0, CanAffordTower() ? Color.Green: Color.Red);
+            Primitives2D.DrawSolidRectangle(GameWorld._spriteBatch, tileRect, 0, CanAffordTower() ? Color.Green : Color.Red);
         }
 
         public void ChangeTowerIndex(int index)
@@ -88,9 +88,9 @@ namespace MordSem1OOP.Scripts
         {
             switch (index)
             {
-                case 1: 
+                case 1:
                     return CreateArcher();
-                case 2: 
+                case 2:
                     return CreateMissileLauncher();
                 default:
                     return CreateArcher();
@@ -105,7 +105,7 @@ namespace MordSem1OOP.Scripts
 
         private Tower CreateMissileLauncher()
         {
-            MissileLauncher missileLauncher = new MissileLauncher(new Vector2(0,0), .5f, GlobalTextures.Textures[TextureNames.Tower_MissileLauncher]);
+            MissileLauncher missileLauncher = new MissileLauncher(new Vector2(0, 0), .5f, GlobalTextures.Textures[TextureNames.Tower_MissileLauncher]);
             return missileLauncher;
         }
 

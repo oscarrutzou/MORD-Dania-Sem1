@@ -25,7 +25,7 @@ namespace MordSem1OOP
         public List<Tower> towers = new List<Tower>();
         public List<Enemy> enemies = new List<Enemy>();
         public List<Projectile> projectiles = new List<Projectile>();
-        public List<Button> buttons = new List<Button>();
+        public List<Gui> buttons = new List<Gui>();
 
 
     }

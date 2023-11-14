@@ -11,10 +11,10 @@ namespace MordSem1OOP
 {
     public class Camera
     {
-        private Vector2 position;          // The camera's position in the game world.
+        public Vector2 position;          // The camera's position in the game world.
         private float zoom;                // The zoom level of the camera.
         private Matrix transformMatrix;    // A transformation matrix used for rendering.
-        private Vector2 _origin;
+        public Vector2 _origin;
 
         public Camera(Vector2 origin)
         {
@@ -22,6 +22,28 @@ namespace MordSem1OOP
             zoom = 1.0f;               // Initialize the camera's zoom level to 1.0
             _origin = origin;
         }
+
+
+        //public Vector2 TopLeft
+        //{
+        //    get { return position - new Vector2(GameWorld._graphics.PreferredBackBufferWidth / 2, GameWorld._graphics.PreferredBackBufferHeight / 2); }
+        //}
+
+        //public Vector2 TopRight
+        //{
+        //    get { return position + new Vector2(GameWorld._graphics.PreferredBackBufferWidth / 2, -GameWorld._graphics.PreferredBackBufferHeight / 2); }
+        //}
+
+        //public Vector2 BottomLeft
+        //{
+        //    get { return position - new Vector2(-GameWorld._graphics.PreferredBackBufferWidth / 2, GameWorld._graphics.PreferredBackBufferHeight / 2); }
+        //}
+
+        public Vector2 BottomRight
+        {
+            get { return position + new Vector2(GameWorld._graphics.PreferredBackBufferWidth, GameWorld._graphics.PreferredBackBufferHeight); }
+        }
+
 
         public void Move(Vector2 delta)
         {

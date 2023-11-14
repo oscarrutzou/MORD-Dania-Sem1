@@ -13,8 +13,6 @@ namespace MordSem1OOP.SceneScripts
     internal sealed class TileGridTest : Scene
     {
 
-        private Camera _camera;
-
         public TileGridTest(ContentManager content) : base(content) { }
 
         public override void Initialize()
@@ -39,20 +37,13 @@ namespace MordSem1OOP.SceneScripts
             sceneData.tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
             sceneData.tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
 
-            string text = "Do random action btn";
 
-            Button btn = new Button(Vector2.Zero,
-                                    text,
-                                    GlobalTextures.Textures[TextureNames.GuiBasicButton],
-                                    () => Global.activeScene.sceneData.sceneStats.money += 100);
-
-            GameWorld.Instantiate(btn);
             
         }
 
         public override void Update(GameTime gameTime)
         {
-            sceneData.buildGui.Update();
+            sceneData._buildGui.Update(gameTime);
             base.Update(gameTime); //Handles the GameObject list
         }
 

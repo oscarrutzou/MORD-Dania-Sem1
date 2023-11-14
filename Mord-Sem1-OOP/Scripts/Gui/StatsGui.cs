@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using MordSem1OOP.Scripts.Towers;
+using MordSem1OOP.Scripts.Waves;
 using SharpDX.Direct2D1.Effects;
 using SharpDX.Direct3D9;
 using static System.Net.Mime.MediaTypeNames;
@@ -12,10 +14,13 @@ namespace MordSem1OOP.Scripts
         private int _healthBarLength = 250;
         private int _healthBarHeight = 20;
 
-        private Vector2 position = Vector2.One * 20;
+        private Vector2 leftScreenPosition = Vector2.One * 20;
         private float rowSpacing = 16;
         private int row = 0;
 
+
+        private Vector2 startBottomRightPos;
+        Button waveBtn;
         public void DrawHealthBar(Vector2 position)
         {
             float maxHealth = Global.activeScene.sceneData.sceneStats.maxHealth;
@@ -39,12 +44,7 @@ namespace MordSem1OOP.Scripts
 
         public void DrawTowerStats(Vector2 position)
         {
-            //Sprite radiusRing = new Sprite(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing]);
-
-            //Vector2 drawPosition = Position - radiusRing.Origin;
-
-
-            // GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.GuiBasicTowerStats], position, Color.Red);
+            GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.GuiBasicTowerStats], position, Color.Red);
 
             string towerKills = InputManager.selectedTower.towerData.towerKills.ToString();
             // Measure the size of the text
@@ -73,6 +73,7 @@ namespace MordSem1OOP.Scripts
 
             Vector2 drawPosition = InputManager.selectedTower.Position - radiusRing.Origin;
 
+
             GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing],
                                         drawPosition,
                                         null,
@@ -84,6 +85,23 @@ namespace MordSem1OOP.Scripts
                                         1);
         }
 
+        public void WaveButton()
+        {
+            Texture2D waveBtnTexture = GlobalTextures.Textures[TextureNames.GuiBasicButton];
+
+            if (!hasInitBottomRightPos)
+            {
+                startBottomRightPos = Global.gameWorld.Camera.BottomRight - new Vector2(waveBtnTexture.Width / 2 + 10, waveBtnTexture.Height / 2 + 10);
+                hasInitBottomRightPos = true;
+
+                waveBtn = new Button(startBottomRightPos, "Testest Text", waveBtnTexture, () => Global.activeScene.sceneData.sceneStats.money += 100);
+                Global.activeScene.sceneData.buttons.Add(waveBtn);
+            }
+
+            //GameWorld._spriteBatch.Draw(waveBtnTexture, startBottomRightPos, Color.White);
+
+        }
+
         public void WorldDraw()
         {
             if (InputManager.selectedTower == null) return;
@@ -91,39 +109,49 @@ namespace MordSem1OOP.Scripts
             DrawTowerRing();
         }
 
+        private bool hasInitBottomRightPos = false;
+
         public void ScreenDraw()
         {
-            position = Vector2.One * 20;
+            leftScreenPosition = Vector2.One * 20;
             rowSpacing = 16;
             row = 0;
 
-            DrawHealthBar(position + new Vector2(0, rowSpacing * row++));
-            position.Y += 10;
+            DrawHealthBar(leftScreenPosition + new Vector2(0, rowSpacing * row++));
+            leftScreenPosition.Y += 10;
             GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont,
                                               $"{Global.activeScene.sceneData.sceneStats.money} gold",
-                                              position + new Vector2(0, rowSpacing * row++),
-                                              Color.White,
+                                              leftScreenPosition + new Vector2(0, rowSpacing * row++),
+                                              Color.Black,
                                               0,
                                               Vector2.Zero,
                                               1,
                                               SpriteEffects.None,
                                               1);
 
-            position.Y += 20;
+            leftScreenPosition.Y += 20;
 
-            if (InputManager.selectedTower == null) return;
+            if (InputManager.selectedTower != null)
+            {
+                DrawTowerStats(leftScreenPosition + new Vector2(0, rowSpacing * row++));
+            }
 
-            DrawTowerStats(position + new Vector2(0, rowSpacing * row++));
+
+            WaveButton();
+            waveBtn.Draw();
         }
 
-        public override void Update()
+        public override void Update(GameTime gameTime)
         {
-
+            foreach (Button button in Global.activeScene.sceneData.buttons)
+            {
+                button.Update(gameTime);
+            }
         }
 
         public override void Draw()
         {
-            
+
         }
     }
 }

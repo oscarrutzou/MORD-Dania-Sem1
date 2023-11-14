@@ -25,6 +25,7 @@ namespace MordSem1OOP
         Enemy_Red1,
         Pixel,
         GuiBasicButton,
+        GuiBasicTowerStats,
 
         //Non placeholder enemies and turrets
         EnemyNormalSheet,
@@ -62,6 +63,7 @@ namespace MordSem1OOP
                 { TextureNames.Enemy_Red1, content.Load<Texture2D>("Placeholder\\Enemies\\enemyRed1") },
                 { TextureNames.Pixel, content.Load<Texture2D>("Misc/pixel") },
                 { TextureNames.GuiBasicButton, content.Load<Texture2D>("Placeholder\\UI\\buttonBlue") },
+                { TextureNames.GuiBasicTowerStats, content.Load<Texture2D>("Placeholder\\UI\\BasicTestTowerStats") },
 
             //Non placeholder enemies and turrets
                 { TextureNames.EnemyNormalSheet, content.Load<Texture2D>("Enemies/EnemyNormal") },
@@ -71,8 +73,6 @@ namespace MordSem1OOP
                 { TextureNames.TurretNormalMask, content.Load<Texture2D>("Turrets/TurretNormal_Mask") },
                 { TextureNames.TurretBigSheet, content.Load<Texture2D>("Turrets/TurretBig") },
                 { TextureNames.TurretBigMask, content.Load<Texture2D>("Turrets/TurretBig_Mask") },
-
-            // Add more textures here
 
         };
             arialFont = content.Load<SpriteFont>("Fonts\\Arial");

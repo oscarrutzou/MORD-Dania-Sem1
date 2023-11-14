@@ -16,10 +16,11 @@ namespace MordSem1OOP
         /// <summary>
         /// Prevents multiple click when clicking a button
         /// </summary>
-        private static MouseState previousMouseState;
+        public static MouseState previousMouseState;
 
 
         public static Vector2 mousePosition;
+        public static Vector2 mousePositionOnScreen;
         public static Tower selectedTower;
 
         public static void HandleInput(Game game, Camera camera)
@@ -29,6 +30,7 @@ namespace MordSem1OOP
 
             //Sets the mouse position
             mousePosition = GetMousePositionInWorld();
+            mousePositionOnScreen = new Vector2(mouseState.X, mouseState.Y);
 
             // Handle camera movement based on keyboard input //-- look at
             Vector2 moveDirection = Vector2.Zero;
@@ -63,17 +65,36 @@ namespace MordSem1OOP
 
             if (mouseState.LeftButton == ButtonState.Pressed && previousMouseState.LeftButton == ButtonState.Released)
             {
-                if (Global.activeScene.sceneData.buttons != null)
+                CheckButtons();
+                CheckTowers();
+            }
+
+            previousMouseState = mouseState;
+
+            
+        }
+        /// <summary>
+        /// Scuffed. Is gonna get fixed 
+        /// </summary>
+        private static void CheckButtons()
+        {
+            if (Global.activeScene.sceneData.buttons != null)
+            {
+                foreach (Button button in Global.activeScene.sceneData.buttons)
                 {
-                    foreach (Button button in Global.activeScene.sceneData.buttons)
+                    if (button.IsMouseOver())
                     {
-                        if (button.IsMouseOver())
-                        {
-                            button.OnClick();
-                        }
+                        button.OnClick();
+                        return;  // Return early if a button was clicked
                     }
                 }
-
+            }
+        }
+        private static void CheckTowers()
+        {
+            // Only check for towers if no button was clicked
+            if (!IsMouseOverButton())
+            {
                 if (Global.activeScene.sceneData.towers == null) return; //There isn't any towers in the scene yet
 
                 if (!Global.activeScene.sceneData.tileGrid.GetTile(mousePosition, out Tile tile))
@@ -97,8 +118,26 @@ namespace MordSem1OOP
                     selectedTower = null;
                 }
             }
+        }
 
-            previousMouseState = mouseState;
+        /// <summary>
+        /// Make this to a IsMouseOverGui. So its also if you try to click on stuff like a stat menu. And make it into one with CheckButton
+        /// </summary>
+        /// <returns></returns>
+        public static bool IsMouseOverButton()
+        {
+            if (Global.activeScene.sceneData.buttons != null)
+            {
+                foreach (Button button in Global.activeScene.sceneData.buttons)
+                {
+                    if (button.IsMouseOver())
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -113,5 +152,6 @@ namespace MordSem1OOP
             return Vector2.Transform(pos, invMatrix);
         } 
 
+        
     }
 }
