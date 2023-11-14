@@ -1,10 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Content;
 using MordSem1OOP.Scripts;
 
@@ -33,22 +29,13 @@ namespace MordSem1OOP.SceneScripts
             SceneData tempSceneData = Global.activeScene.sceneData;
             tempSceneData.gameTime = gameTime;
 
-            // Remove game objects marked for removal
-            tempSceneData.towers.RemoveAll(tower => tower.IsRemoved);
-            tempSceneData.enemies.RemoveAll(enemy => enemy.IsRemoved);
-            tempSceneData.projectiles.RemoveAll(projectile => projectile.IsRemoved);
-            tempSceneData.buttons.RemoveAll(button => button.IsRemoved);
-
-            // Clear the gameObjects list
+            //Remove GameObjects marked for removal
+            RemoveObjects(tempSceneData);
             tempSceneData.gameObjects.Clear();
 
-            // Add all towers, enemies, projectiles and buttons to the gameObjects list
-            tempSceneData.gameObjects.AddRange(tempSceneData.towers);
-            tempSceneData.gameObjects.AddRange(tempSceneData.enemies);
-            tempSceneData.gameObjects.AddRange(tempSceneData.projectiles);
-            tempSceneData.gameObjects.AddRange(tempSceneData.buttons);
-
-            AddIntoCategories(tempSceneData);
+            //Add GameObjects and sort them into the right categories
+            AddObjects(tempSceneData.gameObjects);
+            SortIntoCategories(tempSceneData.gameObjectsToAdd);
             tempSceneData.gameObjectsToAdd.Clear();
 
             // Call update on every GameObject in the active scene.
@@ -78,9 +65,9 @@ namespace MordSem1OOP.SceneScripts
         /// Adds each queued GameObject, to the corresponding list of their type.
         /// </summary>
         /// <param name="sceneData">Used to get the different GameObject lists, and to add the GameObjects to them.</param>
-        private void AddIntoCategories(SceneData sceneData)
+        private void SortIntoCategories(List<GameObject> gameObjectsToAdd)
         {
-            foreach (GameObject obj in sceneData.gameObjectsToAdd)
+            foreach (GameObject obj in gameObjectsToAdd)
             {
                 switch (obj)
                 {
@@ -100,7 +87,20 @@ namespace MordSem1OOP.SceneScripts
                 }
             }
         }
-
+        private void AddObjects(List<GameObject> gameObjects)
+        {
+            gameObjects.AddRange(sceneData.towers);
+            gameObjects.AddRange(sceneData.enemies);
+            gameObjects.AddRange(sceneData.projectiles);
+            gameObjects.AddRange(sceneData.buttons);
+        }
+        private void RemoveObjects(SceneData sceneData)
+        {
+            sceneData.towers.RemoveAll(tower => tower.IsRemoved);
+            sceneData.enemies.RemoveAll(enemy => enemy.IsRemoved);
+            sceneData.projectiles.RemoveAll(projectile => projectile.IsRemoved);
+            sceneData.buttons.RemoveAll(button => button.IsRemoved);
+        }
 
         #endregion
 

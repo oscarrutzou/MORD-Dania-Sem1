@@ -14,29 +14,17 @@ namespace MordSem1OOP.Scripts.Waves
         public static bool AllWavesCleared => (currentWave >= waves.Length);
 
 
-        static bool b = true;
+        //static bool b = true;
         public static void Update(GameTime gameTime)
         {
             waves[currentWave].Update(gameTime);
 
             //Check if the wave is done spawning enemies
-            if (waves[currentWave].IsDone is true)
-            {
-                
-                if(Global.activeScene.sceneData.enemies.Count == 0) //Global EnemyCount is 0
-                    StartNextWave(); //BUG: This doesn't work because sceneData.enemies does not get updated when an enemy is removed.
-
-
-
-                //THIS IS A TEST, REMOVE IT WHEN SCENEDATA IS CAPABLE OF REMOVING ENTRIES FROM ITS ENEMIES LIST!
-                bool a = true;
-                foreach (GameObject go in Global.activeScene.sceneData.gameObjects) { if (go is Enemy) a = false; };
-                if (a && b) { b = false; StartNextWave(); }
-
-
-     
-            }
+            int enemyCount = Global.activeScene.sceneData.enemies.Count;
+            if (waves[currentWave].IsDone is true && enemyCount is 0)
+                    StartNextWave(); 
         }
+
 
         public static void StartNextWave()
         {
@@ -53,7 +41,9 @@ namespace MordSem1OOP.Scripts.Waves
         /// <param name="wave">Which wave to start</param>
         public static void Begin(int wave) => waves[wave].Begin();
 
-        //Add your waves here
+        /// <summary>
+        /// Used to generate every wave in the game.
+        /// </summary>
         public static void CreateWaves() 
         {
             Wave wave1 = new Wave();
@@ -63,11 +53,15 @@ namespace MordSem1OOP.Scripts.Waves
             wave2.AddPhase(new EnemyBatch(EnemyType.Normal, 2, 0.5f, 0f));
             wave2.AddPhase(new EnemyBatch(EnemyType.Strong, 3, 1, 3f));
 
+            Wave wave3 = new Wave();
+            wave3.AddPhase(new EnemyBatch(EnemyType.Fast, 5, 0.8f, 4f));
+            wave3.AddPhase(new EnemyBatch(EnemyType.Strong, 1, 0, 0f));
 
             waves = new Wave[]
             {
                 wave1,
                 wave2,
+                wave3,
             };
         }
     }
