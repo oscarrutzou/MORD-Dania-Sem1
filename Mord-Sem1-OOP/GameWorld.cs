@@ -13,7 +13,7 @@ namespace MordSem1OOP
 {
     public class GameWorld : Game
     {
-        protected static GraphicsDeviceManager _graphics;
+        public static GraphicsDeviceManager _graphics;
         public static SpriteBatch _spriteBatch;
         private static Scene[] scenes = new Scene[8];
         public int activeScene; //Used to call the methods in the current scene

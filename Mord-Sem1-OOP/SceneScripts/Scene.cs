@@ -80,9 +80,9 @@ namespace MordSem1OOP.SceneScripts
                     case Projectile:
                         sceneData.projectiles.Add((Projectile)obj);
                         break;
-                    case Button:
-                        sceneData.buttons.Add((Button)obj);
-                        break;
+                    //case Button:
+                    //    sceneData.buttons.Add((Button)obj);
+                    //    break;
 
                 }
             }
@@ -92,14 +92,14 @@ namespace MordSem1OOP.SceneScripts
             gameObjects.AddRange(sceneData.towers);
             gameObjects.AddRange(sceneData.enemies);
             gameObjects.AddRange(sceneData.projectiles);
-            gameObjects.AddRange(sceneData.buttons);
+            //gameObjects.AddRange(sceneData.buttons);
         }
         private void RemoveObjects(SceneData sceneData)
         {
             sceneData.towers.RemoveAll(tower => tower.IsRemoved);
             sceneData.enemies.RemoveAll(enemy => enemy.IsRemoved);
             sceneData.projectiles.RemoveAll(projectile => projectile.IsRemoved);
-            sceneData.buttons.RemoveAll(button => button.IsRemoved);
+            //sceneData.buttons.RemoveAll(button => button.IsRemoved);
         }
 
         #endregion

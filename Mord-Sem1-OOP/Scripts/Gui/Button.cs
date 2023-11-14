@@ -18,30 +18,47 @@ namespace MordSem1OOP.Scripts
     /// <summary>
     /// The button should stop things from happening under the button
     /// </summary>
-    public class Button : GameObject
+    public class Button: Gui
     {
         private string text;
         private Action onClickAction;
+        private float scale = 1f;
+        private Vector2 position;
+        private ISprite sprite;
+        public bool IsRemoved { get; set; }
 
-        public Button(Vector2 position, string text, Texture2D texture, Action onClickAction) : base(texture)
+        public Rectangle CollisionBox
         {
-            Position = position;
-            Scale = 1;
+            get
+            {
+                return new Rectangle(
+                    (int)(position.X - sprite.Width / 2 * scale),
+                    (int)(position.Y - sprite.Height / 2 * scale),
+                    (int)(sprite.Width * scale),
+                    (int)(sprite.Height * scale)
+                    );
+            }
+        }
+
+        public Button(Vector2 position, string text, Texture2D texture, Action onClickAction)
+        {
+            this.position = position;
             this.text = text;
+            sprite = new Sprite(texture);
             this.onClickAction = onClickAction;
         }
 
-        public override void Update(GameTime gameTime)
+        public override void Update()
         {
             if (!IsMouseOver() || InputManager.mouseState.LeftButton == ButtonState.Released)
             {
-                Scale = Math.Min(1, Scale + 0.01f);  // Increase the scale by 1% each frame, up to the original size
+                scale = Math.Min(1, scale + 0.01f);  // Increase the scale by 1% each frame, up to the original size
             }
         }
 
         public virtual void OnClick()
         {
-            Scale = 0.9f;  // Shrink the button by 10%
+            scale = 0.9f;  // Shrink the button by 10%
             onClickAction?.Invoke(); //Invokes the action (method) that was the input from the contructer
         }
 
@@ -52,13 +69,14 @@ namespace MordSem1OOP.Scripts
 
         public override void Draw()
         {
-            base.Draw();
+
+            sprite.Draw(position, 0f, scale);
 
             // Measure the size of the text
             Vector2 textSize = GlobalTextures.arialFont.MeasureString(text);
 
             // Calculate the position to center the text
-            Vector2 textPosition = Position - textSize / 2;
+            Vector2 textPosition = position - textSize / 2;
 
             GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont,
                                               text,
@@ -70,5 +88,6 @@ namespace MordSem1OOP.Scripts
                                               SpriteEffects.None,
                                               1);
         }
+
     }
 }
