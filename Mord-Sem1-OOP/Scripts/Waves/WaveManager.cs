@@ -12,6 +12,7 @@ namespace MordSem1OOP.Scripts.Waves
         private static Wave[] waves; //Stores all waves.
         private static int currentWave; //Index of the current wave.
         public static bool AllWavesCleared => (currentWave >= waves.Length);
+        private static Waypoint defaultSpawnPoint;
 
 
         //static bool b = true;
@@ -47,15 +48,15 @@ namespace MordSem1OOP.Scripts.Waves
         public static void CreateWaves() 
         {
             Wave wave1 = new Wave();
-            wave1.AddPhase(new EnemyBatch(EnemyType.Normal, 5, 0.5f, 2.5f));
+            wave1.AddPhase(new EnemyBatch(EnemyType.Normal, 5, 0.5f, 2.5f, defaultSpawnPoint));
 
             Wave wave2 = new Wave();
-            wave2.AddPhase(new EnemyBatch(EnemyType.Normal, 2, 0.5f, 0f));
-            wave2.AddPhase(new EnemyBatch(EnemyType.Strong, 3, 1, 3f));
+            wave2.AddPhase(new EnemyBatch(EnemyType.Normal, 2, 0.5f, 0f, defaultSpawnPoint));
+            wave2.AddPhase(new EnemyBatch(EnemyType.Strong, 3, 1, 3f, defaultSpawnPoint));
 
             Wave wave3 = new Wave();
-            wave3.AddPhase(new EnemyBatch(EnemyType.Fast, 5, 0.8f, 4f));
-            wave3.AddPhase(new EnemyBatch(EnemyType.Strong, 1, 0, 0f));
+            wave3.AddPhase(new EnemyBatch(EnemyType.Fast, 5, 0.8f, 4f, defaultSpawnPoint));
+            wave3.AddPhase(new EnemyBatch(EnemyType.Strong, 1, 0, 0f, defaultSpawnPoint));
 
             waves = new Wave[]
             {
@@ -63,6 +64,11 @@ namespace MordSem1OOP.Scripts.Waves
                 wave2,
                 wave3,
             };
+        }
+
+        public static void SetDefaultSpawnPoint(Waypoint waypoint)
+        {
+            defaultSpawnPoint = waypoint;
         }
     }
 }

@@ -22,8 +22,6 @@ namespace MordSem1OOP
         private int moneyOnDeath;
         public int Health { get => health; set => health = value; }
         public float DistanceTraveled { get => distanceTraveled; set => distanceTraveled = value; }
-        
-
         protected Waypoint _waypoint;
         #endregion
 
@@ -76,12 +74,18 @@ namespace MordSem1OOP
             direction = new Vector2(1, 0);
         }
 
+        public Enemy(EnemyType enemyType, Vector2 position, Waypoint waypoint) : this(enemyType, position)
+        {
+            _waypoint = waypoint;
+        }
+
         public override void Update(GameTime gameTime)
         {
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             DistanceTraveled += Speed * deltaTime;
 
-            Move(gameTime);
+            MoveToWaypoint(gameTime);
+            //Move(gameTime);
         }
 
         /// <summary>

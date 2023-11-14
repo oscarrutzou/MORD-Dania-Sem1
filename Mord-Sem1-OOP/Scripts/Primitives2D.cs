@@ -39,6 +39,25 @@ namespace MordSem1OOP.Scripts
                              1);
         }
 
+        public static void DrawRectangle(SpriteBatch spriteBatch, Rectangle rectangle, Color color, float thickness, float angle)
+        {
+            Vector2 topLeft = new Vector2(rectangle.X, rectangle.Y);
+            Vector2 topRight = new Vector2(rectangle.X + rectangle.Width, rectangle.Y);
+            Vector2 bottomLeft = new Vector2(rectangle.X, rectangle.Y + rectangle.Height);
+            Vector2 bottomRight = new Vector2(rectangle.X + rectangle.Width, rectangle.Y + rectangle.Height);
+
+            Matrix matrix = Matrix.CreateRotationZ(angle);
+            topLeft = Vector2.Transform(topLeft, matrix);
+            topRight = Vector2.Transform(topRight, matrix);
+            bottomLeft = Vector2.Transform(bottomLeft, matrix);
+            bottomRight = Vector2.Transform(bottomRight, matrix);
+
+            DrawLine(spriteBatch, topLeft, topRight, color, thickness);
+            DrawLine(spriteBatch, bottomLeft, bottomRight, color, thickness);
+            DrawLine(spriteBatch, topLeft, bottomLeft, color, thickness);
+            DrawLine(spriteBatch, topRight, bottomRight, color, thickness);
+        }
+
         public static void DrawRectangle(SpriteBatch spriteBatch, Vector2 position, Rectangle rectangle, Color color, float thickness, float angle)
         {
             Vector2 topLeft = new Vector2(rectangle.X, rectangle.Y);

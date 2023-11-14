@@ -40,9 +40,15 @@ namespace MordSem1OOP.Scripts
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            for (int i = 0; i < _waypoints.Length - 1; i++)
+            int size = 5;
+            foreach (Waypoint waypoint in _waypoints)
             {
-                Primitives2D.DrawLine(spriteBatch, _waypoints[i].Position, _waypoints[i + 1].Position, Color.Magenta, 1);
+                Rectangle rectangle = new Rectangle((int)waypoint.Position.X - size, (int)waypoint.Position.Y - size, size * 2, size * 2);
+                Primitives2D.DrawSolidRectangle(spriteBatch, rectangle, 0, Color.Magenta);
+                if (waypoint.GetNextWaypoint(out Waypoint next))
+                {
+                    Primitives2D.DrawLine(spriteBatch, waypoint.Position, next.Position, Color.Magenta, 1);
+                }
             }
         }
     }

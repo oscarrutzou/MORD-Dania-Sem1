@@ -17,6 +17,7 @@ namespace MordSem1OOP.Scripts.Waves
         private int count;
         private float interval;
         private float duration;
+        private Waypoint waypoint;
 
         private bool active = false; //This is enabled by Send(), allowing the update to perform its logic
         private float timer; //This is used in LocalUpdate() to spawn enemies at the appropriate interval.
@@ -30,7 +31,7 @@ namespace MordSem1OOP.Scripts.Waves
         /// <param name="type">The type of enemy to be spawned from this batch</param>
         /// <param name="count">How many of these enemies to spawn</param>
         /// <param name="interval">The time between each spawn</param>
-        public EnemyBatch(EnemyType type, int count, float interval, float duration)
+        public EnemyBatch(EnemyType type, int count, float interval, float duration, Waypoint waypoint)
         {
             data = Global.activeScene.sceneData;
 
@@ -38,6 +39,7 @@ namespace MordSem1OOP.Scripts.Waves
             this.count = count;
             this.interval = interval;
             this.duration = duration;
+            this.waypoint = waypoint;
         }
 
         /// <summary>
@@ -60,7 +62,7 @@ namespace MordSem1OOP.Scripts.Waves
 
         private void SpawnEnemy()
         {
-            Enemy enemy = new Enemy(type, new Vector2(100, 150));
+            Enemy enemy = new Enemy(type, waypoint.Position, waypoint);
             data.gameObjectsToAdd.Add(enemy);
         }
 

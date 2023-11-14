@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MordSem1OOP.Scripts.Towers;
+using Mx2L.MonoDebugUI;
 using SharpDX.Direct2D1.Effects;
 using System;
 using System.Collections.Generic;
@@ -66,6 +67,9 @@ namespace MordSem1OOP.Scripts
                             (int)(_tileGrid.TileSize / 2)
                         );
 
+            tileRect.X += (int)_tileGrid.Position.X;
+            tileRect.Y += (int)_tileGrid.Position.Y;
+
 
             Primitives2D.DrawSolidRectangle(GameWorld._spriteBatch, tileRect, 0, CanAffordTower() ? Color.Green: Color.Red);
         }
@@ -103,6 +107,24 @@ namespace MordSem1OOP.Scripts
         {
             MissileLauncher missileLauncher = new MissileLauncher(new Vector2(0,0), .5f, GlobalTextures.Textures[TextureNames.Tower_MissileLauncher]);
             return missileLauncher;
+        }
+
+        public void AddToDebug()
+        {
+            DebugInfo.AddString("tileGridPosition", DebugTileGridPosition);
+            DebugInfo.AddString("mousePosition", MousePosition);
+        }
+
+        public string DebugTileGridPosition()
+        {
+            Vector2Int gridPosition = _tileGrid.GetTileGridPosition(InputManager.mousePosition);
+            return $"({gridPosition.X}, {gridPosition.Y})";
+        }
+
+        public string MousePosition()
+        {
+            Vector2 position = InputManager.mousePosition;
+            return $"({position.X}, {position.Y})";
         }
     }
 }
