@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using MordSem1OOP.Scripts;
 using MordSem1OOP.Scripts.Waves;
 using Mx2L.MonoDebugUI;
@@ -20,6 +21,7 @@ namespace MordSem1OOP.SceneScripts
         private StatsGui _statsGui;
         private Path _path;
         private bool _showDebug;
+        private bool _debugBtnDown;
 
         public Map1(ContentManager content) : base(content)
         {
@@ -53,6 +55,15 @@ namespace MordSem1OOP.SceneScripts
 
         public override void Update(GameTime gameTime)
         {
+            if (Keyboard.GetState().IsKeyDown(Keys.O))
+                _debugBtnDown = true;
+
+            if (_debugBtnDown && Keyboard.GetState().IsKeyUp(Keys.O))
+            {
+                _debugBtnDown = false;
+                _showDebug = !_showDebug;
+            }
+
             _buildGui.Update();
             WaveManager.Update(gameTime);
             base.Update(gameTime); //Handles the GameObject list
@@ -82,21 +93,21 @@ namespace MordSem1OOP.SceneScripts
             _statsGui.ScreenDraw();
             if (_showDebug)
             {
-                DebugInfo.DrawAllInfo(GameWorld._spriteBatch, new Vector2(20, 70), 16, GlobalTextures.arialFont, Color.Red);
+                DebugInfo.DrawAllInfo(GameWorld._spriteBatch, new Vector2(20, 70), 16, GlobalTextures.arialFont, Color.Magenta);
             }
             GameWorld._spriteBatch.End();
         }
 
         private void BuildMap()
         {
-            // unavailable
+            // Blocked Tiles
             int[] coords = new int[] { 29, 13 , 31, 15, 18, 18, 18, 20, 0, 18, 16, 20, 19, 16, 31, 20, 7, 16, 15, 17, 0, 8, 6, 17, 0, 7, 2, 7, 0, 0, 2, 5, 3, 0, 4, 4, 5, 0, 10, 3, 20, 0, 31, 1 };
             for (int i = 0; i < coords.Length;)
             {
                 _tileGrid.InsertFill(EnviromentTile.TileType.Blocked, coords[i++], coords[i++], coords[i++], coords[i++]);
             }
 
-            // Terrain Path Tile
+            // Path Tiles
             coords = new int[] { 0, 6, 17, 6, 17, 2, 13, 2, 13, 13, 9, 13, 9, 9, 20, 9, 20, 4, 29, 4, 29, 10, 23, 10, 23, 7, 26, 7, 26, 13, 17, 13, 17, 20 };
             for (int i = 0; i < coords.Length - 2; i += 2)
             {
