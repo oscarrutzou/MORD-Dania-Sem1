@@ -44,7 +44,7 @@ namespace MordSem1OOP.Scripts
             //Vector2 drawPosition = Position - radiusRing.Origin;
 
 
-            GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.GuiBasicTowerStats], position, Color.Red);
+            // GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.GuiBasicTowerStats], position, Color.Red);
 
             string towerKills = InputManager.selectedTower.towerData.towerKills.ToString();
             // Measure the size of the text
@@ -61,7 +61,7 @@ namespace MordSem1OOP.Scripts
                                   Vector2.Zero,
                                   1,
                                   SpriteEffects.None,
-                                  100);
+                                  1);
 
 
 
@@ -102,12 +102,12 @@ namespace MordSem1OOP.Scripts
             GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont,
                                               $"{Global.activeScene.sceneData.sceneStats.money} gold",
                                               position + new Vector2(0, rowSpacing * row++),
-                                              Color.Black,
+                                              Color.White,
                                               0,
                                               Vector2.Zero,
                                               1,
                                               SpriteEffects.None,
-                                              10);
+                                              1);
 
             position.Y += 20;
 

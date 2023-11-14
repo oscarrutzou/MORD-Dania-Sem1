@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using MordSem1OOP.Scripts.Interface;
 using SharpDX.Direct2D1.Effects;
 using System;
@@ -125,7 +126,7 @@ namespace MordSem1OOP.Scripts
         /// <returns>Column and row position</returns>
         public Vector2Int GetTileGridPosition(Vector2 point)
         {
-            point += _position;
+            point -= Position;
             point /= _tileSize;
 
             return new Vector2Int((int)MathF.Floor(point.X), (int)MathF.Floor(point.Y));
@@ -210,6 +211,134 @@ namespace MordSem1OOP.Scripts
 
             _tiles[gridPosition.X, gridPosition.Y] = tile;
             return true;
+        }
+
+        public void DrawGrid(SpriteBatch spriteBatch)
+        {
+            Primitives2D.DrawRectangle(spriteBatch, Dimension, Color.Red, 1, 0);
+
+            for (int i = 0; i < ColumnCount; i++)
+            {
+                float xPos = i * TileSize + Position.X;
+                Vector2 top = new Vector2(xPos, Dimension.Top);
+                Vector2 bottom = new Vector2(xPos, Dimension.Bottom);
+                Primitives2D.DrawLine(spriteBatch, top, bottom, Color.Red, 1);
+            }
+
+            for (int i = 0; i < RowCount; i++)
+            {
+                float yPos = i * TileSize + Position.Y;
+                Vector2 left = new Vector2(Dimension.Left, yPos);
+                Vector2 right = new Vector2(Dimension.Right, yPos);
+                Primitives2D.DrawLine(spriteBatch, left, right, Color.Red, 1);
+            }
+        }
+
+        public void DrawPlacements(SpriteBatch spriteBatch)
+        {
+            for (int x = 0; x < ColumnCount; x++)
+            {
+                for (int y = 0; y < RowCount; y++)
+                {
+                    if (!GetTile(new Vector2Int(x, y), out Tile tile))
+                        continue;
+
+                    if (tile is EnviromentTile)
+                    {
+                        EnviromentTile enviromentTile = (EnviromentTile)tile;
+
+                        Color color = Color.Gray;
+
+                        if (enviromentTile.Type == EnviromentTile.TileType.Path)
+                            color = Color.DarkRed;
+
+                        if (enviromentTile.Type == EnviromentTile.TileType.Blocked)
+                            color = new Color(57, 57, 57);
+
+                        Rectangle tileRect = new Rectangle(
+                            (int)(tile.Position.X - TileSize / 4),
+                            (int)(tile.Position.Y - TileSize / 4),
+                            (int)(TileSize / 2),
+                            (int)(TileSize / 2)
+                        );
+
+                        Primitives2D.DrawSolidRectangle(spriteBatch, tileRect, 0, color);
+                    }
+                }
+            }
+        }
+
+        public void InsertFill(Tower tower, Rectangle rectangle)
+        {
+            InsertFill(tower, rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height);
+        }
+
+        public void InsertFill(Tower tower, Vector2Int gridPositionStart, Vector2Int gridPositionEnd)
+        {
+            int x0 = gridPositionStart.X;
+            int y0 = gridPositionStart.Y;
+            int x1 = gridPositionEnd.X;
+            int y1 = gridPositionEnd.Y;
+
+            if (gridPositionStart.X < gridPositionEnd.X)
+            {
+                x0 = gridPositionEnd.X;
+                x1 = gridPositionStart.X;
+            }
+
+            if (gridPositionStart.Y < gridPositionEnd.Y)
+            {
+                y0 = gridPositionEnd.Y;
+                y1 = gridPositionStart.Y;
+            }
+
+            InsertFill(tower, x0, y0, x1, y1);
+        }
+
+        public void InsertFill(Tower tower, int x0, int y0, int x1, int y1)
+        {
+            for (int x = x0; x < x1; x++)
+            {
+                for (int y = y0; y < y1; y++)
+                {
+                    Insert(tower, x, y);
+                }
+            }
+        }
+
+        public void InsertFill(EnviromentTile.TileType enviromentTile, Rectangle rectangle)
+        {
+            InsertFill(enviromentTile, rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height);
+        }
+
+        public void InsertFill(EnviromentTile.TileType enviromentTile, Vector2Int gridPositionStart, Vector2Int gridPositionEnd)
+        {
+            InsertFill(enviromentTile, gridPositionStart.X, gridPositionStart.Y, gridPositionEnd.X, gridPositionEnd.Y);
+        }
+
+        public void InsertFill(EnviromentTile.TileType enviromentTile, int x0, int y0, int x1, int y1)
+        {
+            if (x0 > x1)
+            {
+                int temp = x0;
+                x0 = x1;
+                x1 = temp;
+            }
+
+            if (y0 > y1)
+            {
+                int temp = y0;
+                y0 = y1;
+                y1 = temp;
+            }
+
+            for (int x = x0; x < x1 + 1; x++)
+            {
+                for (int y = y0; y < y1 + 1; y++)
+                {
+                    Insert(enviromentTile, x, y);
+                }
+            }
         }
     }
 }

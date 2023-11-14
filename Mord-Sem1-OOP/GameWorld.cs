@@ -15,7 +15,7 @@ namespace MordSem1OOP
     {
         protected static GraphicsDeviceManager _graphics;
         public static SpriteBatch _spriteBatch;
-        private static Scene[] scenes = new Scene[8];
+        private static Scene[] scenes = new Scene[9];
         public int activeScene; //Used to call the methods in the current scene
 
         private Camera camera;
@@ -43,15 +43,15 @@ namespace MordSem1OOP
         {
             //ChangeScreenSize();
             GenerateScenes();
-            activeScene = 7;
+            activeScene = 8;
             Global.activeScene = scenes[activeScene]; //Very important since this sets what scene data that the code should use
 
             camera = new Camera(new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
             GlobalTextures.LoadContent(Content); //This must be read before scenes[].Initialize, because that line attempts to load a texture.
             scenes[activeScene].Initialize();
 
-            WaveManager.CreateWaves(); //This method defines how many waves are in the game.
-            WaveManager.Begin(0); //Start the first wave
+            //WaveManager.CreateWaves(); //This method defines how many waves are in the game.
+            //WaveManager.Begin(0); //Start the first wave
 
 
 
@@ -67,7 +67,7 @@ namespace MordSem1OOP
         protected override void Update(GameTime gameTime)
         {
             InputManager.HandleInput(this, camera);
-            WaveManager.Update(gameTime);
+            //WaveManager.Update(gameTime);
             
 
             scenes[activeScene].Update(gameTime);
@@ -79,7 +79,7 @@ namespace MordSem1OOP
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Beige);
+            GraphicsDevice.Clear(Color.Black);
 
             scenes[activeScene].DrawScene();
 
@@ -117,12 +117,23 @@ namespace MordSem1OOP
             scenes[5] = new Scene4(Content); //David's scene
             scenes[6] = new Scene5(Content); //Jacob's scene
             scenes[7] = new TileGridTest(Content);
+            scenes[8] = new Map1(Content);
         }
 
-        private void ChangeScreenSize()
+        public void Fullscreen()
         {
             _graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
             _graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
+            //camera.SetOrigin(new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
+            _graphics.IsFullScreen = true;
+            _graphics.ApplyChanges();
+        }
+
+        public void WindowedScreen()
+        {
+            _graphics.PreferredBackBufferWidth = 800;
+            _graphics.PreferredBackBufferHeight = 480;
+            //camera.SetOrigin(new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
             _graphics.IsFullScreen = true;
             _graphics.ApplyChanges();
         }

@@ -44,9 +44,9 @@ namespace MordSem1OOP
             camera.Move(moveDirection * 5); // Control camera speed //-- look at
 
             if (keyboardState.IsKeyDown(Keys.D1))
-                Global.activeScene.sceneData._buildGui.ChangeTowerIndex(1);
+                Global.activeScene.sceneData.buildGui.ChangeTowerIndex(1);
             if (keyboardState.IsKeyDown(Keys.D2))
-                Global.activeScene.sceneData._buildGui.ChangeTowerIndex(2);
+                Global.activeScene.sceneData.buildGui.ChangeTowerIndex(2);
 
 
             if (keyboardState.IsKeyDown(Keys.Space))
@@ -76,7 +76,7 @@ namespace MordSem1OOP
 
                 if (Global.activeScene.sceneData.towers == null) return; //There isn't any towers in the scene yet
 
-                if (!Global.activeScene.sceneData._tileGrid.GetTile(mousePosition, out Tile tile))
+                if (!Global.activeScene.sceneData.tileGrid.GetTile(mousePosition, out Tile tile))
                 {
                     selectedTower = null;
                 }

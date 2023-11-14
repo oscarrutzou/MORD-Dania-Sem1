@@ -19,25 +19,25 @@ namespace MordSem1OOP.SceneScripts
 
         public override void Initialize()
         {
-            sceneData._tileGrid = new TileGrid(Vector2.Zero, 40, 18, 10);
-            sceneData._buildGui = new BuildGui(sceneData._tileGrid);
-            sceneData._statsGui = new StatsGui();
+            sceneData.tileGrid = new TileGrid(Vector2.Zero, 40, 18, 10);
+            sceneData.buildGui = new BuildGui(sceneData.tileGrid);
+            sceneData.statsGui = new StatsGui();
 
             int x = 0;
             int y = 3;
 
-            sceneData._tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(x, y));
-            sceneData._tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
-            sceneData._tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
-            sceneData._tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
-            sceneData._tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
-            sceneData._tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(x, ++y));
-            sceneData._tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(x, ++y));
-            sceneData._tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(x, ++y));
-            sceneData._tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
-            sceneData._tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
-            sceneData._tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
-            sceneData._tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
+            sceneData.tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(x, y));
+            sceneData.tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
+            sceneData.tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
+            sceneData.tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
+            sceneData.tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
+            sceneData.tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(x, ++y));
+            sceneData.tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(x, ++y));
+            sceneData.tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(x, ++y));
+            sceneData.tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
+            sceneData.tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
+            sceneData.tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
+            sceneData.tileGrid.Insert(EnviromentTile.TileType.Path, new Vector2Int(++x, y));
 
             string text = "Do random action btn";
 
@@ -52,7 +52,7 @@ namespace MordSem1OOP.SceneScripts
 
         public override void Update(GameTime gameTime)
         {
-            sceneData._buildGui.Update();
+            sceneData.buildGui.Update();
             base.Update(gameTime); //Handles the GameObject list
         }
 
@@ -61,11 +61,11 @@ namespace MordSem1OOP.SceneScripts
         /// </summary>
         public override void Draw()
         {
-            for (int x = 0; x < sceneData._tileGrid.ColumnCount; x++)
+            for (int x = 0; x < sceneData.tileGrid.ColumnCount; x++)
             {
-                for (int y = 0; y < sceneData._tileGrid.RowCount; y++)
+                for (int y = 0; y < sceneData.tileGrid.RowCount; y++)
                 {
-                    if (!sceneData._tileGrid.GetTile(new Vector2Int(x, y), out Tile tile))
+                    if (!sceneData.tileGrid.GetTile(new Vector2Int(x, y), out Tile tile))
                         continue;
 
                     if (tile is EnviromentTile)
@@ -73,10 +73,10 @@ namespace MordSem1OOP.SceneScripts
                         Color color = Color.Gray;
 
                         Rectangle tileRect = new Rectangle(
-                            (int)(tile.Position.X - sceneData._tileGrid.TileSize / 4),
-                            (int)(tile.Position.Y - sceneData._tileGrid.TileSize / 4),
-                            (int)(sceneData._tileGrid.TileSize / 2),
-                            (int)(sceneData._tileGrid.TileSize / 2)
+                            (int)(tile.Position.X - sceneData.tileGrid.TileSize / 4),
+                            (int)(tile.Position.Y - sceneData.tileGrid.TileSize / 4),
+                            (int)(sceneData.tileGrid.TileSize / 2),
+                            (int)(sceneData.tileGrid.TileSize / 2)
                         );
 
                         Primitives2D.DrawSolidRectangle(GameWorld._spriteBatch, tileRect, 0, color);
@@ -84,25 +84,25 @@ namespace MordSem1OOP.SceneScripts
                 }
             }
 
-            Primitives2D.DrawRectangle(GameWorld._spriteBatch, Vector2.Zero, sceneData._tileGrid.Dimension, Color.Red, 1, 0);
+            Primitives2D.DrawRectangle(GameWorld._spriteBatch, Vector2.Zero, sceneData.tileGrid.Dimension, Color.Red, 1, 0);
 
-            for (int i = 0; i < sceneData._tileGrid.ColumnCount; i++)
+            for (int i = 0; i < sceneData.tileGrid.ColumnCount; i++)
             {
-                float xPos = i * sceneData._tileGrid.TileSize;
-                Vector2 top = new Vector2(xPos, sceneData._tileGrid.Dimension.Top);
-                Vector2 bottom = new Vector2(xPos, sceneData._tileGrid.Dimension.Bottom);
+                float xPos = i * sceneData.tileGrid.TileSize;
+                Vector2 top = new Vector2(xPos, sceneData.tileGrid.Dimension.Top);
+                Vector2 bottom = new Vector2(xPos, sceneData.tileGrid.Dimension.Bottom);
                 Primitives2D.DrawLine(GameWorld._spriteBatch, top, bottom, Color.Red, 1);
             }
 
-            for (int i = 0; i < sceneData._tileGrid.RowCount; i++)
+            for (int i = 0; i < sceneData.tileGrid.RowCount; i++)
             {
-                float yPos = i * sceneData._tileGrid.TileSize;
-                Vector2 left = new Vector2(sceneData._tileGrid.Dimension.Left, yPos);
-                Vector2 right = new Vector2(sceneData._tileGrid.Dimension.Right, yPos);
+                float yPos = i * sceneData.tileGrid.TileSize;
+                Vector2 left = new Vector2(sceneData.tileGrid.Dimension.Left, yPos);
+                Vector2 right = new Vector2(sceneData.tileGrid.Dimension.Right, yPos);
                 Primitives2D.DrawLine(GameWorld._spriteBatch, left, right, Color.Red, 1);
             }
 
-            sceneData._buildGui.Draw();
+            sceneData.buildGui.Draw();
 
             base.Draw(); //Draws all elements in the GameObject list
         }
@@ -114,11 +114,11 @@ namespace MordSem1OOP.SceneScripts
 
             GameWorld._spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp, transformMatrix: Global.gameWorld.Camera.GetMatrix());
             Draw();
-            sceneData._statsGui.WorldDraw();
+            sceneData.statsGui.WorldDraw();
             GameWorld._spriteBatch.End();
 
             GameWorld._spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp);
-            sceneData._statsGui.ScreenDraw();
+            sceneData.statsGui.ScreenDraw();
             GameWorld._spriteBatch.End();
         }
     }

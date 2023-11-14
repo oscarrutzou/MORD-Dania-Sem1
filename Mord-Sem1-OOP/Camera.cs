@@ -49,6 +49,11 @@ namespace MordSem1OOP
 
             return transformMatrix; // Return the transformation matrix for rendering.
         }
+
+        public void SetOrigin(Vector2 origin)
+        {
+            _origin = origin;
+        }
     }
 }
 

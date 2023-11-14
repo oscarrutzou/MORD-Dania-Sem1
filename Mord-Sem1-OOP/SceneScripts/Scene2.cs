@@ -52,11 +52,11 @@ namespace MordSem1OOP.SceneScripts
         {
             GameWorld._spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp, transformMatrix: Global.gameWorld.Camera.GetMatrix());
             Draw();
-            sceneData._statsGui.WorldDraw();
+            sceneData.statsGui.WorldDraw();
             GameWorld._spriteBatch.End();
 
             GameWorld._spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp);
-            sceneData._statsGui.ScreenDraw();
+            sceneData.statsGui.ScreenDraw();
             GameWorld._spriteBatch.End();
         }
     }
