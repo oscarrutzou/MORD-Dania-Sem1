@@ -23,8 +23,14 @@ namespace MordSem1OOP.Scripts
         Sprite towerSprite;
 
         private Vector2 startBottomRightPos;
+
+        /// <summary>
+        /// Show dmg on bullet insted
+        /// </summary>
         Button lvlUpBtn;
         string lvlUpBtnText;
+
+
         Button sellBtn;
         string sellBtnText;
 
@@ -71,7 +77,7 @@ namespace MordSem1OOP.Scripts
         private void DrawTextInTowerStats(Vector2 position)
         {
             string towerKillsText = $"Tower has killed: {InputManager.selectedTower.towerData.towerKills}";
-            string towerLevelText = $"Tower is level: {InputManager.selectedTower.towerData.towerLevel}";
+            string towerLevelText = $"Tower projectile dmg: {InputManager.selectedTower.ProjectileDmg}";
 
             Vector2 killTextPos = position + new Vector2(20, 32);
             Vector2 towerLevelPos = killTextPos + new Vector2(0, 57);
