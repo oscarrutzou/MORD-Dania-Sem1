@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using MordSem1OOP.Scripts;
 using Spaceship.Scripts;
+using System;
 
 namespace MordSem1OOP
 {
@@ -24,6 +25,10 @@ namespace MordSem1OOP
         public int Damage { get => damage; }
         public float DistanceTraveled { get => distanceTraveled; set => distanceTraveled = value; }
         protected Waypoint _waypoint;
+
+        private SpriteSheet _spriteSheet;
+        private int _spriteLoopIntervalMs;
+        private int _timeSinceSpriteLoopMs;
         #endregion
 
         /// <summary>
@@ -44,9 +49,10 @@ namespace MordSem1OOP
                     Health = 100;
                     damage = 10;
                     moneyOnDeath = 10;
-                    Sprite = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Normal_Sheet], 2, true);
+                    Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Normal_Sheet], 2, true);
                     Sprite.Rotation = 3.14159f;
-                    score = 1111; 
+                    score = 1111;
+                    _spriteLoopIntervalMs = 200;
                     break;
 
                 case EnemyType.Fast:
@@ -54,9 +60,10 @@ namespace MordSem1OOP
                     Health = 50;
                     damage = 7;
                     moneyOnDeath = 5;
-                    Sprite = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Fast_Sheet], 2, true);
+                    Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Fast_Sheet], 2, true);
                     Sprite.Rotation = 3.14159f;
                     score = 2222;
+                    _spriteLoopIntervalMs = 150;
                     break;
 
                 case EnemyType.Strong:
@@ -64,9 +71,10 @@ namespace MordSem1OOP
                     Health = 200;
                     damage = 23;
                     moneyOnDeath = 20;
-                    Sprite = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Strong_Sheet], 2, true);
+                    Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Strong_Sheet], 2, true);
                     Sprite.Rotation = 3.14159f;
                     score = 3333;
+                    _spriteLoopIntervalMs = 350;
                     break;
 
                 default:
@@ -74,9 +82,10 @@ namespace MordSem1OOP
                     Health = 100;
                     damage = 10;
                     moneyOnDeath = 10;
-                    Sprite = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Normal_Sheet], 2, true);
+                    Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Normal_Sheet], 2, true);
                     Sprite.Rotation = 3.14159f;
                     score = 1111;
+                    _spriteLoopIntervalMs = 200;
                     break;
             }
 
@@ -95,13 +104,20 @@ namespace MordSem1OOP
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             DistanceTraveled += Speed * deltaTime;
 
+            LoopAnimation(gameTime);
+
             MoveToWaypoint(gameTime);
             //Move(gameTime);
         }
 
-        public override void Draw()
+        private void LoopAnimation(GameTime gameTime)
         {
-            Sprite.Draw(Position, Rotation, Scale);
+            _timeSinceSpriteLoopMs += gameTime.ElapsedGameTime.Milliseconds;
+            if (_timeSinceSpriteLoopMs >= _spriteLoopIntervalMs)
+            {
+                _timeSinceSpriteLoopMs -= _spriteLoopIntervalMs;
+                _spriteSheet.NextIndex();
+            }
         }
 
         /// <summary>
