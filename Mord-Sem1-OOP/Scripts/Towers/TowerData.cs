@@ -55,14 +55,10 @@ namespace MordSem1OOP.Scripts.Towers
             moneyUsedOnTower += BuyAmount();
         }
 
-        public void LevelUpMoney()
-        {
-            if (Global.activeScene.sceneData.sceneStats.money <= 0) return; 
+        //public void LevelUpMoney()
+        //{
 
-            Global.activeScene.sceneData.sceneStats.money -= CalculateLevelUpBuyAmount();
-
-            moneyUsedOnTower += CalculateLevelUpBuyAmount();
-        }
+        //}
 
         /// <summary>
         /// Handles the money. Remember to still set the tower to IsRemoved.

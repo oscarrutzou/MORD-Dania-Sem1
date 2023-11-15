@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MordSem1OOP.Scripts;
 using MordSem1OOP.Scripts.Towers;
+using Mx2L.MonoDebugUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -175,14 +176,24 @@ namespace MordSem1OOP
 
         public virtual void LevelUpTower()
         {
-            if (TowerLevel < TowerMaxLevel)
-            {
-                TowerLevel++;
-                TowerLevelMultiplier *= (1 + LevelIncrementalMultiplier);
-                ProjectileDmg *= (int)TowerLevelMultiplier;
-                towerData.LevelUpMoney();
+            if (Global.activeScene.sceneData.sceneStats.money - towerData.CalculateLevelUpBuyAmount() >= 0){
+
+                if (TowerLevel < TowerMaxLevel)
+                {
+                    Global.activeScene.sceneData.sceneStats.money -= towerData.CalculateLevelUpBuyAmount();
+
+                    towerData.moneyUsedOnTower += towerData.CalculateLevelUpBuyAmount();
+
+                    TowerLevel++;
+                    TowerLevelMultiplier *= (1 + LevelIncrementalMultiplier);
+                    ProjectileDmg *= (int)TowerLevelMultiplier;
+
+                    
+                }
             }
         }
+
+
 
         public override void Draw()
         {

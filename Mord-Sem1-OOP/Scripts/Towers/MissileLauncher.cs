@@ -30,16 +30,6 @@ namespace MordSem1OOP
             base.Update(gameTime);
         }
 
-        public override void LevelUpTower()
-        {
-            if (TowerLevel <= TowerMaxLevel)
-            {
-                TowerLevel++;
-                TowerLevelMultiplier *= (1 + LevelIncrementalMultiplier);
-                ProjectileDmg *= (int)TowerLevelMultiplier;
-            }
-        }
-
         protected override void CreateProjectile()
         {
             Missile tower_Missile= new Missile(

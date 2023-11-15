@@ -63,6 +63,11 @@ namespace MordSem1OOP.Scripts
             GameWorld._spriteBatch.Draw(_texture, position, null, _color, rotation, _origin, scale, SpriteEffects.None, 0);
         }
 
+        public void Draw(Vector2 position, float rotation, float scale, float layerDepth)
+        {
+            GameWorld._spriteBatch.Draw(_texture, position, null, _color, rotation, _origin, Scale, SpriteEffects.None, layerDepth);
+        }
+
         //public void IndepententDraw(Vector2 position, float rotation, float scale)
         //{
         //    GameWorld._spriteBatch.Draw(_texture, position, null, _color, rotation, _origin, scale, SpriteEffects.None, 0);

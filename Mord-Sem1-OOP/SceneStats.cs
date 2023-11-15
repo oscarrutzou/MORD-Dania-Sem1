@@ -14,7 +14,7 @@ namespace MordSem1OOP
     {
         public int maxHealth = 100;
         private int _health = 100;
-        public int money = 600;
+        public int money = 1000;
         public int killCount;
         public int Health
         {
