@@ -66,7 +66,7 @@ namespace MordSem1OOP.SceneScripts
                 _showDebug = !_showDebug;
             }
 
-            _buildGui.Update();
+            _buildGui.Update(gameTime);
             WaveManager.Update(gameTime);
             base.Update(gameTime); //Handles the GameObject list
         }
