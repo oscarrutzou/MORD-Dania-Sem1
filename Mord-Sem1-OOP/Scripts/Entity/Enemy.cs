@@ -19,6 +19,7 @@ namespace MordSem1OOP
         private int damage;
         private float distanceTraveled;
         private int moneyOnDeath;
+        private int score;
         public int Health { get => health; set => health = value; }
         public int Damage { get => damage; }
         public float DistanceTraveled { get => distanceTraveled; set => distanceTraveled = value; }
@@ -34,7 +35,6 @@ namespace MordSem1OOP
             //This is to be replaced by a direction towards a waypoint
             //direction = new Vector2(1, 0);
 
-            
             this.enemyType = enemyType;
 
             switch (enemyType)
@@ -46,6 +46,7 @@ namespace MordSem1OOP
                     moneyOnDeath = 10;
                     Sprite = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Normal_Sheet], 2, true);
                     Sprite.Rotation = 3.14159f;
+                    score = 1111; 
                     break;
 
                 case EnemyType.Fast:
@@ -55,6 +56,7 @@ namespace MordSem1OOP
                     moneyOnDeath = 5;
                     Sprite = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Fast_Sheet], 2, true);
                     Sprite.Rotation = 3.14159f;
+                    score = 2222;
                     break;
 
                 case EnemyType.Strong:
@@ -64,6 +66,7 @@ namespace MordSem1OOP
                     moneyOnDeath = 20;
                     Sprite = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Strong_Sheet], 2, true);
                     Sprite.Rotation = 3.14159f;
+                    score = 3333;
                     break;
 
                 default:
@@ -73,6 +76,7 @@ namespace MordSem1OOP
                     moneyOnDeath = 10;
                     Sprite = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Normal_Sheet], 2, true);
                     Sprite.Rotation = 3.14159f;
+                    score = 1111;
                     break;
             }
 
