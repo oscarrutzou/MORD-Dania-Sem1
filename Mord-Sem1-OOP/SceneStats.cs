@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
+using MordSem1OOP.SceneScripts;
+using MordSem1OOP.Scripts.Waves;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +27,11 @@ namespace MordSem1OOP
                     _health = 0;
                 if (_health == 0)
                 {
-                    // DEATH!!
+                    Global.gameWorld.activeScene = 5;
+                    Global.activeScene = GameWorld.scenes[5];
+                    GameWorld.scenes[5].Initialize();
                 }
+             
             }
         }
     }

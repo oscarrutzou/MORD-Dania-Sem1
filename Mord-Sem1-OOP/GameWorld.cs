@@ -53,7 +53,6 @@ namespace MordSem1OOP
             //WaveManager.CreateWaves(); //This method defines how many waves are in the game.
             //WaveManager.Begin(0); //Start the first wave
 
-
             base.Initialize();
         }
 
