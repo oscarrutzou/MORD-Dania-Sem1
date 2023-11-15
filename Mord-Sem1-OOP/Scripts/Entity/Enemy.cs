@@ -18,9 +18,11 @@ namespace MordSem1OOP
         #region Fields & Properties
         private EnemyType enemyType;
         private int health;
+        private int damage;
         private float distanceTraveled;
         private int moneyOnDeath;
         public int Health { get => health; set => health = value; }
+        public int Damage { get => damage; }
         public float DistanceTraveled { get => distanceTraveled; set => distanceTraveled = value; }
         protected Waypoint _waypoint;
         #endregion
@@ -42,6 +44,7 @@ namespace MordSem1OOP
                 case EnemyType.Normal:
                     Speed = 50;
                     Health = 100;
+                    damage = 10;
                     moneyOnDeath = 10;
                     texture = GlobalTextures.Textures[TextureNames.Enemy_Black1];
                     break;
@@ -49,6 +52,7 @@ namespace MordSem1OOP
                 case EnemyType.Fast:
                     Speed = 100;
                     Health = 50;
+                    damage = 7;
                     moneyOnDeath = 5;
                     texture = GlobalTextures.Textures[TextureNames.Enemy_Green1];
                     break;
@@ -56,6 +60,7 @@ namespace MordSem1OOP
                 case EnemyType.Strong:
                     Speed = 30;
                     Health = 200;
+                    damage = 23;
                     moneyOnDeath = 20;
                     texture = GlobalTextures.Textures[TextureNames.Enemy_Red1];
                     break;
@@ -63,6 +68,7 @@ namespace MordSem1OOP
                 default:
                     Speed = 50;
                     Health = 100;
+                    damage = 10;
                     moneyOnDeath = 10;
                     texture = GlobalTextures.Textures[TextureNames.Enemy_Black1];
                     break;
