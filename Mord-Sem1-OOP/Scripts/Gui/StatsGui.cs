@@ -22,6 +22,7 @@ namespace MordSem1OOP.Scripts
         Sprite towerSprite;
 
         private Vector2 startBottomRightPos;
+        Button lvlUpBtn;
         Button sellBtn;
         Button waveBtn;
         private bool hasStartedFirstWave = false;
@@ -50,8 +51,8 @@ namespace MordSem1OOP.Scripts
         public void DrawTowerStats(Vector2 position)
         {
             towerSprite = new Sprite(GlobalTextures.Textures[TextureNames.GuiBasicTowerStats], false);
-            towerSprite.Color = Color.Red;
-            towerSprite.Scale = 2f;
+            //towerSprite.Color = Color.White;
+            //towerSprite.Scale = 1f;
 
             string towerKillsText = $"Tower has killed: {InputManager.selectedTower.towerData.towerKills}";
 
@@ -60,7 +61,7 @@ namespace MordSem1OOP.Scripts
             GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont,
                                   towerKillsText,
                                   textPosition,
-                                  Color.Black,
+                                  Color.White,
                                   0,
                                   Vector2.Zero,
                                   1,
@@ -68,8 +69,10 @@ namespace MordSem1OOP.Scripts
                                   1);
 
 
-            Vector2 sellBtnPos = new Vector2(300, 100);
-            //Vector2 sellBtnPos = new Vector2(position.X, towerSprite.Rectangle.Height);
+            Vector2 upgradeBtn = new Vector2(300, 100);
+            UpgradeTowerBtn(upgradeBtn);
+
+            Vector2 sellBtnPos = new Vector2(300, 150);
             SellTowerBtn(sellBtnPos);
         }
 
@@ -77,7 +80,7 @@ namespace MordSem1OOP.Scripts
         {
             if (sellBtn == null) 
             {
-                sellBtn = new Button(new Vector2(300, 100),
+                sellBtn = new Button(position,
                      $"Sell tower: {InputManager.selectedTower.towerData.CalculateSellAmount()} gold",
                      GlobalTextures.Textures[TextureNames.GuiBasicButton],
                      () => ActionSellTowerBtn());
@@ -98,23 +101,23 @@ namespace MordSem1OOP.Scripts
 
         private void UpgradeTowerBtn(Vector2 position)
         {
-            if (sellBtn == null)
+            if (lvlUpBtn == null)
             {
-                sellBtn = new Button(new Vector2(300, 100),
-                     $"Sell tower: {InputManager.selectedTower.towerData.CalculateSellAmount()} gold",
+                lvlUpBtn = new Button(position,
+                     $"Level Up: {InputManager.selectedTower.towerData.CalculateLevelUpBuyAmount()} gold",
                      GlobalTextures.Textures[TextureNames.GuiBasicButton],
                      () => ActionUpgradeTowerBtn());
 
-                Global.activeScene.sceneData.buttons.Add(sellBtn);
+                Global.activeScene.sceneData.buttons.Add(lvlUpBtn);
             }
 
-            sellBtn.Draw();
+            lvlUpBtn.Draw();
         }
 
         private void ActionUpgradeTowerBtn()
         {
             InputManager.selectedTower.LevelUpTower();
-            
+
         }
 
 
@@ -131,7 +134,7 @@ namespace MordSem1OOP.Scripts
                                         Color.Black,
                                         0,
                                         Vector2.Zero,
-                                        1,
+                                        1f,
                                         SpriteEffects.None,
                                         1);
         }
@@ -172,7 +175,6 @@ namespace MordSem1OOP.Scripts
             DrawTowerRing();
         }
 
-        private bool hasInitBottomRightPos = false;
 
         public void ScreenDraw()
         {

@@ -16,6 +16,7 @@ namespace MordSem1OOP.Scripts.Towers
         public int moneyUsedOnTower;
 
         private int buyAmount = 100; //Amount in gold
+        private int buyTowerUpgradeAmount = 50; //Amount in gold
         /// <summary>
         /// Can be used on the screen when displaying the towers data, to see how much it can be sold for.
         /// </summary>
@@ -33,6 +34,10 @@ namespace MordSem1OOP.Scripts.Towers
             return buyAmount;
         }
 
+        public int CalculateLevelUpBuyAmount()
+        {
+            return buyTowerUpgradeAmount * towerLevel;
+        }
         
 
 
@@ -43,16 +48,20 @@ namespace MordSem1OOP.Scripts.Towers
         public void BuyTower()
         {
 
-            if (Global.activeScene.sceneData.sceneStats.money <= 0) return; //Shouldnt go in minus. Would still build the tower though
+            if (Global.activeScene.sceneData.sceneStats.money <= 0) return;
 
             Global.activeScene.sceneData.sceneStats.money -= BuyAmount();
 
             moneyUsedOnTower += BuyAmount();
         }
 
-        public void LevelUp()
+        public void LevelUpMoney()
         {
+            if (Global.activeScene.sceneData.sceneStats.money <= 0) return; 
 
+            Global.activeScene.sceneData.sceneStats.money -= CalculateLevelUpBuyAmount();
+
+            moneyUsedOnTower += CalculateLevelUpBuyAmount();
         }
 
         /// <summary>

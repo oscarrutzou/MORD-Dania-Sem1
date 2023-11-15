@@ -92,6 +92,7 @@ namespace MordSem1OOP
         /// </summary>
         /// <param name="gameObject">The GameObject to be added</param>
         public static void Instantiate(GameObject gameObject) => Global.activeScene.sceneData.gameObjectsToAdd.Add(gameObject);
+
         public static void Instantiate(Gui guiElement) => Global.activeScene.sceneData.buttons.Add(guiElement);
 
 

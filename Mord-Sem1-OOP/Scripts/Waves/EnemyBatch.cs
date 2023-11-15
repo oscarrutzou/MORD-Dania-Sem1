@@ -12,7 +12,6 @@ namespace MordSem1OOP.Scripts.Waves
     public class EnemyBatch
     {
         #region Fields and Properties
-        SceneData data; //This is used to load the enemies into the list of GameObjects.
         private EnemyType type;
         private int count;
         private float interval;
@@ -33,8 +32,6 @@ namespace MordSem1OOP.Scripts.Waves
         /// <param name="interval">The time between each spawn</param>
         public EnemyBatch(EnemyType type, int count, float interval, float duration, Waypoint waypoint)
         {
-            data = Global.activeScene.sceneData;
-
             this.type = type;
             this.count = count;
             this.interval = interval;
@@ -63,7 +60,7 @@ namespace MordSem1OOP.Scripts.Waves
         private void SpawnEnemy()
         {
             Enemy enemy = new Enemy(type, waypoint.Position, waypoint);
-            data.gameObjectsToAdd.Add(enemy);
+            GameWorld.Instantiate(enemy);
         }
 
 

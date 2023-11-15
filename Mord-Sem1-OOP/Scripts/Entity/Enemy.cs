@@ -108,6 +108,7 @@ namespace MordSem1OOP
                 IsRemoved = true;
                 Global.activeScene.sceneData.sceneStats.money += moneyOnDeath;
                 Global.activeScene.sceneData.sceneStats.killCount++;
+
             }
         }
 
