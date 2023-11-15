@@ -57,18 +57,38 @@ namespace MordSem1OOP
 
         public override void OnCollisionBox()
         {
-            if (Target != null && !Target.IsRemoved && Collision.IsCollidingBox(this, Target))
+            if (Target != null && Target.IsRemoved)
             {
-                IsRemoved = true; // Delete this object
-
-                Target.TakeDamage(Damage); // Damage target enemy with the damage amount from the tower
-
-                if (Target.IsRemoved)
+                if (Collision.IsCollidingBox(this, Target))
                 {
-                    Tower.towerData.towerKills++;
+                    IsRemoved = true; // Delete this object
+
+                    Target.TakeDamage(Damage); // Damage target enemy with the damage amount from the tower
+
+                    if (Target.IsRemoved)
+                    {
+                        Tower.towerData.towerKills++;
+                    }
+                }
+            }
+            else
+            {
+                foreach (Enemy enemy in Global.activeScene.sceneData.enemies)
+                {
+                    if (enemy.IsRemoved || Target.IsRemoved) return;
+
+                    if (Collision.IsCollidingBox(this, enemy))
+                    {
+                        IsRemoved = true;
+                        enemy.TakeDamage(Damage);
+
+                        if (enemy.IsRemoved)
+                        {
+                            Tower.towerData.towerKills++;
+                        }
+                    }
                 }
             }
         }
-
     }
 }
