@@ -44,37 +44,41 @@ namespace MordSem1OOP.Scripts
         public Sprite(Texture2D texture, bool orginCenter)
             _texture = texture;
             if (orginCenter)
-        }
-            }
-            {
-                SetOriginCenter();
-        #region Methods
-        public void Draw(Vector2 position, float rotation)
-        {
-            GameWorld._spriteBatch.Draw(_texture, position, null, _color, rotation, _origin, Scale, SpriteEffects.None, 0);
-        }
-
-        public void Draw(Vector2 position, float rotation, float scale)
-        {
-            GameWorld._spriteBatch.Draw(_texture, position, null, _color, rotation + _rotation, _origin, scale, SpriteEffects.None, 0);
-        }
-
-        /// <summary>
-        /// Sets the origin point of the sprite.
-        /// </summary>
-        /// <param name="origin"></param>
-        public void SetOrigin(Vector2 origin)
-        {
-            _origin = origin;
-        }
-
-        /// <summary>
-        /// Sets the origin to the center of the sprite.
-        /// </summary>
-        public void SetOriginCenter()
-        {
-            SetOrigin(new Vector2(_texture.Width / 2, _texture.Height / 2));
-        }
-        #endregion
     }
+}
+{
+    SetOriginCenter();
+    #region Methods
+    public void Draw(Vector2 position, float rotation)
+    {
+        GameWorld._spriteBatch.Draw(_texture, position, null, _color, rotation, _origin, Scale, SpriteEffects.None, 0);
+    }
+
+    public void Draw(Vector2 position, float rotation, float scale)
+    {
+        GameWorld._spriteBatch.Draw(_texture, position, null, _color, rotation + _rotation, _origin, scale, SpriteEffects.None, 0);
+    }
+
+    public void Draw(Vector2 position, float rotation, float scale, float layerDepth)
+    {
+        GameWorld._spriteBatch.Draw(_texture, position, null, _color, rotation, _origin, Scale, SpriteEffects.None, layerDepth);
+    }
+    /// <summary>
+    /// Sets the origin point of the sprite.
+    /// </summary>
+    /// <param name="origin"></param>
+    public void SetOrigin(Vector2 origin)
+    {
+        _origin = origin;
+    }
+
+    /// <summary>
+    /// Sets the origin to the center of the sprite.
+    /// </summary>
+    public void SetOriginCenter()
+    {
+        SetOrigin(new Vector2(_texture.Width / 2, _texture.Height / 2));
+    }
+    #endregion
+}
 }

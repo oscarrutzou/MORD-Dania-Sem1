@@ -60,8 +60,8 @@ namespace MordSem1OOP
                 { TextureNames.Enemy_Green1, content.Load<Texture2D>("Placeholder\\Enemies\\enemyGreen1") },
                 { TextureNames.Enemy_Red1, content.Load<Texture2D>("Placeholder\\Enemies\\enemyRed1") },
                 { TextureNames.Pixel, content.Load<Texture2D>("Misc/pixel") },
-                { TextureNames.GuiBasicButton, content.Load<Texture2D>("Placeholder\\UI\\buttonBlue") },
-                { TextureNames.GuiBasicTowerStats, content.Load<Texture2D>("Placeholder\\UI\\BasicTestTowerStats") },
+                { TextureNames.GuiBasicButton, content.Load<Texture2D>("Gui\\ButtonSprite") },
+                { TextureNames.GuiBasicTowerStats, content.Load<Texture2D>("Gui\\TowerStatsUI") },
 
             //Non placeholder enemies and turrets
                 { TextureNames.Enemy_Normal_Sheet, content.Load<Texture2D>("Enemies/EnemyNormal") },

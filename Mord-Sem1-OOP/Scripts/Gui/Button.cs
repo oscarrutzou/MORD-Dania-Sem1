@@ -53,6 +53,15 @@ namespace MordSem1OOP.Scripts
             this.onClickAction = onClickAction;
         }
 
+        public Button(Vector2 position, string text, bool setOrgingToCenter, Texture2D texture, Action onClickAction)
+        {
+            this.position = position;
+            this.text = text;
+            sprite = new Sprite(texture, setOrgingToCenter);
+            this.onClickAction = onClickAction;
+        }
+
+
         public Button(Vector2 position, string text, float timeBetweenPress, Texture2D texture, Action onClickAction)
         {
             this.position = position;
@@ -94,8 +103,6 @@ namespace MordSem1OOP.Scripts
 
         public override void Draw()
         {
-
-
             sprite.Draw(position, 0f, Scale);
 
             // Measure the size of the text

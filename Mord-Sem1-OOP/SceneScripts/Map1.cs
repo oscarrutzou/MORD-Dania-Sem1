@@ -34,7 +34,6 @@ namespace MordSem1OOP.SceneScripts
             sceneData.buildGui = _buildGui = new BuildGui(_tileGrid);
             sceneData.statsGui = _statsGui = new StatsGui();
             BuildMap();
-
             DebugInfo.AddString("resolution", Global.gameWorld.DebugResolution);
             _buildGui.AddToDebug();
 
