@@ -13,8 +13,21 @@ namespace MordSem1OOP
     public class SceneStats
     {
         public int maxHealth = 100;
-        public int health = 100;
+        private int _health = 100;
         public int money = 2050;
         public int killCount;
+        public int Health
+        {
+            get { return _health; }
+            set {
+                _health = value;
+                if (_health < 0)
+                    _health = 0;
+                if (_health == 0)
+                {
+                    // DEATH!!
+                }
+            }
+        }
     }
 }

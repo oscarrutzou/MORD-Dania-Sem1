@@ -35,10 +35,6 @@ namespace MordSem1OOP.Scripts
             return true;
         }
 
-        public virtual void Arrived(Enemy enemy)
-        {
-            // Decrease player health with enemy
-            DebugInfo.IncreaseCount("waypointsReached");
-        }
+        public virtual void Arrived(Enemy enemy) {}
     }
 }

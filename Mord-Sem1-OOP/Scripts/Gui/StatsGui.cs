@@ -24,7 +24,7 @@ namespace MordSem1OOP.Scripts
         public void DrawHealthBar(Vector2 position)
         {
             float maxHealth = Global.activeScene.sceneData.sceneStats.maxHealth;
-            float health = Global.activeScene.sceneData.sceneStats.health;
+            float health = Global.activeScene.sceneData.sceneStats.Health;
 
             Rectangle rectangle = new Rectangle((int)position.X, (int)position.Y, _healthBarLength, _healthBarHeight);
 

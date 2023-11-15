@@ -139,10 +139,14 @@ namespace MordSem1OOP.SceneScripts
             // Path / Waypoints
             Waypoint[] waypoints = new Waypoint[coords.Length / 2];
 
-            for (int i = 0; i < waypoints.Length; i++)
+            Vector2Int gridPosition = new Vector2Int(coords[coords.Length - 2], coords[coords.Length - 1]);
+            Vector2 worldPosition = _tileGrid.GetTileWorldPosition(gridPosition);
+            waypoints[waypoints.Length - 1] = new Endpoint(worldPosition, gridPosition);
+
+            for (int i = 0; i < waypoints.Length - 1; i++)
             {
-                Vector2Int gridPosition = new Vector2Int(coords[i * 2], coords[i * 2 + 1]);
-                Vector2 worldPosition = _tileGrid.GetTileWorldPosition(gridPosition);
+                gridPosition = new Vector2Int(coords[i * 2], coords[i * 2 + 1]);
+                worldPosition = _tileGrid.GetTileWorldPosition(gridPosition);
 
                 waypoints[i] = new Waypoint(worldPosition, gridPosition);
                 //_tileGrid.Insert(EnviromentTile.TileType.Blocked, coords[i++], coords[i++]);
