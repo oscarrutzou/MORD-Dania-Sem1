@@ -39,6 +39,7 @@ namespace MordSem1OOP
         GameTitle,
 
         // Add more texture names here
+        NumberPillarSprite
     }
 
 
@@ -76,6 +77,7 @@ namespace MordSem1OOP
                 { TextureNames.TurretBigMask, content.Load<Texture2D>("Turrets/TurretBig_Mask") },
                 
                 { TextureNames.GameTitle, content.Load<Texture2D>("GameTitle") },
+                { TextureNames.NumberPillarSprite, content.Load<Texture2D>("numberPillarSprite") },
 
         };
             arialFont = content.Load<SpriteFont>("Fonts\\Arial");

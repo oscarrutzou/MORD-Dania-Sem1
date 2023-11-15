@@ -3,10 +3,11 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Reflection.Metadata;
 
 namespace MordSem1OOP
 {
-    internal class AnimatedCounter : GameObject
+    internal class AnimatedCounter
     {
         #region fields
         public static Texture2D numberPillarSprite; // For storing numberPillarSprite.jpg (is in Content-folder)
@@ -36,6 +37,7 @@ namespace MordSem1OOP
         public AnimatedCounter(Vector2 startingPosition)
         {
             // Define rectangleNumberPillarPositions for 6 numberPillarSprite's
+            numberPillarSprite = GlobalTextures.Textures[TextureNames.NumberPillarSprite];
             rectangleNumberPillarPositions = new Rectangle[6];
             sourceRectangle = new Rectangle(1, 0, numberPillarSprite.Width, sourceRectangleHeight);
             yPositions = new int[6];
@@ -165,23 +167,26 @@ namespace MordSem1OOP
         #endregion
         #region standard stuff
 
-        public override void LoadContent(ContentManager content)
-        {
-            numberPillarSprite = content.Load<Texture2D>("numberPillarSprite");
-        }
-
-        public override void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
             HandleInput(gameTime);
             Animation(gameTime);
         }
-        public void Draw(SpriteBatch spriteBatch)
+
+        public void Draw()
         {
+            Draw(Vector2.Zero);
+        }
+
+        public void Draw(Vector2 position)
+        {
+            SpriteBatch spriteBatch = GameWorld._spriteBatch;
 
             for (int i = 0; i < rectangleNumberPillarPositions.Length; i++)
             {
+                Vector2 countPosition = rectangleNumberPillarPositions[i].Location.ToVector2() + position;
                 sourceRectangle.Y = yPositions[i];
-                spriteBatch.Draw(numberPillarSprite, rectangleNumberPillarPositions[i], sourceRectangle, Color.White);
+                spriteBatch.Draw(numberPillarSprite, countPosition, sourceRectangle, Color.White);
             }
         }
 
