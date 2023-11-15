@@ -173,7 +173,7 @@ namespace MordSem1OOP.Scripts
             GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing],
                                         drawPosition,
                                         null,
-                                        Color.Black,
+                                        Color.OrangeRed,
                                         0,
                                         Vector2.Zero,
                                         1f,
