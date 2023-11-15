@@ -81,7 +81,7 @@ namespace MordSem1OOP.Scripts
 
         public bool CanAffordTower()
         {
-            return Global.activeScene.sceneData.sceneStats.money >= _selectedTower.towerData.CalculateBuyAmount();
+            return Global.activeScene.sceneData.sceneStats.money >= _selectedTower.towerData.BuyAmount();
         }
 
         private Tower GetTower(int index)

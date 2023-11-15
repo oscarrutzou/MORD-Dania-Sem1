@@ -22,7 +22,7 @@ namespace MordSem1OOP
         public static Vector2 mousePosition;
         public static Vector2 mousePositionOnScreen;
         public static Tower selectedTower;
-
+        public static Tile selectedTile;
         public static void HandleInput(Game game, Camera camera)
         {
             keyboardState = Keyboard.GetState();
@@ -53,9 +53,7 @@ namespace MordSem1OOP
 
             if (keyboardState.IsKeyDown(Keys.Space))
             {
-                //Should be able to add a new enemy
-                //Global.activeScene.sceneData.gameObjectsToAdd.Add(new Enemy(EnemyType.Normal, new Vector2(100, 100), Global.gameWorld.Content));
-
+               
             }
 
             if (keyboardState.IsKeyDown(Keys.Escape))
@@ -97,12 +95,9 @@ namespace MordSem1OOP
             {
                 if (Global.activeScene.sceneData.towers == null) return; //There isn't any towers in the scene yet
 
-                if (!Global.activeScene.sceneData.tileGrid.GetTile(mousePosition, out Tile tile))
-                {
-                    selectedTower = null;
-                }
+                Global.activeScene.sceneData.tileGrid.GetTile(mousePosition, out selectedTile);
 
-                if (tile is EntityTile entityTile)
+                if (selectedTile is EntityTile entityTile)
                 {
                     if (entityTile.GameObject is Tower tower)
                     {
@@ -119,6 +114,35 @@ namespace MordSem1OOP
                 }
             }
         }
+        //private static void CheckTowers()
+        //{
+        //    // Only check for towers if no button was clicked
+        //    if (!IsMouseOverButton())
+        //    {
+        //        if (Global.activeScene.sceneData.towers == null) return; //There isn't any towers in the scene yet
+
+        //        if (!Global.activeScene.sceneData.tileGrid.GetTile(mousePosition, out Tile tile))
+        //        {
+        //            selectedTower = null;
+        //        }
+
+        //        if (tile is EntityTile entityTile)
+        //        {
+        //            if (entityTile.GameObject is Tower tower)
+        //            {
+        //                selectedTower = tower;
+        //            }
+        //            else
+        //            {
+        //                selectedTower = null;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            selectedTower = null;
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// Make this to a IsMouseOverGui. So its also if you try to click on stuff like a stat menu. And make it into one with CheckButton

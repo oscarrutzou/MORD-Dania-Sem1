@@ -34,13 +34,15 @@ namespace MordSem1OOP.Scripts
             get
             {
                 return new Rectangle(
-                    (int)(position.X - sprite.Width / 2 * scale),
-                    (int)(position.Y - sprite.Height / 2 * scale),
-                    (int)(sprite.Width * scale),
-                    (int)(sprite.Height * scale)
+                    (int)(position.X - sprite.Width / 2 * Scale),
+                    (int)(position.Y - sprite.Height / 2 * Scale),
+                    (int)(sprite.Width * Scale),
+                    (int)(sprite.Height * Scale)
                     );
             }
         }
+
+        public float Scale { get => scale; set => scale = value; }
 
         public Button(Vector2 position, string text, Texture2D texture, Action onClickAction)
         {
@@ -68,13 +70,13 @@ namespace MordSem1OOP.Scripts
 
             if (!IsMouseOver() || InputManager.mouseState.LeftButton == ButtonState.Released)
             {
-                scale = Math.Min(1, scale + 0.01f);  // Increase the scale by 1% each frame, up to the original size
+                Scale = Math.Min(1, Scale + 0.01f);  // Increase the scale by 1% each frame, up to the original size
             }
         }
 
         public virtual void OnClick()
         {
-            scale = 0.9f;  // Shrink the button by 10%
+            Scale = 0.9f;  // Shrink the button by 10%
 
             // Only invoke the action if enough time has passed since the last click
             if (timeSinceLastClick >= clickCooldown)
@@ -92,7 +94,8 @@ namespace MordSem1OOP.Scripts
         public override void Draw()
         {
 
-            sprite.Draw(position, 0f, scale);
+
+            sprite.Draw(position, 0f, Scale);
 
             // Measure the size of the text
             Vector2 textSize = GlobalTextures.arialFont.MeasureString(text);

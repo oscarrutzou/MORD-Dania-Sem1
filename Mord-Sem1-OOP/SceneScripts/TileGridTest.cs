@@ -43,7 +43,7 @@ namespace MordSem1OOP.SceneScripts
 
         public override void Update(GameTime gameTime)
         {
-            sceneData._buildGui.Update(gameTime);
+            sceneData.buildGui.Update(gameTime);
             base.Update(gameTime); //Handles the GameObject list
         }
 
