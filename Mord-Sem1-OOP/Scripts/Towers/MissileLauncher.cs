@@ -22,7 +22,7 @@ namespace MordSem1OOP
             MaxProjectileCanTravel = 500;
             ProjectileTimer = 2f;
 
-            MissileRadius = 68; // En fjerde del 1/4 af ring sprite
+            MissileRadius = 90; // En fjerde del 1/4 af ring sprite
         }
 
         public override void Update(GameTime gameTime)
@@ -37,7 +37,6 @@ namespace MordSem1OOP
                 TowerLevel++;
                 TowerLevelMultiplier *= (1 + LevelIncrementalMultiplier);
                 ProjectileDmg *= (int)TowerLevelMultiplier;
-                
             }
         }
 

@@ -20,12 +20,13 @@ namespace MordSem1OOP.Scripts
     /// </summary>
     public class Button: Gui
     {
-        private string text;
+        public string text;
+        public bool IsRemoved { get; set; }
+
         private Action onClickAction;
         private float scale = 1f;
         private Vector2 position;
         private ISprite sprite;
-        public bool IsRemoved { get; set; }
 
         private float clickCooldown = 0.5f; // The delay between button clicks in seconds
         private float timeSinceLastClick = 0; // The time since the button was last clicked

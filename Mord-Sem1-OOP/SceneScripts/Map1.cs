@@ -40,7 +40,7 @@ namespace MordSem1OOP.SceneScripts
 
             WaveManager.SetDefaultSpawnPoint(_path.GetWaypoint(0));
             WaveManager.CreateWaves(); //This method defines how many waves are in the game.
-
+            
 
             Global.gameWorld.Fullscreen();
             //Global.gameWorld.WindowedScreen();
