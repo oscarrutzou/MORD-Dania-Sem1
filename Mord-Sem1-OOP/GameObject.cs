@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MordSem1OOP.Scripts;
+using MordSem1OOP.Scripts.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,36 +16,16 @@ namespace MordSem1OOP
         #region Fields
         private Vector2 position;
         private float rotation;
-        private float scale;
+        private float scale = 1;
 
-        protected Texture2D sprite;
-        protected Texture2D[] sprites; //Used to store the animation frames of the sprite
+        private ISprite sprite;
 
-        protected float animationSpeed = 10; //Animation frames per second
-        private float animationTime;
-        private int currentIndex;
-
-        protected float speed;
+        private float speed;
         protected Vector2 direction;
+
         #endregion
 
-
         #region Properties
-        private Texture2D CurrentSprite
-        {
-            get
-            {
-                if (sprites != null) return sprites[(int)animationTime];
-                return sprite;
-            }
-        }
-        protected Vector2 SpriteSize
-        {
-            get
-            {
-                return new Vector2(CurrentSprite.Width * Scale, CurrentSprite.Height * Scale);
-            }
-        }
         public Rectangle CollisionBox
         {
             get
@@ -56,16 +38,37 @@ namespace MordSem1OOP
                     );
             }
         }
-
         public Vector2 Position { get => position; set => position = value; }
         public float Rotation { get => rotation; set => rotation = value; }
         public float Scale { get => scale; set => scale = value; }
+        protected float Speed { get => speed; set => speed = value; }
+        public ISprite Sprite { get => sprite; set => sprite = value; }
+        public bool IsRemoved { get; set; }
+
         #endregion
 
+        #region Constructors
+
+        public GameObject()
+        {
+            //This default constructor does nothing but must be present because it is called elsewhere.
+            //Does not need to be fixed immediately, fix when you have extra time and are bored.
+        }
+
+        protected GameObject(string texture)
+        {
+            Sprite = new Sprite(texture);
+        }
+
+        protected GameObject(Texture2D texture)
+        {
+            Sprite = new Sprite(texture);
+        }
+
+        #endregion
 
         #region Methods
 
-        public abstract void LoadContent(ContentManager content);
 
         /// <summary>
         /// Update is called every frame
@@ -74,64 +77,105 @@ namespace MordSem1OOP
         public abstract void Update(GameTime gameTime);
 
         /// <summary>
-        /// Changes the current sprite to another sprite in the sprites array over time. The animationSpeed field is sprites changed per second.
-        /// </summary>
-        /// <param name="gameTime">Used to get the time elapsed between each frame</param>
-        protected void Animate(GameTime gameTime)
-        {
-            animationTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            currentIndex = (int)(animationTime * animationSpeed);
-            sprite = sprites[currentIndex];
-
-            //Reset
-            if (currentIndex >= sprites.Length - 1)
-            {
-                currentIndex = 0;
-                animationTime = 0;
-            }
-        }
-
-        /// <summary>
-        /// Draws the current sprite to the screen, using the Position, Rotation, Scale and origin point.
+        /// Draws the sprite (with ISprite) to the screen, using the Position, Rotation, Scale and origin point.
         /// </summary>
         /// <param name="spriteBatch">Contains the required draw method</param>
-        public void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw()
         {
-            Vector2 origin = new Vector2(CurrentSprite.Width / 2, CurrentSprite.Height / 2);
-            spriteBatch.Draw(sprite, Position, null, Color.White, Rotation, origin, Scale, SpriteEffects.None, 0);
+            Sprite.Draw(Position, Rotation, Scale);
         }
 
 
         /// <summary>
-        /// Changes the Position field based on the direction specified by the direction field, by the amount of the speed field.
+        /// Used to change the position of a GameObject over time, change is specified by the direction and speed.
         /// </summary>
         /// <param name="gameTime">Used to get the time elapsed between each frame</param>
         protected void Move(GameTime gameTime)
         {
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            Position += direction * speed * deltaTime * 100;
+            Position += direction * Speed * deltaTime;
         }
-        
 
         /// <summary>
-        /// Uses the basic rectangle collision algorithm to check if there is a collision
+        /// Makes this GameObject move towards a target destination
         /// </summary>
-        /// <param name="other">The other GameObject, that this GameObject checks for a collision with</param>
-        /// <returns>returns true if there is an intersection</returns>
-        public bool IsColliding(GameObject other)
+        /// <param name="destination">The point in space which this GameObject will move towards</param>
+        /// <param name="gameTime">Used to get the time elapsed between each frame</param>
+        /// <returns></returns>
+        protected bool AlternativeMove(Vector2 destination, GameTime gameTime)
         {
-            if (this == other) return false;
-
-            return CollisionBox.Intersects(other.CollisionBox);
+            return AlternativeMove(destination, gameTime, out _);
         }
+
+        /// <summary>
+        /// This makes the GameObject move towards a target position.
+        /// </summary>
+        /// <param name="destination">The position to move towards.</param>
+        /// <param name="gameTime">This is used to make the movement speed independent of framerate</param>
+        /// <param name="distanceTravelled"></param>
+        /// <returns>Returns true if the GameObject has reached its destination.</returns>
+        protected bool AlternativeMove(Vector2 destination, GameTime gameTime, out float distanceTravelled)
+        {
+            distanceTravelled = 0f;
+
+            if (Position == destination)
+                return true;
+
+            Vector2 direction = destination - Position;
+            direction.Normalize();
+
+            // Calculate rotation towards target
+            RotateTowardsWithOffset(destination);
+
+            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            Vector2 newPosition = Position + direction * Speed * deltaTime;
+
+            float distanceToDestination = Vector2.Distance(Position, destination);
+            float distanceToNewPosition = Vector2.Distance(Position, newPosition);
+
+            //Setting the position
+            if (distanceToNewPosition >= distanceToDestination)
+            {
+                Position = destination;
+                distanceTravelled = distanceToDestination;
+                return true;
+            }
+            else
+            {
+                Position = newPosition;
+                distanceTravelled = distanceToNewPosition;
+                return false;
+            }
+        }
+
+        public virtual void OnCollisionBox() { }
+        public virtual void OnCollisionCircle() { }
 
 
         /// <summary>
-        /// OnCollision is called every frame while two GameObjects overlap.
+        /// Makes this GameObject look at a point in space, with the offset so the sprite should be pointing up
         /// </summary>
-        /// <param name="other"> The GameObject which this object is currently overlapping with. </param>
-        public virtual void OnCollision(GameObject other) { }
+        /// <param name="target">The point to look at</param>
+        public void RotateTowardsWithOffset(Vector2 target) //IMPORTANT: REMOVE OFFSET THING WHEN WE HAVE OUR OWN SPRITES!
+        {
+            if (Position == target) return;
 
+            Vector2 dir = target - Position;
+            Rotation = (float)Math.Atan2(-dir.Y, -dir.X) + MathHelper.PiOver2;
+        }
+
+        /// <summary>
+        /// Makes this GameObject look at a point in space, with the offset so the sprite should be pointing right
+        /// </summary>
+        /// <param name="target">The point to look at</param>
+        public void RotateTowardsWithoutOffSet(Vector2 target)
+        {
+            if (Position == target) return;
+
+            Vector2 dir = target - Position;
+            Rotation = (float)Math.Atan2(dir.Y, dir.X);
+        }
 
         #endregion
     }

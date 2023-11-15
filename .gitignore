@@ -1,4 +1,7 @@
 ﻿Mord-Sem1-OOP/.vs
 Mord-Sem1-OOP/obj
 Mord-Sem1-OOP/bin
-Mord-Sem1-OOP/Placeholder
+Mord-Sem1-OOP/Content/obj
+Mord-Sem1-OOP/Content/bin
+*.mgcontent
+Mord-Sem1-OOP/Content/obj/

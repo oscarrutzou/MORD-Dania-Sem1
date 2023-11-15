@@ -11,8 +11,11 @@ namespace MordSem1OOP.Scripts.Interface
         Vector2 Origin { get; }
         Color Color { get; set; }
 
-        void LoadContent(ContentManager content, string loadTexture);
-        void Draw(SpriteBatch spriteBatch, Vector2 position, float rotation, float scale);
+        Rectangle Rectangle { get; }
+
+        void LoadContent(string loadTexture);
+        void Draw(Vector2 position, float rotation, float scale); 
+        //void IndepententDraw(Vector2 position, float rotation, float scale); 
         void SetOrigin(Vector2 origin);
         void SetOriginCenter();
     }

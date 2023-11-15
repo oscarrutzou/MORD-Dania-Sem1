@@ -183,7 +183,7 @@ namespace Mx2L.MonoDebugUI
         {
             int row = 0;
             foreach (string output in GetAllInfo())
-                spriteBatch.DrawString(font, output, position + new Vector2(0, rowSpacing * row++), color);
+                spriteBatch.DrawString(font, output, position + new Vector2(0, rowSpacing * row++), color, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
         }
 
         private static string FormatIdentifierToText(string identifier)
