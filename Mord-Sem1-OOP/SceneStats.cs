@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
+using MordSem1OOP.SceneScripts;
+using MordSem1OOP.Scripts.Waves;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,9 @@ namespace MordSem1OOP
         private int _health = 100;
         public int money = 1000;
         public int killCount;
+        //TODO point (bruges af animated counter) Enemy switch case
+        private int score;
+
         public int Health
         {
             get { return _health; }
@@ -25,9 +30,24 @@ namespace MordSem1OOP
                     _health = 0;
                 if (_health == 0)
                 {
-                    // DEATH!!
+                    Global.gameWorld.activeScene = 5;
+                    Global.activeScene = GameWorld.scenes[5];
+                    GameWorld.scenes[5].Initialize();
                 }
+             
             }
+        }
+
+        public int Score 
+        { 
+            get => score; 
+            set 
+            {
+                if(score < 1000000)
+                score = value;
+                else { score = 999999; }
+
+            } 
         }
     }
 }
