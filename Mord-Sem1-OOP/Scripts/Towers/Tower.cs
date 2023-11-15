@@ -213,9 +213,6 @@ namespace MordSem1OOP
             }
         }
 
-
-
-
         public override void Draw()
         {
             base.Draw();
@@ -232,9 +229,6 @@ namespace MordSem1OOP
             GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing], drawPosition, Color.Red);
 
         }
-
-
-
     }
 }
 //GameWorld._spriteBatch.DrawString(arialFont, SpawnProjectileTimer.ToString(), new Vector2(10, 10), Color.Black);
