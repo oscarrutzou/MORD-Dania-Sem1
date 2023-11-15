@@ -25,7 +25,8 @@ namespace MordSem1OOP.Scripts
         Button sellBtn;
         Button waveBtn;
         private bool hasStartedFirstWave = false;
-        //ISprite towerSprite;
+        AnimatedCounter goldCounter = new AnimatedCounter(Vector2.Zero);
+
         public void DrawHealthBar(Vector2 position)
         {
             float maxHealth = Global.activeScene.sceneData.sceneStats.maxHealth;
@@ -192,6 +193,10 @@ namespace MordSem1OOP.Scripts
                                               SpriteEffects.None,
                                               1);
 
+            leftScreenPosition.Y += 10;
+
+            goldCounter.Draw(leftScreenPosition + new Vector2(0, rowSpacing * row++));
+
             leftScreenPosition.Y += 20;
 
             if (InputManager.selectedTower != null)
@@ -212,6 +217,7 @@ namespace MordSem1OOP.Scripts
             {
                 button.Update(gameTime);
             }
+            goldCounter.Update(gameTime);
         }
 
         public override void Draw()
