@@ -77,7 +77,7 @@ namespace MordSem1OOP
         {
             Position = position;
             Scale = scale;
-            Radius = 128f;
+            Radius = 175f;
 
             canSpawnProjectiles = true;
             enemiesInRadius = new List<Enemy>();
@@ -175,11 +175,12 @@ namespace MordSem1OOP
 
         public virtual void LevelUpTower()
         {
-            if (TowerLevel <= TowerMaxLevel)
+            if (TowerLevel < TowerMaxLevel)
             {
                 TowerLevel++;
                 TowerLevelMultiplier *= (1 + LevelIncrementalMultiplier);
                 ProjectileDmg *= (int)TowerLevelMultiplier;
+                towerData.LevelUpMoney();
             }
         }
 

@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Graphics;
 using MordSem1OOP.Scripts;
-using System;
+using Spaceship.Scripts;
 
 namespace MordSem1OOP
 {
@@ -38,7 +36,7 @@ namespace MordSem1OOP
 
             
             this.enemyType = enemyType;
-            Texture2D texture;
+
             switch (enemyType)
             {
                 case EnemyType.Normal:
@@ -46,7 +44,8 @@ namespace MordSem1OOP
                     Health = 100;
                     damage = 10;
                     moneyOnDeath = 10;
-                    texture = GlobalTextures.Textures[TextureNames.Enemy_Black1];
+                    Sprite = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Normal_Sheet], 2, true);
+                    Sprite.Rotation = 3.14159f;
                     break;
 
                 case EnemyType.Fast:
@@ -54,7 +53,8 @@ namespace MordSem1OOP
                     Health = 50;
                     damage = 7;
                     moneyOnDeath = 5;
-                    texture = GlobalTextures.Textures[TextureNames.Enemy_Green1];
+                    Sprite = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Fast_Sheet], 2, true);
+                    Sprite.Rotation = 3.14159f;
                     break;
 
                 case EnemyType.Strong:
@@ -62,7 +62,8 @@ namespace MordSem1OOP
                     Health = 200;
                     damage = 23;
                     moneyOnDeath = 20;
-                    texture = GlobalTextures.Textures[TextureNames.Enemy_Red1];
+                    Sprite = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Strong_Sheet], 2, true);
+                    Sprite.Rotation = 3.14159f;
                     break;
 
                 default:
@@ -70,11 +71,11 @@ namespace MordSem1OOP
                     Health = 100;
                     damage = 10;
                     moneyOnDeath = 10;
-                    texture = GlobalTextures.Textures[TextureNames.Enemy_Black1];
+                    Sprite = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Normal_Sheet], 2, true);
+                    Sprite.Rotation = 3.14159f;
                     break;
             }
 
-            Sprite = new Sprite(texture);
             Position = position;
             Scale = 1;
             direction = new Vector2(1, 0);
@@ -94,6 +95,11 @@ namespace MordSem1OOP
             //Move(gameTime);
         }
 
+        public override void Draw()
+        {
+            Sprite.Draw(Position, Rotation, Scale);
+        }
+
         /// <summary>
         /// Called in OnCollision, by objects that can damage the enemy.
         /// </summary>
@@ -108,6 +114,7 @@ namespace MordSem1OOP
                 IsRemoved = true;
                 Global.activeScene.sceneData.sceneStats.money += moneyOnDeath;
                 Global.activeScene.sceneData.sceneStats.killCount++;
+
             }
         }
 

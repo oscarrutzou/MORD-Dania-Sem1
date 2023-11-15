@@ -1,27 +1,20 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MordSem1OOP.Scripts;
-using SharpDX.Direct2D1.Effects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MordSem1OOP
 {
-    public class Missile : Projectile
+    internal class ExplosiveShell : Projectile
     {
-
-        private MissileLauncher missileLauncher;
+        private CannonTurret cannonTurret;
         /// <summary>
         /// Its the position that dosen't move with the target position from the tower.
         /// </summary>
         public Vector2 FixedTargetPosition { get; set; }
 
-        public Missile(MissileLauncher tower, Texture2D texture) : base(tower, texture)
+        public ExplosiveShell(CannonTurret tower, Texture2D texture) : base(tower, texture)
         {
-            missileLauncher = tower;
+            cannonTurret = tower;
             FixedTargetPosition = tower.Target.Position;
         }
 
@@ -48,7 +41,7 @@ namespace MordSem1OOP
         {
             foreach (Enemy enemy in Global.activeScene.sceneData.enemies)
             {
-                if (!enemy.IsRemoved && Vector2.Distance(this.Position, enemy.Position) <= missileLauncher.MissileRadius)
+                if (!enemy.IsRemoved && Vector2.Distance(this.Position, enemy.Position) <= cannonTurret.MissileRadius)
                 {
                     enemy.TakeDamage(Damage);
 
@@ -68,18 +61,17 @@ namespace MordSem1OOP
         {
             base.Draw();
 
-            Sprite radiusRing = new Sprite(GlobalTextures.Textures[TextureNames.TowerEffect_MissileRadiusRing]);
+            Sprite radiusRing = new Sprite(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing]);
 
-            GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.TowerEffect_MissileRadiusRing],
+            GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing],
                              Position,
                              null,
-                             Color.Red * 0.4f,
+                             Color.Red,
                              Rotation,
                              radiusRing.Origin,
-                             1f,
+                             0.5f,
                              SpriteEffects.None,
                              0);
         }
-
     }
 }
