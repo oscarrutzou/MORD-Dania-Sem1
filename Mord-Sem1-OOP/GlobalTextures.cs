@@ -36,6 +36,7 @@ namespace MordSem1OOP
         TurretBigSheet,
         TurretBigMask,
 
+        GameTitle,
 
         // Add more texture names here
     }
@@ -73,6 +74,8 @@ namespace MordSem1OOP
                 { TextureNames.TurretNormalMask, content.Load<Texture2D>("Turrets/TurretNormal_Mask") },
                 { TextureNames.TurretBigSheet, content.Load<Texture2D>("Turrets/TurretBig") },
                 { TextureNames.TurretBigMask, content.Load<Texture2D>("Turrets/TurretBig_Mask") },
+                
+                { TextureNames.GameTitle, content.Load<Texture2D>("GameTitle") },
 
         };
             arialFont = content.Load<SpriteFont>("Fonts\\Arial");
