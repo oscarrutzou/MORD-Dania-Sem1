@@ -9,7 +9,7 @@ namespace MordSem1OOP.Scripts.Waves
 {
     public static class WaveManager
     {
-        private static Wave[] waves; //Stores all waves.
+        public static Wave[] waves; //Stores all waves.
         private static int currentWave; //Index of the current wave.
         public static bool AllWavesCleared => (currentWave >= waves.Length);
         private static Waypoint defaultSpawnPoint;
@@ -21,18 +21,19 @@ namespace MordSem1OOP.Scripts.Waves
             waves[currentWave].Update(gameTime);
 
             //Check if the wave is done spawning enemies
-            int enemyCount = Global.activeScene.sceneData.enemies.Count;
-            if (waves[currentWave].IsDone is true && enemyCount is 0)
-                    StartNextWave(); 
+            //int enemyCount = Global.activeScene.sceneData.enemies.Count;
+            //if (waves[currentWave].IsDone is true && enemyCount is 0)
+            //        StartNextWave(); 
         }
 
 
         public static void StartNextWave()
         {
+
             if (currentWave < waves.Length - 1)
             {
                 currentWave++;
-                waves[currentWave].Begin();
+                Begin(currentWave);
             }
         }
 

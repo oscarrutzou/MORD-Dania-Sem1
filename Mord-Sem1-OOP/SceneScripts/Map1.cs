@@ -35,21 +35,12 @@ namespace MordSem1OOP.SceneScripts
             sceneData.statsGui = _statsGui = new StatsGui();
             BuildMap();
 
-            string text = "Give me MONEY!!!";
-
-            Button btn = new Button(Vector2.Zero,
-                                    text,
-                                    GlobalTextures.Textures[TextureNames.GuiBasicButton],
-                                    () => Global.activeScene.sceneData.sceneStats.money += new Random().Next(0, 1500));
-
-            GameWorld.Instantiate(btn);
-
             DebugInfo.AddString("resolution", Global.gameWorld.DebugResolution);
             _buildGui.AddToDebug();
 
             WaveManager.SetDefaultSpawnPoint(_path.GetWaypoint(0));
             WaveManager.CreateWaves(); //This method defines how many waves are in the game.
-            WaveManager.Begin(0); //Start the first wave
+
 
             Global.gameWorld.Fullscreen();
             //Global.gameWorld.WindowedScreen();

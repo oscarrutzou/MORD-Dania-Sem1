@@ -12,6 +12,7 @@ namespace MordSem1OOP.Scripts
         private Texture2D _texture;
         private Vector2 _origin;
         private Color _color = Color.White;
+        private float scale = 1f;
 
         public Rectangle Rectangle
         {
@@ -28,6 +29,7 @@ namespace MordSem1OOP.Scripts
         public int Height => _texture.Height;
         public Vector2 Origin => _origin;
         public Color Color { get => _color; set => _color = value; }
+        public float Scale { get => scale; set => scale = value; }
         #endregion
 
         public Sprite(Texture2D texture)
@@ -36,12 +38,26 @@ namespace MordSem1OOP.Scripts
             SetOriginCenter();
         }
 
+        public Sprite(Texture2D texture, bool orginCenter)
+        {
+            _texture = texture;
+            if (orginCenter)
+            {
+                SetOriginCenter();
+            }
+        }
+
         public Sprite(string texture)
         {
             LoadContent(texture);
         }
 
         #region Methods
+        public void Draw(Vector2 position, float rotation)
+        {
+            GameWorld._spriteBatch.Draw(_texture, position, null, _color, rotation, _origin, Scale, SpriteEffects.None, 0);
+        }
+
         public void Draw(Vector2 position, float rotation, float scale)
         {
             GameWorld._spriteBatch.Draw(_texture, position, null, _color, rotation, _origin, scale, SpriteEffects.None, 0);

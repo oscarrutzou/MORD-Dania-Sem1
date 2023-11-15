@@ -213,6 +213,11 @@ namespace MordSem1OOP.Scripts
             return true;
         }
 
+        public void RemoveTile(Vector2Int gridPosition)
+        {
+            _tiles[gridPosition.X, gridPosition.Y] = null;
+        }
+
         public void DrawGrid(SpriteBatch spriteBatch)
         {
             Primitives2D.DrawRectangle(spriteBatch, Dimension, Color.Red, 1, 0);
