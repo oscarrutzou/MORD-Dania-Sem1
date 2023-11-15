@@ -15,7 +15,7 @@ namespace MordSem1OOP
     {
         public static GraphicsDeviceManager _graphics;
         public static SpriteBatch _spriteBatch;
-        private static Scene[] scenes = new Scene[9];
+        public static Scene[] scenes = new Scene[9];
         public int activeScene; //Used to call the methods in the current scene
 
         private Camera camera;
@@ -43,7 +43,7 @@ namespace MordSem1OOP
         {
             //ChangeScreenSize();
             GenerateScenes();
-            activeScene = 8;
+            activeScene = 0;
             Global.activeScene = scenes[activeScene]; //Very important since this sets what scene data that the code should use
 
             camera = new Camera(new Vector2(_graphics.PreferredBackBufferWidth / 2, _graphics.PreferredBackBufferHeight / 2));
