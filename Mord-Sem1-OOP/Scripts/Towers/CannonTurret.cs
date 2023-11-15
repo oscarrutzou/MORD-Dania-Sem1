@@ -19,8 +19,8 @@ namespace MordSem1OOP
         public int MissileRadius { get; set; }
         public CannonTurret(Vector2 position, float scale, Texture2D texture) : base(position, scale, texture)
         {
-            Sprite = _sheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Cannon_Turret_Sheet], 3, true);
-            _sheet.Rotation = 1.5708f;
+            Sprite = sheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Cannon_Turret_Sheet], 3, true);
+            sheet.Rotation = 1.5708f;
             _flash = new Sprite(GlobalTextures.Textures[TextureNames.Gun_Turret_Flash]);
             _flash.Rotation = 1.5708f;
             Scale = 1.2f;
