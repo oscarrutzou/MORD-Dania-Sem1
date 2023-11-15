@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="MordSem1OOP.SceneStats">
+    <Position X="73" Y="27.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAIAAEAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAA=</HashCode>
+      <FileName>SceneStats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.SceneData">
+    <Position X="90.75" Y="30.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AICQQAAAAAAABAgAIAEAAAAgAAAAAAABAEBAAAAAAAA=</HashCode>
+      <FileName>SceneData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.InputManager">
+    <Position X="42.25" Y="36.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAKAEAAQAAEAAAQAAQAAAAAAAAAIACAAQAAAIAA=</HashCode>
+      <FileName>InputManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="selectedTile" />
+      <Field Name="selectedTower" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MordSem1OOP.GlobalTextures">
+    <Position X="78" Y="27.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>GlobalTextures.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.Global">
+    <Position X="81.5" Y="42" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Global.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="activeScene" />
+      <Field Name="gameWorld" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MordSem1OOP.GameWorld">
+    <Position X="81.5" Y="36" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAQCAEAAAgBAAwAAAAQCAIAAAAAEAAICAIAAgBAAAAQ=</HashCode>
+      <FileName>GameWorld.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.GameObject">
+    <Position X="28.25" Y="25.75" Width="6" />
+    <TypeIdentifier>
+      <HashCode>ABQAAAAAAIAAIoAgAAKAIAADABAAAQAYAAAoAAAAAQI=</HashCode>
+      <FileName>GameObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.Collision">
+    <Position X="68.75" Y="28" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Collision.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.Camera">
+    <Position X="75.25" Y="27.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAQAAIAAAAAIAAAAKBAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Camera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.Waypoint">
+    <Position X="97.5" Y="25.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEABBAAAECAAAgAAAAAAAAAAAIAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Scripts\Waypoint.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gridPosition" />
+      <Property Name="Vector2Int" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.TileGrid">
+    <Position X="30.75" Y="33.75" Width="6" />
+    <TypeIdentifier>
+      <HashCode>AQEADEAAACBQCAEgAAAICAIAQAAAQAAACAEAgAAAAgA=</HashCode>
+      <FileName>Scripts\TileGrid.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_tiles" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.Tile">
+    <Position X="38" Y="36.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAgABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Scripts\Tile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.Sprite">
+    <Position X="74.5" Y="50" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQABQAIAgEIAAIAAEACAAAgAAAAAAAAgAgAAAQ=</HashCode>
+      <FileName>Scripts\Sprite.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.Primitives2D">
+    <Position X="73" Y="24" Width="7.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAEAAAARAAAAAAAAABAAAEAAAAAAAQA=</HashCode>
+      <FileName>Scripts\Primitives2D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.Path">
+    <Position X="92.5" Y="25.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAgAAAAAAAAAAAAAAIAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Scripts\Path.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_waypoints" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.EnviromentTile">
+    <Position X="34.5" Y="42.75" Width="4.75" />
+    <NestedTypes>
+      <Enum Name="MordSem1OOP.Scripts.EnviromentTile.TileType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Scripts\EnviromentTile.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Scripts\EnviromentTile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.EntityTile">
+    <Position X="29" Y="42.75" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Scripts\EntityTile.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gameObject" />
+      <Property Name="GameObject" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.Endpoint">
+    <Position X="98.5" Y="28.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Scripts\Endpoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.Waves.WaveManager">
+    <Position X="105.25" Y="30.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAIAAAIAAAEAgAAAAAACAAAAAEAAAAABAIAAAAAA=</HashCode>
+      <FileName>Scripts\Waves\WaveManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="defaultSpawnPoint" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="waves" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.Waves.Wave">
+    <Position X="101.5" Y="30.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>IAQAACAAAAAAAAAAAAAAAAAAAAAAEAggAAAAAQAAAAA=</HashCode>
+      <FileName>Scripts\Waves\Wave.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="enemyBatches" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.Waves.EnemyBatch">
+    <Position X="94.5" Y="30.75" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>IAQAAAIAAAACAAAABEAAAACAAAIBAAAAAAAQIAAQAAA=</HashCode>
+      <FileName>Scripts\Waves\EnemyBatch.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="data" />
+      <Field Name="type" />
+      <Field Name="waypoint" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.Towers.TowerData">
+    <Position X="43.5" Y="33" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAACAAAAAEQAAAAAIAABABAAAAAAAAAAAAACBAA=</HashCode>
+      <FileName>Scripts\Towers\TowerData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.Tower">
+    <Position X="47" Y="33" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AIQoEBGA8gAAAlAAAAAEACCIAiAAgAAAgIAEAJAAADQ=</HashCode>
+      <FileName>Scripts\Towers\Tower.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="towerData" />
+      <Property Name="Target" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="enemiesInRadius" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MordSem1OOP.MissileLauncher">
+    <Position X="48" Y="42.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Scripts\Towers\MissileLauncher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.Towers.Archer">
+    <Position X="44" Y="42.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Scripts\Towers\Archer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.Projectile">
+    <Position X="51.75" Y="38.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAQAQACAGAAAAgAAAAAAACAAAAAAAAAABAAAAIAAAAA=</HashCode>
+      <FileName>Scripts\Projectiles\Projectile.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Target" />
+      <Property Name="Tower" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MordSem1OOP.Missile">
+    <Position X="53.75" Y="42.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAIgAAIAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Scripts\Projectiles\Missile.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="missileLauncher" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MordSem1OOP.Arrow">
+    <Position X="57.5" Y="42.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Scripts\Projectiles\Arrow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.StatsGui">
+    <Position X="75.25" Y="44.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>gAQAAAAAAAAGAgAABAIgAEACAAgCiQABAgEwACAAAAI=</HashCode>
+      <FileName>Scripts\Gui\StatsGui.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="sellBtn" />
+      <Field Name="towerSprite" />
+      <Field Name="waveBtn" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.Gui">
+    <Position X="73.75" Y="41.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Scripts\Gui\GuiBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.Button">
+    <Position X="68.25" Y="44.25" Width="6.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAIAAQAAAAgAAAAIAIAACABAAAAAYAAAgAAAAgQA=</HashCode>
+      <FileName>Scripts\Gui\Button.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="sprite" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.BuildGui">
+    <Position X="79" Y="44.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AARAABAAQAAAQgAAAIAEAAAAAAgAgCAAAAAABABCAAA=</HashCode>
+      <FileName>Scripts\Gui\BuildGui.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.Scripts.Entity.FollowPathEnemy_Test">
+    <Position X="55.5" Y="38.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>QAQAAAAAAIAAAgAAAAAAAAAAAAAAAEAAAAAgAAAAAAA=</HashCode>
+      <FileName>Scripts\Entity\FollowTestEnemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.Enemy">
+    <Position X="51.75" Y="33" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAQASACAAABAgABAAAAAAAAAAAAAAAAABAEAgACAQAg=</HashCode>
+      <FileName>Scripts\Entity\Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.SceneScripts.Map1">
+    <Position X="82.75" Y="44.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>QAQAAAAAAAAigwAAIAAAAAAAAAAAACAABEAAAAAAAAA=</HashCode>
+      <FileName>SceneScripts\Map1.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_buildGui" />
+      <Field Name="_statsGui" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MordSem1OOP.SceneScripts.Scene">
+    <Position X="85" Y="40" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>ABQCAAAAAAAgAwAgAAAAAAAACAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>SceneScripts\Scene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.SceneScripts.Scene4">
+    <Position X="88.75" Y="44.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SceneScripts\Scene4.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MordSem1OOP.SceneScripts.StartScene">
+    <Position X="85.75" Y="44.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAggwAAgAAAAgAAAAAAACAAAAAAAAAgAAA=</HashCode>
+      <FileName>SceneScripts\StartScene.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_statsGui" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Mx2L.MonoDebugUI.DebugUI">
+    <Position X="66.25" Y="24" Width="6.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAQAAAAAAIAAAAAAAAhAAAAAGAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>external\Mx2L\MonoDebugUI\DebugUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.Xna.Framework.Content.ContentManager" Collapsed="true">
+    <Position X="156" Y="10.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Struct Name="MordSem1OOP.Scripts.Vector2Int">
+    <Position X="102.25" Y="25.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>Scripts\Vector2Int.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="MordSem1OOP.Scripts.Interface.ISprite">
+    <Position X="70.25" Y="49.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAgEIAAAAAEAAAAAgAAAAAAAAgAgAAAQ=</HashCode>
+      <FileName>Scripts\Interface\ISprite.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="MordSem1OOP.TextureNames" Collapsed="true">
+    <Position X="156" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAIAIIAEAQAgAAAgBCAAAMIAAAAAAggAAAAIAgAE=</HashCode>
+      <FileName>GlobalTextures.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MordSem1OOP.EnemyType">
+    <Position X="94.5" Y="34.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAIAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Scripts\Entity\Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
