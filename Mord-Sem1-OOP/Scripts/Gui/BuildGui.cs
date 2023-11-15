@@ -89,11 +89,11 @@ namespace MordSem1OOP.Scripts
             switch (index)
             {
                 case 1:
-                    return CreateArcher();
+                    return CreateGunTurret();
                 case 2:
-                    return CreateMissileLauncher();
+                    return CreateCannonTurret();
                 default:
-                    return CreateArcher();
+                    return CreateGunTurret();
             }
         }
 
@@ -107,6 +107,18 @@ namespace MordSem1OOP.Scripts
         {
             MissileLauncher missileLauncher = new MissileLauncher(new Vector2(0, 0), .5f, GlobalTextures.Textures[TextureNames.Tower_MissileLauncher]);
             return missileLauncher;
+        }
+
+        private GunTurret CreateGunTurret()
+        {
+            GunTurret gunTurret = new GunTurret(new Vector2(0, 0), .5f, GlobalTextures.Textures[TextureNames.Gun_Turret_Sheet]);
+            return gunTurret;
+        }
+
+        private Tower CreateCannonTurret()
+        {
+            CannonTurret cannonTurret = new CannonTurret(new Vector2(0, 0), .5f, GlobalTextures.Textures[TextureNames.Cannon_Turret_Sheet]);
+            return cannonTurret;
         }
 
         public void AddToDebug()
