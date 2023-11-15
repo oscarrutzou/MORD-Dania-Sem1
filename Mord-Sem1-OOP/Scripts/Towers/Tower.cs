@@ -207,7 +207,7 @@ namespace MordSem1OOP
                     Sprite.Color = Color.Green;
                     break;
 
-                case 6:
+                case 5:
                     Sprite.Color = Color.OrangeRed;
                     break;
             }

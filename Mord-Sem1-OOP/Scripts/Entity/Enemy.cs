@@ -20,7 +20,7 @@ namespace MordSem1OOP
         private int damage;
         private float distanceTraveled;
         private int moneyOnDeath;
-        private int score;
+        private int scoreOnDeath;
         public int Health { get => health; set => health = value; }
         public int Damage { get => damage; }
         public float DistanceTraveled { get => distanceTraveled; set => distanceTraveled = value; }
@@ -51,7 +51,7 @@ namespace MordSem1OOP
                     moneyOnDeath = 10;
                     Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Normal_Sheet], 2, true);
                     Sprite.Rotation = 3.14159f;
-                    score = 1111;
+                    scoreOnDeath = 1111;
                     _spriteLoopIntervalMs = 200;
                     break;
 
@@ -62,7 +62,7 @@ namespace MordSem1OOP
                     moneyOnDeath = 5;
                     Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Fast_Sheet], 2, true);
                     Sprite.Rotation = 3.14159f;
-                    score = 2222;
+                    scoreOnDeath = 2222;
                     _spriteLoopIntervalMs = 150;
                     break;
 
@@ -73,7 +73,7 @@ namespace MordSem1OOP
                     moneyOnDeath = 20;
                     Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Strong_Sheet], 2, true);
                     Sprite.Rotation = 3.14159f;
-                    score = 3333;
+                    scoreOnDeath = 3333;
                     _spriteLoopIntervalMs = 350;
                     break;
 
@@ -84,7 +84,7 @@ namespace MordSem1OOP
                     moneyOnDeath = 10;
                     Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Normal_Sheet], 2, true);
                     Sprite.Rotation = 3.14159f;
-                    score = 1111;
+                    scoreOnDeath = 1111;
                     _spriteLoopIntervalMs = 200;
                     break;
             }
@@ -134,7 +134,7 @@ namespace MordSem1OOP
                 IsRemoved = true;
                 Global.activeScene.sceneData.sceneStats.money += moneyOnDeath;
                 Global.activeScene.sceneData.sceneStats.killCount++;
-
+                Global.activeScene.sceneData.sceneStats.Score += scoreOnDeath;
             }
         }
 

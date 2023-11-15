@@ -17,7 +17,7 @@ namespace MordSem1OOP.Scripts
     {
         private int _healthBarLength = 250;
         private int _healthBarHeight = 20;
-
+        private Rectangle healthBarRectangle;
         private Vector2 leftScreenPosition = Vector2.One * 20;
         private float rowSpacing = 16;
         private int row = 0;
@@ -41,17 +41,17 @@ namespace MordSem1OOP.Scripts
         private Button[] selectTowerbuttons = new Button[2]; //Used to init each button only once in the correct position.
 
 
-        AnimatedCounter goldCounter = new AnimatedCounter(Vector2.Zero);
+        //AnimatedCounter goldCounter = new AnimatedCounter(Vector2.Zero);
 
         public void DrawHealthBar(Vector2 position)
         {
             float maxHealth = Global.activeScene.sceneData.sceneStats.maxHealth;
             float health = Global.activeScene.sceneData.sceneStats.Health;
 
-            Rectangle rectangle = new Rectangle((int)position.X, (int)position.Y, _healthBarLength, _healthBarHeight);
+            healthBarRectangle = new Rectangle((int)position.X, (int)position.Y, _healthBarLength, _healthBarHeight);
 
             float healthWidth = health / maxHealth * _healthBarLength;
-            Rectangle healthFill = rectangle;
+            Rectangle healthFill = healthBarRectangle;
 
             int padding = 4;
             healthFill.Width = (int)healthWidth;
@@ -60,8 +60,33 @@ namespace MordSem1OOP.Scripts
             healthFill.Width -= padding * 2;
             healthFill.Height -= padding * 2;
 
-            GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.Pixel], rectangle, new Color(57, 57, 57));
+            GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.Pixel], healthBarRectangle, new Color(57, 57, 57));
             GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.Pixel], healthFill, Color.Red);
+        }
+
+        private void DrawStringUnderHealthBar()
+        {
+            Vector2 goldPos = leftScreenPosition + new Vector2(5, rowSpacing * row++);
+            GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont,
+                                  $"{Global.activeScene.sceneData.sceneStats.money} gold",
+                                  goldPos,
+                                  Color.White,
+                                  0,
+                                  Vector2.Zero,
+                                  1.2f,
+                                  SpriteEffects.None,
+                                  1);
+
+            Vector2 totalKillPos = goldPos + new Vector2(_healthBarLength / 2, 0);
+            GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont,
+                      $"{Global.activeScene.sceneData.sceneStats.killCount} kills",
+                      totalKillPos,
+                      Color.White,
+                      0,
+                      Vector2.Zero,
+                      1.2f,
+                      SpriteEffects.None,
+                      1);
         }
 
         public void DrawTowerStats(Vector2 position)
@@ -163,22 +188,33 @@ namespace MordSem1OOP.Scripts
 
         }
 
-        public void DrawTowerRing()
+
+        public void SelectTowerBtn(int selectionIndex)
         {
-            Sprite radiusRing = new Sprite(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing]);
+            Texture2D waveBtnTexture = GlobalTextures.Textures[TextureNames.GuiBasicButton];
+            Vector2 topRightPos = Global.gameWorld.Camera.TopRight + new Vector2(-(waveBtnTexture.Width / 2 + 10), waveBtnTexture.Height);
+            if (selectTowerbuttons[selectionIndex] == null)
+            {
+                switch (selectionIndex)
+                {
+                    case 0:
+                        selectTowerbuttons[selectionIndex] = new Button(topRightPos, $"Gun Turret price: {GunTurret.towerBuyAmount}", waveBtnTexture, () => SelectTowerBtnAction(selectionIndex));
+                        break;
+                    case 1:
+                        topRightPos += new Vector2(0, waveBtnTexture.Height + 10);
+                        selectTowerbuttons[selectionIndex] = new Button(topRightPos, $"Cannon Turret price: {CannonTurret.towerBuyAmount}", waveBtnTexture, () => SelectTowerBtnAction(selectionIndex));
+                        break;
+                }
 
-            Vector2 drawPosition = InputManager.selectedTower.Position - radiusRing.Origin;
+                Global.activeScene.sceneData.buttons.Add(selectTowerbuttons[selectionIndex]);
+            }
 
+            selectTowerbuttons[selectionIndex].Draw();
+        }
 
-            GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing],
-                                        drawPosition,
-                                        null,
-                                        Color.OrangeRed,
-                                        0,
-                                        Vector2.Zero,
-                                        1f,
-                                        SpriteEffects.None,
-                                        1);
+        private void SelectTowerBtnAction(int index)
+        {
+            Global.activeScene.sceneData.buildGui.ChangeTowerIndex(index + 1);
         }
 
         public void WaveButton()
@@ -211,33 +247,25 @@ namespace MordSem1OOP.Scripts
             }
         }
 
-        public void SelectTowerBtn(int selectionIndex)
+
+        public void DrawTowerRing()
         {
-            Texture2D waveBtnTexture = GlobalTextures.Textures[TextureNames.GuiBasicButton];
-            Vector2 topRightPos = Global.gameWorld.Camera.TopRight + new Vector2(-(waveBtnTexture.Width / 2 + 10), waveBtnTexture.Height);
-            if (selectTowerbuttons[selectionIndex] == null)
-            {
-                switch (selectionIndex)
-                {
-                    case 0:
-                        selectTowerbuttons[selectionIndex] = new Button(topRightPos, $"Gun Turret price: {GunTurret.towerBuyAmount}", waveBtnTexture, () => SelectTowerBtnAction(selectionIndex));
-                        break;
-                    case 1:
-                        topRightPos += new Vector2(0, waveBtnTexture.Height + 10);
-                        selectTowerbuttons[selectionIndex] = new Button(topRightPos, $"Cannon Turret price: {CannonTurret.towerBuyAmount}", waveBtnTexture, () => SelectTowerBtnAction(selectionIndex));
-                        break;
-                }
+            Sprite radiusRing = new Sprite(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing]);
 
-                Global.activeScene.sceneData.buttons.Add(selectTowerbuttons[selectionIndex]);
-            }
+            Vector2 drawPosition = InputManager.selectedTower.Position - radiusRing.Origin;
 
-            selectTowerbuttons[selectionIndex].Draw();
+
+            GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing],
+                                        drawPosition,
+                                        null,
+                                        Color.OrangeRed * 0.5f,
+                                        0,
+                                        Vector2.Zero,
+                                        1f,
+                                        SpriteEffects.None,
+                                        1);
         }
 
-        private void SelectTowerBtnAction(int index)
-        {
-            Global.activeScene.sceneData.buildGui.ChangeTowerIndex(index + 1);
-        }
 
         public void WorldDraw()
         {
@@ -254,19 +282,11 @@ namespace MordSem1OOP.Scripts
 
             DrawHealthBar(leftScreenPosition + new Vector2(0, rowSpacing * row++));
             leftScreenPosition.Y += 10;
-            GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont,
-                                              $"{Global.activeScene.sceneData.sceneStats.money} gold",
-                                              leftScreenPosition + new Vector2(0, rowSpacing * row++),
-                                              Color.White,
-                                              0,
-                                              Vector2.Zero,
-                                              1.2f,
-                                              SpriteEffects.None,
-                                              1);
+            DrawStringUnderHealthBar();
 
             leftScreenPosition.Y += 10;
 
-            goldCounter.Draw(leftScreenPosition + new Vector2(0, rowSpacing * row++));
+            //goldCounter.Draw(leftScreenPosition + new Vector2(0, rowSpacing * row++));
 
             leftScreenPosition.Y += 20;
 
@@ -276,10 +296,11 @@ namespace MordSem1OOP.Scripts
                 DrawTowerStats(towerStatsPos);
             }
 
-            WaveButton();
             SelectTowerBtn(0);
             SelectTowerBtn(1);
+            WaveButton();
         }
+
 
         public override void Update(GameTime gameTime)
         {
@@ -287,7 +308,7 @@ namespace MordSem1OOP.Scripts
             {
                 button.Update(gameTime);
             }
-            goldCounter.Update(gameTime);
+            //goldCounter.Update(gameTime);
         }
 
         public override void Draw()
