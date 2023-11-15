@@ -15,8 +15,11 @@ namespace MordSem1OOP.Scripts.Towers
 
         public int moneyUsedOnTower;
 
-        private int buyAmount = 100; //Amount in gold
-        private int buyTowerUpgradeAmount = 50; //Amount in gold
+        public int buyAmount = 100; //Amount in gold
+        /// <summary>
+        /// This variable is timed with tower level to get the amount for a level up
+        /// </summary>
+        public int buyTowerUpgradeAmount = 50; //Amount in gold
         /// <summary>
         /// Can be used on the screen when displaying the towers data, to see how much it can be sold for.
         /// </summary>

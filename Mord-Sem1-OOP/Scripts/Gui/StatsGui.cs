@@ -77,10 +77,10 @@ namespace MordSem1OOP.Scripts
         private void DrawTextInTowerStats(Vector2 position)
         {
             string towerKillsText = $"Tower has killed: {InputManager.selectedTower.towerData.towerKills}";
-            string towerLevelText = $"Tower projectile dmg: {InputManager.selectedTower.ProjectileDmg}";
+            string towerProjectileDmgText = $"Tower projectile dmg: {InputManager.selectedTower.ProjectileDmg}";
 
             Vector2 killTextPos = position + new Vector2(20, 32);
-            Vector2 towerLevelPos = killTextPos + new Vector2(0, 57);
+            Vector2 towerProjectileDmgPos = killTextPos + new Vector2(0, 57);
 
             GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont,
                                   towerKillsText,
@@ -93,8 +93,8 @@ namespace MordSem1OOP.Scripts
                                   1);
 
             GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont,
-                      towerLevelText,
-                      towerLevelPos,
+                      towerProjectileDmgText,
+                      towerProjectileDmgPos,
                       Color.Black,
                       0,
                       Vector2.Zero,

@@ -111,13 +111,13 @@ namespace MordSem1OOP.Scripts
 
         private GunTurret CreateGunTurret()
         {
-            GunTurret gunTurret = new GunTurret(new Vector2(0, 0), .5f, GlobalTextures.Textures[TextureNames.Gun_Turret_Sheet]);
+            GunTurret gunTurret = new GunTurret(new Vector2(0, 0), 1f, GlobalTextures.Textures[TextureNames.Gun_Turret_Sheet]);
             return gunTurret;
         }
 
         private Tower CreateCannonTurret()
         {
-            CannonTurret cannonTurret = new CannonTurret(new Vector2(0, 0), .5f, GlobalTextures.Textures[TextureNames.Cannon_Turret_Sheet]);
+            CannonTurret cannonTurret = new CannonTurret(new Vector2(0, 0), 1f, GlobalTextures.Textures[TextureNames.Cannon_Turret_Sheet]);
             return cannonTurret;
         }
 

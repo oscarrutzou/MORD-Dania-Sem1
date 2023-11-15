@@ -34,7 +34,7 @@ namespace MordSem1OOP
 
 
         private float towerLevelMultiplier = 1f;
-        private float levelIncrementalMultiplier = 0.2f;
+        private int projectileExtraDmgOnLvlUp;
 
         //private bool statsShow = false;
         //private bool rangeShow = false;
@@ -68,8 +68,9 @@ namespace MordSem1OOP
         public int TowerMaxLevel { get => towerData.towerMaxLevel; set => towerData.towerMaxLevel = value; }
 
         public float TowerLevelMultiplier { get => towerLevelMultiplier; set => towerLevelMultiplier = value; }
-        public float LevelIncrementalMultiplier { get => levelIncrementalMultiplier; set => levelIncrementalMultiplier = value; }
         public float SpawnProjectileTimer { get => spawnProjectileTimer; private set => spawnProjectileTimer = value; }
+        public int ProjectileExtraDmgOnLvlUp { get => projectileExtraDmgOnLvlUp; set => projectileExtraDmgOnLvlUp = value; }
+
         //public bool StatsShow { get => statsShow; set => statsShow = value; }
         //public bool RangeShow { get => rangeShow; set => rangeShow = value; }
         #endregion
@@ -86,7 +87,6 @@ namespace MordSem1OOP
             SpawnProjectileTimer = ProjectileTimer;
             isCooldown = false;
             towerData = new TowerData();
-
         }
 
 
@@ -185,10 +185,7 @@ namespace MordSem1OOP
                     towerData.moneyUsedOnTower += towerData.CalculateLevelUpBuyAmount();
 
                     TowerLevel++;
-                    TowerLevelMultiplier *= (1 + LevelIncrementalMultiplier);
-                    ProjectileDmg *= (int)TowerLevelMultiplier;
-
-                    
+                    ProjectileDmg += ProjectileExtraDmgOnLvlUp;                    
                 }
             }
         }

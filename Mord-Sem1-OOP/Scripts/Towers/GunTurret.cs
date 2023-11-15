@@ -23,6 +23,11 @@ namespace MordSem1OOP.Scripts.Towers
             ProjectileSpeed = 200;
             MaxProjectileCanTravel = 500;
             ProjectileTimer = 0.4f;
+
+            //On Lvl up
+            ProjectileExtraDmgOnLvlUp = 5;
+            towerData.buyAmount = 200;
+            towerData.buyTowerUpgradeAmount = 50;
         }
 
         public override void Update(GameTime gameTime)

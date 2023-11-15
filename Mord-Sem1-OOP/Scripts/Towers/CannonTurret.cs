@@ -28,7 +28,12 @@ namespace MordSem1OOP
             MaxProjectileCanTravel = 500;
             ProjectileTimer = 2f;
 
-            MissileRadius = 68; // En fjerde del 1/4 af ring sprite
+            MissileRadius = 90; // Also the size of the missilie radius sprite
+
+            //On Lvl up
+            ProjectileExtraDmgOnLvlUp = 10;
+            towerData.buyAmount = 400;
+            towerData.buyTowerUpgradeAmount = 100; 
         }
 
         public override void Update(GameTime gameTime)
@@ -39,17 +44,6 @@ namespace MordSem1OOP
         public override void Draw()
         {
             sheet.Draw(Position, Rotation, Scale);
-        }
-
-        public override void LevelUpTower()
-        {
-            if (TowerLevel <= TowerMaxLevel)
-            {
-                TowerLevel++;
-                TowerLevelMultiplier *= (1 + LevelIncrementalMultiplier);
-                ProjectileDmg *= (int)TowerLevelMultiplier;
-                
-            }
         }
 
         protected override void CreateProjectile()
