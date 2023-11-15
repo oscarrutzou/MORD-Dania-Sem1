@@ -14,8 +14,8 @@ namespace MordSem1OOP.Scripts.Towers
         private int _flashTimerMs;
         public GunTurret(Vector2 position, float scale, Texture2D texture) : base(position, scale, texture)
         {
-            Sprite = _sheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Gun_Turret_Sheet], 2, true);
-            _sheet.Rotation = 1.5708f;
+            Sprite = sheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Gun_Turret_Sheet], 2, true);
+            sheet.Rotation = 1.5708f;
             _flash = new Sprite(GlobalTextures.Textures[TextureNames.Gun_Turret_Flash]);
             _flash.Rotation = 1.5708f;
             Scale = 1.20f;
