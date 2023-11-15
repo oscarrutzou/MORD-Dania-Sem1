@@ -23,7 +23,10 @@ namespace MordSem1OOP.Scripts
 
         private Vector2 startBottomRightPos;
         Button lvlUpBtn;
+        string lvlUpBtnText;
         Button sellBtn;
+        string sellBtnText;
+
         Button waveBtn;
         private bool hasStartedFirstWave = false;
         //ISprite towerSprite;
@@ -78,16 +81,17 @@ namespace MordSem1OOP.Scripts
 
         private void SellTowerBtn(Vector2 position)
         {
+            sellBtnText = $"Sell tower: {InputManager.selectedTower.towerData.CalculateSellAmount()} gold";
             if (sellBtn == null) 
             {
                 sellBtn = new Button(position,
-                     $"Sell tower: {InputManager.selectedTower.towerData.CalculateSellAmount()} gold",
+                     sellBtnText,
                      GlobalTextures.Textures[TextureNames.GuiBasicButton],
                      () => ActionSellTowerBtn());
 
                 Global.activeScene.sceneData.buttons.Add(sellBtn);
             }
-
+            sellBtn.text = sellBtnText;
             sellBtn.Draw();
         }
 
@@ -101,15 +105,25 @@ namespace MordSem1OOP.Scripts
 
         private void UpgradeTowerBtn(Vector2 position)
         {
+
+            if (!InputManager.selectedTower.towerData.IsMaxLvl())
+            {
+                lvlUpBtnText = $"Level Up: {InputManager.selectedTower.towerData.CalculateLevelUpBuyAmount()} gold";
+            }
+            else
+            {
+                lvlUpBtnText = "Max Level";
+            }
+
             if (lvlUpBtn == null)
             {
                 lvlUpBtn = new Button(position,
-                     $"Level Up: {InputManager.selectedTower.towerData.CalculateLevelUpBuyAmount()} gold",
+                     lvlUpBtnText,
                      GlobalTextures.Textures[TextureNames.GuiBasicButton],
                      () => ActionUpgradeTowerBtn());
-
                 Global.activeScene.sceneData.buttons.Add(lvlUpBtn);
             }
+            lvlUpBtn.text = lvlUpBtnText;
 
             lvlUpBtn.Draw();
         }

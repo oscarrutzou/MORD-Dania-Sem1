@@ -71,5 +71,10 @@ namespace MordSem1OOP.Scripts.Towers
         {
             Global.activeScene.sceneData.sceneStats.money += CalculateSellAmount();
         }
+
+        public bool IsMaxLvl()
+        {
+            return towerLevel == towerMaxLevel;
+        }
     }
 }

@@ -175,7 +175,7 @@ namespace MordSem1OOP
 
         public virtual void LevelUpTower()
         {
-            if (TowerLevel <= TowerMaxLevel)
+            if (TowerLevel < TowerMaxLevel)
             {
                 TowerLevel++;
                 TowerLevelMultiplier *= (1 + LevelIncrementalMultiplier);
