@@ -1,10 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MordSem1OOP.Scripts;
 using MordSem1OOP.Scripts.Towers;
-using Mx2L.MonoDebugUI;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -112,21 +109,28 @@ namespace MordSem1OOP
             // Calculate rotation towards target
             RotateTowardsWithoutOffSet(Target.Position);
 
+            Cooldown();
+
+            if (canSpawnProjectiles && !isCooldown)
+                Shoot();
+        }
+
+        private void Cooldown()
+        {
             if (SpawnProjectileTimer >= ProjectileTimer)
             {
                 // Reset isCooldown when the cooldown timer expires
                 isCooldown = false;
                 SpawnProjectileTimer = 0;
             }
+        }
 
-            if (!canSpawnProjectiles || isCooldown) return;
-
+        protected virtual void Shoot()
+        {
             // Set isCooldown to true when a projectile is created
             isCooldown = true;
             SpawnProjectileTimer = 0;
             CreateProjectile();
-
-            
         }
 
         /// <summary>
