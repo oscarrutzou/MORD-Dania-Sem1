@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 
+
 namespace MordSem1OOP
 {
     public class GameWorld : Game
@@ -25,7 +26,7 @@ namespace MordSem1OOP
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             AnimatedCounter.numberPillarSprite = Content.Load<Texture2D>("numberPillarSprite");
-            counter = new AnimatedCounter(new Vector2(0, 0));
+            counter = new AnimatedCounter(new Vector2((GraphicsDevice.Viewport.Width - AnimatedCounter.numberPillarSprite.Width) / 2, (GraphicsDevice.Viewport.Height - AnimatedCounter.numberPillarSprite.Height)));
 
 
             base.Initialize();

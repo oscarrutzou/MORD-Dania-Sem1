@@ -10,24 +10,23 @@ namespace MordSem1OOP
     {
         #region fields
         public static Texture2D numberPillarSprite; // For storing numberPillarSprite.jpg (is in Content-folder)
+        private NumberPillar[] numberPillars; // Stores each numberPillar as objects for defining setLoopAmount individually (order of animation from lowest setLoopAmount to highest)
         private Rectangle[] rectangleNumberPillarPositions; // For 6 positions for numberPillarSprite
         private int[] yPositions; // For refering each box y-positions seperately - and animating numberPillarSprite
         private Rectangle sourceRectangle; // Limits the view to one numberBox
-        private int[] currentValue;
+        private int sourceRectangleHeight = 40;
+        private int[] currentValue; // Why do you need currentValue? - used for
         private int[] targetValue; // Target value to animate towards
         private float speed = 600; // Animation speed
-        private int rectangleHeight = 40;
 
         private int[] loopCount = new int[6];
-        private static Random random = new Random();
+        public static Random random = new Random();
+        public static int setLoopAmount = random.Next(3, 6); // For animation
+        public static int[] setLoopAmountsForEachNumberPillar;
 
-        private static int resultNumber = 003456;
+        private static int resultNumber = 9453;
         private static string numberString = resultNumber.ToString();
-
-        // Determine how many leading zeros are needed
-        private int leadingZeros = Math.Max(0, 6 - numberString.Length);
-
-        private int setLoopAmount = random.Next(3, 6); // For animation
+        private int leadingZeros = Math.Max(0, 6 - numberString.Length); // Determine how many leading zeros are needed
         #endregion
 
         /// <summary>
@@ -38,45 +37,50 @@ namespace MordSem1OOP
         {
             // Define rectangleNumberPillarPositions for 6 numberPillarSprite's
             rectangleNumberPillarPositions = new Rectangle[6];
-            sourceRectangle = new Rectangle(1, 0, numberPillarSprite.Width, rectangleHeight);
+            sourceRectangle = new Rectangle(1, 0, numberPillarSprite.Width, sourceRectangleHeight);
             yPositions = new int[6];
             currentValue = new int[6];
             targetValue = new int[6];
+            numberPillars = new NumberPillar[6];
+            setLoopAmountsForEachNumberPillar = new int[6];
 
             TranslateResultNumberToArray();
+            SetLoopAmountForEachNumberPillar();
 
             for (int i = 0; i < 6; i++)
             {
-                rectangleNumberPillarPositions[i] = new Rectangle(numberPillarSprite.Width * i, (int)startingPosition.Y, numberPillarSprite.Width, numberPillarSprite.Height / 9);
-            }
+                // Why divide by 10? - The higher the number, the less height of the presentation (get's resized). Coordinates x (first sprite's width times i(0) = 0) and y + (resizable) width, height
+                rectangleNumberPillarPositions[i] = new Rectangle(numberPillarSprite.Width * i + (int)startingPosition.X, (int)startingPosition.Y, numberPillarSprite.Width, numberPillarSprite.Height / 10);
+            } 
+
         }
         public void Animation(GameTime gameTime)
         {
             // loops from 0 to the number of numberPillars (their rectangle) 
             for (int i = 0; i < rectangleNumberPillarPositions.Length; i++)
             {
-                // skips rest of loop if loopCount has reached setLoopAmount
-                if (loopCount[i] >= setLoopAmount)
+                // TODO: change to skip each one by one instead of entire. (skips rest of loop if loopCount has reached setLoopAmount)  
+                if (loopCount[i] >= setLoopAmountsForEachNumberPillar[i])
                 {continue; }
 
                 int newYPosition = yPositions[i] + (int)(speed * gameTime.ElapsedGameTime.TotalSeconds);
-                int min = targetValue[i] * rectangleHeight;
-                int max = (targetValue[i] + 1) * rectangleHeight;
+                int min = targetValue[i] * sourceRectangleHeight;
+                int max = (targetValue[i] + 1) * sourceRectangleHeight;
 
                 // If yPositions is less than min or above max
                 if (!InRange(yPositions[i], min, max))
                 {
                     // Handle wrap-around if newYPosition exceeds the sprite height
-                    if (newYPosition > numberPillarSprite.Height - rectangleHeight)
+                    if (newYPosition > numberPillarSprite.Height - sourceRectangleHeight)
                     {
-                        newYPosition = newYPosition - numberPillarSprite.Height + rectangleHeight;
+                        newYPosition = newYPosition - numberPillarSprite.Height + sourceRectangleHeight;
                     }
 
                     if (InRange(newYPosition, min, max))
                     {
-                        if (loopCount[i] == setLoopAmount - 1)
+                        if (loopCount[i] == setLoopAmountsForEachNumberPillar[i] - 1)
                         {
-                            // = targetValue[i] * 40 (rectangleHeight)
+                            // = targetValue[i] * 40 (sourceRectangleHeight)
                             newYPosition = GetIndexPosition(targetValue[i]);
                         }
                         loopCount[i]++;
@@ -86,7 +90,7 @@ namespace MordSem1OOP
                 // Animates each numberPillar - updates for each "speed * gameTime.ElapsedGameTime.TotalSeconds" (frame?)
                 yPositions[i] = newYPosition;
                 sourceRectangle.Y = (int)yPositions[i];
-                currentValue[i] = (int)(yPositions[i] / rectangleHeight);
+                currentValue[i] = (int)(yPositions[i] / sourceRectangleHeight);
 
                 // Check if the first number pillar has reached the bottom
                 if (yPositions[i] > numberPillarSprite.Height)
@@ -100,7 +104,7 @@ namespace MordSem1OOP
         #region other
         private int GetIndexPosition(int index)
         {
-            return index * rectangleHeight;
+            return index * sourceRectangleHeight;
         }
 
         /// <summary>
@@ -139,6 +143,23 @@ namespace MordSem1OOP
             for (int i = leadingZeros; i < targetValue.Length; i++)
             {
                 targetValue[i] = int.Parse(numberString[i - leadingZeros].ToString());
+            }
+        }
+        public void SetLoopAmountForEachNumberPillar()
+        {
+            int loopAmount = random.Next(0, 7);
+            int addedLoopAmount = 3;
+            // Assigns the 0's to the left of the number (if leadingZeroes is more than 0 (meaning: resultNumber has at least one "0"))
+            for (int i = 0; i < leadingZeros; i++)
+            {
+                setLoopAmountsForEachNumberPillar[i] = loopAmount;
+                loopAmount = random.Next(loopAmount + 1, loopAmount + addedLoopAmount);
+            }   
+            // Assigns the remaining digits to the array
+            for (int i = targetValue.Length - 1; i >= leadingZeros; i--)
+            {
+                setLoopAmountsForEachNumberPillar[i] = loopAmount;
+                loopAmount = random.Next(loopAmount + 1, loopAmount + addedLoopAmount);
             }
         }
         #endregion
