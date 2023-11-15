@@ -42,7 +42,7 @@ namespace MordSem1OOP.SceneScripts
             foreach (GameObject gameObject in tempSceneData.gameObjects)
                 gameObject.Update(gameTime);
 
-            Global.activeScene.sceneData._statsGui.Update(gameTime);
+            Global.activeScene.sceneData.statsGui.Update(gameTime);
                 
         }
 
