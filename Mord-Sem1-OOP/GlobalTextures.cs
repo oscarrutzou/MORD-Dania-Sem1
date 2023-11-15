@@ -23,13 +23,13 @@ namespace MordSem1OOP
         GuiBasicTowerStats,
 
         //Non placeholder enemies and turrets
-        EnemyNormalSheet,
-        EnemyStrongSheet,
-        EnemyFastSheet,
-        TurretNormalSheet,
-        TurretNormalMask,
-        TurretBigSheet,
-        TurretBigMask,
+        Enemy_Normal_Sheet,
+        Enemy_Strong_Sheet,
+        Enemy_Fast_Sheet,
+        Gun_Turret_Sheet,
+        Gun_Turret_Flash,
+        Cannon_Turret_Sheet,
+        Cannon_Turret_Flash,
 
         GameTitle,
 
@@ -64,14 +64,13 @@ namespace MordSem1OOP
                 { TextureNames.GuiBasicTowerStats, content.Load<Texture2D>("Placeholder\\UI\\BasicTestTowerStats") },
 
             //Non placeholder enemies and turrets
-                { TextureNames.EnemyNormalSheet, content.Load<Texture2D>("Enemies/EnemyNormal") },
-                { TextureNames.EnemyStrongSheet, content.Load<Texture2D>("Enemies/EnemyStrong") },
-                { TextureNames.EnemyFastSheet, content.Load<Texture2D>("Enemies/EnemyFast") },
-                { TextureNames.TurretNormalSheet, content.Load<Texture2D>("Turrets/TurretNormal") },
-                { TextureNames.TurretNormalMask, content.Load<Texture2D>("Turrets/TurretNormal_Mask") },
-                { TextureNames.TurretBigSheet, content.Load<Texture2D>("Turrets/TurretBig") },
-                { TextureNames.TurretBigMask, content.Load<Texture2D>("Turrets/TurretBig_Mask") },
-                
+                { TextureNames.Enemy_Normal_Sheet, content.Load<Texture2D>("Enemies/EnemyNormal") },
+                { TextureNames.Enemy_Strong_Sheet, content.Load<Texture2D>("Enemies/EnemyStrong") },
+                { TextureNames.Enemy_Fast_Sheet, content.Load<Texture2D>("Enemies/EnemyFast") },
+                { TextureNames.Gun_Turret_Sheet, content.Load<Texture2D>("Turrets/TurretNormal") },
+                { TextureNames.Gun_Turret_Flash, content.Load<Texture2D>("Turrets/TurretNormal_Mask") },
+                { TextureNames.Cannon_Turret_Sheet, content.Load<Texture2D>("Turrets/TurretBig") },
+                { TextureNames.Cannon_Turret_Flash, content.Load<Texture2D>("Turrets/TurretBig_Mask") },
                 { TextureNames.GameTitle, content.Load<Texture2D>("GameTitle") },
                 { TextureNames.NumberPillarSprite, content.Load<Texture2D>("numberPillarSprite") },
 
