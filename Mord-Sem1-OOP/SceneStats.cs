@@ -18,6 +18,9 @@ namespace MordSem1OOP
         private int _health = 100;
         public int money = 2050;
         public int killCount;
+        //TODO point (bruges af animated counter) Enemy switch case
+        private int score;
+
         public int Health
         {
             get { return _health; }
@@ -33,6 +36,18 @@ namespace MordSem1OOP
                 }
              
             }
+        }
+
+        public int Score 
+        { 
+            get => score; 
+            set 
+            {
+                if(score < 1000000)
+                score = value;
+                else { score = 999999; }
+
+            } 
         }
     }
 }

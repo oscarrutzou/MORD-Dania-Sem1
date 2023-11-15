@@ -21,6 +21,7 @@ namespace MordSem1OOP
         private int damage;
         private float distanceTraveled;
         private int moneyOnDeath;
+        private int score;
         public int Health { get => health; set => health = value; }
         public int Damage { get => damage; }
         public float DistanceTraveled { get => distanceTraveled; set => distanceTraveled = value; }
@@ -36,7 +37,6 @@ namespace MordSem1OOP
             //This is to be replaced by a direction towards a waypoint
             //direction = new Vector2(1, 0);
 
-            
             this.enemyType = enemyType;
             Texture2D texture;
             switch (enemyType)
@@ -46,6 +46,7 @@ namespace MordSem1OOP
                     Health = 100;
                     damage = 10;
                     moneyOnDeath = 10;
+                    score = 1111; 
                     texture = GlobalTextures.Textures[TextureNames.Enemy_Black1];
                     break;
 
@@ -54,6 +55,7 @@ namespace MordSem1OOP
                     Health = 50;
                     damage = 7;
                     moneyOnDeath = 5;
+                    score = 2222;
                     texture = GlobalTextures.Textures[TextureNames.Enemy_Green1];
                     break;
 
@@ -62,6 +64,7 @@ namespace MordSem1OOP
                     Health = 200;
                     damage = 23;
                     moneyOnDeath = 20;
+                    score = 3333;
                     texture = GlobalTextures.Textures[TextureNames.Enemy_Red1];
                     break;
 
@@ -70,6 +73,7 @@ namespace MordSem1OOP
                     Health = 100;
                     damage = 10;
                     moneyOnDeath = 10;
+                    score = 1111;
                     texture = GlobalTextures.Textures[TextureNames.Enemy_Black1];
                     break;
             }
