@@ -187,7 +187,32 @@ namespace MordSem1OOP
                     ProjectileDmg += ProjectileExtraDmgOnLvlUp;                    
                 }
             }
+
+            SetColor();
         }
+
+        public virtual void SetColor()
+        {
+            switch (TowerLevel)
+            {
+                case 2:
+                    Sprite.Color = Color.DarkGray;
+                    break;
+
+                case 3:
+                    Sprite.Color = Color.DeepSkyBlue;
+                    break;
+
+                case 4:
+                    Sprite.Color = Color.Green;
+                    break;
+
+                case 6:
+                    Sprite.Color = Color.OrangeRed;
+                    break;
+            }
+        }
+
 
 
 

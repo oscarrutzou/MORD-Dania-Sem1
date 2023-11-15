@@ -48,14 +48,14 @@ namespace Spaceship.Scripts
         {
             Rectangle dimension = _dimension;
             dimension.Y = _index * _dimension.Height;
-            GameWorld._spriteBatch.Draw(_sheet, position, dimension, Color.White, rotation + Rotation, _origin, scale, SpriteEffects.None, 0);
+            GameWorld._spriteBatch.Draw(_sheet, position, dimension, _color, rotation + Rotation, _origin, scale, SpriteEffects.None, 0);
         }
 
         public void DrawIndex(int index, Vector2 position, float rotation, float scale)
         {
             Rectangle dimension = _dimension;
             dimension.Y = index * _dimension.Height;
-            GameWorld._spriteBatch.Draw(_sheet, position, dimension, Color.White, rotation + Rotation, _origin, scale, SpriteEffects.None, 0);
+            GameWorld._spriteBatch.Draw(_sheet, position, dimension, _color, rotation + Rotation, _origin, scale, SpriteEffects.None, 0);
         }
 
         public void NextIndex()
