@@ -7,6 +7,7 @@ using MordSem1OOP.Scripts.Waves;
 using Mx2L.MonoDebugUI;
 using SharpDX.Direct2D1.Effects;
 using SharpDX.Direct3D9;
+using System.Collections.Generic;
 using System.Security.Policy;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -20,22 +21,26 @@ namespace MordSem1OOP.Scripts
         private Vector2 leftScreenPosition = Vector2.One * 20;
         private float rowSpacing = 16;
         private int row = 0;
-        Sprite towerSprite;
+        private Sprite towerSprite;
 
         private Vector2 startBottomRightPos;
 
         /// <summary>
         /// Show dmg on bullet insted
         /// </summary>
-        Button lvlUpBtn;
+        private Button lvlUpBtn;
         string lvlUpBtnText;
 
 
-        Button sellBtn;
+        private Button sellBtn;
         string sellBtnText;
 
-        Button waveBtn;
+        private Button waveBtn;
         private bool hasStartedFirstWave = false;
+
+        private Button[] selectTowerbuttons = new Button[2]; //Used to init each button only once in the correct position.
+
+
         AnimatedCounter goldCounter = new AnimatedCounter(Vector2.Zero);
 
         public void DrawHealthBar(Vector2 position)
@@ -66,10 +71,10 @@ namespace MordSem1OOP.Scripts
             DrawTextInTowerStats(position);
 
 
-            Vector2 upgradeBtn = position + new Vector2(towerSprite.Rectangle.Width / 2, 150);
+            Vector2 upgradeBtn = position + new Vector2(towerSprite.Rectangle.Width / 2 - 1, 155);
             UpgradeTowerBtn(upgradeBtn);
 
-            Vector2 sellBtnPos = new Vector2(300, 150);
+            Vector2 sellBtnPos = upgradeBtn + new Vector2(0, 55);
             SellTowerBtn(sellBtnPos);
             
         }
@@ -198,11 +203,40 @@ namespace MordSem1OOP.Scripts
             {
                 WaveManager.Begin(0); //Start the first wave
                 hasStartedFirstWave = true;
+                WaveManager.StartNextWave();
             }
             else
             {
                 WaveManager.StartNextWave();
             }
+        }
+
+        public void SelectTowerBtn(int selectionIndex)
+        {
+            Texture2D waveBtnTexture = GlobalTextures.Textures[TextureNames.GuiBasicButton];
+            Vector2 topRightPos = Global.gameWorld.Camera.TopRight + new Vector2(-(waveBtnTexture.Width / 2 + 10), waveBtnTexture.Height);
+            if (selectTowerbuttons[selectionIndex] == null)
+            {
+                switch (selectionIndex)
+                {
+                    case 0:
+                        selectTowerbuttons[selectionIndex] = new Button(topRightPos, $"Gun Turret price: {GunTurret.towerBuyAmount}", waveBtnTexture, () => SelectTowerBtnAction(selectionIndex));
+                        break;
+                    case 1:
+                        topRightPos += new Vector2(0, waveBtnTexture.Height + 10);
+                        selectTowerbuttons[selectionIndex] = new Button(topRightPos, $"Cannon Turret price: {CannonTurret.towerBuyAmount}", waveBtnTexture, () => SelectTowerBtnAction(selectionIndex));
+                        break;
+                }
+
+                Global.activeScene.sceneData.buttons.Add(selectTowerbuttons[selectionIndex]);
+            }
+
+            selectTowerbuttons[selectionIndex].Draw();
+        }
+
+        private void SelectTowerBtnAction(int index)
+        {
+            Global.activeScene.sceneData.buildGui.ChangeTowerIndex(index + 1);
         }
 
         public void WorldDraw()
@@ -211,7 +245,6 @@ namespace MordSem1OOP.Scripts
 
             DrawTowerRing();
         }
-
 
         public void ScreenDraw()
         {
@@ -244,7 +277,8 @@ namespace MordSem1OOP.Scripts
             }
 
             WaveButton();
-
+            SelectTowerBtn(0);
+            SelectTowerBtn(1);
         }
 
         public override void Update(GameTime gameTime)

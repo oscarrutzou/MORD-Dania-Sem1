@@ -12,7 +12,7 @@ namespace MordSem1OOP
     public class CannonTurret : Tower
     {
         SpriteSheet sheet;
-
+        public static int towerBuyAmount = 400;
         /// <summary>
         /// Radius of missile
         /// </summary>
@@ -32,7 +32,7 @@ namespace MordSem1OOP
 
             //On Lvl up
             ProjectileExtraDmgOnLvlUp = 10;
-            towerData.buyAmount = 400;
+            towerData.buyAmount = towerBuyAmount;
             towerData.buyTowerUpgradeAmount = 100; 
         }
 

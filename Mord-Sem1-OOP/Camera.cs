@@ -29,10 +29,10 @@ namespace MordSem1OOP
         //    get { return position - new Vector2(GameWorld._graphics.PreferredBackBufferWidth / 2, GameWorld._graphics.PreferredBackBufferHeight / 2); }
         //}
 
-        //public Vector2 TopRight
-        //{
-        //    get { return position + new Vector2(GameWorld._graphics.PreferredBackBufferWidth / 2, -GameWorld._graphics.PreferredBackBufferHeight / 2); }
-        //}
+        public Vector2 TopRight
+        {
+            get { return position + new Vector2(GameWorld._graphics.PreferredBackBufferWidth, 0); }
+        }
 
         //public Vector2 BottomLeft
         //{

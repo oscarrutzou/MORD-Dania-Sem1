@@ -12,7 +12,8 @@ namespace MordSem1OOP.Scripts.Towers
     public class GunTurret : Tower
     {
         SpriteSheet sheet;
-
+        public static int towerBuyAmount = 200;
+        
         public GunTurret(Vector2 position, float scale, Texture2D texture) : base(position, scale, texture)
         {
             sheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Gun_Turret_Sheet], 2, true);
@@ -26,7 +27,7 @@ namespace MordSem1OOP.Scripts.Towers
 
             //On Lvl up
             ProjectileExtraDmgOnLvlUp = 5;
-            towerData.buyAmount = 200;
+            towerData.buyAmount = towerBuyAmount;
             towerData.buyTowerUpgradeAmount = 50;
         }
 

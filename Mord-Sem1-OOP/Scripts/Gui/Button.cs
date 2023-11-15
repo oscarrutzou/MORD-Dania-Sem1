@@ -21,12 +21,13 @@ namespace MordSem1OOP.Scripts
     public class Button: Gui
     {
         public string text;
+        public float layerDepths = 0.99f;
         public bool IsRemoved { get; set; }
 
         private Action onClickAction;
         private float scale = 1f;
         private Vector2 position;
-        private ISprite sprite;
+        private Sprite sprite;
 
         private float clickCooldown = 0.5f; // The delay between button clicks in seconds
         private float timeSinceLastClick = 0; // The time since the button was last clicked
@@ -103,7 +104,7 @@ namespace MordSem1OOP.Scripts
 
         public override void Draw()
         {
-            sprite.Draw(position, 0f, Scale);
+            sprite.Draw(position, 0f, Scale, layerDepths);
 
             // Measure the size of the text
             Vector2 textSize = GlobalTextures.arialFont.MeasureString(text);
@@ -119,7 +120,7 @@ namespace MordSem1OOP.Scripts
                                               Vector2.Zero,
                                               1,
                                               SpriteEffects.None,
-                                              1);
+                                              1f);
         }
 
     }

@@ -19,33 +19,27 @@ namespace MordSem1OOP
         //Fields for the projectile of the tower, if it has any
         private int projectileDmg;
         private int projectileSpeed;
+        private int maxProjectileCanTravel;
         private float spawnProjectileTimer;
         private bool isCooldown;
         private bool hasEnemyInRadius;
 
 
         private float projectileTimer;
-
         private bool canSpawnProjectiles;
-
-
-        private int maxProjectileCanTravel;
 
 
 
         private float towerLevelMultiplier = 1f;
         private int projectileExtraDmgOnLvlUp;
 
-        //private bool statsShow = false;
-        //private bool rangeShow = false;
-
-        public List<Enemy> enemiesInRadius {  get; private set; }
         #endregion
 
         #region Prop
         /// <summary>
         /// Shoot radius of the tower. How far it can shoot.
         /// </summary>
+        public List<Enemy> enemiesInRadius {  get; private set; }
         public float Radius { get; set; }
         public Enemy Target { get; set; }
 
@@ -87,6 +81,7 @@ namespace MordSem1OOP
             SpawnProjectileTimer = ProjectileTimer;
             isCooldown = false;
             towerData = new TowerData();
+            
         }
 
 
