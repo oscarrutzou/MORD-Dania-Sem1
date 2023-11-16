@@ -15,6 +15,7 @@ namespace Spaceship.Scripts
         private Vector2 _origin;
         private Color _color = Color.White;
         public float _rotation;
+        private float _depthLayer;
 
 
         public int SetIndex { set { SetIndex = Math.Clamp(value, 0, _spriteCount); } }
@@ -30,6 +31,7 @@ namespace Spaceship.Scripts
         public int Width => _dimension.Width;
         public int Height => _dimension.Height;
         public float Rotation { get => _rotation; set { _rotation = value; } }
+        public float DepthLayer { get => _depthLayer; set { _depthLayer = value; } }
         public Vector2 Origin => _origin;
         public Color Color { get => _color; set => _color = value; }
 
@@ -48,14 +50,14 @@ namespace Spaceship.Scripts
         {
             Rectangle dimension = _dimension;
             dimension.Y = _index * _dimension.Height;
-            GameWorld._spriteBatch.Draw(_sheet, position, dimension, _color, rotation + Rotation, _origin, scale, SpriteEffects.None, 0);
+            GameWorld._spriteBatch.Draw(_sheet, position, dimension, _color, rotation + Rotation, _origin, scale, SpriteEffects.None, _depthLayer);
         }
 
         public void DrawIndex(int index, Vector2 position, float rotation, float scale)
         {
             Rectangle dimension = _dimension;
             dimension.Y = index * _dimension.Height;
-            GameWorld._spriteBatch.Draw(_sheet, position, dimension, _color, rotation + Rotation, _origin, scale, SpriteEffects.None, 0);
+            GameWorld._spriteBatch.Draw(_sheet, position, dimension, _color, rotation + Rotation, _origin, scale, SpriteEffects.None, _depthLayer);
         }
 
         public void NextIndex()

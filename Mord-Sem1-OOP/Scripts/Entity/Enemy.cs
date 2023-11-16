@@ -55,10 +55,10 @@ namespace MordSem1OOP
                     Speed = 100 * (1 + (level / 10));
                     Health = 120 + level * 60;
                     damage = 10;
-                    moneyOnDeath = 10;
+                    moneyOnDeath = 5;
                     Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Normal_Sheet], 2, true);
                     Sprite.Rotation = 3.14159f;
-                    scoreOnDeath = 1111;
+                    scoreOnDeath = 15;
                     _spriteLoopIntervalMs = 200;
                     break;
 
@@ -66,10 +66,10 @@ namespace MordSem1OOP
                     Speed = 200 * (1 + (level / 10));
                     Health = 100 + level * 35;
                     damage = 7;
-                    moneyOnDeath = 5;
+                    moneyOnDeath = 3;
                     Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Fast_Sheet], 2, true);
                     Sprite.Rotation = 3.14159f;
-                    scoreOnDeath = 2222;
+                    scoreOnDeath = 7;
                     _spriteLoopIntervalMs = 150;
                     break;
 
@@ -77,10 +77,10 @@ namespace MordSem1OOP
                     Speed = 70 * (1 + (level / 10));
                     Health = 300 + level * 100;
                     damage = 23;
-                    moneyOnDeath = 20;
+                    moneyOnDeath = 10;
                     Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Strong_Sheet], 2, true);
                     Sprite.Rotation = 3.14159f;
-                    scoreOnDeath = 3333;
+                    scoreOnDeath = 21;
                     _spriteLoopIntervalMs = 350;
                     break;
 
@@ -172,11 +172,11 @@ namespace MordSem1OOP
             switch (level)
             {
                 case 0:
-                    Sprite.Color = Color.White;
+                    Sprite.Color = Color.DarkGray;
                     break;
 
                 case 1:
-                    Sprite.Color = Color.DarkGray;
+                    Sprite.Color = new Color(168, 93, 29);
                     break;
 
                 case 2:
@@ -188,7 +188,7 @@ namespace MordSem1OOP
                     break;
 
                 case 4:
-                    Sprite.Color = Color.Green;
+                    Sprite.Color = Color.LawnGreen;
                     break;
 
                 case 6:
@@ -199,6 +199,9 @@ namespace MordSem1OOP
                     Sprite.Color = Color.OrangeRed;
                     break;
             }
+
+            if (level >= 25)
+                Sprite.Color = Color.Purple;
         }
     }
 }

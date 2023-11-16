@@ -10,49 +10,55 @@ using System.Threading.Tasks;
 
 namespace MordSem1OOP.SceneScripts
 {
-    internal sealed class Scene5 : Scene
+    internal sealed class EndScene : Scene
     {
-        private TileGrid _tileGrid;
         private StatsGui _statsGui;
 
         private Button gameExitButton;
         private Vector2 screenCenter;
+        private AnimatedCounter counter;
 
 
-
-        public Scene5(ContentManager content) : base(content) { }
+        public EndScene(ContentManager content) : base(content) { }
 
         public override void Initialize()
         {
+
             screenCenter = new Vector2(GameWorld._graphics.PreferredBackBufferWidth / 2,
                                         GameWorld._graphics.PreferredBackBufferHeight / 2 + 100);
 
-            gameExitButton = new Button(screenCenter, "Quit game", GlobalTextures.Textures[TextureNames.GuiBasicButton],
+            gameExitButton = new Button(screenCenter + new Vector2(0, 50), "Quit game", GlobalTextures.Textures[TextureNames.GuiBasicButton],
                                     () => QuitGame());
 
             GameWorld.Instantiate(gameExitButton);
 
-
-            sceneData.tileGrid = _tileGrid = new TileGrid(new Vector2(32, 64), 64, 32, 21);
             sceneData.statsGui = _statsGui = new StatsGui();
+            if (sceneData.sceneStats.Score < 999999)
+                AnimatedCounter.numberString = sceneData.sceneStats.Score.ToString();
+            else AnimatedCounter.numberString = 999999.ToString();
+
+            counter = new AnimatedCounter(screenCenter);
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime); //Handles the GameObject list
+            counter.Update(gameTime);
 
         }
 
-        public override void Draw()
-        {
-            base.Draw();
-        }
         public override void DrawScene()
         {
             //Draw UI
             GameWorld._spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp);
             gameExitButton.Draw();
             GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.DeathTitle], (screenCenter - new Vector2(256, 300)), Color.White);
+            
+            Vector2 counterPos = Vector2.Zero;
+            counterPos.X -= AnimatedCounter.numberPillarSprite.Width * 3;
+            counterPos.Y -= AnimatedCounter.numberPillarSprite.Height / 11;
+            counter.Draw(counterPos);
+
             GameWorld._spriteBatch.End();
         }
 

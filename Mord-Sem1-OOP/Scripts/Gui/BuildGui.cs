@@ -17,7 +17,6 @@ namespace MordSem1OOP.Scripts
         private int _selectionIndex;
         private TileGrid _tileGrid;
 
-        private int tempCost;
         private Tower _selectedTower;
         public BuildGui(TileGrid tileGrid)
         {

@@ -215,7 +215,7 @@ namespace MordSem1OOP
 
         public override void Draw()
         {
-            base.Draw();
+            Sprite.Draw(Position, Rotation, Scale);
 
             //Primitives2D.DrawRectangle(GameWorld._spriteBatch, Position, Sprite.Rectangle, Color.Red, 1, Rotation); //Draws the collision box
         }

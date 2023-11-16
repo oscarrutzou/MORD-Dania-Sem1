@@ -74,7 +74,7 @@ namespace MordSem1OOP.Scripts.Waves
         public void Send()
         {
             active = true;
-            WaveManager.debugBatchCount++;
+            WaveManager.batchCount++;
         }
 
         /// <summary>

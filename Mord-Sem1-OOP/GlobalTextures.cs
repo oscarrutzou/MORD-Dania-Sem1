@@ -46,7 +46,7 @@ namespace MordSem1OOP
     {
         public static Dictionary<TextureNames, Texture2D> Textures;
 
-        public static SpriteFont arialFont;
+        public static SpriteFont defaultFont;
 
         public static void LoadContent(ContentManager content)
         {
@@ -83,7 +83,7 @@ namespace MordSem1OOP
                 { TextureNames.Placement, content.Load<Texture2D>("Misc/placementFrame") },
 
         };
-            arialFont = content.Load<SpriteFont>("Fonts\\Arial");
+            defaultFont = content.Load<SpriteFont>("Fonts\\Arial");
         }
 
 

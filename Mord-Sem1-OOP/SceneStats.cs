@@ -1,13 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using MordSem1OOP.SceneScripts;
-using MordSem1OOP.Scripts.Waves;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MordSem1OOP
+﻿namespace MordSem1OOP
 {
     /// <summary>
     /// This class is to proplerly divivide the things that should be drawn to the player like the players money
@@ -16,7 +7,7 @@ namespace MordSem1OOP
     {
         public int maxHealth = 100;
         private int _health = 100;
-        public int money = 1000;
+        public int money = 400000;
         public int killCount;
         //TODO point (bruges af animated counter) Enemy switch case
         private int score;
@@ -28,6 +19,7 @@ namespace MordSem1OOP
                 if (_health < 0) _health = 0;
                 if (_health == 0)
                 {
+                    GameWorld.scenes[6].sceneData.sceneStats.score = score;
                     Global.gameWorld.activeScene = 6;
                     Global.activeScene = GameWorld.scenes[6];
                     GameWorld.scenes[6].Initialize();

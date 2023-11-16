@@ -58,6 +58,7 @@ namespace MordSem1OOP
         protected GameObject(Texture2D texture)
         {
             Sprite = new Sprite(texture);
+            Sprite.DepthLayer = .2f;
         }
 
         #endregion

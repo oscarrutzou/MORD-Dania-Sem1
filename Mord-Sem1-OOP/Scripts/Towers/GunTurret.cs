@@ -19,6 +19,7 @@ namespace MordSem1OOP.Scripts.Towers
             sheet.Rotation = 1.5708f;
             _flash = new Sprite(GlobalTextures.Textures[TextureNames.Gun_Turret_Flash]);
             _flash.Rotation = 1.5708f;
+            _flash.DepthLayer = .1f;
             Scale = 1.20f;
 
             //Variables that the projectile need to get spawned
