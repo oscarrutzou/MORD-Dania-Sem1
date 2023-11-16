@@ -11,36 +11,36 @@ namespace MordSem1OOP.Scripts.Waves
         private int currentBatch;
         private float timer;
         private bool isDone = false;
+        private bool isActive = false;
         public bool IsDone => isDone;
+        public bool IsActive => isActive;
 
         #endregion
 
 
         public void Update(GameTime gameTime)
         {
-            if (this.IsDone is true) return;
+            if (IsActive is not true) return;
 
             //All batches in this wave that aren't done spawning their enemies, will be updated.
             foreach (EnemyBatch batch in enemyBatches)
                 if(batch.isDone() is false)
                     batch.Update(gameTime);
 
-
             //Check if the phase has been active longer than the time until the next phase
             timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (timer > enemyBatches[currentBatch].Duration)
+            if (currentBatch < enemyBatches.Count && timer > enemyBatches[currentBatch].Duration)
             {
                 timer = 0;
+
+                enemyBatches[currentBatch].Send();
                 currentBatch++;
+            }
 
-                //if there's an unsent batch, send it. Otherwise, say the wave is done.                
-
-                if (currentBatch >= enemyBatches.Count) isDone = true;
-                else
-                {
-                    enemyBatches[currentBatch].Send();
-                    Global.activeScene.sceneData.statsGui.nextWaveTextExpansionCount = 0;
-                }
+            if (enemyBatches[enemyBatches.Count - 1].isDone())
+            {
+                isDone = true;
+                isActive = false;
             }
         }
 
@@ -52,6 +52,7 @@ namespace MordSem1OOP.Scripts.Waves
             timer = 0;
             currentBatch = 0;
             enemyBatches[0].Send();
+            isActive = true;
         }
 
         /// <summary>

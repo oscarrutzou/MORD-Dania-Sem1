@@ -19,7 +19,10 @@ namespace MordSem1OOP.Scripts.Waves
         //static bool b = true;
         public static void Update(GameTime gameTime)
         {
-            waves[currentWave].Update(gameTime);
+            foreach (Wave wave in waves)
+            {
+                wave.Update(gameTime);
+            }
 
             //Check if the wave is done spawning enemies
             //int enemyCount = Global.activeScene.sceneData.enemies.Count;
@@ -30,18 +33,17 @@ namespace MordSem1OOP.Scripts.Waves
 
         public static void StartNextWave()
         {
-
-            if (currentWave < waves.Length - 1)
+            if (currentWave < waves.Length)
             {
-                currentWave++;
                 Begin(currentWave);
+                currentWave++;
                 return;
             }
         }
 
-        public static string DebugBatchCount()
+        public static string DebugWaveCount()
         {
-            return batchCount.ToString();
+            return currentWave.ToString();
         }
 
         /// <summary>

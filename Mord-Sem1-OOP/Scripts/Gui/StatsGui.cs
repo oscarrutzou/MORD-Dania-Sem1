@@ -252,16 +252,7 @@ namespace MordSem1OOP.Scripts
 
         private void StartWaveBtnAction()
         {
-            if (!hasStartedFirstWave)
-            {
-                WaveManager.Begin(0); //Start the first wave
-                hasStartedFirstWave = true;
-                //WaveManager.StartNextWave();
-            }
-            else
-            {
-                WaveManager.StartNextWave();
-            }
+            WaveManager.StartNextWave();
         }
         #endregion
 
