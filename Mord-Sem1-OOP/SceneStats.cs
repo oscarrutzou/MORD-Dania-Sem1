@@ -7,7 +7,7 @@
     {
         public int maxHealth = 100;
         private int _health = 100;
-        public int money = 400000;
+        public int money = 400;
         public int killCount;
         //TODO point (bruges af animated counter) Enemy switch case
         private int score;
