@@ -276,7 +276,7 @@ namespace MordSem1OOP.Scripts
 
         private void NextWaveText(Vector2 position)
         {
-            string newxtWaveText = $"Wave: {WaveManager.batchCount}";
+            string newxtWaveText = $"Wave: {WaveManager.currentWave}";
             Vector2 textSize = GlobalTextures.defaultFont.MeasureString(newxtWaveText);
             Vector2 textPosition = (position + new Vector2(GameWorld._graphics.PreferredBackBufferWidth / 2, 50)) - (textSize * waveNumberTextScale) / 2;
 
