@@ -32,6 +32,7 @@ namespace MordSem1OOP
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            Window.Title = "Ant Invaders";
         }
 
 
