@@ -71,7 +71,6 @@ namespace MordSem1OOP.Scripts.Waves
         /// <summary>
         /// Makes this batch spawn its enemies, with the set type, count and interval.
         /// </summary>
-        //public void Send() => active = true;
         public void Send()
         {
             active = true;

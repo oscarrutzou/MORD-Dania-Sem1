@@ -114,7 +114,7 @@ namespace MordSem1OOP
             scenes[3] = new Scene2(Content); //Oscar's scene
             scenes[4] = new Scene3(Content); //Gaming's scene
             scenes[5] = new Scene4(Content); //David's scene
-            scenes[6] = new Scene5(Content); //Jacob's scene
+            scenes[6] = new EndScene(Content); //Jacob's scene
             scenes[7] = new TileGridTest(Content);
             scenes[8] = new Map1(Content);
         }

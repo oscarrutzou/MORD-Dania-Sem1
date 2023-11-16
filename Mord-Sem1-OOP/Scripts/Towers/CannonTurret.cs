@@ -7,7 +7,7 @@ namespace MordSem1OOP
 {
     public class CannonTurret : Tower
     {
-        public static int towerBuyAmount = 400;
+        public static int towerBuyAmount = 500;
         SpriteSheet sheet;
         private Sprite _flash;
         private bool _showFlash;
@@ -23,6 +23,7 @@ namespace MordSem1OOP
             sheet.Rotation = 1.5708f;
             _flash = new Sprite(GlobalTextures.Textures[TextureNames.Cannon_Turret_Flash]);
             _flash.Rotation = 1.5708f;
+            _flash.DepthLayer = .1f;
             Scale = 1.2f;
             //Variables that the projectile need to get spawned
             ProjectileDmg = 50;
@@ -35,7 +36,7 @@ namespace MordSem1OOP
             //On Lvl up
             ProjectileExtraDmgOnLvlUp = 10;
             towerData.buyAmount = towerBuyAmount;
-            towerData.buyTowerUpgradeAmount = 100; 
+            towerData.buyTowerUpgradeAmount = 150; 
         }
 
         public override void Update(GameTime gameTime)

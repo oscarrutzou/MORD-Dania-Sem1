@@ -19,7 +19,10 @@ namespace MordSem1OOP.Scripts.Waves
         //static bool b = true;
         public static void Update(GameTime gameTime)
         {
-            waves[currentWave].Update(gameTime);
+            foreach (Wave wave in waves)
+            {
+                wave.Update(gameTime);
+            }
 
             //Check if the wave is done spawning enemies
             //int enemyCount = Global.activeScene.sceneData.enemies.Count;
@@ -30,18 +33,17 @@ namespace MordSem1OOP.Scripts.Waves
 
         public static void StartNextWave()
         {
-
-            if (currentWave < waves.Length - 1)
+            if (currentWave < waves.Length)
             {
-                currentWave++;
                 Begin(currentWave);
+                currentWave++;
                 return;
             }
         }
 
-        public static string DebugBatchCount()
+        public static string DebugWaveCount()
         {
-            return batchCount.ToString();
+            return currentWave.ToString();
         }
 
         /// <summary>
@@ -77,73 +79,67 @@ namespace MordSem1OOP.Scripts.Waves
         public static void CreateLargeWaves()
         {
             List<Wave> list = new List<Wave>();
-            Random random = new Random();
-
-            Wave wave = new Wave();
-            list.Add(wave);
 
             for (int level = 0; level < 100; level++)
             {
-                //Wave wave = new Wave();
+                Wave wave = new Wave();
                 list.Add(wave);
 
                 int NormCount = 15;
-                float NormSpawnRate = 1.2f;
+                float NormSpawnRate = .6f;
                 float duration = NormSpawnRate * NormCount;
-                float delay = 5f;
+                float delay = 0;
 
-                wave.AddPhase(new EnemyBatch(EnemyType.Normal, NormCount, NormSpawnRate, duration + delay, defaultSpawnPoint, level));
+                wave.AddPhase(new EnemyBatch(EnemyType.Normal, NormCount + level * 5, NormSpawnRate, duration + 3, defaultSpawnPoint, level));
 
                 NormCount = 10;
-                NormSpawnRate = 1.2f;
                 duration = NormSpawnRate * NormCount;
-                wave.AddPhase(new EnemyBatch(EnemyType.Normal, NormCount, NormSpawnRate, duration, defaultSpawnPoint, level));
+                wave.AddPhase(new EnemyBatch(EnemyType.Normal, NormCount + level * 5, NormSpawnRate, duration + 2, defaultSpawnPoint, level));
+                wave.AddPhase(new EnemyBatch(EnemyType.Normal, NormCount + level * 3, NormSpawnRate, duration + 2, defaultSpawnPoint, level + 1));
 
-                //wave = new Wave();
-                //list.Add(wave);
+                wave = new Wave();
+                list.Add(wave);
 
                 int StrongCount = 6;
                 float StrongSpawnRate = 2f;
+                wave.AddPhase(new EnemyBatch(EnemyType.Strong, StrongCount + level * 3, StrongSpawnRate, duration + delay, defaultSpawnPoint, level));
                 duration = StrongCount * StrongSpawnRate;
-                wave.AddPhase(new EnemyBatch(EnemyType.Strong, StrongCount, StrongSpawnRate, duration + delay, defaultSpawnPoint, level));
 
                 NormCount = 15;
+                wave.AddPhase(new EnemyBatch(EnemyType.Normal, NormCount + level * 5, NormSpawnRate, duration / 2, defaultSpawnPoint, level));
                 duration = NormSpawnRate * NormCount;
-                wave.AddPhase(new EnemyBatch(EnemyType.Normal, NormCount, NormSpawnRate, duration / 2, defaultSpawnPoint, level));
 
-                //wave = new Wave();
-                //list.Add(wave);
+                wave = new Wave();
+                list.Add(wave);
 
                 StrongCount = 9;
                 StrongSpawnRate = 2f;
+                wave.AddPhase(new EnemyBatch(EnemyType.Strong, StrongCount + level * 3, StrongSpawnRate, duration + delay * 2, defaultSpawnPoint, level));
                 duration = StrongCount * StrongSpawnRate;
-                wave.AddPhase(new EnemyBatch(EnemyType.Strong, StrongCount, StrongSpawnRate, duration + delay * 2, defaultSpawnPoint, level));
 
                 int FastCount = 15;
                 float FastSpawnRate = 1f;
+                wave.AddPhase(new EnemyBatch(EnemyType.Fast, FastCount + level * 7, FastSpawnRate, duration + delay, defaultSpawnPoint, level));
                 duration = FastCount * FastSpawnRate;
-                wave.AddPhase(new EnemyBatch(EnemyType.Fast, FastCount, FastSpawnRate, duration + delay, defaultSpawnPoint, level));
 
-                //wave = new Wave();
-                //list.Add(wave);
+                wave = new Wave();
+                list.Add(wave);
 
                 NormCount = 25;
+                wave.AddPhase(new EnemyBatch(EnemyType.Normal, NormCount + level * 5, NormSpawnRate, duration / 2, defaultSpawnPoint, level));
                 duration = NormSpawnRate * NormCount;
-                wave.AddPhase(new EnemyBatch(EnemyType.Normal, NormCount, NormSpawnRate, duration / 2, defaultSpawnPoint, level));
 
                 FastCount = 25;
                 FastSpawnRate = 1f;
+                wave.AddPhase(new EnemyBatch(EnemyType.Fast, FastCount + level * 7, FastSpawnRate, duration / 2, defaultSpawnPoint, level));
                 duration = FastCount * FastSpawnRate;
-                wave.AddPhase(new EnemyBatch(EnemyType.Fast, FastCount, FastSpawnRate, duration / 2, defaultSpawnPoint, level));
 
                 StrongCount = 15;
                 StrongSpawnRate = 2f;
+                wave.AddPhase(new EnemyBatch(EnemyType.Strong, StrongCount + level * 3, StrongSpawnRate, duration + delay, defaultSpawnPoint, level));
                 duration = StrongCount * StrongSpawnRate;
-                wave.AddPhase(new EnemyBatch(EnemyType.Strong, StrongCount, StrongSpawnRate, duration + delay, defaultSpawnPoint, level));
 
             }
-
-            //list.Reverse();
 
             waves = list.ToArray();
         }

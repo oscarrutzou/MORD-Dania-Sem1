@@ -25,8 +25,8 @@ namespace MordSem1OOP
         public static int setLoopAmount = random.Next(3, 6); // For animation
         public static int[] setLoopAmountsForEachNumberPillar;
 
-        private static int resultNumber = 9453;
-        private static string numberString = resultNumber.ToString();
+        public static int resultNumber = 9453;
+        public static string numberString = resultNumber.ToString();
         private int leadingZeros = Math.Max(0, 6 - numberString.Length); // Determine how many leading zeros are needed
         #endregion
 

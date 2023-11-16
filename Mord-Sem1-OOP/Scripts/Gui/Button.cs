@@ -29,7 +29,7 @@ namespace MordSem1OOP.Scripts
         private Vector2 position;
         private Sprite sprite;
 
-        private float clickCooldown = 0.5f; // The delay between button clicks in seconds
+        private float clickCooldown = 0.1f; // The delay between button clicks in seconds
         private float timeSinceLastClick = 0; // The time since the button was last clicked
         public Rectangle CollisionBox
         {
@@ -107,12 +107,12 @@ namespace MordSem1OOP.Scripts
             sprite.Draw(position, 0f, Scale, layerDepths);
 
             // Measure the size of the text
-            Vector2 textSize = GlobalTextures.arialFont.MeasureString(text);
+            Vector2 textSize = GlobalTextures.defaultFont.MeasureString(text);
 
             // Calculate the position to center the text
             Vector2 textPosition = position - textSize / 2;
 
-            GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont,
+            GameWorld._spriteBatch.DrawString(GlobalTextures.defaultFont,
                                               text,
                                               textPosition,
                                               Color.Black,

@@ -14,6 +14,7 @@ namespace MordSem1OOP.Scripts
         public override void Arrived(Enemy enemy)
         {
             Global.activeScene.sceneData.sceneStats.Health -= enemy.Damage;
+            enemy.IsRemoved = true;
         }
     }
 }

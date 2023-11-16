@@ -36,7 +36,6 @@ namespace MordSem1OOP.Scripts
         string sellBtnText;
 
         private Button waveBtn;
-        private bool hasStartedFirstWave = false;
 
         //Text for the Wave number text
         private float waveNumberTextScale = 1f;
@@ -73,7 +72,7 @@ namespace MordSem1OOP.Scripts
         private void DrawStringUnderHealthBar()
         {
             Vector2 goldPos = leftScreenPosition + new Vector2(5, rowSpacing * row++);
-            GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont,
+            GameWorld._spriteBatch.DrawString(GlobalTextures.defaultFont,
                                   $"{Global.activeScene.sceneData.sceneStats.money} gold",
                                   goldPos,
                                   Color.White,
@@ -84,7 +83,7 @@ namespace MordSem1OOP.Scripts
                                   1);
 
             Vector2 totalKillPos = goldPos + new Vector2(_healthBarLength / 2, 0);
-            GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont,
+            GameWorld._spriteBatch.DrawString(GlobalTextures.defaultFont,
                       $"{Global.activeScene.sceneData.sceneStats.killCount} kills",
                       totalKillPos,
                       Color.White,
@@ -120,7 +119,7 @@ namespace MordSem1OOP.Scripts
             Vector2 killTextPos = position + new Vector2(20, 32);
             Vector2 towerProjectileDmgPos = killTextPos + new Vector2(0, 57);
 
-            GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont,
+            GameWorld._spriteBatch.DrawString(GlobalTextures.defaultFont,
                                   towerKillsText,
                                   killTextPos,
                                   Color.Black,
@@ -130,7 +129,7 @@ namespace MordSem1OOP.Scripts
                                   SpriteEffects.None,
                                   1);
 
-            GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont,
+            GameWorld._spriteBatch.DrawString(GlobalTextures.defaultFont,
                       towerProjectileDmgText,
                       towerProjectileDmgPos,
                       Color.Black,
@@ -252,16 +251,8 @@ namespace MordSem1OOP.Scripts
 
         private void StartWaveBtnAction()
         {
-            if (!hasStartedFirstWave)
-            {
-                WaveManager.Begin(0); //Start the first wave
-                hasStartedFirstWave = true;
-                //WaveManager.StartNextWave();
-            }
-            else
-            {
-                WaveManager.StartNextWave();
-            }
+            nextWaveTextExpansionCount = 0;
+            WaveManager.StartNextWave();
         }
         #endregion
 
@@ -286,7 +277,7 @@ namespace MordSem1OOP.Scripts
         private void NextWaveText(Vector2 position)
         {
             string newxtWaveText = $"Wave: {WaveManager.batchCount}";
-            Vector2 textSize = GlobalTextures.arialFont.MeasureString(newxtWaveText);
+            Vector2 textSize = GlobalTextures.defaultFont.MeasureString(newxtWaveText);
             Vector2 textPosition = (position + new Vector2(GameWorld._graphics.PreferredBackBufferWidth / 2, 50)) - (textSize * waveNumberTextScale) / 2;
 
             if (waveNumberTextScale < 1.5f && scaleUp)
@@ -305,7 +296,7 @@ namespace MordSem1OOP.Scripts
                 }
             }
 
-            GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont,
+            GameWorld._spriteBatch.DrawString(GlobalTextures.defaultFont,
                       newxtWaveText,
                       textPosition,
                       Color.White,
@@ -353,7 +344,7 @@ namespace MordSem1OOP.Scripts
             {
                 NextWaveText(Vector2.Zero);
             }
-            //WaveButton();
+            WaveButton();
         }
 
 

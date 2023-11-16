@@ -14,6 +14,7 @@ namespace MordSem1OOP.Scripts
         private Vector2 _origin;
         private Color _color = Color.White;
         private float scale = 1f;
+        private float _depthLayer;
 
         public Rectangle Rectangle
         {
@@ -31,6 +32,7 @@ namespace MordSem1OOP.Scripts
         public Vector2 Origin => _origin;
         public Color Color { get => _color; set => _color = value; }
         public float Rotation { get => _rotation; set { _rotation = value; } }
+        public float DepthLayer { get => _depthLayer; set { _depthLayer = value; } }
         public float Scale { get => scale; set => scale = value; }
         #endregion
 
@@ -50,12 +52,12 @@ namespace MordSem1OOP.Scripts
         #region Methods
         public void Draw(Vector2 position, float rotation)
         {
-            GameWorld._spriteBatch.Draw(_texture, position, null, _color, rotation, _origin, Scale, SpriteEffects.None, 0);
+            GameWorld._spriteBatch.Draw(_texture, position, null, _color, rotation, _origin, Scale, SpriteEffects.None, _depthLayer);
         }
 
         public void Draw(Vector2 position, float rotation, float scale)
         {
-            GameWorld._spriteBatch.Draw(_texture, position, null, _color, rotation + _rotation, _origin, scale, SpriteEffects.None, 0);
+            GameWorld._spriteBatch.Draw(_texture, position, null, _color, rotation + _rotation, _origin, scale, SpriteEffects.None, _depthLayer);
         }
 
         public void Draw(Vector2 position, float rotation, float scale, float layerDepth)

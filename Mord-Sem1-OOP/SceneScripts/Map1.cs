@@ -88,7 +88,7 @@ namespace MordSem1OOP.SceneScripts
             _statsGui.ScreenDraw();
             if (_showDebug)
             {
-                DebugInfo.DrawAllInfo(GameWorld._spriteBatch, new Vector2(20, 70), 16, GlobalTextures.arialFont, Color.Magenta);
+                DebugInfo.DrawAllInfo(GameWorld._spriteBatch, new Vector2(20, 70), 16, GlobalTextures.defaultFont, Color.Magenta);
             }
             //DrawScreenSpaceMouse();
             GameWorld._spriteBatch.End();
