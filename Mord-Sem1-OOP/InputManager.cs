@@ -23,6 +23,11 @@ namespace MordSem1OOP
         public static Vector2 mousePositionOnScreen;
         public static Tower selectedTower;
         public static Tile selectedTile;
+
+        private static int cameraMoveSpeed = 4;
+        private static int cameraMoveMargin = 150;
+        
+
         public static void HandleInput(Game game, Camera camera)
         {
             keyboardState = Keyboard.GetState();
@@ -34,14 +39,14 @@ namespace MordSem1OOP
 
             // Handle camera movement based on keyboard input //-- look at
             Vector2 moveDirection = Vector2.Zero;
-            if (keyboardState.IsKeyDown(Keys.W))
-                moveDirection.Y = -1;
-            if (keyboardState.IsKeyDown(Keys.S))
-                moveDirection.Y = 1;
-            if (keyboardState.IsKeyDown(Keys.A))
-                moveDirection.X = -1;
-            if (keyboardState.IsKeyDown(Keys.D))
-                moveDirection.X = 1;
+            if (keyboardState.IsKeyDown(Keys.W) || mousePositionOnScreen.Y < cameraMoveMargin)
+                moveDirection.Y = -cameraMoveSpeed;
+            if (keyboardState.IsKeyDown(Keys.S) || mousePositionOnScreen.Y > 1078 - cameraMoveMargin)
+                moveDirection.Y = cameraMoveSpeed;
+            if (keyboardState.IsKeyDown(Keys.A) || mousePositionOnScreen.X < cameraMoveMargin)
+                moveDirection.X = -cameraMoveSpeed;
+            if (keyboardState.IsKeyDown(Keys.D) || mousePositionOnScreen.X > 1918 - cameraMoveMargin)
+                moveDirection.X = cameraMoveSpeed;
 
             camera.Move(moveDirection * 5); // Control camera speed //-- look at
 
