@@ -43,7 +43,7 @@ namespace MordSem1OOP.SceneScripts
             
 
             Global.gameWorld.Fullscreen();
-            DebugInfo.AddString("wave", WaveManager.DebugBatchCount);
+            //DebugInfo.AddString("wave", WaveManager.DebugBatchCount);
             //Global.gameWorld.WindowedScreen();
         }
 
@@ -90,7 +90,6 @@ namespace MordSem1OOP.SceneScripts
             {
                 DebugInfo.DrawAllInfo(GameWorld._spriteBatch, new Vector2(20, 70), 16, GlobalTextures.arialFont, Color.Magenta);
             }
-            DebugInfo.DrawInfo(GameWorld._spriteBatch, "wave", new Vector2(300, 20), GlobalTextures.arialFont, Color.Magenta);
             //DrawScreenSpaceMouse();
             GameWorld._spriteBatch.End();
         }

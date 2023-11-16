@@ -44,7 +44,7 @@ namespace MordSem1OOP.Scripts
         /// <summary>
         /// Can be used to reset when the "Wave (number)" should appear.
         /// </summary>
-        public int nextWaveTextExpansionCount = 0;
+        public int nextWaveTextExpansionCount = 2;
 
         private Button[] selectTowerbuttons = new Button[2]; //Used to init each button only once in the correct position.
 
@@ -326,10 +326,7 @@ namespace MordSem1OOP.Scripts
 
         public void ScreenDraw()
         {
-            if (nextWaveTextExpansionCount < 2)
-            {
-                NextWaveText(Vector2.Zero);
-            }
+
 
             leftScreenPosition = Vector2.One * 20;
             rowSpacing = 16;
@@ -351,7 +348,11 @@ namespace MordSem1OOP.Scripts
 
             SelectTowerBtn(0);
             SelectTowerBtn(1);
-            
+
+            if (nextWaveTextExpansionCount < 2)
+            {
+                NextWaveText(Vector2.Zero);
+            }
             //WaveButton();
         }
 
