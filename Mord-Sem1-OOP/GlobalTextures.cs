@@ -35,6 +35,7 @@ namespace MordSem1OOP
         Placement,
 
         GameTitle,
+        DeathTitle,
 
         // Add more texture names here
         NumberPillarSprite
@@ -77,6 +78,7 @@ namespace MordSem1OOP
                 { TextureNames.Bullet, content.Load<Texture2D>("Projectiles/bullet") },
                 { TextureNames.Shell, content.Load<Texture2D>("Projectiles/shell") },
                 { TextureNames.GameTitle, content.Load<Texture2D>("GameTitle") },
+                { TextureNames.DeathTitle, content.Load<Texture2D>("deathImage") },
                 { TextureNames.NumberPillarSprite, content.Load<Texture2D>("numberPillarSprite") },
                 { TextureNames.Placement, content.Load<Texture2D>("Misc/placementFrame") },
 

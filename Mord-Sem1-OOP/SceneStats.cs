@@ -24,15 +24,13 @@ namespace MordSem1OOP
         public int Health
         {
             get { return _health; }
-            set {
-                _health = value;
-                if (_health < 0)
-                    _health = 0;
+            set { _health = value;
+                if (_health < 0) _health = 0;
                 if (_health == 0)
                 {
-                    Global.gameWorld.activeScene = 5;
-                    Global.activeScene = GameWorld.scenes[5];
-                    GameWorld.scenes[5].Initialize();
+                    Global.gameWorld.activeScene = 6;
+                    Global.activeScene = GameWorld.scenes[6];
+                    GameWorld.scenes[6].Initialize();
                 }
              
             }
