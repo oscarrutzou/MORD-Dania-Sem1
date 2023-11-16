@@ -70,11 +70,12 @@ namespace MordSem1OOP
 
         protected override void CreateProjectile()
         {
-            ExplosiveShell tower_Missile= new ExplosiveShell(
+            ExplosiveShell shell = new ExplosiveShell(
                     this,
-                    GlobalTextures.Textures[TextureNames.Projectile_Missile]);
+                    GlobalTextures.Textures[TextureNames.Shell]);
+            shell.Sprite.Rotation = 3.14159f;
 
-            GameWorld.Instantiate(tower_Missile);
+            GameWorld.Instantiate(shell);
         }
 
 

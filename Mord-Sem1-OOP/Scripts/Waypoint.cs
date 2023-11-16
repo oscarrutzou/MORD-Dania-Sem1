@@ -10,6 +10,16 @@ namespace MordSem1OOP.Scripts
         private Vector2Int _gridPosition;
 
         public Vector2 Position { get => _position; }
+        public Vector2 NextWaypointPosition
+        {
+            get
+            {
+                if (_nextWaypoint is null)
+                    return Position;
+
+                return _nextWaypoint.Position;
+            }
+        }
         public Vector2Int Vector2Int { get => _gridPosition; }
 
         public Waypoint(Vector2 position, Vector2Int gridPosition)

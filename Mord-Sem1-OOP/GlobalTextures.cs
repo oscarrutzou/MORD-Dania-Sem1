@@ -30,6 +30,9 @@ namespace MordSem1OOP
         Gun_Turret_Flash,
         Cannon_Turret_Sheet,
         Cannon_Turret_Flash,
+        Bullet,
+        Shell,
+        Placement,
 
         GameTitle,
 
@@ -71,8 +74,11 @@ namespace MordSem1OOP
                 { TextureNames.Gun_Turret_Flash, content.Load<Texture2D>("Turrets/TurretNormal_Mask") },
                 { TextureNames.Cannon_Turret_Sheet, content.Load<Texture2D>("Turrets/TurretBig") },
                 { TextureNames.Cannon_Turret_Flash, content.Load<Texture2D>("Turrets/TurretBig_Mask") },
+                { TextureNames.Bullet, content.Load<Texture2D>("Projectiles/bullet") },
+                { TextureNames.Shell, content.Load<Texture2D>("Projectiles/shell") },
                 { TextureNames.GameTitle, content.Load<Texture2D>("GameTitle") },
                 { TextureNames.NumberPillarSprite, content.Load<Texture2D>("numberPillarSprite") },
+                { TextureNames.Placement, content.Load<Texture2D>("Misc/placementFrame") },
 
         };
             arialFont = content.Load<SpriteFont>("Fonts\\Arial");

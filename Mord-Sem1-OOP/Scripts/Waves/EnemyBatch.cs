@@ -17,6 +17,7 @@ namespace MordSem1OOP.Scripts.Waves
         private float interval;
         private float duration;
         private Waypoint waypoint;
+        private int level;
 
         private bool active = false; //This is enabled by Send(), allowing the update to perform its logic
         private float timer; //This is used in LocalUpdate() to spawn enemies at the appropriate interval.
@@ -24,19 +25,22 @@ namespace MordSem1OOP.Scripts.Waves
         public float Duration { get => duration; }
         #endregion
 
+        public EnemyBatch(EnemyType type, int count, float interval, float duration, Waypoint waypoint) : this(type, count, interval, duration, waypoint, 0) { }
+
         /// <summary>
         /// Creates a batch/group of enemies to be spawned during a wave.
         /// </summary>
         /// <param name="type">The type of enemy to be spawned from this batch</param>
         /// <param name="count">How many of these enemies to spawn</param>
         /// <param name="interval">The time between each spawn</param>
-        public EnemyBatch(EnemyType type, int count, float interval, float duration, Waypoint waypoint)
+        public EnemyBatch(EnemyType type, int count, float interval, float duration, Waypoint waypoint, int level)
         {
             this.type = type;
             this.count = count;
             this.interval = interval;
             this.duration = duration;
             this.waypoint = waypoint;
+            this.level = level;
         }
 
         /// <summary>
@@ -59,7 +63,7 @@ namespace MordSem1OOP.Scripts.Waves
 
         private void SpawnEnemy()
         {
-            Enemy enemy = new Enemy(type, waypoint.Position, waypoint);
+            Enemy enemy = new Enemy(type, waypoint.Position, waypoint, level);
             GameWorld.Instantiate(enemy);
         }
 
@@ -67,7 +71,12 @@ namespace MordSem1OOP.Scripts.Waves
         /// <summary>
         /// Makes this batch spawn its enemies, with the set type, count and interval.
         /// </summary>
-        public void Send() => active = true;
+        //public void Send() => active = true;
+        public void Send()
+        {
+            active = true;
+            WaveManager.batchCount++;
+        }
 
         /// <summary>
         /// Checks if the EnemyBatch has spawned all its enemies.

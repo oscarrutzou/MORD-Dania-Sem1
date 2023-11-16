@@ -63,15 +63,15 @@ namespace MordSem1OOP
 
             Sprite radiusRing = new Sprite(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing]);
 
-            GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing],
-                             Position,
-                             null,
-                             Color.Red,
-                             Rotation,
-                             radiusRing.Origin,
-                             0.5f,
-                             SpriteEffects.None,
-                             0);
+            //GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.TowerEffect_RadiusRing],
+            //                 Position,
+            //                 null,
+            //                 Color.Red,
+            //                 Rotation,
+            //                 radiusRing.Origin,
+            //                 0.5f,
+            //                 SpriteEffects.None,
+            //                 0);
         }
     }
 }
