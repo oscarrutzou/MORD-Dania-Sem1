@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Spaceship.Scripts;
+using System.Windows.Forms;
 
 namespace MordSem1OOP.Scripts.Towers
 {
@@ -64,11 +65,12 @@ namespace MordSem1OOP.Scripts.Towers
 
         protected override void CreateProjectile()
         {
-            Arrow tower_Arrow = new Arrow(
+            Arrow bullet = new Arrow(
                     this,
-                    GlobalTextures.Textures[TextureNames.Projectile_Arrow]);
+                    GlobalTextures.Textures[TextureNames.Bullet]);
+            bullet.Sprite.Rotation = 3.14159f;
 
-            GameWorld.Instantiate(tower_Arrow);
+            GameWorld.Instantiate(bullet);
         }
     }
 }

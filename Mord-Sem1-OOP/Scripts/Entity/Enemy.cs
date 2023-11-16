@@ -29,14 +29,21 @@ namespace MordSem1OOP
         private SpriteSheet _spriteSheet;
         private int _spriteLoopIntervalMs;
         private int _timeSinceSpriteLoopMs;
+
+        private int level;
         #endregion
 
         /// <summary>
         /// Main constructor for the enemy.
         /// </summary>
-        /// <param name="enemyType">This type defines the speed, health and texture of the enemy.</param>
-        public Enemy(EnemyType enemyType, Vector2 position)
+        /// <param name="enemyType">This type defines the speed, health and texture of the enemy.</param>            
+        public Enemy(EnemyType enemyType, Vector2 position) : this(enemyType, position, null, 0) { }
+
+        public Enemy(EnemyType enemyType, Vector2 position, Waypoint waypoint, int level)
         {
+            this.level = level;
+            _waypoint = waypoint;
+
             //This is to be replaced by a direction towards a waypoint
             //direction = new Vector2(1, 0);
 
@@ -46,7 +53,7 @@ namespace MordSem1OOP
             {
                 case EnemyType.Normal:
                     Speed = 50;
-                    Health = 100;
+                    Health = 100 + level * 60;
                     damage = 10;
                     moneyOnDeath = 10;
                     Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Normal_Sheet], 2, true);
@@ -57,7 +64,7 @@ namespace MordSem1OOP
 
                 case EnemyType.Fast:
                     Speed = 100;
-                    Health = 50;
+                    Health = 50 + level * 35;
                     damage = 7;
                     moneyOnDeath = 5;
                     Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Fast_Sheet], 2, true);
@@ -68,7 +75,7 @@ namespace MordSem1OOP
 
                 case EnemyType.Strong:
                     Speed = 30;
-                    Health = 200;
+                    Health = 200 + level * 100;
                     damage = 23;
                     moneyOnDeath = 20;
                     Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Strong_Sheet], 2, true);
@@ -79,7 +86,7 @@ namespace MordSem1OOP
 
                 default:
                     Speed = 50;
-                    Health = 100;
+                    Health = 100 + level * 60;
                     damage = 10;
                     moneyOnDeath = 10;
                     Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Normal_Sheet], 2, true);
@@ -91,13 +98,11 @@ namespace MordSem1OOP
 
             Position = position;
             Scale = 1;
-            direction = new Vector2(1, 0);
+            SetColor();
+            Rotation = 4.71239f;
         }
 
-        public Enemy(EnemyType enemyType, Vector2 position, Waypoint waypoint) : this(enemyType, position)
-        {
-            _waypoint = waypoint;
-        }
+        public Enemy(EnemyType enemyType, Vector2 position, Waypoint waypoint) : this(enemyType, position, waypoint, 0) { }
 
         public override void Update(GameTime gameTime)
         {
@@ -160,6 +165,40 @@ namespace MordSem1OOP
             _waypoint.GetNextWaypoint(out _waypoint);
 
             return true;
+        }
+
+        private void SetColor()
+        {
+            switch (level)
+            {
+                case 0:
+                    Sprite.Color = Color.White;
+                    break;
+
+                case 1:
+                    Sprite.Color = Color.DarkGray;
+                    break;
+
+                case 2:
+                    Sprite.Color = Color.LightBlue;
+                    break;
+
+                case 3:
+                    Sprite.Color = Color.LightGreen;
+                    break;
+
+                case 4:
+                    Sprite.Color = Color.Green;
+                    break;
+
+                case 6:
+                    Sprite.Color = Color.Tomato;
+                    break;
+
+                default:
+                    Sprite.Color = Color.OrangeRed;
+                    break;
+            }
         }
     }
 }

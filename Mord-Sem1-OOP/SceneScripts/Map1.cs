@@ -38,10 +38,12 @@ namespace MordSem1OOP.SceneScripts
             _buildGui.AddToDebug();
 
             WaveManager.SetDefaultSpawnPoint(_path.GetWaypoint(0));
-            WaveManager.CreateWaves(); //This method defines how many waves are in the game.
+            WaveManager.CreateLargeWaves();
+            // WaveManager.CreateWaves(); //This method defines how many waves are in the game.
             
 
             Global.gameWorld.Fullscreen();
+            DebugInfo.AddString("wave", WaveManager.DebugBatchCount);
             //Global.gameWorld.WindowedScreen();
         }
 
@@ -78,7 +80,7 @@ namespace MordSem1OOP.SceneScripts
             GameWorld._spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp, transformMatrix: Global.gameWorld.Camera.GetMatrix());
             Draw();
             _statsGui.WorldDraw();
-            _path.Draw(GameWorld._spriteBatch);
+            //_path.Draw(GameWorld._spriteBatch);
             //DrawWorldSpaceMouse();
             GameWorld._spriteBatch.End();
 
@@ -88,6 +90,7 @@ namespace MordSem1OOP.SceneScripts
             {
                 DebugInfo.DrawAllInfo(GameWorld._spriteBatch, new Vector2(20, 70), 16, GlobalTextures.arialFont, Color.Magenta);
             }
+            DebugInfo.DrawInfo(GameWorld._spriteBatch, "wave", new Vector2(300, 20), GlobalTextures.arialFont, Color.Magenta);
             //DrawScreenSpaceMouse();
             GameWorld._spriteBatch.End();
         }

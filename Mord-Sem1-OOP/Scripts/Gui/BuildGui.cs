@@ -71,7 +71,14 @@ namespace MordSem1OOP.Scripts
             tileRect.Y += (int)_tileGrid.Position.Y;
             if (InputManager.IsMouseOverButton()) return;
 
-            Primitives2D.DrawSolidRectangle(GameWorld._spriteBatch, tileRect, 0, CanAffordTower() ? Color.Green : Color.Red);
+            Rectangle PlacementMarker = tileRect;
+            PlacementMarker.X -= PlacementMarker.Width / 2;
+            PlacementMarker.Y -= PlacementMarker.Height / 2;
+            PlacementMarker.Width *= 2;
+            PlacementMarker.Height *= 2;
+
+            GameWorld._spriteBatch.Draw(GlobalTextures.Textures[TextureNames.Placement], PlacementMarker, CanAffordTower() ? Color.LawnGreen : Color.Red);
+            //Primitives2D.DrawSolidRectangle(GameWorld._spriteBatch, tileRect, 0, CanAffordTower() ? Color.Green : Color.Red);
         }
 
         public void ChangeTowerIndex(int index)

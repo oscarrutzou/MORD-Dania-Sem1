@@ -11,6 +11,7 @@ namespace MordSem1OOP.Scripts.Waves
     {
         public static Wave[] waves; //Stores all waves.
         private static int currentWave; //Index of the current wave.
+        public static int batchCount;
         public static bool AllWavesCleared => (currentWave >= waves.Length);
         private static Waypoint defaultSpawnPoint;
 
@@ -34,7 +35,13 @@ namespace MordSem1OOP.Scripts.Waves
             {
                 currentWave++;
                 Begin(currentWave);
+                return;
             }
+        }
+
+        public static string DebugBatchCount()
+        {
+            return batchCount.ToString();
         }
 
         /// <summary>
@@ -65,6 +72,79 @@ namespace MordSem1OOP.Scripts.Waves
                 wave2,
                 wave3,
             };
+        }
+
+        public static void CreateLargeWaves()
+        {
+            List<Wave> list = new List<Wave>();
+            Random random = new Random();
+
+            Wave wave = new Wave();
+            list.Add(wave);
+
+            for (int level = 0; level < 100; level++)
+            {
+                //Wave wave = new Wave();
+                list.Add(wave);
+
+                int NormCount = 15;
+                float NormSpawnRate = 1.2f;
+                float duration = NormSpawnRate * NormCount;
+                float delay = 5f;
+
+                wave.AddPhase(new EnemyBatch(EnemyType.Normal, NormCount, NormSpawnRate, duration + delay, defaultSpawnPoint, level));
+
+                NormCount = 10;
+                NormSpawnRate = 1.2f;
+                duration = NormSpawnRate * NormCount;
+                wave.AddPhase(new EnemyBatch(EnemyType.Normal, NormCount, NormSpawnRate, duration, defaultSpawnPoint, level));
+
+                //wave = new Wave();
+                //list.Add(wave);
+
+                int StrongCount = 6;
+                float StrongSpawnRate = 2f;
+                duration = StrongCount * StrongSpawnRate;
+                wave.AddPhase(new EnemyBatch(EnemyType.Strong, StrongCount, StrongSpawnRate, duration + delay, defaultSpawnPoint, level));
+
+                NormCount = 15;
+                duration = NormSpawnRate * NormCount;
+                wave.AddPhase(new EnemyBatch(EnemyType.Normal, NormCount, NormSpawnRate, duration / 2, defaultSpawnPoint, level));
+
+                //wave = new Wave();
+                //list.Add(wave);
+
+                StrongCount = 9;
+                StrongSpawnRate = 2f;
+                duration = StrongCount * StrongSpawnRate;
+                wave.AddPhase(new EnemyBatch(EnemyType.Strong, StrongCount, StrongSpawnRate, duration + delay * 2, defaultSpawnPoint, level));
+
+                int FastCount = 15;
+                float FastSpawnRate = 1f;
+                duration = FastCount * FastSpawnRate;
+                wave.AddPhase(new EnemyBatch(EnemyType.Fast, FastCount, FastSpawnRate, duration + delay, defaultSpawnPoint, level));
+
+                //wave = new Wave();
+                //list.Add(wave);
+
+                NormCount = 25;
+                duration = NormSpawnRate * NormCount;
+                wave.AddPhase(new EnemyBatch(EnemyType.Normal, NormCount, NormSpawnRate, duration / 2, defaultSpawnPoint, level));
+
+                FastCount = 25;
+                FastSpawnRate = 1f;
+                duration = FastCount * FastSpawnRate;
+                wave.AddPhase(new EnemyBatch(EnemyType.Fast, FastCount, FastSpawnRate, duration / 2, defaultSpawnPoint, level));
+
+                StrongCount = 15;
+                StrongSpawnRate = 2f;
+                duration = StrongCount * StrongSpawnRate;
+                wave.AddPhase(new EnemyBatch(EnemyType.Strong, StrongCount, StrongSpawnRate, duration + delay, defaultSpawnPoint, level));
+            }
+
+            //list.Reverse();
+
+            waves = list.ToArray();
         }
 
         public static void SetDefaultSpawnPoint(Waypoint waypoint)

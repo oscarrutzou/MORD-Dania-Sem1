@@ -116,6 +116,18 @@
 /processorParam:TextureFormat=Color
 /build:Misc/pixel.png
 
+#begin Misc/placementFrame.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Misc/placementFrame.png
+
 #begin numberPillarSprite.jpg
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -607,6 +619,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Placeholder/UI/playerLife3_red.png
+
+#begin Projectiles/bullet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Projectiles/bullet.png
+
+#begin Projectiles/shell.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Projectiles/shell.png
 
 #begin Turrets/TurretBig_Mask.png
 /importer:TextureImporter
