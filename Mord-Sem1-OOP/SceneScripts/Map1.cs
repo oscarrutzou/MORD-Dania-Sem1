@@ -38,8 +38,8 @@ namespace MordSem1OOP.SceneScripts
             _buildGui.AddToDebug();
 
             WaveManager.SetDefaultSpawnPoint(_path.GetWaypoint(0));
-            WaveManager.CreateLargeWaves();
-            // WaveManager.CreateWaves(); //This method defines how many waves are in the game.
+            //WaveManager.CreateLargeWaves();
+            WaveManager.CreateWaves(); //This method defines how many waves are in the game.
             
 
             Global.gameWorld.Fullscreen();

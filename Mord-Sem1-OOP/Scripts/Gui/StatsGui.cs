@@ -159,7 +159,6 @@ namespace MordSem1OOP.Scripts
 
         private void UpgradeTowerBtn(Vector2 position)
         {
-
             if (!InputManager.selectedTower.towerData.IsMaxLvl())
             {
                 lvlUpBtnText = $"Level Up: {InputManager.selectedTower.towerData.CalculateLevelUpBuyAmount()} gold";
@@ -193,19 +192,28 @@ namespace MordSem1OOP.Scripts
         {
             Texture2D waveBtnTexture = GlobalTextures.Textures[TextureNames.GuiBasicButton];
             Vector2 topRightPos = Global.gameWorld.Camera.TopRight + new Vector2(-(waveBtnTexture.Width / 2 + 10), waveBtnTexture.Height);
+
+            //The button can only be init once (Have to be here since this is called in the ScreenDraw
             if (selectTowerbuttons[selectionIndex] == null)
             {
                 switch (selectionIndex)
                 {
                     case 0:
-                        selectTowerbuttons[selectionIndex] = new Button(topRightPos, $"Gun Turret price: {GunTurret.towerBuyAmount}", waveBtnTexture, () => SelectTowerBtnAction(selectionIndex));
+                        selectTowerbuttons[selectionIndex] = new Button(topRightPos,
+                                                                        $"Gun Turret price: {GunTurret.towerBuyAmount}",
+                                                                        waveBtnTexture,
+                                                                        () => SelectTowerBtnAction(selectionIndex));
                         break;
+
                     case 1:
-                        topRightPos += new Vector2(0, waveBtnTexture.Height + 10);
-                        selectTowerbuttons[selectionIndex] = new Button(topRightPos, $"Cannon Turret price: {CannonTurret.towerBuyAmount}", waveBtnTexture, () => SelectTowerBtnAction(selectionIndex));
+                        topRightPos += new Vector2(0, waveBtnTexture.Height + 10); //Makes the button go down a little from btn 0.
+                        selectTowerbuttons[selectionIndex] = new Button(topRightPos,
+                                                                        $"Cannon Turret price: {CannonTurret.towerBuyAmount}",
+                                                                        waveBtnTexture,
+                                                                        () => SelectTowerBtnAction(selectionIndex));
                         break;
                 }
-
+                //Adds to data of the scene, if we want to access or remove it easily
                 Global.activeScene.sceneData.buttons.Add(selectTowerbuttons[selectionIndex]);
             }
 
@@ -239,7 +247,7 @@ namespace MordSem1OOP.Scripts
             {
                 WaveManager.Begin(0); //Start the first wave
                 hasStartedFirstWave = true;
-                WaveManager.StartNextWave();
+                //WaveManager.StartNextWave();
             }
             else
             {
@@ -281,15 +289,13 @@ namespace MordSem1OOP.Scripts
             row = 0;
 
             DrawHealthBar(leftScreenPosition + new Vector2(0, rowSpacing * row++));
+
             leftScreenPosition.Y += 10;
             DrawStringUnderHealthBar();
 
-            leftScreenPosition.Y += 10;
-
-            //goldCounter.Draw(leftScreenPosition + new Vector2(0, rowSpacing * row++));
 
             leftScreenPosition.Y += 20;
-
+            
             if (InputManager.selectedTower != null)
             {
                 Vector2 towerStatsPos = leftScreenPosition + new Vector2(0, rowSpacing * row++);
