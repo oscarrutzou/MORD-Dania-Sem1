@@ -10,7 +10,7 @@ namespace MordSem1OOP.Scripts.Waves
     public static class WaveManager
     {
         public static Wave[] waves; //Stores all waves.
-        private static int currentWave; //Index of the current wave.
+        public static int currentWave; //Index of the current wave.
         public static int batchCount;
         public static bool AllWavesCleared => (currentWave >= waves.Length);
         private static Waypoint defaultSpawnPoint;
@@ -140,6 +140,7 @@ namespace MordSem1OOP.Scripts.Waves
                 StrongSpawnRate = 2f;
                 duration = StrongCount * StrongSpawnRate;
                 wave.AddPhase(new EnemyBatch(EnemyType.Strong, StrongCount, StrongSpawnRate, duration + delay, defaultSpawnPoint, level));
+
             }
 
             //list.Reverse();

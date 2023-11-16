@@ -42,6 +42,8 @@ namespace MordSem1OOP.SceneScripts
             foreach (GameObject gameObject in tempSceneData.gameObjects)
                 gameObject.Update(gameTime);
 
+            if (Global.activeScene.sceneData.statsGui == null) return;
+
             Global.activeScene.sceneData.statsGui.Update(gameTime);
                 
         }

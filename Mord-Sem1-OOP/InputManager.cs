@@ -114,35 +114,6 @@ namespace MordSem1OOP
                 }
             }
         }
-        //private static void CheckTowers()
-        //{
-        //    // Only check for towers if no button was clicked
-        //    if (!IsMouseOverButton())
-        //    {
-        //        if (Global.activeScene.sceneData.towers == null) return; //There isn't any towers in the scene yet
-
-        //        if (!Global.activeScene.sceneData.tileGrid.GetTile(mousePosition, out Tile tile))
-        //        {
-        //            selectedTower = null;
-        //        }
-
-        //        if (tile is EntityTile entityTile)
-        //        {
-        //            if (entityTile.GameObject is Tower tower)
-        //            {
-        //                selectedTower = tower;
-        //            }
-        //            else
-        //            {
-        //                selectedTower = null;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            selectedTower = null;
-        //        }
-        //    }
-        //}
 
         /// <summary>
         /// Make this to a IsMouseOverGui. So its also if you try to click on stuff like a stat menu. And make it into one with CheckButton

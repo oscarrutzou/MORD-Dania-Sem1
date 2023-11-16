@@ -52,8 +52,8 @@ namespace MordSem1OOP
             switch (enemyType)
             {
                 case EnemyType.Normal:
-                    Speed = 100;
-                    Health = 100 + level * 60;
+                    Speed = 100 * (1 + (level / 10));
+                    Health = 120 + level * 60;
                     damage = 10;
                     moneyOnDeath = 10;
                     Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Normal_Sheet], 2, true);
@@ -63,8 +63,8 @@ namespace MordSem1OOP
                     break;
 
                 case EnemyType.Fast:
-                    Speed = 200;
-                    Health = 50 + level * 35;
+                    Speed = 200 * (1 + (level / 10));
+                    Health = 100 + level * 35;
                     damage = 7;
                     moneyOnDeath = 5;
                     Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Fast_Sheet], 2, true);
@@ -74,8 +74,8 @@ namespace MordSem1OOP
                     break;
 
                 case EnemyType.Strong:
-                    Speed = 70;
-                    Health = 200 + level * 100;
+                    Speed = 70 * (1 + (level / 10));
+                    Health = 300 + level * 100;
                     damage = 23;
                     moneyOnDeath = 20;
                     Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Strong_Sheet], 2, true);
@@ -85,8 +85,8 @@ namespace MordSem1OOP
                     break;
 
                 default:
-                    Speed = 50;
-                    Health = 100 + level * 60;
+                    Speed = 100 * (1 + (level / 10));
+                    Health = 120 + level * 60;
                     damage = 10;
                     moneyOnDeath = 10;
                     Sprite = _spriteSheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Enemy_Normal_Sheet], 2, true);

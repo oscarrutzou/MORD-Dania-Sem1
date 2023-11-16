@@ -39,6 +39,12 @@ namespace MordSem1OOP
         //    get { return position - new Vector2(-GameWorld._graphics.PreferredBackBufferWidth / 2, GameWorld._graphics.PreferredBackBufferHeight / 2); }
         //}
 
+        public Vector2 TopMiddle
+        {
+            get { return position + new Vector2(GameWorld._graphics.PreferredBackBufferWidth / 2, 0); }
+        }
+
+
         public Vector2 BottomRight
         {
             get { return position + new Vector2(GameWorld._graphics.PreferredBackBufferWidth, GameWorld._graphics.PreferredBackBufferHeight); }

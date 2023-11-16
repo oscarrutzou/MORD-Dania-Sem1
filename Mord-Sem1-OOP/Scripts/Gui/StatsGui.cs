@@ -7,6 +7,7 @@ using MordSem1OOP.Scripts.Waves;
 using Mx2L.MonoDebugUI;
 using SharpDX.Direct2D1.Effects;
 using SharpDX.Direct3D9;
+using System;
 using System.Collections.Generic;
 using System.Security.Policy;
 using static System.Net.Mime.MediaTypeNames;
@@ -24,7 +25,6 @@ namespace MordSem1OOP.Scripts
         private Sprite towerSprite;
 
         private Vector2 startBottomRightPos;
-
         /// <summary>
         /// Show dmg on bullet insted
         /// </summary>
@@ -38,11 +38,17 @@ namespace MordSem1OOP.Scripts
         private Button waveBtn;
         private bool hasStartedFirstWave = false;
 
+        //Text for the Wave number text
+        private float waveNumberTextScale = 1f;
+        private bool scaleUp = true;
+        /// <summary>
+        /// Can be used to reset when the "Wave (number)" should appear.
+        /// </summary>
+        public int nextWaveTextExpansionCount = 0;
+
         private Button[] selectTowerbuttons = new Button[2]; //Used to init each button only once in the correct position.
 
-
-        //AnimatedCounter goldCounter = new AnimatedCounter(Vector2.Zero);
-
+        #region HealthBar + Extra strings
         public void DrawHealthBar(Vector2 position)
         {
             float maxHealth = Global.activeScene.sceneData.sceneStats.maxHealth;
@@ -88,7 +94,9 @@ namespace MordSem1OOP.Scripts
                       SpriteEffects.None,
                       1);
         }
+        #endregion
 
+        #region TowerStats
         public void DrawTowerStats(Vector2 position)
         {
             towerSprite = new Sprite(GlobalTextures.Textures[TextureNames.GuiBasicTowerStats], false);
@@ -186,8 +194,9 @@ namespace MordSem1OOP.Scripts
             InputManager.selectedTower.LevelUpTower();
 
         }
+        #endregion
 
-
+        #region Other Btn's
         public void SelectTowerBtn(int selectionIndex)
         {
             Texture2D waveBtnTexture = GlobalTextures.Textures[TextureNames.GuiBasicButton];
@@ -254,7 +263,7 @@ namespace MordSem1OOP.Scripts
                 WaveManager.StartNextWave();
             }
         }
-
+        #endregion
 
         public void DrawTowerRing()
         {
@@ -274,6 +283,39 @@ namespace MordSem1OOP.Scripts
                                         1);
         }
 
+        private void NextWaveText(Vector2 position)
+        {
+            string newxtWaveText = $"Wave: {WaveManager.batchCount}";
+            Vector2 textSize = GlobalTextures.arialFont.MeasureString(newxtWaveText);
+            Vector2 textPosition = (position + new Vector2(GameWorld._graphics.PreferredBackBufferWidth / 2, 50)) - (textSize * waveNumberTextScale) / 2;
+
+            if (waveNumberTextScale < 1.5f && scaleUp)
+            {
+                waveNumberTextScale += 0.01f;
+            }
+            else
+            {
+                scaleUp = false;
+                waveNumberTextScale -= 0.01f;
+                if (waveNumberTextScale <= 1f)
+                {
+                    scaleUp = true;
+                    nextWaveTextExpansionCount++;
+
+                }
+            }
+
+            GameWorld._spriteBatch.DrawString(GlobalTextures.arialFont,
+                      newxtWaveText,
+                      textPosition,
+                      Color.White,
+                      0,
+                      Vector2.Zero,
+                      waveNumberTextScale,
+                      SpriteEffects.None,
+                      1);
+
+        }
 
         public void WorldDraw()
         {
@@ -284,6 +326,11 @@ namespace MordSem1OOP.Scripts
 
         public void ScreenDraw()
         {
+            if (nextWaveTextExpansionCount < 2)
+            {
+                NextWaveText(Vector2.Zero);
+            }
+
             leftScreenPosition = Vector2.One * 20;
             rowSpacing = 16;
             row = 0;
@@ -304,6 +351,7 @@ namespace MordSem1OOP.Scripts
 
             SelectTowerBtn(0);
             SelectTowerBtn(1);
+            
             //WaveButton();
         }
 

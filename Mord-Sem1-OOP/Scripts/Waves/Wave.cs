@@ -33,9 +33,14 @@ namespace MordSem1OOP.Scripts.Waves
                 timer = 0;
                 currentBatch++;
 
-                //if there's an unsent batch, send it. Otherwise, say the wave is done.
+                //if there's an unsent batch, send it. Otherwise, say the wave is done.                
+
                 if (currentBatch >= enemyBatches.Count) isDone = true;
-                else enemyBatches[currentBatch].Send();
+                else
+                {
+                    enemyBatches[currentBatch].Send();
+                    Global.activeScene.sceneData.statsGui.nextWaveTextExpansionCount = 0;
+                }
             }
         }
 

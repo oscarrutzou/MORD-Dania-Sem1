@@ -28,7 +28,8 @@ namespace MordSem1OOP.Scripts
         {
             _selectedTower = GetTower(_selectionIndex);
 
-            if (InputManager.mouseState.LeftButton == ButtonState.Pressed && !InputManager.IsMouseOverButton())
+            if (InputManager.mouseState.LeftButton == ButtonState.Pressed
+                && !InputManager.IsMouseOverButton())
                 Build();
         }
 
