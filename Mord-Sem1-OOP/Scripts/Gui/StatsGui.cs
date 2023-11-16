@@ -304,7 +304,7 @@ namespace MordSem1OOP.Scripts
 
             SelectTowerBtn(0);
             SelectTowerBtn(1);
-            WaveButton();
+            //WaveButton();
         }
 
 

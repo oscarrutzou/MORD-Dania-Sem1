@@ -52,7 +52,7 @@ namespace MordSem1OOP
             switch (enemyType)
             {
                 case EnemyType.Normal:
-                    Speed = 50;
+                    Speed = 100;
                     Health = 100 + level * 60;
                     damage = 10;
                     moneyOnDeath = 10;
@@ -63,7 +63,7 @@ namespace MordSem1OOP
                     break;
 
                 case EnemyType.Fast:
-                    Speed = 100;
+                    Speed = 200;
                     Health = 50 + level * 35;
                     damage = 7;
                     moneyOnDeath = 5;
@@ -74,7 +74,7 @@ namespace MordSem1OOP
                     break;
 
                 case EnemyType.Strong:
-                    Speed = 30;
+                    Speed = 70;
                     Health = 200 + level * 100;
                     damage = 23;
                     moneyOnDeath = 20;

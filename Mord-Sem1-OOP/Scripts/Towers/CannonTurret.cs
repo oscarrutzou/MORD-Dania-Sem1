@@ -21,7 +21,7 @@ namespace MordSem1OOP
         {
             Sprite = sheet = new SpriteSheet(GlobalTextures.Textures[TextureNames.Cannon_Turret_Sheet], 3, true);
             sheet.Rotation = 1.5708f;
-            _flash = new Sprite(GlobalTextures.Textures[TextureNames.Gun_Turret_Flash]);
+            _flash = new Sprite(GlobalTextures.Textures[TextureNames.Cannon_Turret_Flash]);
             _flash.Rotation = 1.5708f;
             Scale = 1.2f;
             //Variables that the projectile need to get spawned
